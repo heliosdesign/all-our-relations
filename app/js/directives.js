@@ -1,6 +1,6 @@
 'use strict';
 
-var dirs = angular.module('redCrossApp.directives', [ 'redCrossApp.services' ]);
+var dirs = angular.module('allOurRelApp.directives', [ 'allOurRelApp.services' ]);
 
 
 

@@ -1,6 +1,6 @@
 'use strict';
 
-var services = angular.module('redCrossApp.services', [ 'redCrossApp.services' ]);
+var services = angular.module('allOurRelApp.services', [ 'allOurRelApp.services' ]);
 
 services.factory('jumpTo', function() {
     return function(t, wrapper) {

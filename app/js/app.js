@@ -1,21 +1,24 @@
 'use strict';
 
-var redCrossApp = angular.module('redCrossApp', [
+var allOurRelApp = angular.module('allOurRelApp', [
 	'ngRoute', 'ngAnimate', 'ngTouch',
 
-	'redCrossApp.services',
-	'redCrossApp.filters',
-	'redCrossApp.controllers',
-	'redCrossApp.directives',
+	'allOurRelApp.services',
+	'allOurRelApp.filters',
+	'allOurRelApp.controllers',
+	'allOurRelApp.directives',
 
 	'duScroll' // https://github.com/durated/angular-scroll
 ]);
 
 
-redCrossApp.constant('redCrossArticles', [
+allOurRelApp.constant('redCrossArticles', [
+	'AllanHarper',
+	'AllanHarper',
+	'AllanHarper'
 ]);
 
-redCrossApp.constant('redCrossDay', '10');
+allOurRelApp.constant('redCrossDay', '2');
 
 // app.module( function( $routeProvider, $depency2 ){
 
@@ -26,7 +29,7 @@ redCrossApp.constant('redCrossDay', '10');
 // }])
 
 
-redCrossApp.config(['$routeProvider', 'redCrossArticles', 'redCrossDay', function( $routeProvider, articles, redCrossDay ){
+allOurRelApp.config(['$routeProvider', 'redCrossArticles', 'redCrossDay', function( $routeProvider, articles, redCrossDay ){
 
 	// $routeProvider.redCrossDay=redCrossDay;
 
@@ -245,7 +248,7 @@ redCrossApp.config(['$routeProvider', 'redCrossArticles', 'redCrossDay', functio
 
 
 // Cache Bust
-redCrossApp.config(['$provide', function($provide) {
+allOurRelApp.config(['$provide', function($provide) {
     return $provide.decorator('$http', ['$delegate', function($delegate) {
         var get = $delegate.get;
         $delegate.get = function(url, config) {
@@ -263,12 +266,12 @@ redCrossApp.config(['$provide', function($provide) {
 }])
 
 // CORS
-redCrossApp.config(['$httpProvider', function($httpProvider) {
+allOurRelApp.config(['$httpProvider', function($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-redCrossApp.config(function($sceDelegateProvider, $sceProvider) {
+allOurRelApp.config(function($sceDelegateProvider, $sceProvider) {
   $sceDelegateProvider.resourceUrlWhitelist([
     // Allow same origin resource loads.
     'self',
@@ -279,7 +282,7 @@ redCrossApp.config(function($sceDelegateProvider, $sceProvider) {
   $sceProvider.enabled(false)
 });
 
-redCrossApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCrossArticles', 'redCrossDay',  function($rootScope, $location, $route, $routeParams, articles, redCrossDay){
+allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCrossArticles', 'redCrossDay',  function($rootScope, $location, $route, $routeParams, articles, redCrossDay){
 
 	// Debug
 	// ~~~~~

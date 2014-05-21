@@ -1,6 +1,6 @@
 'use strict';
 
-var controllers = angular.module('redCrossApp.controllers', [ 'redCrossApp.services' ]);
+var controllers = angular.module('allOurRelApp.controllers', [ 'allOurRelApp.services' ]);
 
 
 // controllers.controller('navCtrl', [

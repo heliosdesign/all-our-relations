@@ -1,6 +1,6 @@
 'use strict';
 
-var filters = angular.module('redCrossApp.filters', [ 'redCrossApp.services' ]);
+var filters = angular.module('allOurRelApp.filters', [ 'allOurRelApp.services' ]);
 
 filters.filter('zeroPad', function(){
 	return function(input){
