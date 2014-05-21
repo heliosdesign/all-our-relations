@@ -1,6 +1,10 @@
 {
   "name": "jquery",
+<<<<<<< HEAD
   "version": "2.1.1",
+=======
+  "version": "2.1.0",
+>>>>>>> 1ad981f2a90c1a12d95c030483a1a87ab5c14092
   "main": "dist/jquery.js",
   "license": "MIT",
   "ignore": [
@@ -14,10 +18,17 @@
     "package.json"
   ],
   "devDependencies": {
+<<<<<<< HEAD
     "sizzle": "1.10.19",
     "requirejs": "2.1.10",
     "qunit": "1.14.0",
     "sinon": "1.8.1"
+=======
+    "sizzle": "1.10.16",
+    "requirejs": "~2.1.8",
+    "qunit": "~1.12.0",
+    "sinon": "~1.7.3"
+>>>>>>> 1ad981f2a90c1a12d95c030483a1a87ab5c14092
   },
   "keywords": [
     "jquery",
@@ -25,6 +36,7 @@
     "library"
   ],
   "homepage": "https://github.com/jquery/jquery",
+<<<<<<< HEAD
   "_release": "2.1.1",
   "_resolution": {
     "type": "version",
@@ -33,6 +45,16 @@
   },
   "_source": "git://github.com/jquery/jquery.git",
   "_target": "~2.1.1",
+=======
+  "_release": "2.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.1.0",
+    "commit": "9434e03193c45d51bbd063a0edd1a07a6178d33f"
+  },
+  "_source": "git://github.com/jquery/jquery.git",
+  "_target": "~2.1.0",
+>>>>>>> 1ad981f2a90c1a12d95c030483a1a87ab5c14092
   "_originalSource": "jquery",
   "_direct": true
 }
