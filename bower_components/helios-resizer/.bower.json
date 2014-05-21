@@ -1,0 +1,32 @@
+{
+  "name": "helios-resizer",
+  "authors": [
+    "Helios Design Labs <hello@heliozilla.com>"
+  ],
+  "description": "JavaScript debounced window resize manager.",
+  "main": "helios-resizer.js",
+  "license": "MIT",
+  "homepage": "https://github.com/heliosdesign/resizer",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "demo",
+    "source",
+    "gulpfile.js",
+    "package.json",
+    "index.html"
+  ],
+  "_release": "2577178c94",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "2577178c9418ea3987c3a85f6e4bae65fbcbdbba"
+  },
+  "_source": "git://github.com/heliosdesign/resizer.git",
+  "_target": "*",
+  "_originalSource": "helios-resizer",
+  "_direct": true
+}

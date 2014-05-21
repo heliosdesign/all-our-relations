@@ -1,0 +1,32 @@
+{
+  "name": "helios-frame-runner",
+  "authors": [
+    "Iain M Campbell <hey@iainmc.ca>",
+    "Helios Design Labs <hello@heliozilla.com>"
+  ],
+  "description": "rAF manager",
+  "main": "helios-frame-runner.js",
+  "license": "MIT",
+  "homepage": "https://github.com/heliosdesign/helios-frame-runner",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "source",
+    "gulpfile.js",
+    "package.json",
+    "index.html"
+  ],
+  "_release": "140ad28b7f",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "140ad28b7f7770886555fe1fd559f24179e0ad2e"
+  },
+  "_source": "git://github.com/heliosdesign/helios-frame-runner.git",
+  "_target": "*",
+  "_originalSource": "helios-frame-runner",
+  "_direct": true
+}
