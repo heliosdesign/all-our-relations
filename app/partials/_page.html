@@ -1,0 +1,23 @@
+<div class="blocks" ng-transclude>
+	
+</div>
+
+<ul class="innernav">
+	<li ng-repeat="block in blocks" ng-click="innerjump($index); $root.states.shouldCollapseNav = true" ng-class="{ 'active': (currentBlock == $index) }"></li>
+</ul>
+
+<div class="nav">
+	<a  class="down"
+	    ng-click="down(); $root.states.shouldCollapseNav = true"
+	    ng-show="currentBlock < totalBlocks-1"
+	><svg class="icon" width="32" height="32" viewBox="0 0 32 32">
+<path d="M32 16c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zM3 16c0-7.18 5.82-13 13-13s13 5.82 13 13-5.82 13-13 13-13-5.82-13-13zM17.414 25.414l8-8c0.781-0.781 0.781-2.047 0-2.828s-2.047-0.781-2.828 0l-4.586 4.586v-11.172c0-1.105-0.895-2-2-2s-2 0.895-2 2v11.172l-4.586-4.586c-0.781-0.781-2.047-0.781-2.829 0-0.391 0.391-0.586 0.902-0.586 1.414s0.195 1.024 0.586 1.414l8 8c0.781 0.781 2.047 0.781 2.828 0z" />
+	</svg></a>
+
+	<a  class="up" 
+	    ng-click="up(); $root.states.shouldCollapseNav = false"
+	    ng-show="currentBlock > 0"
+	><svg class="icon" width="32" height="32" viewBox="0 0 32 32">
+<path d="M32 16c0 8.837-7.163 16-16 16s-16-7.163-16-16 7.163-16 16-16 16 7.163 16 16zM3 16c0 7.18 5.82 13 13 13s13-5.82 13-13-5.82-13-13-13-13 5.82-13 13zM17.414 6.586l8 8c0.781 0.781 0.781 2.047 0 2.828s-2.047 0.781-2.828 0l-4.586-4.586v11.172c0 1.105-0.895 2-2 2s-2-0.895-2-2v-11.172l-4.586 4.586c-0.781 0.781-2.047 0.781-2.829 0-0.391-0.391-0.586-0.902-0.586-1.414s0.195-1.024 0.586-1.414l8-8c0.781-0.781 2.047-0.781 2.828 0z"/>
+	</svg></a>
+</div>

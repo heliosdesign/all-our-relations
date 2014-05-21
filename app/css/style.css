@@ -230,11 +230,11 @@ table {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Domine", serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Domine", serif;
 }
 
 h1 {
@@ -331,12 +331,17 @@ body {
   display: inline-block;
 }
 
+.backgroundBG img {
+  width: 100%;
+  min-height: 100%;
+}
+
 #nav {
   position: fixed;
   text-align: center;
   text-transform: uppercase;
   color: white;
-  font-family: "Oswald";
+  font-family: serif;
 }
 #nav .calendarBox {
   position: relative;
@@ -423,16 +428,6 @@ body {
   z-index: 100;
   width: 100%;
 }
-#nav .metadata .left, #nav .metadata .right {
-  position: absolute;
-  height: 5em;
-}
-#nav .metadata .left {
-  left: 0;
-}
-#nav .metadata .right {
-  right: 0;
-}
 #nav .metadata .inner {
   position: relative;
   display: inline-block;
@@ -474,22 +469,19 @@ body {
   border-width: 0 1px 1px 1px;
   position: relative;
 }
+#nav .metadata .timeline {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  width: 80%;
+}
 #nav .metadata .branding {
-  background: white;
-  color: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 225, 0.5);
+  color: black;
   cursor: pointer;
+  width: 20%;
 }
-#nav .metadata .branding .big {
-  font-size: 2.8em;
-  padding: 0 0.2em;
-  line-height: 1.15;
-}
-#nav .metadata .branding .small {
-  font-size: 1.3em;
-  line-height: 1;
-}
-#nav .metadata .branding .red {
-  color: #ed1b2e;
+#nav .metadata .branding h1 {
+  font-size: 2em;
 }
 #nav .metadata .social a {
   display: block;
@@ -532,6 +524,19 @@ body {
 .no-touch #nav .metadata .relatedDays .relatedDay img:hover {
   opacity: 1;
 }
+#nav .timeline {
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  position: fixed;
+  z-index: 100;
+  height: 15%;
+}
+#nav .timeline img {
+  top: 0%;
+  width: 100%;
+  height: auto;
+}
 
 .grid-nav-wrapper {
   background-color: rgba(34, 34, 34, 0.5);
@@ -556,7 +561,7 @@ body {
   color: white;
   text-align: center;
   text-transform: uppercase;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Domine", serif;
   display: table-cell;
   vertical-align: middle;
   margin-top: 0.5%;
@@ -826,6 +831,25 @@ ul.innernav li:hover {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
+}
+.block .pos-fully-centre .chptDeco {
+  width: 10%;
+  height: auto;
+}
+.block .pos-fully-centre .paragraph-width {
+  position: relative;
+  border: 1px solid black;
+  border-width: 1px 0px 1px 0px;
+  max-width: 30%;
+  margin: 0px auto 40px auto;
+}
+.block .pos-fully-centre .paragraph-width h1 {
+  margin: 0px;
+  text-transform: uppercase;
+}
+.block .pos-fully-centre .title {
+  width: auto;
+  height: 100%;
 }
 .block .pos-title {
   position: absolute;
@@ -1236,6 +1260,9 @@ h1, h2, h3, h4, h5 h6, p {
   z-index: 9999;
 }
 
+.block {
+  background-color: rgba(0, 0, 0, 0);
+}
 .block .hot-spot {
   background-color: rgba(0, 0, 0, 0);
   color: white;

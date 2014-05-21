@@ -13,8 +13,8 @@ var allOurRelApp = angular.module('allOurRelApp', [
 
 
 allOurRelApp.constant('redCrossArticles', [
-	'AllanHarper',
-	'AllanHarper',
+	'title',
+	'introduction',
 	'AllanHarper'
 ]);
 
@@ -110,7 +110,7 @@ allOurRelApp.config(['$routeProvider', 'redCrossArticles', 'redCrossDay', functi
 		// },
 
 		templateUrl: function( params ){
-			return 'partials/tomorrow_tomorrow.html';
+			return 'partials/lastPage.html';
 		},
 
 		//before changes

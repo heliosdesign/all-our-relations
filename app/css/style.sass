@@ -56,8 +56,10 @@ $paragraph-width: 600px
 // Typography
 // ~~~~~~~~~~
 
-$bodyFont:   'Roboto', sans-serif
-$headingFont: 'Roboto Condensed', sans-serif
+// $bodyFont:   'Roboto', serif
+// $headingFont: 'Roboto Condensed', serif
+$bodyFont:   'Domine', serif
+$headingFont: 'Domine', serif
 
 body
   font-family: $bodyFont
@@ -175,7 +177,7 @@ $navheight: 20px
   text-align: center
   text-transform: uppercase
   color: $light
-  font-family: 'Oswald'
+  font-family: serif
 
   // text styling for calendar box
 
@@ -221,11 +223,15 @@ $navheight: 20px
     .background
       height: 80px
       width: 74px
-    &.tomorrow
-      div
-      line-height: 40px
-      position: absolute
-      width: 100px
+    // &.tomorrow
+    //   background-color: rgba($dark, 0.5)
+    //   div
+    //     line-height: 40px
+    //     position: absolute
+    //     width: 100%
+    //   .background
+    //     height: 80px
+    //     width: auto
   
   // Prev/Next Day
   // ~~~~~~~~~~~~~
@@ -240,6 +246,15 @@ $navheight: 20px
     //background-color: rgba(0,0,0,0.2)
     height: 80px
     width: 74px
+
+    &.tomorrow 
+      border: 2px solid $light
+      background-color: rgba(0,0,0,0.2)
+      text-align: center
+      width: auto
+      padding: 1%
+      padding-top: 1.5%
+
 
     &:hover use
       fill: $red !important
@@ -284,6 +299,7 @@ $navheight: 20px
 
     .left
       left: 0
+      width: 100%
     .right
       right: 0
     
@@ -319,12 +335,21 @@ $navheight: 20px
           border: 1px solid $light
           border-width: 0 1px 1px 1px
           position: relative
-          
+    
+    .timeline
+      background: rgb(200,200,200)
+      color: rgba(0,0,0,0.5)
+      width: 75%
+      // width: 100%
 
     .branding
-      background: rgb(255,255,255)
+      background: rgb(255,255,200,0.5)
       color: rgba(0,0,0,0.5)
       cursor: pointer
+      width: 25%
+
+      h1
+        font-size: 2em
 
       .big
         font-size: 2.8em
@@ -662,6 +687,24 @@ ul.innernav
     display: table-cell
     vertical-align: middle
     text-align: center
+
+    .chptDeco
+      width: 10%
+      height: auto
+
+    .paragraph-width
+      position: relative
+      border: 1px solid #000
+      border-width: 1px 0px 1px 0px
+      max-width: 30%
+      margin: 0px auto 40px auto
+      h1
+        margin: 0px
+        text-transform: uppercase
+
+    .title
+      width: 50%
+      height: auto
 
   .pos-title
     position: absolute
@@ -1073,6 +1116,7 @@ $moneygreen: #91B547
 // ~~~~~~~~
 
 .block
+  background-color: rgba(0,0,0,0)
   .hot-spot
     background-color: rgba(0,0,0,0)
     color: $light

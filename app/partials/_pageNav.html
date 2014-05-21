@@ -12,94 +12,32 @@
 <div id="nav" ng-class="{ true: 'collapse', false: 'dontcollapse' }[$root.states.shouldCollapseNav]">
 
     <div class="metadata">
-
-        <div class="left">
-            <div class="inner currentDay" ng-click="$root.states.shouldCollapseNav=!$root.states.shouldCollapseNav">
-
-                <!-- <div class="calendarBox">
-                    <div class="name">Day</div>
-                    <div class="number"> {{ day | zeroPad}} </div>    
-                </div> -->
-
-            </div><div class="inner branding shouldHide" ng-hide="$root.states.shouldCollapseNav" ng-click="$root.states.showGrid = !$root.states.showGrid">
-
-                <!-- <div class="big">Disaster</div>
-                <div class="small"><span class="red">Resilience</span> Journal</div> -->
-
-            </div><div class="inner social shouldHide" ng-hide="$root.states.shouldCollapseNav">
-
-                <!-- <a href="#" class="facebook ir" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">
-                    <svg class="icon" width="512" height="512" viewBox="0 0 512 512">
-                        <path d="M287.935 512h-95.935v-256h-64v-88.225l64-0.029-0.104-51.976c0-71.976 19.517-115.77 104.299-115.77h70.588v88.242h-44.115c-33.016 0-34.603 12.328-34.603 35.342l-0.131 44.162h79.345l-9.352 88.225-69.927 0.029-0.065 256z" />
-                    </svg>
-                </a>
-
-                <a href="#" class="twitter" onclick="window.open('http://twitter.com/intent/tweet?url='+encodeURIComponent(location.href),'twitter-share-dialog','width=626,height=300');return false;">
-                    <svg class="icon" width="512" height="512" viewBox="0 0 512 512">
-                        <path d="M512 97.209c-18.838 8.354-39.082 14.001-60.33 16.54 21.686-13 38.343-33.585 46.186-58.115-20.298 12.039-42.778 20.78-66.705 25.49-19.16-20.415-46.461-33.17-76.673-33.17-58.011 0-105.044 47.029-105.044 105.039 0 8.233 0.929 16.25 2.72 23.939-87.3-4.382-164.701-46.2-216.509-109.753-9.042 15.514-14.223 33.558-14.223 52.809 0 36.444 18.544 68.596 46.73 87.433-17.219-0.546-33.416-5.271-47.577-13.139-0.010 0.438-0.010 0.878-0.010 1.321 0 50.894 36.209 93.348 84.261 103-8.813 2.4-18.094 3.686-27.674 3.686-6.769 0-13.349-0.66-19.764-1.886 13.368 41.73 52.16 72.103 98.126 72.948-35.95 28.175-81.243 44.967-130.458 44.967-8.479 0-16.84-0.497-25.058-1.47 46.486 29.805 101.701 47.197 161.021 47.197 193.211 0 298.868-160.062 298.868-298.872 0-4.554-0.103-9.084-0.305-13.59 20.528-14.81 38.336-33.31 52.418-54.374z" />
-                    </svg>
-                </a> -->
-
-            </div><!-- <div class="inner language shouldHide" ng-hide="$root.states.shouldCollapseNav">
-
-                <a href="#/en/day/{{day}}">English</a>
-                <a href="#/fr/day/{{day}}">Français</a>
-                <a href="#/de/day/{{day}}">Deutsch</a>
-                <a href="#/es/day/{{day}}">Español</a>
-                <a href="#/it/day/{{day}}">Italiano</a>
-
-            </div> -->
-            
+        <div class="inner branding shouldHide" ng-hide="$root.states.shouldCollapseNav">
+            <h1>all of our<br>relations</h1>
+        </div><div class="inner timeline shouldHide" ng-hide="$root.states.shouldCollapseNav" >
+            this is navigation.this is navigationthis is navigationthis is navigationthis is navigation.
         </div>
+    </div>
 
-        <div class="right">
-
-            <div class="inner relatedDays shouldHide" ng-hide="$root.states.shouldCollapseNav">
-
-                <a ng-href="#/{{lang}}/day/{{d}}" ng-repeat="d in currentDay.relatedDays">
-                    <div class="relatedDay">
-                        <img ng-src="{{baseURL}}img/day{{d}}/thumb.jpg" alt="">
-                        <div class="calendarBox light">
-                            <div class="day border">Day</div>
-                            <div class="number border">{{d | zeroPad}}</div>
-                        </div>
-                    </div>
-                </a>
-            </div> 
-
-        </div>
-        
+    <div class="timeline shouldHide" ng-hide="$root.states.shouldCollapseNav">
+        <img src="assets/img/timeline.png">
     </div>
 
     
     
 
     <a class="dayNavLink left" ng-show="day > 1 " ng-click="prevDay()">  
-        <div class="calendarBox">
-            <svg viewBox="0 0 74 80" class="icon background">
-                <use xlink:href="#day-back" style="stroke:#fff;"></use>
-                <use xlink:href="#day-back-arrow" style="fill:#fff;"></use>
-            </svg>
-            <div class="name">Day</div>
-            <div class="number">{{day-1 | zeroPad }}</div>    
-        </div>
+        <span style="font-size: 5em;"> < </span>
     </a>
 <!--     to test last day button change numDays to numDays-1
  -->
     <a class="dayNavLink right" ng-show="day < numDays-1 && tomorrowCheck === false" ng-click="nextDay()">
-        <div class="calendarBox">
-            <svg viewBox="0 0 74 80" class="icon background">
-                <use xlink:href="#day-fwd" style="stroke:#fff;"></use>
-                <use xlink:href="#day-fwd-arrow" style="fill:#fff;"></use>
-            </svg>
-            <div class="name">Day</div>
-            <div class="number">{{ day+1 | zeroPad }}</div>
-        </div>
+        <span style="font-size: 5em;"> > </span>
     </a>
 <!--     to test last day button change numDays to numDays-1
  -->
     <a class="dayNavLink right tomorrow" ng-show="day == redCrossDay && day != 42 && tomorrowCheck === false" ng-click="tomorrow()">
-        <div class="name">tomorrow</div>
+        last page
     </a>
 
 </div>

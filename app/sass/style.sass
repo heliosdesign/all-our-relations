@@ -56,8 +56,10 @@ $paragraph-width: 600px
 // Typography
 // ~~~~~~~~~~
 
-$bodyFont:   'Roboto', sans-serif
-$headingFont: 'Roboto Condensed', sans-serif
+// $bodyFont:   'Roboto', serif
+// $headingFont: 'Roboto Condensed', serif
+$bodyFont:   'Domine', serif
+$headingFont: 'Domine', serif
 
 body
   font-family: $bodyFont
@@ -157,6 +159,10 @@ body
 .icon
   display: inline-block
 
+.backgroundBG
+  img
+    width: 100%
+    min-height: 100%
 
 
 
@@ -175,7 +181,7 @@ $navheight: 20px
   text-align: center
   text-transform: uppercase
   color: $light
-  font-family: 'Oswald'
+  font-family: serif
 
   // text styling for calendar box
 
@@ -230,7 +236,7 @@ $navheight: 20px
     //   .background
     //     height: 80px
     //     width: auto
-  
+    
   // Prev/Next Day
   // ~~~~~~~~~~~~~
 
@@ -291,14 +297,7 @@ $navheight: 20px
     // height: 5em
     // pointer-events: none
     
-    .left,.right
-      position: absolute
-      height: 5em
-
-    .left
-      left: 0
-    .right
-      right: 0
+  
     
     .inner
       position: relative
@@ -332,24 +331,21 @@ $navheight: 20px
           border: 1px solid $light
           border-width: 0 1px 1px 1px
           position: relative
-          
+    
+    .timeline
+      background: rgba(0,0,0,0.5)
+      color: rgba(255,255,255,1)
+      width: 80%
+      // width: 100%
 
     .branding
-      background: rgb(255,255,255)
-      color: rgba(0,0,0,0.5)
+      background: rgba(255,255,225,0.5)
+      color: rgba(0,0,0,1)
       cursor: pointer
+      width: 20%
 
-      .big
-        font-size: 2.8em
-        padding: 0 0.2em
-        line-height: 1.15
-
-      .small
-        font-size: 1.3em
-        line-height: 1
-
-      .red
-        color: $red
+      h1
+        font-size: 2em
 
     .social
       a
@@ -393,6 +389,19 @@ $navheight: 20px
         
           .no-touch &:hover
             opacity: 1
+  .timeline
+    width: 100%
+    bottom: 0px
+    left: 0px
+    position: fixed
+    z-index: 100
+    height: 15%
+    
+    img
+      top: 0%
+      width: 100%
+      height: auto
+
 
 // Grid Nav
 // ~~~~~~~~
@@ -675,6 +684,24 @@ ul.innernav
     display: table-cell
     vertical-align: middle
     text-align: center
+
+    .chptDeco
+      width: 10%
+      height: auto
+
+    .paragraph-width
+      position: relative
+      border: 1px solid #000
+      border-width: 1px 0px 1px 0px
+      max-width: 30%
+      margin: 0px auto 40px auto
+      h1
+        margin: 0px
+        text-transform: uppercase
+
+    .title
+      width: auto
+      height: 100%
 
   .pos-title
     position: absolute
@@ -1086,6 +1113,7 @@ $moneygreen: #91B547
 // ~~~~~~~~
 
 .block
+  background-color: rgba(0,0,0,0)
   .hot-spot
     background-color: rgba(0,0,0,0)
     color: $light

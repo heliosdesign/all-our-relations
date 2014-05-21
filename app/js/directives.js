@@ -48,7 +48,7 @@ dirs.directive('block', function( $animate ){
 			if( attrs.bgCol )
 				element.css( 'background-color', attrs.bgCol );
 			else
-				element.css( 'background-color', '#000' );
+				element.css( 'background-color', 'rgba(0,0,0,0)' );
 
 			if( !attrs.id ){
 				$(element).attr( 'id', 'block' + element.index() );
