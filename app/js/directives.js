@@ -233,75 +233,75 @@ dirs.directive('block', function( $animate ){
 // })
 
 
-// dirs.directive('youtubePlayer',function(){
-// 	return {
-// 		restrict: 'E',
-// 		priority: 10,
-// 		scope: {},
-// 		template: '<div id="v-player-{{id}}" class="video-player pos-fill"></div>',
+dirs.directive('youtubePlayer',function(){
+	return {
+		restrict: 'E',
+		priority: 10,
+		scope: {},
+		template: '<div id="v-player-{{id}}" class="video-player pos-fill-yt"></div>',
 
-// 		link: function( $scope, element, attrs ){
-// 			if( !attrs.vidSrc ) return;
-// 			$scope.id = attrs.vidSrc;
-// 		// },
+		link: function( $scope, element, attrs ){
+			if( !attrs.vidSrc ) return;
+			$scope.id = attrs.vidSrc;
+		// },
 
-// 		// controller: function( $scope, $element, $attrs ){
+		// controller: function( $scope, $element, $attrs ){
 
-// 			var player,
-// 				isReady = false,
-// 				state = 0;
+			var player,
+				isReady = false,
+				state = 0;
 
-// 			window.onYouTubeIframeAPIReady = function(){
+			window.onYouTubeIframeAPIReady = function(){
 
-// 				function onPlayerReady(){	
-// 					console.log("player ready")		
-// 					isReady = true;
-// 				}
+				function onPlayerReady(){	
+					console.log("player ready")		
+					isReady = true;
+				}
 
-// 				function onPlayerStateChange(evt){
-// 					console.log(evt.data)
+				function onPlayerStateChange(evt){
+					console.log(evt.data)
 
-// 				}
+				}
 
-// 				setTimeout(function(){	
-// 					player = new YT.Player( 'v-player-' + attrs.vidSrc, {
-// 					videoId: attrs.vidSrc,
-// 					playerVars: {rel: 0, showinfo: 0},
-// 					events: {
-//                     	'onReady': onPlayerReady,
-//                     	'onStateChange': onPlayerStateChange
-// 					}
-// 				});},1000)
+				setTimeout(function(){	
+					player = new YT.Player( 'v-player-' + attrs.vidSrc, {
+					videoId: attrs.vidSrc,
+					playerVars: {rel: 0, showinfo: 0},
+					events: {
+                    	'onReady': onPlayerReady,
+                    	'onStateChange': onPlayerStateChange
+					}
+				});},1000)
 
-// 			}
-
-
-// 			YT.ready( onYouTubeIframeAPIReady )
+			}
 
 
-// 			// auto play/pause
-
-// 			var blockIndex = element.closest('.block').index();
+			YT.ready( onYouTubeIframeAPIReady )
 
 
-// 			 $scope.$parent.$parent.$watch( 'currentBlock', function(n,o){
-// 				console.log('BLOCK CHANGE -> ' + n)
+			// auto play/pause
+
+			var blockIndex = element.closest('.block').index();
+
+
+			 $scope.$parent.$parent.$watch( 'currentBlock', function(n,o){
+				console.log('BLOCK CHANGE -> ' + n)
 				
-// 				if( n == blockIndex ){
+				if( n == blockIndex ){
 				
-// 					if( isReady ) 
-// 						player.playVideo();
+					if( isReady ) 
+						player.playVideo();
 						
-// 				} else if( n != blockIndex ){
-// 					if( isReady ) 
-// 						player.pauseVideo();
-// 				}
+				} else if( n != blockIndex ){
+					if( isReady ) 
+						player.pauseVideo();
+				}
 
-// 			});
+			});
 
-// 		}
-// 	}
-// });
+		}
+	}
+});
 
 
 

@@ -408,7 +408,7 @@ body {
   border-color: #ed1b2e;
 }
 #nav a.dayNavLink.left, #nav a.dayNavLink.right {
-  bottom: 0px;
+  top: 50%;
   margin: 0 1em 1em;
 }
 #nav a.dayNavLink.left {
@@ -481,6 +481,7 @@ body {
   cursor: pointer;
   width: 20%;
   float: left;
+  padding-left: 1.5em;
 }
 #nav .metadata .branding.shouldHide {
   display: inline-block;
@@ -501,8 +502,28 @@ body {
   transform: translateY(0%);
 }
 #nav .metadata .branding img {
+  margin-top: 2em;
   width: 100%;
   height: auto;
+  margin-bottom: 0px;
+}
+#nav .metadata .branding ul.familytree {
+  width: 65%;
+  margin-top: -45px;
+}
+#nav .metadata .branding ul.familytree li {
+  width: 14.66667%;
+}
+#nav .metadata .branding ul.familytree li img {
+  height: auto;
+  width: 100%;
+  opacity: 1;
+}
+#nav .metadata .branding ul.familytree li:hover {
+  opacity: 0.5;
+}
+#nav .metadata .branding ul.familytree li.active {
+  opacity: 1;
 }
 #nav .metadata .social a {
   display: block;
@@ -753,10 +774,15 @@ ul.familytree {
   padding: 0px;
   list-style: none;
   text-align: center;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 0.8em;
+  color: black;
   max-width: 850px;
   width: 100%;
   height: 10%;
-  margin: 0 auto;
+  margin: 4em auto 0px auto;
+  z-index: 101;
   position: relative;
 }
 ul.familytree li {
@@ -765,7 +791,7 @@ ul.familytree li {
   margin-left: 1%;
 }
 ul.familytree li:hover {
-  color: white;
+  color: #e68a00;
 }
 ul.familytree li img {
   height: auto;
@@ -888,8 +914,9 @@ ul.familytree li p {
   color: white;
 }
 .block .pos-left-bottom {
-  margin-top: 20%;
   text-align: left;
+  margin: 20% auto 0%;
+  max-width: 90%;
 }
 .block .pos-left-bottom .column {
   position: relative;
@@ -902,6 +929,10 @@ ul.familytree li p {
 }
 .block .pos-left-bottom .column .column.right {
   padding-right: 0px;
+}
+.block .pos-left-bottom .column img {
+  -webkit-box-shadow: 5px 5px 55px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 5px 5px 55px -2px rgba(0, 0, 0, 0.75);
 }
 .block .pos-left-bottom .column img.small {
   width: 49%;
@@ -929,7 +960,7 @@ ul.familytree li p {
   margin-right: 0px;
 }
 .block .pos-left-bottom .column p strong {
-  color: red;
+  color: #e68a00;
 }
 .block .pos-left-bottom .column p.pullquote {
   font-size: 1.5em;
@@ -949,55 +980,63 @@ ul.familytree li p {
   margin-bottom: 1em;
   font-size: 0.8em;
 }
-.block .pos-fully-centre {
-  display: table-cell;
-  vertical-align: middle;
+.block .pos-bottom-centre {
+  position: relative;
+  margin: 10% auto 0px auto;
+  bottom: 0px;
   text-align: center;
 }
-.block .pos-fully-centre .chptDeco {
-  width: 10%;
+.block .pos-bottom-centre .chptDeco {
+  width: 35%;
   height: auto;
+  margin-bottom: -20px;
 }
-.block .pos-fully-centre .paragraph-width {
+.block .pos-bottom-centre .paragraph-width {
   position: relative;
-  border: 1px solid black;
-  border-width: 1px 0px 1px 0px;
-  max-width: 30%;
-  margin: 0px auto 40px auto;
+  max-width: 35%;
+  margin: 0px auto 80px auto;
 }
-.block .pos-fully-centre .paragraph-width h1 {
+.block .pos-bottom-centre .paragraph-width h1 {
   margin: 0px;
   text-transform: uppercase;
+  font-weight: normal;
+  font-size: 1.8em;
+  letter-spacing: 5px;
 }
-.block .pos-fully-centre .title {
+.block .pos-bottom-centre .title {
   width: auto;
   height: 100%;
 }
-.block .pos-fully-centre .column {
+.block .pos-bottom-centre .column {
   position: relative;
   float: left;
   width: 50%;
   text-align: left;
 }
-.block .pos-fully-centre .column h1 {
+.block .pos-bottom-centre .column h1 {
   margin-bottom: 10px;
 }
-.block .pos-fully-centre .column h2 {
+.block .pos-bottom-centre .column h2 {
   font-weight: normal;
   font-size: 1.1em;
   color: #555555;
   margin-bottom: 2em;
 }
-.block .pos-fully-centre .column p.references {
+.block .pos-bottom-centre .column p.references {
   font-size: 0.8em;
 }
-.block .pos-fully-centre .column p.references ul {
+.block .pos-bottom-centre .column p.references ul {
   list-style: none;
   padding: 1em;
 }
-.block .pos-fully-centre .column p.references ul li {
+.block .pos-bottom-centre .column p.references ul li {
   margin-bottom: 1em;
   font-size: 0.8em;
+}
+.block .pos-fully-centre {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
 .block .pos-title {
   position: absolute;
@@ -1016,6 +1055,12 @@ ul.familytree li p {
   position: absolute;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+}
+.block .pos-fill-yt {
+  position: absolute;
+  width: 90%;
+  height: 500px;
   overflow: hidden;
 }
 .block .img-pan-vert {

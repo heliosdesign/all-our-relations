@@ -18,7 +18,8 @@ allOurRelApp.constant('redCrossArticles', [
 	// 'familytree',
 	'allanBHarper',
 	'santeeSmith',
-	'taylorThomas'
+	'taylorThomas',
+	'adamBeach'
 
 ]);
 
@@ -244,7 +245,7 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 	$rootScope.numDays = articles.length;
 	$rootScope.languages = ['en', 'fr', 'de', 'es'];
 	$rootScope.day = 0;
-	$rootScope.baseTitle = ' - Resilience Journal';
+	$rootScope.baseTitle = ' - All Our Relations';
 	$rootScope.states = {
 		logoCollapse : true
 	};
@@ -346,6 +347,12 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		$rootScope.states.shouldCollapseNav = false;
 
 	}
+	// DELETE THIS AFTER PROTOTYPE
+	$rootScope.familytreeTemp = function(){
+		$location.path('/en/day/6');
+		$rootScope.states.shouldCollapseNav = false;
+
+	}
 	$rootScope.homebtn = function(){
 		$location.path('/en/');
 		$rootScope.states.shouldCollapseNav = false;
@@ -390,7 +397,7 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 			$rootScope.states.shouldCollapseNav = false;
 		}
 
-		if($rootScope.day==1){
+		if($rootScope.day<=2){
 			$rootScope.states.logoCollapse = true;
 		}else{
 			$rootScope.states.logoCollapse = false;
