@@ -7,7 +7,7 @@ $red: #ed1b2e
 $dark:  #222222
 $light: #fff
 
-$paragraph-width: 600px
+$paragraph-width: 800px
 
 @mixin breakpoint($point)
   // < 550px or 35em.
@@ -250,6 +250,7 @@ $navheight: 20px
     //background-color: rgba(0,0,0,0.2)
     height: 80px
     width: 74px
+    z-index: 200
 
     &.tomorrow 
       border: 2px solid $light
@@ -270,7 +271,7 @@ $navheight: 20px
       // background-color: rgba(255,255,255,0.5)
     
     &.left, &.right
-      bottom: 0px
+      top: 50%
       margin: 0 1em 1em
 
     &.left
@@ -307,6 +308,7 @@ $navheight: 20px
       padding: 0
       font-size: 1em
       height: 100%
+
       
       &.shouldHide
         display: inline-block
@@ -314,13 +316,15 @@ $navheight: 20px
         &.ng-hide-add, &.ng-hide-remove
           transition: all 300ms linear
           display: inline-block !important
-  
+
         &.ng-hide-add.ng-hide-add-active, &.ng-hide-remove
           transform: translateY(-100%)
 
         &.ng-hide-add, &.ng-hide-remove.ng-hide-remove-active
           transform: translateY(0%)
     
+  
+        
     .currentDay
       cursor: pointer
 
@@ -333,19 +337,57 @@ $navheight: 20px
           position: relative
     
     .timeline
-      background: rgba(0,0,0,0.5)
+      background: transparent
       color: rgba(255,255,255,1)
       width: 80%
       // width: 100%
+      // img
+      // // margin-top: 0px
+      //   width: 100%
+      //   height: auto
 
     .branding
-      background: rgba(255,255,225,0.5)
+      background: transparent
       color: rgba(0,0,0,1)
       cursor: pointer
       width: 20%
+      float: left
+      padding-left: 1.5em
 
-      h1
-        font-size: 2em
+      &.shouldHide
+        display: inline-block
+
+        &.ng-hide-add, &.ng-hide-remove
+          transition: all 300ms linear
+          display: inline-block !important
+
+        &.ng-hide-add.ng-hide-add-active, &.ng-hide-remove
+          transform: translateY(-100%)
+
+        &.ng-hide-add, &.ng-hide-remove.ng-hide-remove-active
+          transform: translateY(0%)
+
+      img
+        margin-top: 2em
+        width: 100%
+        height: auto
+        margin-bottom: 0px
+
+      ul.familytree
+        width: 65%
+        margin-top: -45px
+        li
+          width: 14.666666667%
+          img
+            height: auto
+            width: 100%
+            opacity: 1
+          &:hover
+            opacity: .5
+
+          &.active
+            opacity: 1
+
 
     .social
       a
@@ -395,12 +437,25 @@ $navheight: 20px
     left: 0px
     position: fixed
     z-index: 100
-    height: 15%
+    height: 17%
+    &.shouldHide
+      display: inline-block
+  
+      &.ng-hide-add, &.ng-hide-remove
+        transition: all 500ms linear
+        display: inline-block !important
+    
+      &.ng-hide-add.ng-hide-add-active, &.ng-hide-remove
+        transform: translateY(115%)
+  
+      &.ng-hide-add, &.ng-hide-remove.ng-hide-remove-active
+        transform: translateY(85%)
 
     img
-      top: 0%
+      // margin-top: 0px
       width: 100%
       height: auto
+
 
 
 // Grid Nav
@@ -495,7 +550,7 @@ ul.innernav
 //   ╚═══╝  ╚═╝╚══════╝ ╚══╝╚══╝ 
 
 .view
-  // overflow-y: scroll
+  overflow-y: scroll
   // overflow-x: hidden
   position: absolute
   top: 0
@@ -550,13 +605,13 @@ ul.innernav
 
       z-index: 200
 
-      background: rgba(0,0,0,0.3)
+      background: rgba(255,255,255,0.5)
       fill: rgba(255,255,255,1.0)
 
       transition: background 300ms, fill 300ms
 
       .no-touch &:hover
-        background: rgba(0,0,0,0.6)
+        background: rgba(255,255,255,1)
         fill:   rgba(255,255,255,1.0)
         cursor: pointer
 
@@ -581,6 +636,35 @@ ul.innernav
 
       // .down, .up
     //   @extend %nav-elements
+
+
+ul.familytree
+  cursor: pointer
+  padding: 0px
+  list-style: none
+  text-align: center
+  font-style: italic
+  font-weight: bold
+  font-size: 0.8em
+  color: black
+  max-width: $paragraph-width + 50px
+  width: 100%
+  height: 10%
+  margin: 4em auto 0px auto
+  z-index: 101
+  position: relative
+  li
+    float: left
+    margin-right: 1%
+    margin-left: 1%
+    
+    &:hover
+      color: #E68A00
+    img
+      height: auto
+      width: ($paragraph-width/6) - ($paragraph-width*.02)
+    p 
+      margin-top: -10px
 
 
 
@@ -675,34 +759,137 @@ ul.innernav
     color: white
 
   .pos-left-bottom
-    display: table-cell
-    vertical-align: bottom
+    // display: table-cell
+    // vertical-align: bottom
     text-align: left
-    color: white
-    padding-bottom: 6.5em
+    margin: 20% auto 0%
+    max-width: 90%
+    // position: absolute
+    // bottom: 0px
+    // &.content
+    //   height: 80%
+    //   overflow: scroll
+    // padding-bottom: 6.5em
+
+    .column
+      position: relative
+      float: left
+      width: 50%
+      padding: 0px 1.5em 1em 1.5em
+
+      .column
+        &.left
+          padding-left: 0px
+        &.right
+          padding-right: 0px
+      img
+        box-shadow: 5px 5px 55px -2px rgba(0,0,0,0.75)
+
+        &.small
+          width: 49%
+          height: auto
+          position: relative
+          padding: 1%
+          float: left
+          display: block
+      h1
+        margin-bottom: 10px
+        margin-left: 0px
+        margin-right: 0px
+      h2
+        font-weight: normal
+        font-size: 1.1em
+        color: #555555
+        margin-bottom: 2em
+        margin-left: 0px
+        margin-right: 0px
+
+      p 
+        margin-left: 0px
+        margin-right: 0px
+        strong
+          color: #E68A00
+
+        &.pullquote
+          font-size: 1.5em
+          padding-left: 1em
+          i 
+            font-size: 0.75em
+      p.references
+        font-size: 0.8em
+        ul
+          list-style: none
+          padding: 1em
+
+          li 
+            margin-bottom: 1em
+            font-size: 0.8em
+
+  // .pos-left-bottom
+  //   display: table-cell
+  //   vertical-align: bottom
+  //   text-align: left
+  //   color: white
+  //   padding-bottom: 6.5em
+
+  .pos-bottom-centre
+    position: relative
+    margin: 10% auto 0px auto
+    bottom: 0px
+    text-align: center
+
+    .chptDeco
+      width: 35%
+      height: auto
+      margin-bottom: -20px
+
+    .paragraph-width
+      position: relative
+      // border: 1px solid #000
+      // border-width: 1px 0px 1px 0px
+      max-width: 35%
+      // padding: 15px
+      margin: 0px auto 80px auto
+      h1
+        margin: 0px
+        text-transform: uppercase
+        font-weight: normal
+        font-size: 1.8em
+        letter-spacing: 5px
+
+    .title
+      width: auto
+      height: 100%
+
+    .column
+      position: relative
+      float: left
+      width: 50%
+      text-align: left
+      h1
+        margin-bottom: 10px
+      h2
+        font-weight: normal
+        font-size: 1.1em
+        color: #555555
+        margin-bottom: 2em
+      p.references
+        font-size: 0.8em
+        ul
+          list-style: none
+          padding: 1em
+
+          li 
+            margin-bottom: 1em
+            font-size: 0.8em
+
+
 
   .pos-fully-centre
     display: table-cell
     vertical-align: middle
     text-align: center
 
-    .chptDeco
-      width: 10%
-      height: auto
-
-    .paragraph-width
-      position: relative
-      border: 1px solid #000
-      border-width: 1px 0px 1px 0px
-      max-width: 30%
-      margin: 0px auto 40px auto
-      h1
-        margin: 0px
-        text-transform: uppercase
-
-    .title
-      width: auto
-      height: 100%
 
   .pos-title
     position: absolute
@@ -723,6 +910,16 @@ ul.innernav
     width: 100%
     height: 100%
     overflow: hidden
+
+  .pos-fill-yt
+    position: absolute
+    width: 90%
+    // min-height: auto
+    // height: 100%
+    // height: 100%/0.51
+    height: 500px
+    overflow: hidden
+
 
   .img-pan-vert
     position: absolute
@@ -789,6 +986,7 @@ $moneygreen: #91B547
 
 
 .block
+  overflow-y: scroll
   .infograph
     position: absolute
     z-index: 0

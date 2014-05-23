@@ -15,7 +15,12 @@ var allOurRelApp = angular.module('allOurRelApp', [
 allOurRelApp.constant('redCrossArticles', [
 	'title',
 	'introduction',
-	'AllanHarper'
+	// 'familytree',
+	'allanBHarper',
+	'santeeSmith',
+	'taylorThomas',
+	'adamBeach'
+
 ]);
 
 allOurRelApp.constant('redCrossDay', '2');
@@ -173,74 +178,6 @@ allOurRelApp.config(['$routeProvider', 'redCrossArticles', 'redCrossDay', functi
 		}
 	});
 
-	// $routeProvider.when( '/:lang/day/1', {
-	// 	templateUrl: 'partials/day-1.html',
-	// 	controller:  'day1',
-	// 	resolve: {
-	// 		setVars : function( $rootScope ){
-	// 			$rootScope.day = 1;
-	// 		},
-	// 		// dummy promise
-	// 		preload: function( $q ){
-	// 			var dummy = $q.defer();
-	// 			dummy.resolve();
-	// 			return dummy.promise;
-	// 		}
-	// 	},
-	// 	reloadOnSearch: false
-	// });
-
-	// $routeProvider.when( '/:lang/day/2', {
-	// 	templateUrl: 'partials/day-2.html',
-	// 	controller:  'day2',
-	// 	resolve: {
-	// 		setVars : function( $rootScope ){
-	// 			$rootScope.day = 2;
-	// 		},
-	// 		// // dummy promise
-	// 		// preload: function( $q ){
-	// 		// 	var dummy = $q.defer();
-	// 		// 	dummy.resolve();
-	// 		// 	return dummy.promise;
-	// 		// }
-	// 	},
-	// 	reloadOnSearch: false
-	// });
-
-	// $routeProvider.when( '/:lang/day/3', {
-	// 	templateUrl: 'partials/day-3.html',
-	// 	controller:  'day3',
-	// 	resolve: {
-	// 		setVars : function( $rootScope ){
-	// 			$rootScope.day = 3;
-	// 		},
-	// 		// // dummy promise
-	// 		// preload: function( $q ){
-	// 		// 	var dummy = $q.defer();
-	// 		// 	dummy.resolve();
-	// 		// 	return dummy.promise;
-	// 		// }
-	// 	},
-	// 	reloadOnSearch: false
-	// });
-
-	// $routeProvider.when( '/:lang/day/4', {
-	// 	templateUrl: 'partials/day-4.html',
-	// 	controller:  'day4',
-	// 	resolve: {
-	// 		setVars : function( $rootScope ){
-	// 			$rootScope.day = 4;
-	// 		},
-	// 		// // dummy promise
-	// 		// preload: function( $q ){
-	// 		// 	var dummy = $q.defer();
-	// 		// 	dummy.resolve();
-	// 		// 	return dummy.promise;
-	// 		// }
-	// 	},
-	// 	reloadOnSearch: false
-	// });
-
 	$routeProvider.otherwise({ redirectTo: '/en/day/1' });
 	// $rootScope.tomorrowCheck = false;
 }])
@@ -308,8 +245,10 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 	$rootScope.numDays = articles.length;
 	$rootScope.languages = ['en', 'fr', 'de', 'es'];
 	$rootScope.day = 0;
-	$rootScope.baseTitle = ' - Resilience Journal';
-	$rootScope.states = {};
+	$rootScope.baseTitle = ' - All Our Relations';
+	$rootScope.states = {
+		logoCollapse : true
+	};
 	$rootScope.tomorrowCheck = false;
 	$rootScope.redCrossDay = redCrossDay;
 
@@ -340,7 +279,7 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 	// ~~~~~~~~~~~~~
 
 	$rootScope.nextDay = function(){
-		// if( $rootScope.routeChangeInProgress ) return;
+		// if( $rootScope.routeChangeInProgress ) return;		
 		if( $rootScope.day >= $rootScope.numDays ) return;
 		$location.search( 'block', 0 );
 		$location.search( 'wir', 0 );
@@ -358,6 +297,15 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		// 	// console.log('day-'+( $rootScope.day+1) +', totaldays-'+ $rootScope.numDays);
 		// }
 
+		// if($rootScope.day < 3){
+		// 	console.log('less than 3');
+		// 	$rootScope.states.shouldCollapseNav = true;
+		// }else{
+		// 	console.log('more 3');
+		// 	$rootScope.states.shouldCollapseNav = false;
+		// }
+		
+
 	}
 
 	$rootScope.prevDay = function(){
@@ -371,18 +319,44 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		if ($rootScope.tomorrowCheck) {
 			$rootScope.tomorrowCheck = false;
 		};
+
+		// if($rootScope.day < 3){
+		// 	console.log('less than 3');
+		// 	$rootScope.states.shouldCollapseNav = true;
+		// }else{
+		// 	console.log('more 3');
+		// 	$rootScope.states.shouldCollapseNav = false;
+		// }
+		
 			
 	}
 
-	$rootScope.updateWir = function(loc) {
-		var s = loc || 0;
-		$location.search( 'wir', s );
-	}
+	// $rootScope.updateWir = function(loc) {
+	// 	var s = loc || 0;
+	// 	$location.search( 'wir', s );
+	// }
 
 	$rootScope.tomorrow = function() {
 		$location.path('/en/tomorrow/'+ ($rootScope.day+1));
 		$rootScope.tomorrowCheck = true;
 	
+	}
+
+	$rootScope.familytree = function(){
+		$location.path('/en/day/3');
+		$rootScope.states.shouldCollapseNav = false;
+
+	}
+	// DELETE THIS AFTER PROTOTYPE
+	$rootScope.familytreeTemp = function(){
+		$location.path('/en/day/6');
+		$rootScope.states.shouldCollapseNav = false;
+
+	}
+	$rootScope.homebtn = function(){
+		$location.path('/en/');
+		$rootScope.states.shouldCollapseNav = false;
+
 	}
 
 
@@ -403,7 +377,9 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		 * Unhide the branding if it's collapsed.
 		 */
 		$rootScope.states.showGrid = false;
-		$rootScope.states.shouldCollapseNav = false;
+
+		
+		
 
 		$rootScope.lang = $routeParams.lang;
 		$rootScope.day  = parseInt( $routeParams.dayId );
@@ -412,6 +388,20 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		$rootScope.nextDayUrl = '/' + $rootScope.lang + '/day/' + ($rootScope.day + 1);
 		$rootScope.prevDayUrl = '/' + $rootScope.lang + '/day/' + ($rootScope.day - 1);
 		$rootScope.tomorrowCheck =false;
+
+		if($rootScope.day < 3){
+			console.log('less than 3');
+			$rootScope.states.shouldCollapseNav = true;
+		}else{
+			console.log('more 3');
+			$rootScope.states.shouldCollapseNav = false;
+		}
+
+		if($rootScope.day<=2){
+			$rootScope.states.logoCollapse = true;
+		}else{
+			$rootScope.states.logoCollapse = false;
+		}
 
 	})
 

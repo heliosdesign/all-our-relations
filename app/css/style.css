@@ -389,6 +389,7 @@ body {
   border-color: white;
   height: 80px;
   width: 74px;
+  z-index: 200;
 }
 #nav a.dayNavLink.tomorrow {
   border: 2px solid white;
@@ -407,7 +408,7 @@ body {
   border-color: #ed1b2e;
 }
 #nav a.dayNavLink.left, #nav a.dayNavLink.right {
-  bottom: 0px;
+  top: 50%;
   margin: 0 1em 1em;
 }
 #nav a.dayNavLink.left {
@@ -470,18 +471,59 @@ body {
   position: relative;
 }
 #nav .metadata .timeline {
-  background: rgba(0, 0, 0, 0.5);
+  background: transparent;
   color: white;
   width: 80%;
 }
 #nav .metadata .branding {
-  background: rgba(255, 255, 225, 0.5);
+  background: transparent;
   color: black;
   cursor: pointer;
   width: 20%;
+  float: left;
+  padding-left: 1.5em;
 }
-#nav .metadata .branding h1 {
-  font-size: 2em;
+#nav .metadata .branding.shouldHide {
+  display: inline-block;
+}
+#nav .metadata .branding.shouldHide.ng-hide-add, #nav .metadata .branding.shouldHide.ng-hide-remove {
+  -webkit-transition: all 300ms linear;
+  transition: all 300ms linear;
+  display: inline-block !important;
+}
+#nav .metadata .branding.shouldHide.ng-hide-add.ng-hide-add-active, #nav .metadata .branding.shouldHide.ng-hide-remove {
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+#nav .metadata .branding.shouldHide.ng-hide-add, #nav .metadata .branding.shouldHide.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
+}
+#nav .metadata .branding img {
+  margin-top: 2em;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0px;
+}
+#nav .metadata .branding ul.familytree {
+  width: 65%;
+  margin-top: -45px;
+}
+#nav .metadata .branding ul.familytree li {
+  width: 14.66667%;
+}
+#nav .metadata .branding ul.familytree li img {
+  height: auto;
+  width: 100%;
+  opacity: 1;
+}
+#nav .metadata .branding ul.familytree li:hover {
+  opacity: 0.5;
+}
+#nav .metadata .branding ul.familytree li.active {
+  opacity: 1;
 }
 #nav .metadata .social a {
   display: block;
@@ -530,10 +572,27 @@ body {
   left: 0px;
   position: fixed;
   z-index: 100;
-  height: 15%;
+  height: 17%;
+}
+#nav .timeline.shouldHide {
+  display: inline-block;
+}
+#nav .timeline.shouldHide.ng-hide-add, #nav .timeline.shouldHide.ng-hide-remove {
+  -webkit-transition: all 500ms linear;
+  transition: all 500ms linear;
+  display: inline-block !important;
+}
+#nav .timeline.shouldHide.ng-hide-add.ng-hide-add-active, #nav .timeline.shouldHide.ng-hide-remove {
+  -webkit-transform: translateY(115%);
+  -ms-transform: translateY(115%);
+  transform: translateY(115%);
+}
+#nav .timeline.shouldHide.ng-hide-add, #nav .timeline.shouldHide.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transform: translateY(85%);
+  -ms-transform: translateY(85%);
+  transform: translateY(85%);
 }
 #nav .timeline img {
-  top: 0%;
   width: 100%;
   height: auto;
 }
@@ -617,6 +676,7 @@ ul.innernav li:hover {
 }
 
 .view {
+  overflow-y: scroll;
   position: absolute;
   top: 0;
   left: 0;
@@ -680,13 +740,13 @@ ul.innernav li:hover {
   margin-left: -22.5px;
   cursor: pointer;
   z-index: 200;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.5);
   fill: white;
   -webkit-transition: background 300ms, fill 300ms;
   transition: background 300ms, fill 300ms;
 }
 .no-touch .view .nav .down:hover, .no-touch .view .nav .up:hover, .no-touch .view .nav .what-is-resilience:hover {
-  background: rgba(0, 0, 0, 0.6);
+  background: white;
   fill: white;
   cursor: pointer;
 }
@@ -707,6 +767,38 @@ ul.innernav li:hover {
 .view .nav svg.icon {
   width: 45px;
   height: 45px;
+}
+
+ul.familytree {
+  cursor: pointer;
+  padding: 0px;
+  list-style: none;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 0.8em;
+  color: black;
+  max-width: 850px;
+  width: 100%;
+  height: 10%;
+  margin: 4em auto 0px auto;
+  z-index: 101;
+  position: relative;
+}
+ul.familytree li {
+  float: left;
+  margin-right: 1%;
+  margin-left: 1%;
+}
+ul.familytree li:hover {
+  color: #e68a00;
+}
+ul.familytree li img {
+  height: auto;
+  width: 117.33333px;
+}
+ul.familytree li p {
+  margin-top: -10px;
 }
 
 .block {
@@ -822,35 +914,129 @@ ul.innernav li:hover {
   color: white;
 }
 .block .pos-left-bottom {
-  display: table-cell;
-  vertical-align: bottom;
   text-align: left;
-  color: white;
-  padding-bottom: 6.5em;
+  margin: 20% auto 0%;
+  max-width: 90%;
+}
+.block .pos-left-bottom .column {
+  position: relative;
+  float: left;
+  width: 50%;
+  padding: 0px 1.5em 1em 1.5em;
+}
+.block .pos-left-bottom .column .column.left {
+  padding-left: 0px;
+}
+.block .pos-left-bottom .column .column.right {
+  padding-right: 0px;
+}
+.block .pos-left-bottom .column img {
+  -webkit-box-shadow: 5px 5px 55px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 5px 5px 55px -2px rgba(0, 0, 0, 0.75);
+}
+.block .pos-left-bottom .column img.small {
+  width: 49%;
+  height: auto;
+  position: relative;
+  padding: 1%;
+  float: left;
+  display: block;
+}
+.block .pos-left-bottom .column h1 {
+  margin-bottom: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.block .pos-left-bottom .column h2 {
+  font-weight: normal;
+  font-size: 1.1em;
+  color: #555555;
+  margin-bottom: 2em;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.block .pos-left-bottom .column p {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.block .pos-left-bottom .column p strong {
+  color: #e68a00;
+}
+.block .pos-left-bottom .column p.pullquote {
+  font-size: 1.5em;
+  padding-left: 1em;
+}
+.block .pos-left-bottom .column p.pullquote i {
+  font-size: 0.75em;
+}
+.block .pos-left-bottom .column p.references {
+  font-size: 0.8em;
+}
+.block .pos-left-bottom .column p.references ul {
+  list-style: none;
+  padding: 1em;
+}
+.block .pos-left-bottom .column p.references ul li {
+  margin-bottom: 1em;
+  font-size: 0.8em;
+}
+.block .pos-bottom-centre {
+  position: relative;
+  margin: 10% auto 0px auto;
+  bottom: 0px;
+  text-align: center;
+}
+.block .pos-bottom-centre .chptDeco {
+  width: 35%;
+  height: auto;
+  margin-bottom: -20px;
+}
+.block .pos-bottom-centre .paragraph-width {
+  position: relative;
+  max-width: 35%;
+  margin: 0px auto 80px auto;
+}
+.block .pos-bottom-centre .paragraph-width h1 {
+  margin: 0px;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 1.8em;
+  letter-spacing: 5px;
+}
+.block .pos-bottom-centre .title {
+  width: auto;
+  height: 100%;
+}
+.block .pos-bottom-centre .column {
+  position: relative;
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+.block .pos-bottom-centre .column h1 {
+  margin-bottom: 10px;
+}
+.block .pos-bottom-centre .column h2 {
+  font-weight: normal;
+  font-size: 1.1em;
+  color: #555555;
+  margin-bottom: 2em;
+}
+.block .pos-bottom-centre .column p.references {
+  font-size: 0.8em;
+}
+.block .pos-bottom-centre .column p.references ul {
+  list-style: none;
+  padding: 1em;
+}
+.block .pos-bottom-centre .column p.references ul li {
+  margin-bottom: 1em;
+  font-size: 0.8em;
 }
 .block .pos-fully-centre {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-}
-.block .pos-fully-centre .chptDeco {
-  width: 10%;
-  height: auto;
-}
-.block .pos-fully-centre .paragraph-width {
-  position: relative;
-  border: 1px solid black;
-  border-width: 1px 0px 1px 0px;
-  max-width: 30%;
-  margin: 0px auto 40px auto;
-}
-.block .pos-fully-centre .paragraph-width h1 {
-  margin: 0px;
-  text-transform: uppercase;
-}
-.block .pos-fully-centre .title {
-  width: auto;
-  height: 100%;
 }
 .block .pos-title {
   position: absolute;
@@ -869,6 +1055,12 @@ ul.innernav li:hover {
   position: absolute;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+}
+.block .pos-fill-yt {
+  position: absolute;
+  width: 90%;
+  height: 500px;
   overflow: hidden;
 }
 .block .img-pan-vert {
@@ -900,14 +1092,14 @@ ul.innernav li:hover {
 
 h1, h2, h3, h4, h5 h6, p {
   position: relative;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   margin-bottom: 1em;
 }
 
 .bg {
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
   padding: 1em;
   margin: 0 auto;
   background: rgba(0, 0, 0, 0.35);
@@ -927,6 +1119,9 @@ h1, h2, h3, h4, h5 h6, p {
   text-transform: uppercase;
 }
 
+.block {
+  overflow-y: scroll;
+}
 .block .infograph {
   position: absolute;
   z-index: 0;

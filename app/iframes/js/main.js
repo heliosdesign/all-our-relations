@@ -2,7 +2,8 @@ $(function(){
 
 	var margin = {top: 0, right: 0, bottom: 0, left: 200},
 	    width = window.innerWidth,
-	    height = 430;
+	    iconHeight= 60
+	    height = 230;
 	    
 	var i = 0,
 	    duration = 750,
@@ -37,7 +38,7 @@ $(function(){
 	  update(root);
 	});
 
-	d3.select(self.frameElement).style("height", "800px");
+	d3.select(self.frameElement).style("height", "200px");
 
 	function update(source) {
 
@@ -58,16 +59,28 @@ $(function(){
 	      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
 	      .on("click", click);
 
-	  nodeEnter.append("circle")
-	      .attr("r", 15.5)
-	      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+	
+
+
 
 	  nodeEnter.append("text")
-	      .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
+	      .attr("x", function(d) { return d.children || d._children ? -iconHeight*.5 : iconHeight*.5; })
 	      .attr("dy", ".35em")
 	      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
 	      .text(function(d) { return d.name; })
 	      .style("fill-opacity", 1e-6);
+
+	  node.append("image")
+      	.attr("xlink:href", function(d){
+      		if (d.icon) 
+      			return "images/" + d.icon
+      		else
+      			return "images/blank.png"
+      	})
+      	.attr("x", -iconHeight*.5)
+      	.attr("y", -iconHeight*.5)
+      	.attr("width", iconHeight)
+      	.attr("height", iconHeight)
 
 	  // Transition nodes to their new position.
 	  var nodeUpdate = node.transition()
@@ -135,6 +148,13 @@ $(function(){
 	    d.children = d._children;
 	    d._children = null;
 	  }
+	  //URL//
+	  if(d.page){
+	  	window.parent.location = "/all-our-relations/app/#/en/day/"+d.page
+	  }else{
+	  	alert('disabled for prototype');
+	  }
+	  
 	  update(d);
 	}
 })
