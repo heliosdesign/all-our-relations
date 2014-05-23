@@ -1,0 +1,57 @@
+/* =@imports // Note that @imports should be minified and 
+/*              included in the main CSS file for production.
+/*-----------------------------------------------------------*/
+@import url('normalize.css');
+
+
+/* =@HTML
+/*-----------------------------------------------------------*/
+
+/* * { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0;
+}*/
+
+/* =@Classes
+/*-----------------------------------------------------------*/
+
+.ir {
+    text-indent: 101%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.cf:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    }
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+
+/*D3 Styles*/
+
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}

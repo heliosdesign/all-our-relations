@@ -389,6 +389,7 @@ body {
   border-color: white;
   height: 80px;
   width: 74px;
+  z-index: 200;
 }
 #nav a.dayNavLink.tomorrow {
   border: 2px solid white;
@@ -470,18 +471,38 @@ body {
   position: relative;
 }
 #nav .metadata .timeline {
-  background: rgba(0, 0, 0, 0.5);
+  background: transparent;
   color: white;
   width: 80%;
 }
 #nav .metadata .branding {
-  background: rgba(255, 255, 225, 0.5);
+  background: transparent;
   color: black;
   cursor: pointer;
   width: 20%;
+  float: left;
 }
-#nav .metadata .branding h1 {
-  font-size: 2em;
+#nav .metadata .branding.shouldHide {
+  display: inline-block;
+}
+#nav .metadata .branding.shouldHide.ng-hide-add, #nav .metadata .branding.shouldHide.ng-hide-remove {
+  -webkit-transition: all 300ms linear;
+  transition: all 300ms linear;
+  display: inline-block !important;
+}
+#nav .metadata .branding.shouldHide.ng-hide-add.ng-hide-add-active, #nav .metadata .branding.shouldHide.ng-hide-remove {
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+#nav .metadata .branding.shouldHide.ng-hide-add, #nav .metadata .branding.shouldHide.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
+}
+#nav .metadata .branding img {
+  width: 100%;
+  height: auto;
 }
 #nav .metadata .social a {
   display: block;
@@ -530,10 +551,27 @@ body {
   left: 0px;
   position: fixed;
   z-index: 100;
-  height: 15%;
+  height: 17%;
+}
+#nav .timeline.shouldHide {
+  display: inline-block;
+}
+#nav .timeline.shouldHide.ng-hide-add, #nav .timeline.shouldHide.ng-hide-remove {
+  -webkit-transition: all 500ms linear;
+  transition: all 500ms linear;
+  display: inline-block !important;
+}
+#nav .timeline.shouldHide.ng-hide-add.ng-hide-add-active, #nav .timeline.shouldHide.ng-hide-remove {
+  -webkit-transform: translateY(115%);
+  -ms-transform: translateY(115%);
+  transform: translateY(115%);
+}
+#nav .timeline.shouldHide.ng-hide-add, #nav .timeline.shouldHide.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transform: translateY(85%);
+  -ms-transform: translateY(85%);
+  transform: translateY(85%);
 }
 #nav .timeline img {
-  top: 0%;
   width: 100%;
   height: auto;
 }
@@ -617,6 +655,7 @@ ul.innernav li:hover {
 }
 
 .view {
+  overflow-y: scroll;
   position: absolute;
   top: 0;
   left: 0;
@@ -679,13 +718,14 @@ ul.innernav li:hover {
   left: 50%;
   margin-left: -22.5px;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.3);
+  z-index: 200;
+  background: rgba(255, 255, 255, 0.5);
   fill: white;
   -webkit-transition: background 300ms, fill 300ms;
   transition: background 300ms, fill 300ms;
 }
 .no-touch .view .nav .down:hover, .no-touch .view .nav .up:hover, .no-touch .view .nav .what-is-resilience:hover {
-  background: rgba(0, 0, 0, 0.6);
+  background: white;
   fill: white;
   cursor: pointer;
 }
@@ -706,6 +746,33 @@ ul.innernav li:hover {
 .view .nav svg.icon {
   width: 45px;
   height: 45px;
+}
+
+ul.familytree {
+  cursor: pointer;
+  padding: 0px;
+  list-style: none;
+  text-align: center;
+  max-width: 850px;
+  width: 100%;
+  height: 10%;
+  margin: 0 auto;
+  position: relative;
+}
+ul.familytree li {
+  float: left;
+  margin-right: 1%;
+  margin-left: 1%;
+}
+ul.familytree li:hover {
+  color: white;
+}
+ul.familytree li img {
+  height: auto;
+  width: 117.33333px;
+}
+ul.familytree li p {
+  margin-top: -10px;
 }
 
 .block {
@@ -821,11 +888,66 @@ ul.innernav li:hover {
   color: white;
 }
 .block .pos-left-bottom {
-  display: table-cell;
-  vertical-align: bottom;
+  margin-top: 20%;
   text-align: left;
-  color: white;
-  padding-bottom: 6.5em;
+}
+.block .pos-left-bottom .column {
+  position: relative;
+  float: left;
+  width: 50%;
+  padding: 0px 1.5em 1em 1.5em;
+}
+.block .pos-left-bottom .column .column.left {
+  padding-left: 0px;
+}
+.block .pos-left-bottom .column .column.right {
+  padding-right: 0px;
+}
+.block .pos-left-bottom .column img.small {
+  width: 49%;
+  height: auto;
+  position: relative;
+  padding: 1%;
+  float: left;
+  display: block;
+}
+.block .pos-left-bottom .column h1 {
+  margin-bottom: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.block .pos-left-bottom .column h2 {
+  font-weight: normal;
+  font-size: 1.1em;
+  color: #555555;
+  margin-bottom: 2em;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.block .pos-left-bottom .column p {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.block .pos-left-bottom .column p strong {
+  color: red;
+}
+.block .pos-left-bottom .column p.pullquote {
+  font-size: 1.5em;
+  padding-left: 1em;
+}
+.block .pos-left-bottom .column p.pullquote i {
+  font-size: 0.75em;
+}
+.block .pos-left-bottom .column p.references {
+  font-size: 0.8em;
+}
+.block .pos-left-bottom .column p.references ul {
+  list-style: none;
+  padding: 1em;
+}
+.block .pos-left-bottom .column p.references ul li {
+  margin-bottom: 1em;
+  font-size: 0.8em;
 }
 .block .pos-fully-centre {
   display: table-cell;
@@ -850,6 +972,32 @@ ul.innernav li:hover {
 .block .pos-fully-centre .title {
   width: auto;
   height: 100%;
+}
+.block .pos-fully-centre .column {
+  position: relative;
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+.block .pos-fully-centre .column h1 {
+  margin-bottom: 10px;
+}
+.block .pos-fully-centre .column h2 {
+  font-weight: normal;
+  font-size: 1.1em;
+  color: #555555;
+  margin-bottom: 2em;
+}
+.block .pos-fully-centre .column p.references {
+  font-size: 0.8em;
+}
+.block .pos-fully-centre .column p.references ul {
+  list-style: none;
+  padding: 1em;
+}
+.block .pos-fully-centre .column p.references ul li {
+  margin-bottom: 1em;
+  font-size: 0.8em;
 }
 .block .pos-title {
   position: absolute;
@@ -899,14 +1047,14 @@ ul.innernav li:hover {
 
 h1, h2, h3, h4, h5 h6, p {
   position: relative;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   margin-bottom: 1em;
 }
 
 .bg {
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
   padding: 1em;
   margin: 0 auto;
   background: rgba(0, 0, 0, 0.35);
@@ -926,6 +1074,9 @@ h1, h2, h3, h4, h5 h6, p {
   text-transform: uppercase;
 }
 
+.block {
+  overflow-y: scroll;
+}
 .block .infograph {
   position: absolute;
   z-index: 0;

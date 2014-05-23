@@ -14,28 +14,28 @@ dirs.directive('pageNav', [ '$rootScope', function( $rootScope ){
 	}
 }]);
 
-dirs.directive('wir', ['$rootScope', '$timeout', 'jumpTo', function($rootScope, $timeout, jumpTo) {
-	return {
-		restrict: 'E',
-		templateUrl: 'partials/_whatIsResilience.html',
-		link: function( $scope, element, attrs ) {
-			attrs.$observe('wirSection', function(newVal) {
-				if (+newVal > 0) {
-					var s = angular.element(element).find('section').eq(newVal-1);
+// dirs.directive('wir', ['$rootScope', '$timeout', 'jumpTo', function($rootScope, $timeout, jumpTo) {
+// 	return {
+// 		restrict: 'E',
+// 		templateUrl: 'partials/_whatIsResilience.html',
+// 		link: function( $scope, element, attrs ) {
+// 			attrs.$observe('wirSection', function(newVal) {
+// 				if (+newVal > 0) {
+// 					var s = angular.element(element).find('section').eq(newVal-1);
 
-					/**
-					 * This timeout is needed to make sure the element is in the DOM first.
-					 */
-					$timeout(function() {
-						jumpTo(s, 'what-is-resilience');
-					});
+// 					/**
+// 					 * This timeout is needed to make sure the element is in the DOM first.
+// 					 */
+// 					$timeout(function() {
+// 						jumpTo(s, 'what-is-resilience');
+// 					});
 					
 					
-				}		
-			});
-		}
-	}
-}]);
+// 				}		
+// 			});
+// 		}
+// 	}
+// }]);
 
 dirs.directive('block', function( $animate ){
 	return {
@@ -61,247 +61,247 @@ dirs.directive('block', function( $animate ){
 
 
 
-dirs.directive('poster', [ function(){
-	return {
-		link: function( $scope, element, attrs ){
+// dirs.directive('poster', [ function(){
+// 	return {
+// 		link: function( $scope, element, attrs ){
 
-		}
-	}
-}]);
+// 		}
+// 	}
+// }]);
 
 
 // cover/contain
 
-dirs.directive('cover',function( $parse ){
-	return {
-		restrict: 'A',
-		priority: -100,
-		link: function( $scope, element, attrs ){
-			if( typeof attrs.cover === 'undefined' ) return;
+// dirs.directive('cover',function( $parse ){
+// 	return {
+// 		restrict: 'A',
+// 		priority: -100,
+// 		link: function( $scope, element, attrs ){
+// 			if( typeof attrs.cover === 'undefined' ) return;
 
-			var ratio  = $parse(attrs.cover)(),
-				w, h, t, l;
-			if( !ratio ) return;
+// 			var ratio  = $parse(attrs.cover)(),
+// 				w, h, t, l;
+// 			if( !ratio ) return;
 
-			var resize = function(){
+// 			var resize = function(){
 
-				w = window.innerWidth;
-				h = w * ratio;
+// 				w = window.innerWidth;
+// 				h = w * ratio;
 				    
-			    if(h < window.innerHeight) {
-			        h = window.innerHeight;
-			        w = h / ratio;
-			    }
+// 			    if(h < window.innerHeight) {
+// 			        h = window.innerHeight;
+// 			        w = h / ratio;
+// 			    }
 
-			    t = (window.innerHeight - h) / 2;
-			    l = (window.innerWidth - w) / 2;
+// 			    t = (window.innerHeight - h) / 2;
+// 			    l = (window.innerWidth - w) / 2;
 
-			    // element[0].style.transform = 
-				element.css({
-					'transform':         'translate(' + l + 'px, ' + t + 'px)',
-					'-webkit-transform': 'translate(' + l + 'px, ' + t + 'px)',
-					'-moz-transform':    'translate(' + l + 'px, ' + t + 'px)',
+// 			    // element[0].style.transform = 
+// 				element.css({
+// 					'transform':         'translate(' + l + 'px, ' + t + 'px)',
+// 					'-webkit-transform': 'translate(' + l + 'px, ' + t + 'px)',
+// 					'-moz-transform':    'translate(' + l + 'px, ' + t + 'px)',
 
-					'width':  w + 'px',
-					'height': h + 'px'
-				})
-			}	
+// 					'width':  w + 'px',
+// 					'height': h + 'px'
+// 				})
+// 			}	
 
-			$scope.$on( 'resize', resize )
-			resize();
+// 			$scope.$on( 'resize', resize )
+// 			resize();
 
-		}
-	}
-});
+// 		}
+// 	}
+// });
 
 
-dirs.directive('contain',function( $parse ){
-	return {
-		restrict: 'A',
-		priority: -100,
-		link: function( $scope, element, attrs ){
-			if( typeof attrs.contain === 'undefined' ) return;
+// dirs.directive('contain',function( $parse ){
+// 	return {
+// 		restrict: 'A',
+// 		priority: -100,
+// 		link: function( $scope, element, attrs ){
+// 			if( typeof attrs.contain === 'undefined' ) return;
 
-			var ratio  = $parse(attrs.contain)(),
-				w, h, t, l;
-			if( !ratio ) return;
+// 			var ratio  = $parse(attrs.contain)(),
+// 				w, h, t, l;
+// 			if( !ratio ) return;
 
-			var resize = function(){
+// 			var resize = function(){
 
-				w = window.innerWidth;
-			  	h = w * ratio;
+// 				w = window.innerWidth;
+// 			  	h = w * ratio;
 			  
-			  	if(h > window.innerHeight) {
-			  		h = window.innerHeight;
-			  		w = h / ratio;
-			  	}
+// 			  	if(h > window.innerHeight) {
+// 			  		h = window.innerHeight;
+// 			  		w = h / ratio;
+// 			  	}
 			  
-			  	t = (window.innerHeight - h) / 2;
-				l = (window.innerWidth - w) / 2;
+// 			  	t = (window.innerHeight - h) / 2;
+// 				l = (window.innerWidth - w) / 2;
 
-			    // element[0].style.transform = 
-				element.css({
-					'transform':         'translate(' + l + 'px, ' + t + 'px)',
-					'-webkit-transform': 'translate(' + l + 'px, ' + t + 'px)',
-					'-moz-transform':    'translate(' + l + 'px, ' + t + 'px)',
+// 			    // element[0].style.transform = 
+// 				element.css({
+// 					'transform':         'translate(' + l + 'px, ' + t + 'px)',
+// 					'-webkit-transform': 'translate(' + l + 'px, ' + t + 'px)',
+// 					'-moz-transform':    'translate(' + l + 'px, ' + t + 'px)',
 
-					'width':  w + 'px',
-					'height': h + 'px'
-				})
-			}	
+// 					'width':  w + 'px',
+// 					'height': h + 'px'
+// 				})
+// 			}	
 
-			$scope.$on( 'resize', resize )
-			resize();
+// 			$scope.$on( 'resize', resize )
+// 			resize();
 
-		}
-	}
-});
+// 		}
+// 	}
+// });
 
 
 
-dirs.directive('videoPlayer', function(){
-	return {
-		restrict: 'E',
-		priority: 10,
-		scope: {},
-		template: '<div class="video-player pos-fill"><video width=100% loop=true src="{{src}}"></video></div>',
+// dirs.directive('videoPlayer', function(){
+// 	return {
+// 		restrict: 'E',
+// 		priority: 10,
+// 		scope: {},
+// 		template: '<div class="video-player pos-fill"><video width=100% loop=true src="{{src}}"></video></div>',
 
-		link: function( $scope, element, attrs ){
+// 		link: function( $scope, element, attrs ){
 
-			if( !attrs.vidSrc ) return;
+// 			if( !attrs.vidSrc ) return;
 
-			// FIX ME proper ratio passing
-			if( !attrs.ratio ) attrs.ratio = 9/16;
-			$scope.ratio = attrs.ratio;
+// 			// FIX ME proper ratio passing
+// 			if( !attrs.ratio ) attrs.ratio = 9/16;
+// 			$scope.ratio = attrs.ratio;
 
-			$scope.src = attrs.vidSrc;
-		},
+// 			$scope.src = attrs.vidSrc;
+// 		},
 
-		controller: function( $scope, $element ){
+// 		controller: function( $scope, $element ){
 
-			var video = $element.find('video')[0]
+// 			var video = $element.find('video')[0]
 
-			// auto play/pause
+// 			// auto play/pause
 
-			var blockIndex = $element.closest('.block').index();
+// 			var blockIndex = $element.closest('.block').index();
 
-			 $scope.$parent.$parent.$watch( 'currentBlock', function(n,o){
-				console.log('BLOCK CHANGE -> ' + n)
+// 			 $scope.$parent.$parent.$watch( 'currentBlock', function(n,o){
+// 				console.log('BLOCK CHANGE -> ' + n)
 				
-				if( n == blockIndex ){
-					console.log('PLAY')
+// 				if( n == blockIndex ){
+// 					console.log('PLAY')
 					
-					setTimeout(function() {
-						video.play();
-					}, 500);
+// 					setTimeout(function() {
+// 						video.play();
+// 					}, 500);
 
-				} else if( n != blockIndex && !video.paused ){
-					console.log('PAUSE')
-					video.pause();
-				}
-			});
+// 				} else if( n != blockIndex && !video.paused ){
+// 					console.log('PAUSE')
+// 					video.pause();
+// 				}
+// 			});
 
-		}
-	}
-});
+// 		}
+// 	}
+// });
 
-dirs.directive('imgPan',function($animate){
-	return {
-		restrict: 'E',
-		priority: 10,
-		scope: {},
-		template: '<div class="img-pan-vert"><img id="{{id}}" src="{{src}}"></></div>',
+// dirs.directive('imgPan',function($animate){
+// 	return {
+// 		restrict: 'E',
+// 		priority: 10,
+// 		scope: {},
+// 		template: '<div class="img-pan-vert"><img id="{{id}}" src="{{src}}"></></div>',
 
-		link: function( $scope, element, attrs ){
-			if( !attrs.imgSrc ) return;
-			$scope.src = attrs.imgSrc;
-			$scope.id = attrs.imgId;
+// 		link: function( $scope, element, attrs ){
+// 			if( !attrs.imgSrc ) return;
+// 			$scope.src = attrs.imgSrc;
+// 			$scope.id = attrs.imgId;
 
-			$scope.panImg = $(element).find('img');
+// 			$scope.panImg = $(element).find('img');
 
-			console.log($scope.panImg)
+// 			console.log($scope.panImg)
 
-			// $animate.addClass( $scope.panImg, 'pan-down', function(){
-			// //console.log($animate)
-			// })
+// 			// $animate.addClass( $scope.panImg, 'pan-down', function(){
+// 			// //console.log($animate)
+// 			// })
 
-			setTimeout(function(){$scope.panImg.addClass('pan-down')},1000)
+// 			setTimeout(function(){$scope.panImg.addClass('pan-down')},1000)
 
-			//$scope.panImg.addClass('pan-down')
-		}
-	}
-})
-
-
-dirs.directive('youtubePlayer',function(){
-	return {
-		restrict: 'E',
-		priority: 10,
-		scope: {},
-		template: '<div id="v-player-{{id}}" class="video-player pos-fill"></div>',
-
-		link: function( $scope, element, attrs ){
-			if( !attrs.vidSrc ) return;
-			$scope.id = attrs.vidSrc;
-		// },
-
-		// controller: function( $scope, $element, $attrs ){
-
-			var player,
-				isReady = false,
-				state = 0;
-
-			window.onYouTubeIframeAPIReady = function(){
-
-				function onPlayerReady(){	
-					console.log("player ready")		
-					isReady = true;
-				}
-
-				function onPlayerStateChange(evt){
-					console.log(evt.data)
-
-				}
-
-				setTimeout(function(){	
-					player = new YT.Player( 'v-player-' + attrs.vidSrc, {
-					videoId: attrs.vidSrc,
-					playerVars: {rel: 0, showinfo: 0},
-					events: {
-                    	'onReady': onPlayerReady,
-                    	'onStateChange': onPlayerStateChange
-					}
-				});},1000)
-
-			}
+// 			//$scope.panImg.addClass('pan-down')
+// 		}
+// 	}
+// })
 
 
-			YT.ready( onYouTubeIframeAPIReady )
+// dirs.directive('youtubePlayer',function(){
+// 	return {
+// 		restrict: 'E',
+// 		priority: 10,
+// 		scope: {},
+// 		template: '<div id="v-player-{{id}}" class="video-player pos-fill"></div>',
+
+// 		link: function( $scope, element, attrs ){
+// 			if( !attrs.vidSrc ) return;
+// 			$scope.id = attrs.vidSrc;
+// 		// },
+
+// 		// controller: function( $scope, $element, $attrs ){
+
+// 			var player,
+// 				isReady = false,
+// 				state = 0;
+
+// 			window.onYouTubeIframeAPIReady = function(){
+
+// 				function onPlayerReady(){	
+// 					console.log("player ready")		
+// 					isReady = true;
+// 				}
+
+// 				function onPlayerStateChange(evt){
+// 					console.log(evt.data)
+
+// 				}
+
+// 				setTimeout(function(){	
+// 					player = new YT.Player( 'v-player-' + attrs.vidSrc, {
+// 					videoId: attrs.vidSrc,
+// 					playerVars: {rel: 0, showinfo: 0},
+// 					events: {
+//                     	'onReady': onPlayerReady,
+//                     	'onStateChange': onPlayerStateChange
+// 					}
+// 				});},1000)
+
+// 			}
 
 
-			// auto play/pause
-
-			var blockIndex = element.closest('.block').index();
+// 			YT.ready( onYouTubeIframeAPIReady )
 
 
-			 $scope.$parent.$parent.$watch( 'currentBlock', function(n,o){
-				console.log('BLOCK CHANGE -> ' + n)
+// 			// auto play/pause
+
+// 			var blockIndex = element.closest('.block').index();
+
+
+// 			 $scope.$parent.$parent.$watch( 'currentBlock', function(n,o){
+// 				console.log('BLOCK CHANGE -> ' + n)
 				
-				if( n == blockIndex ){
+// 				if( n == blockIndex ){
 				
-					if( isReady ) 
-						player.playVideo();
+// 					if( isReady ) 
+// 						player.playVideo();
 						
-				} else if( n != blockIndex ){
-					if( isReady ) 
-						player.pauseVideo();
-				}
+// 				} else if( n != blockIndex ){
+// 					if( isReady ) 
+// 						player.pauseVideo();
+// 				}
 
-			});
+// 			});
 
-		}
-	}
-});
+// 		}
+// 	}
+// });
 
 
 
@@ -452,9 +452,14 @@ dirs.directive('day',function( $location, $rootScope, $animate, $document, $time
 
 					$animate.removeClass( $( $scope.blocks[o+1] ), 'next' )
 				}
+				// $root.states.shouldCollapseNav
 
-				if( n > 0 ) $rootScope.shouldCollapseNav = true;
-				else        $rootScope.shouldCollapseNav = false;
+				// if( n > 1 ) $rootScope.states.shouldCollapseNav = true;
+				// else        $rootScope.states.shouldCollapseNav = false;
+
+
+				// if( n > 0 ) $rootScope.shouldCollapseNav = false;
+				// else        $rootScope.shouldCollapseNav = true;
 
 			});
 
@@ -549,45 +554,45 @@ dirs.directive('bgPan',function( $timeout ){
 	}
 });
 
-dirs.directive('hotSpot', ['$rootScope', function($rootScope) {
-	return {
-		restrict: 'E',
-		scope: {
-			hotSpotActive: '@'
-		},
-		transclude: true,
-		replace: true,
-		template: '<div class="hot-spot" ng-class="{active: hotSpotActive}">' +
-					'<div class="hot-spot-content" ng-transclude></div>' +
-					'<div class="hot-spot-toggle">' +
-						'<svg class="icon" viewBox="0 0 100 100"><use xlink:href="#icon-cross" class="icon-plus"></use><use xlink:href="#icon-minus" class="icon-minus"></use></svg>' +
-					'</div>' +
-				  '</div>',
-		link: function( $scope, element, attrs ) {
-			$scope.el = element;
-			element[0].style.top = attrs.top + '%';
-			element[0].style.right = attrs.right + '%';
+// dirs.directive('hotSpot', ['$rootScope', function($rootScope) {
+// 	return {
+// 		restrict: 'E',
+// 		scope: {
+// 			hotSpotActive: '@'
+// 		},
+// 		transclude: true,
+// 		replace: true,
+// 		template: '<div class="hot-spot" ng-class="{active: hotSpotActive}">' +
+// 					'<div class="hot-spot-content" ng-transclude></div>' +
+// 					'<div class="hot-spot-toggle">' +
+// 						'<svg class="icon" viewBox="0 0 100 100"><use xlink:href="#icon-cross" class="icon-plus"></use><use xlink:href="#icon-minus" class="icon-minus"></use></svg>' +
+// 					'</div>' +
+// 				  '</div>',
+// 		link: function( $scope, element, attrs ) {
+// 			$scope.el = element;
+// 			element[0].style.top = attrs.top + '%';
+// 			element[0].style.right = attrs.right + '%';
 
-			element.bind('click', function() {
-				$scope.$apply(function() {
-					$scope.hotSpotActive = !$scope.hotSpotActive;
-				});
-			});
-		}
-	}
-}]);
+// 			element.bind('click', function() {
+// 				$scope.$apply(function() {
+// 					$scope.hotSpotActive = !$scope.hotSpotActive;
+// 				});
+// 			});
+// 		}
+// 	}
+// }]);
 
-dirs.directive('modal', function(){
-	return {
-		restrict: 'E',
-		scope: true,
-		//replace: true,
-		template: '<div class="modal-outer" ng-show="modalContent.indexOf(\'.html\') > 0"><div class="modal-content" ng-include="modalContent"></div><div class="modal-close" ng-click="closeModal();">Close</div></div>',
-		controller: function($scope, $rootScope) {
-			$scope.closeModal = function() {
-        		$rootScope.modalContent = null;
-    		}
-		}
-	}
-});
+// dirs.directive('modal', function(){
+// 	return {
+// 		restrict: 'E',
+// 		scope: true,
+// 		//replace: true,
+// 		template: '<div class="modal-outer" ng-show="modalContent.indexOf(\'.html\') > 0"><div class="modal-content" ng-include="modalContent"></div><div class="modal-close" ng-click="closeModal();">Close</div></div>',
+// 		controller: function($scope, $rootScope) {
+// 			$scope.closeModal = function() {
+//         		$rootScope.modalContent = null;
+//     		}
+// 		}
+// 	}
+// });
 
