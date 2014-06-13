@@ -212,21 +212,23 @@ table {
   overflow: hidden;
 }
 
-.block .what-is-resilience {
-  position: fixed;
-  text-align: center;
-  left: 50%;
-  margin-left: -2.5em;
-  cursor: pointer;
-  background: rgba(0, 0, 0, 0.3);
-  fill: white;
-  -webkit-transition: background 300ms, fill 300ms;
-  transition: background 300ms, fill 300ms;
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
 }
-.no-touch .block .what-is-resilience:hover, .block .no-touch .what-is-resilience:hover {
-  background: rgba(0, 0, 0, 0.6);
-  fill: white;
-  cursor: pointer;
+.video-wrapper object, .video-wrapper embed, .video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+audio {
+  width: 100%;
+  background-color: white;
 }
 
 body {
@@ -425,9 +427,29 @@ body {
 }
 #nav .metadata {
   position: fixed;
-  top: 0;
+  top: -35%;
   z-index: 100;
   width: 100%;
+  height: 35%;
+  overflow: hidden;
+  background: white;
+  -webkit-transition-delay: 500ms;
+  transition-delay: 500ms;
+  -webkit-transition: -webkit-box-shadow 300ms linear;
+  transition: box-shadow 300ms linear;
+  transition: top 300ms linear;
+  -webkit-box-shadow: 0px 10px 5px 0px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 10px 5px 0px rgba(50, 50, 50, 0.5);
+}
+#nav .metadata.shadowOn {
+  -webkit-box-shadow: 0px 10px 5px 0px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 10px 5px 0px rgba(50, 50, 50, 0.5);
+  top: 0;
+  -webkit-transition-delay: 500ms;
+  transition-delay: 500ms;
+  -webkit-transition: -webkit-box-shadow 500ms linear;
+  transition: box-shadow 500ms linear;
+  transition: top 300ms linear;
 }
 #nav .metadata .inner {
   position: relative;
@@ -445,6 +467,10 @@ body {
   -webkit-transition: all 300ms linear;
   transition: all 300ms linear;
   display: inline-block !important;
+}
+#nav .metadata .inner.shouldHide.ng-hide-remove {
+  -webkit-transition-delay: 500ms;
+  transition-delay: 500ms;
 }
 #nav .metadata .inner.shouldHide.ng-hide-add.ng-hide-add-active, #nav .metadata .inner.shouldHide.ng-hide-remove {
   -webkit-transform: translateY(-100%);
@@ -574,25 +600,9 @@ body {
   z-index: 100;
   height: 17%;
 }
-#nav .timeline.shouldHide {
-  display: inline-block;
-}
-#nav .timeline.shouldHide.ng-hide-add, #nav .timeline.shouldHide.ng-hide-remove {
-  -webkit-transition: all 500ms linear;
-  transition: all 500ms linear;
-  display: inline-block !important;
-}
-#nav .timeline.shouldHide.ng-hide-add.ng-hide-add-active, #nav .timeline.shouldHide.ng-hide-remove {
-  -webkit-transform: translateY(115%);
-  -ms-transform: translateY(115%);
-  transform: translateY(115%);
-}
-#nav .timeline.shouldHide.ng-hide-add, #nav .timeline.shouldHide.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transform: translateY(85%);
-  -ms-transform: translateY(85%);
-  transform: translateY(85%);
-}
 #nav .timeline img {
+  position: relative;
+  margin-top: 2.2em;
   width: 100%;
   height: auto;
 }
@@ -676,7 +686,8 @@ ul.innernav li:hover {
 }
 
 .view {
-  overflow-y: scroll;
+  overflow-y: hidden;
+  overflow-x: hidden;
   position: absolute;
   top: 0;
   left: 0;
@@ -806,6 +817,8 @@ ul.familytree li p {
   min-height: 100%;
   width: 100%;
   display: none;
+  overflow-y: hidden;
+  padding: 0px;
   background-repeat: no-repeat;
   background-position: 50%;
   background-size: cover;
@@ -814,13 +827,6 @@ ul.familytree li p {
   -webkit-transition-delay: 50ms;
   transition-delay: 50ms;
   background-color: black;
-}
-.block .what-is-resilience {
-  bottom: 0;
-  margin-bottom: 1em;
-  border-radius: 100%;
-  width: 45px;
-  height: 45px;
 }
 .block svg.icon {
   width: 45px;
@@ -907,20 +913,67 @@ ul.familytree li p {
   height: 30px;
   fill: white;
 }
-.block .pos-left {
-  display: table-cell;
-  vertical-align: middle;
+.block .content {
   text-align: left;
-  color: white;
+  width: 100%;
+  overflow-y: scroll;
+  position: absolute;
+  height: 100%;
+  bottom: 0%;
+  vertical-align: bottom;
+  -webkit-transition: margin 500ms linear;
+  transition: margin 500ms linear;
+  -webkit-transition-delay: 500ms;
+  transition-delay: 500ms;
+  padding-top: 25%;
+}
+.block .content .wrapper {
+  margin: 0% 10% 0%;
+  width: 80%;
+}
+.block .content .wrapper img {
+  -webkit-box-shadow: 5px 5px 55px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 5px 5px 55px -2px rgba(0, 0, 0, 0.75);
 }
 .block .pos-left-bottom {
   text-align: left;
-  margin: 20% auto 0%;
-  max-width: 90%;
+}
+.block .pos-left-bottom .leadblock {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding: 15% 0%;
+}
+.block .pos-left-bottom .leadblock.first {
+  padding-top: 0%;
+}
+.block .pos-left-bottom .leadblock.first {
+  padding-bottom: 25%;
+}
+.block .pos-left-bottom .leadblock img {
+  height: 70%;
+  margin-bottom: 3%;
+}
+.block .pos-left-bottom .leadblock h1 {
+  margin-bottom: 0.5em;
+}
+.block .pos-left-bottom .leadblock .firstimage {
+  height: 400px;
+  width: 400px;
+  display: block;
+  position: relative;
+  left: 50%;
+  margin-left: -200px;
+  background-size: cover;
+  margin-bottom: 3%;
+  border-radius: 200px;
+  overflow: visible;
 }
 .block .pos-left-bottom .column {
-  position: relative;
-  float: left;
+  top: 0px;
+  vertical-align: top;
+  text-align: left;
+  display: inline-block;
   width: 50%;
   padding: 0px 1.5em 1em 1.5em;
 }
@@ -930,30 +983,25 @@ ul.familytree li p {
 .block .pos-left-bottom .column .column.right {
   padding-right: 0px;
 }
-.block .pos-left-bottom .column img {
-  -webkit-box-shadow: 5px 5px 55px -2px rgba(0, 0, 0, 0.75);
-  box-shadow: 5px 5px 55px -2px rgba(0, 0, 0, 0.75);
+.block .pos-left-bottom .column .column.credit p i {
+  font-size: 0.8em;
+  color: #555555;
 }
-.block .pos-left-bottom .column img.small {
+.block .pos-left-bottom .column .column.small {
   width: 49%;
   height: auto;
-  position: relative;
   padding: 1%;
-  float: left;
   display: block;
 }
-.block .pos-left-bottom .column h1 {
-  margin-bottom: 10px;
-  margin-left: 0px;
-  margin-right: 0px;
+.block .pos-left-bottom .column img {
+  width: 100%;
+  height: auto;
 }
-.block .pos-left-bottom .column h2 {
-  font-weight: normal;
-  font-size: 1.1em;
-  color: #555555;
-  margin-bottom: 2em;
-  margin-left: 0px;
-  margin-right: 0px;
+.block .pos-left-bottom .column img.tall {
+  width: auto;
+  height: 30%;
+  margin: 0 auto;
+  position: relative;
 }
 .block .pos-left-bottom .column p {
   margin-left: 0px;
@@ -981,20 +1029,29 @@ ul.familytree li p {
   font-size: 0.8em;
 }
 .block .pos-bottom-centre {
-  position: relative;
-  margin: 10% auto 0px auto;
+  position: absolute;
+  overflow-y: scroll;
+  height: 77%;
   bottom: 0px;
+  width: 100%;
   text-align: center;
+}
+.block .pos-bottom-centre p {
+  text-align: left;
+  max-width: 600px;
 }
 .block .pos-bottom-centre .chptDeco {
   width: 35%;
   height: auto;
   margin-bottom: -20px;
 }
+.block .pos-bottom-centre video {
+  margin-bottom: 5%;
+}
 .block .pos-bottom-centre .paragraph-width {
   position: relative;
   max-width: 35%;
-  margin: 0px auto 80px auto;
+  margin: 0px auto 2% auto;
 }
 .block .pos-bottom-centre .paragraph-width h1 {
   margin: 0px;
@@ -1117,322 +1174,6 @@ h1, h2, h3, h4, h5 h6, p {
 }
 .pos-title .uppercase {
   text-transform: uppercase;
-}
-
-.block {
-  overflow-y: scroll;
-}
-.block .infograph {
-  position: absolute;
-  z-index: 0;
-  height: 100%;
-  width: 100%;
-}
-.block .infograph .headerblock {
-  color: #555555;
-  text-align: center;
-  padding-top: 10%;
-  padding-bottom: 10%;
-  width: 100%;
-  height: 100%;
-}
-.block .infograph .headerblock h1 {
-  font-size: 4em;
-  margin-top: 5%;
-}
-@media (max-width: 600px) {
-  .block .infograph .headerblock h1 {
-    margin-top: 20%;
-  }
-}
-@media (min-width: 600px) {
-  .block .infograph .headerblock h1 {
-    margin-top: 0%;
-  }
-}
-.block .infograph .headerblock h2 {
-  font-size: 2.5em;
-  border: 2px solid #555555;
-  position: relative;
-  width: 20%;
-  padding-bottom: 5px;
-  margin: auto;
-  margin-bottom: 5%;
-}
-@media (min-width: 600px) {
-  .block .infograph .headerblock h2 {
-    width: 30%;
-  }
-}
-@media (max-width: 600px) {
-  .block .infograph .headerblock h2 {
-    width: 80%;
-  }
-}
-.block .infograph .headerblock p {
-  font-size: 1.25em;
-}
-@media (max-width: 600px) {
-  .block .infograph .headerblock p {
-    font-size: 1em;
-    padding: 1em;
-  }
-}
-@media (min-width: 600px) {
-  .block .infograph .headerblock p {
-    font-size: 1.25em;
-  }
-}
-.block .infograph .contentblock {
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  position: relative;
-  background: transparent;
-}
-.block .infograph .contentblock img {
-  width: auto;
-  max-height: 80%;
-  z-index: 1;
-  position: relative;
-}
-@media (max-width: 600px) {
-  .block .infograph .contentblock img {
-    position: relative;
-    margin-top: 50%;
-    left: 0%;
-    height: auto;
-    max-width: 100%;
-  }
-}
-@media (min-width: 600px) {
-  .block .infograph .contentblock img {
-    margin-top: 5%;
-  }
-}
-.block .infograph .contentblock .globe img {
-  margin-top: -10%;
-  width: auto;
-  max-height: 70%;
-}
-@media (max-width: 600px) {
-  .block .infograph .contentblock .globe img {
-    margin-top: 30%;
-    height: auto;
-    max-width: 100%;
-  }
-}
-@media (min-width: 600px) {
-  .block .infograph .contentblock .globe img {
-    margin-top: 0%;
-  }
-}
-.block .infograph .contentblock .row {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding-top: 5%;
-  padding-bottom: 5%;
-}
-.block .infograph .contentblock .row .halfcolumn {
-  position: relative;
-  float: left;
-  width: 50%;
-  background-color: white;
-}
-.block .infograph .contentblock .row .halfcolumn img.flag {
-  margin-bottom: 5%;
-}
-.block .infograph .contentblock .row .halfcolumn h4 {
-  font-size: 1.5em;
-}
-.block .infograph .contentblock .row .halfcolumn ul {
-  list-style: none;
-  padding-left: 0%;
-}
-.block .infograph .contentblock .row .halfcolumn ul li strong {
-  line-height: 2.1em;
-}
-.block .infograph .contentblock .row .text {
-  position: relative;
-  height: auto;
-  margin: auto;
-}
-.block .infograph .contentblock .row .text h3 {
-  background-color: white;
-  color: white;
-  margin: auto;
-  padding: 0.5%;
-  width: 20%;
-  position: relative;
-  font-size: 2.2em;
-}
-@media (min-width: 600px) {
-  .block .infograph .contentblock .row .text h3 {
-    margin-top: 0%;
-    width: 30%;
-  }
-}
-@media (max-width: 600px) {
-  .block .infograph .contentblock .row .text h3 {
-    margin-top: 12%;
-    width: 80%;
-  }
-}
-.block .infograph.sudan .headerblock {
-  background-color: #daddd4;
-}
-.block .infograph.sudan .contentblock .row .text h3 {
-  background-color: #555555;
-  color: white;
-  margin: auto;
-  padding: 0.5%;
-  width: 20%;
-  position: relative;
-  font-size: 2.2em;
-}
-@media (min-width: 600px) {
-  .block .infograph.sudan .contentblock .row .text h3 {
-    margin-top: 0%;
-    width: 30%;
-  }
-}
-@media (max-width: 600px) {
-  .block .infograph.sudan .contentblock .row .text h3 {
-    margin-top: 12%;
-    width: 80%;
-  }
-}
-.block .infograph.sudan .contentblock .row .text .linedivide {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  border-right: 2px dashed #777777;
-}
-.block .infograph.budget {
-  padding: 0%;
-}
-.block .infograph.budget .headerblock {
-  background-color: #91b547;
-  color: white;
-  text-align: center;
-  padding-top: 20%;
-  padding-bottom: 10%;
-  width: 100%;
-  height: 100%;
-}
-.block .infograph.budget .headerblock h1 {
-  max-width: 90%;
-  font-size: 4em;
-}
-.block .infograph.budget .headerblock h1 strong {
-  font-size: 2em;
-}
-@media (max-width: 600px) {
-  .block .infograph.budget .headerblock h1 {
-    margin-top: 20%;
-  }
-  .block .infograph.budget .headerblock h1 strong {
-    font-size: 1em;
-  }
-}
-@media (min-width: 600px) {
-  .block .infograph.budget .headerblock h1 {
-    margin-top: 0%;
-  }
-}
-.block .infograph.budget .headerblock p {
-  font-size: 2.25em;
-  font-weight: bold;
-}
-.block .infograph.budget .contentblock {
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  position: relative;
-  background: transparent;
-  padding: 0%;
-}
-.block .infograph.budget .contentblock img {
-  min-width: 100%;
-  width: auto;
-  height: auto;
-  z-index: 0;
-  position: absolute;
-  margin: 0;
-  left: 0;
-  top: 0;
-}
-@media (max-width: 600px) {
-  .block .infograph.budget .contentblock img {
-    width: auto;
-    height: 100%;
-  }
-}
-.block .infograph.budget .contentblock .row {
-  padding: 0%;
-  background-color: transparent;
-}
-.block .infograph.budget .contentblock .row .text {
-  padding: 0%;
-  margin-top: 10%;
-  position: relative;
-}
-.block .infograph.budget .contentblock .row .text h3 {
-  background-color: transparent;
-  color: black;
-  margin: auto;
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  text-align: center;
-  font-size: 2.2em;
-}
-@media (max-width: 600px) {
-  .block .infograph.budget .contentblock .row .text h3 {
-    margin-top: 12%;
-    width: 100%;
-  }
-}
-.block .infograph.budget .contentblock .row .text p {
-  background-color: transparent;
-  color: black;
-  margin: auto;
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  font-size: 1.25em;
-  text-align: center;
-}
-.block .infograph.budget .contentblock .row .text.white h3 {
-  color: white;
-}
-.block .infograph.budget .contentblock .row .text.white p {
-  color: white;
-}
-
-#what-is-resilience {
-  background: white;
-  height: 100%;
-  overflow: auto;
-  position: fixed;
-  width: 100%;
-}
-
-.wir-menu {
-  color: #222222;
-  left: 10px;
-  position: fixed;
-  top: 100px;
-}
-.wir-menu li {
-  cursor: pointer;
-}
-.wir-menu li:hover {
-  color: #ed1b2e;
 }
 
 .bg-pan img {

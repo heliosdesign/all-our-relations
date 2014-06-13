@@ -41,7 +41,7 @@ dirs.directive('block', function( $animate ){
 	return {
 		restrict: 'C',
 		link: function( $scope, element, attrs ){
-
+		
 			if( attrs.bgImg )
 				element.css( 'background-image', 'url(' + attrs.bgImg + ')' );	
 			
@@ -55,9 +55,114 @@ dirs.directive('block', function( $animate ){
 			}
 
 			$(element).attr( 'index', element.index() )
+
 		}
 	}
 });
+
+dirs.directive('firstimage', function( $animate ){
+	return {
+		restrict: 'C',
+		link: function( $scope, element, attrs ){
+		
+			if( attrs.bgImg )
+				element.css( 'background-image', 'url(' + attrs.bgImg + ')' );	
+			
+			if( attrs.bgCol )
+				element.css( 'background-color', attrs.bgCol );
+			else
+				element.css( 'background-color', 'rgba(0,0,0,0)' );
+ 
+		}
+	}
+});
+
+dirs.directive('content', function( $animate ){
+	return {
+		restrict: 'C',
+		link: function( $scope, element, attrs ){
+
+			// console.log('its working');
+
+			// var scrollX= -1;
+			// var scrollY= -1;
+			
+			angular.element(element[0]).bind("scroll", function() {
+			    // not the most exciting thing, but a thing nonetheless
+			    var scrollX = (this.x || element[0].scrollLeft) - element[0].scrollLeft;
+			    var scrollY = (this.y || element[0].scrollTop) - element[0].scrollTop;
+			    
+			    this.x = element[0].scrollLeft;
+			    this.y = element[0].scrollTop;
+			    
+			    test(scrollX, scrollY);
+			    // console.log(scrollX, scrollY);
+			   	// console.log('scrolling');
+			});
+			// window.onscroll=function (element) {
+			     
+			
+			// };
+
+			function test(scrollX, scrollY){
+			    
+			    var directionX = !scrollX ? "NONE" : scrollX>0 ? "LEFT" : "RIGHT";
+			    var directionY = !scrollY ? "NONE" : scrollY>0 ? "UP" : "DOWN";
+
+			    var timerCheck=true;
+
+			    if (directionY=="UP" || scrollY == 0) {
+			    	$rootScope.$apply(function() {
+			    		if (timerCheck===true) {
+			    			$rootScope.states.shouldCollapseNav=false;
+			    			$rootScope.states.logoCollapse=false;
+			    			timerCheck=false
+			    		};
+			    		
+			    	});
+			    	// angular.element('.metadata').removeClass('shadowOn');
+			    }else{
+			    	$rootScope.$apply(function() {
+			    		$rootScope.states.shouldCollapseNav=true;
+			    		$rootScope.states.logoCollapse=true;
+
+			    		setTimeout(function() {
+			    			if(timerCheck===false){
+			    				timerCheck=true;
+			    			}
+			    		}, 5000);
+			    	});
+			    	
+			    	// angular.element('.metadata').addClass('shadowOn');
+
+			    };
+			    // console.log('scrolling2');
+
+			    console.log($rootScope.states.logoCollapse);
+			    // console.log($rootScope.states.shouldCollapseNav);
+			    
+			    console.log(directionX, scrollX, directionY, scrollY);
+			}
+		}
+	}
+});
+
+// dirs.directive('metadata', function( $animate ){
+// 	return {
+// 		restrict: 'C',
+// 		link: function( $scope, element, attrs ){
+// 			if ($rootScope.states.shouldCollapseNav===false) {
+// 				// console.log($rootScope.states.shouldCollapseNav);
+// 					angular.element(element[0]).addClass('shadowOn');
+
+// 			}else{
+// 				angular.element(element[0]).removeClass('shadowOn');
+// 			};
+			
+// 		}
+// 	}
+// });
+
 
 
 
@@ -243,6 +348,8 @@ dirs.directive('youtubePlayer',function(){
 		link: function( $scope, element, attrs ){
 			if( !attrs.vidSrc ) return;
 			$scope.id = attrs.vidSrc;
+
+
 		// },
 
 		// controller: function( $scope, $element, $attrs ){
@@ -318,6 +425,8 @@ dirs.directive('day',function( $location, $rootScope, $animate, $document, $time
 		templateUrl: 'partials/_day.html',
 		link: function( $scope, element, attrs ){
 
+
+
 			if( $rootScope.debug ) window.$scope = $scope;
 
 
@@ -356,7 +465,16 @@ dirs.directive('day',function( $location, $rootScope, $animate, $document, $time
 			if( $( $scope.blocks[ $scope.currentBlock + 1 ] ) ){
 
 				$( $scope.blocks[ $scope.currentBlock + 1 ] ).addClass('next')
+
 			}
+
+			// if($rootScope.day < 3){
+			// 	$rootScope.states.shouldCollapseNav = true;
+			// }else{
+			// 	$rootScope.states.shouldCollapseNav = false;
+			// }
+
+			
 				
 
 
@@ -448,111 +566,125 @@ dirs.directive('day',function( $location, $rootScope, $animate, $document, $time
 				else {
 					$animate.removeClass( $oldBlock, 'active', function(){
 						$oldBlock.addClass('next')
+
 					})
 
 					$animate.removeClass( $( $scope.blocks[o+1] ), 'next' )
+					
 				}
 				// $root.states.shouldCollapseNav
 
 				// if( n > 1 ) $rootScope.states.shouldCollapseNav = true;
 				// else        $rootScope.states.shouldCollapseNav = false;
 
+				
+
+
 
 				// if( n > 0 ) $rootScope.shouldCollapseNav = false;
 				// else        $rootScope.shouldCollapseNav = true;
 
+
+
 			});
+
+			// if($rootScope.day < 3){
+			// 	$rootScope.states.shouldCollapseNav = true;
+			// }else{
+			// 	$rootScope.states.shouldCollapseNav = false;
+			// }
 
 
 			$scope.$on('$destroy',function(){
 				$document.off('keyup')
+
 			})
 
 		}
 	}
 });
 
-dirs.directive('bgPan',function( $timeout ){
-	return {
-		restrict: 'E',
-		scope: {},
-		template: '<div class="bg-pan pos-fill"><img width="{{imgW}}" height="{{imgH}}" ng-src="{{src}}"></div>',
+// dirs.directive('bgPan',function( $timeout ){
+// 	return {
+// 		restrict: 'E',
+// 		scope: {},
+// 		template: '<div class="bg-pan pos-fill"><img width="{{imgW}}" height="{{imgH}}" ng-src="{{src}}"></div>',
 
-		link: function( $scope, element, attrs ){
-			if( !attrs.img && !attrs.direction ) return;
+// 		link: function( $scope, element, attrs ){
+// 			if( !attrs.img && !attrs.direction ) return;
 			
-			console.log( 'bg-pan: ' + attrs.img )
+// 			console.log( 'bg-pan: ' + attrs.img )
 
-			$scope.src = attrs.img;
-			$scope.imgW = 0;
-			$scope.imgH = 0;
+// 			$scope.src = attrs.img;
+// 			$scope.imgW = 0;
+// 			$scope.imgH = 0;
 
-			var imgRatio = 0,
-				windowRatio = 0,
-				windowW,
-				windowH,
-				mouseX = 0.5,
-				mouseY = 0.5;
+// 			var imgRatio = 0,
+// 				windowRatio = 0,
+// 				windowW,
+// 				windowH,
+// 				mouseX = 0.5,
+// 				mouseY = 0.5;
 
-			var scrollDirection = 'horizontal';
+// 			var scrollDirection = 'horizontal';
 
-			// get image width and height
-			var img = new Image();
-			img.src = $scope.src;
+// 			// get image width and height
+// 			var img = new Image();
+// 			img.src = $scope.src;
 
-			img.onload = function(){
+// 			img.onload = function(){
 
-				var that = this;
+// 				var that = this;
 
-				getWindowSize();
+// 				getWindowSize();
 
-				$timeout(function(){
+// 				$timeout(function(){
 
-					$scope.imgW  = that.width;
-					$scope.imgH = that.height;	
+// 					$scope.imgW  = that.width;
+// 					$scope.imgH = that.height;	
 
-					imgRatio = $scope.imgH / $scope.imgW;
+// 					imgRatio = $scope.imgH / $scope.imgW;
 
-					setImagePos();
-				})
-			}
+// 					setImagePos();
+// 				})
+// 			}
 
-			element.on('mousemove',function(e){
-				var mouseX = e.pageX / windowW,
-					mouseY = e.pageY / windowH;
+// 			element.on('mousemove',function(e){
+// 				var mouseX = e.pageX / windowW,
+// 					mouseY = e.pageY / windowH;
 				
-				console.log( mouseX + ' ' + mouseY)
+// 				console.log( mouseX + ' ' + mouseY)
 
 
-			})
+// 			})
 
 
-			var setImagePos = function(){
+// 			var setImagePos = function(){
 
 
 
-			}
+// 			}
 
-			var getWindowSize = function(){
-				windowW = window.innerWidth;
-				windowH = window.innerHeight;
+// 			var getWindowSize = function(){
+// 				windowW = window.innerWidth;
+// 				windowH = window.innerHeight;
 
-				windowRatio = windowH / windowW;
+// 				windowRatio = windowH / windowW;
 
-			}
+// 			}
 
-			$scope.$parent.$on('resize', function(){
-				getWindowSize();
-				setImagePos();
-			});
+// 			$scope.$parent.$on('resize', function(){
+// 				getWindowSize();
+// 				setImagePos();
+// 			});
 			
 
-			$scope.$on('$destroy',function(){
-				element.off('mousemove');
-			})
-		}
-	}
-});
+// 			$scope.$on('$destroy',function(){
+// 				element.off('mousemove');
+// 			})
+// 		}
+// 	}
+// });
 
 // dirs.directive('hotSpot', ['$rootScope', function($rootScope) {
 // 	return {

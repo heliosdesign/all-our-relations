@@ -53,6 +53,24 @@ $paragraph-width: 800px
     fill:   rgba(255,255,255,1.0)
     cursor: pointer
 
+.video-wrapper 
+  position: relative
+  padding-bottom: 56.25% /* 16:9 */
+  padding-top: 25px
+  height: 0
+
+
+  object, embed, iframe  
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+audio
+  width: 100%
+  background-color: #FFF
+
 // Typography
 // ~~~~~~~~~~
 
@@ -279,6 +297,8 @@ $navheight: 20px
 
       div
         right: 0
+   
+      
 
     &.right
       right: 0px
@@ -292,9 +312,24 @@ $navheight: 20px
 
   .metadata
     position: fixed
-    top: 0
+    top: -35%
     z-index: 100
     width: 100%
+    height: 35%
+    overflow: hidden
+    background: white
+    transition-delay: 500ms
+    transition: box-shadow 300ms linear
+    transition: top 300ms linear
+    box-shadow: 0px 10px 5px 0px rgba(50,50,50,0.5)
+
+    &.shadowOn
+      // height: 30%
+      box-shadow: 0px 10px 5px 0px rgba(50,50,50,0.5)
+      top: 0
+      transition-delay: 500ms
+      transition: box-shadow 500ms linear
+      transition: top 300ms linear
     // height: 5em
     // pointer-events: none
     
@@ -316,6 +351,9 @@ $navheight: 20px
         &.ng-hide-add, &.ng-hide-remove
           transition: all 300ms linear
           display: inline-block !important
+
+        &.ng-hide-remove
+          transition-delay: 500ms
 
         &.ng-hide-add.ng-hide-add-active, &.ng-hide-remove
           transform: translateY(-100%)
@@ -340,11 +378,6 @@ $navheight: 20px
       background: transparent
       color: rgba(255,255,255,1)
       width: 80%
-      // width: 100%
-      // img
-      // // margin-top: 0px
-      //   width: 100%
-      //   height: auto
 
     .branding
       background: transparent
@@ -438,21 +471,13 @@ $navheight: 20px
     position: fixed
     z-index: 100
     height: 17%
-    &.shouldHide
-      display: inline-block
-  
-      &.ng-hide-add, &.ng-hide-remove
-        transition: all 500ms linear
-        display: inline-block !important
-    
-      &.ng-hide-add.ng-hide-add-active, &.ng-hide-remove
-        transform: translateY(115%)
-  
-      &.ng-hide-add, &.ng-hide-remove.ng-hide-remove-active
-        transform: translateY(85%)
+    // background: rgba(255,255,255,0.5)
+    // box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75)
+
 
     img
-      // margin-top: 0px
+      position: relative
+      margin-top: 2.20em
       width: 100%
       height: auto
 
@@ -550,8 +575,8 @@ ul.innernav
 //   ╚═══╝  ╚═╝╚══════╝ ╚══╝╚══╝ 
 
 .view
-  overflow-y: scroll
-  // overflow-x: hidden
+  overflow-y: hidden
+  overflow-x: hidden
   position: absolute
   top: 0
   left: 0
@@ -594,6 +619,7 @@ ul.innernav
   .nav
     text-align: center
     text-transform: uppercase
+    // background: rgba(255,255,255,0.5)
 
     .down, .up, .what-is-resilience
       position: fixed
@@ -676,6 +702,8 @@ ul.familytree
   min-height: 100%
   width: 100%
   display: none
+  overflow-y: hidden
+  padding: 0px
 
   background-repeat: no-repeat
   background-position: 50%
@@ -684,13 +712,7 @@ ul.familytree
   transition-delay: 50ms
   background-color: black
 
-  .what-is-resilience
-    @extend %nav-elements
-    bottom: 0
-    margin-bottom: 1em
-    border-radius: 100%
-    width: 45px
-    height: 45px
+
 
   svg.icon
     width: 45px
@@ -752,64 +774,117 @@ ul.familytree
       fill: rgba(255,255,255,1.0)
 
 
-  .pos-left
-    display: table-cell
-    vertical-align: middle
+  .content
     text-align: left
-    color: white
+    width: 100%
+    overflow-y: scroll
+    position: absolute
+    height: 100%
+    bottom: 0%
+    vertical-align: bottom
+    transition: margin 500ms linear
+    transition-delay: 500ms
+    padding-top: 25%
 
+    &.shadowOn
+      // margin: 0% 5% 0%
+      // transition: margin 500ms linear
+
+    .wrapper
+      margin: 0% 10% 0%
+      width: 80%
+
+      img
+        box-shadow: 5px 5px 55px -2px rgba(0,0,0,0.75)
+  
+      // .pos-left
+      //   display: table-cell
+      //   vertical-align: middle
+      //   text-align: left
+      //   color: white
+    
   .pos-left-bottom
-    // display: table-cell
-    // vertical-align: bottom
     text-align: left
-    margin: 20% auto 0%
-    max-width: 90%
-    // position: absolute
-    // bottom: 0px
-    // &.content
-    //   height: 80%
-    //   overflow: scroll
-    // padding-bottom: 6.5em
+    
+    .leadblock
+      height: 100%
+      width: 100%
+      text-align: center
+      padding: 15% 0%
 
+      &.first
+        padding-top: 0%
+      &.first
+        padding-bottom: 25%
+    
+      img
+        // width: auto
+        height: 70%
+        margin-bottom: 3%
+
+      h1
+        margin-bottom: 0.5em
+
+      .firstimage
+        height: 400px
+        width: 400px
+        display: block
+        position: relative
+        left: 50%
+        margin-left: -200px
+        // background: url(../assets/img/elijahHarper/03b-Harper-1.jpg) no-repeat
+        background-size: cover
+        margin-bottom: 3%
+        border-radius: 200px
+        overflow: visible
+      
+    
     .column
-      position: relative
-      float: left
+      // top: 5px
+      // position: relative
+      // float: left
+      top: 0px
+      vertical-align: top
+      text-align: left
+      display: inline-block
       width: 50%
       padding: 0px 1.5em 1em 1.5em
-
+    
       .column
         &.left
           padding-left: 0px
         &.right
           padding-right: 0px
-      img
-        box-shadow: 5px 5px 55px -2px rgba(0,0,0,0.75)
-
+        &.credit
+          p
+            i
+              font-size: 0.8em
+              color: #555555
+      
+    
         &.small
           width: 49%
           height: auto
-          position: relative
+          // position: relative
           padding: 1%
-          float: left
+          // float: left
           display: block
-      h1
-        margin-bottom: 10px
-        margin-left: 0px
-        margin-right: 0px
-      h2
-        font-weight: normal
-        font-size: 1.1em
-        color: #555555
-        margin-bottom: 2em
-        margin-left: 0px
-        margin-right: 0px
 
+      img
+        width: 100%
+        height: auto
+        &.tall
+          width: auto
+          height: 30%
+          margin: 0 auto
+          position: relative
+    
       p 
         margin-left: 0px
         margin-right: 0px
         strong
           color: #E68A00
-
+    
         &.pullquote
           font-size: 1.5em
           padding-left: 1em
@@ -820,28 +895,34 @@ ul.familytree
         ul
           list-style: none
           padding: 1em
-
+    
           li 
             margin-bottom: 1em
             font-size: 0.8em
 
-  // .pos-left-bottom
-  //   display: table-cell
-  //   vertical-align: bottom
-  //   text-align: left
-  //   color: white
-  //   padding-bottom: 6.5em
-
   .pos-bottom-centre
-    position: relative
-    margin: 10% auto 0px auto
+    position: absolute
+    overflow-y: scroll
+    height: 77%
+    
+    // background-color: #FFF
+    // margin: 10% auto 0px auto
+    // padding: 0px
     bottom: 0px
+    width: 100%
     text-align: center
+
+    p
+      text-align: left
+      max-width: 600px
 
     .chptDeco
       width: 35%
       height: auto
       margin-bottom: -20px
+
+    video
+      margin-bottom: 5%
 
     .paragraph-width
       position: relative
@@ -849,7 +930,7 @@ ul.familytree
       // border-width: 1px 0px 1px 0px
       max-width: 35%
       // padding: 15px
-      margin: 0px auto 80px auto
+      margin: 0px auto 2% auto
       h1
         margin: 0px
         text-transform: uppercase
@@ -882,6 +963,9 @@ ul.familytree
           li 
             margin-bottom: 1em
             font-size: 0.8em
+
+
+
 
 
 
@@ -977,310 +1061,6 @@ h1, h2, h3, h4, h5 h6, p
   .uppercase
     text-transform: uppercase
 
-
-
-//// INFO GRAPH TEST
-$greenbeige: #DADDD4
-$grey:  #555555
-$moneygreen: #91B547
-
-
-.block
-  overflow-y: scroll
-  .infograph
-    position: absolute
-    z-index: 0
-    height: 100%
-    width: 100%
-  
-  
-    .headerblock
-      color: $grey
-      text-align: center
-      padding-top: 10%
-      padding-bottom: 10%
-      width: 100%
-      height: 100%
-  
-      h1
-        font-size: 4em
-        margin-top: 5%
-
-        @include breakpoint(small)
-          margin-top: 20%
-        @include breakpoint(medium)
-          margin-top: 0%
-  
-      h2
-        font-size: 2.5em
-        border: 2px solid $grey
-        position: relative
-        width: 20%
-        padding-bottom: 5px        
-        margin: auto
-        margin-bottom: 5%
-  
-        // @include breakpoint(full)
-        //   width: 20%
-  
-        @include breakpoint(medium)
-          width: 30%
-  
-        @include breakpoint(small)
-          width: 80%
-       
-        // @include breakpoint(medium)
-        // width: 20%
-      
-        
-      p
-        font-size: 1.25em
-        @include breakpoint(small)
-          font-size: 1em
-          padding: 1em
-        @include breakpoint(medium)
-          font-size: 1.25em
-
-
-  
-    .contentblock
-      text-align: center
-      width: 100%
-      height: 100%
-      
-      margin: auto
-      position: relative
-      background: transparent
-  
-  
-      img
-        width: auto
-        max-height: 80%
-        z-index: 1
-        position: relative
-        @include breakpoint(small)
-          position: relative
-          margin-top: 50%
-          left: 0%
-          height: auto
-          max-width: 100%
-        @include breakpoint(medium)
-          margin-top: 5%
-
-
-      .globe
-        img
-          margin-top: -10%
-          width: auto
-          max-height: 70%
-          @include breakpoint(small)
-            margin-top: 30%
-            height: auto
-            max-width: 100%
-          @include breakpoint(medium)
-            margin-top: 0%
-
-      .row
-        position: absolute
-        width: 100%
-        height: 100%
-        text-align: center
-        padding-top: 5%
-        padding-bottom: 5%
-  
-        .halfcolumn
-          position: relative
-          float: left
-          width: 50%
-          background-color: white
-  
-          img.flag
-            margin-bottom: 5%
-    
-          h4
-            font-size: 1.5em
-    
-          ul
-            list-style: none
-            padding-left: 0%
-    
-            li
-              strong
-                line-height: 2.1em
-  
-        .text
-          position: relative
-          height: auto
-          margin: auto
-  
-          h3
-            background-color: white
-            color: white
-            margin: auto
-            padding: .5%
-            width: 20%
-            position: relative
-            font-size: 2.2em
-    
-            @include breakpoint(medium)
-              margin-top: 0%
-              width: 30%
-    
-    
-            @include breakpoint(small)
-              margin-top: 12%
-              width: 80%
-
-  .infograph.sudan
-    .headerblock
-      background-color: $greenbeige
-    .contentblock
-      .row
-        .text
-          h3
-            background-color: $grey
-            color: white
-            margin: auto
-            padding: .5%
-            width: 20%
-            position: relative
-            font-size: 2.2em
-    
-            @include breakpoint(medium)
-              margin-top: 0%
-              width: 30%
-    
-    
-            @include breakpoint(small)
-              margin-top: 12%
-              width: 80%
-  
-          .linedivide
-            height: 100%
-            width: 50%
-            position: fixed
-            border-right: 2px dashed #777777
-
-  .infograph.budget
-    padding: 0%
-
-    .headerblock
-      background-color: $moneygreen
-      color: white
-      text-align: center
-      padding-top: 20%
-      padding-bottom: 10%
-      width: 100%
-      height: 100%
-  
-      h1
-        max-width: 90%
-        font-size: 4em
-        strong
-          font-size: 2em
-        @include breakpoint(small)
-          margin-top: 20%
-          strong
-            font-size: 1em
-        @include breakpoint(medium)
-          margin-top: 0%
-
-      p
-        font-size: 2.25em
-        font-weight: bold
-
-    .contentblock
-      text-align: center
-      width: 100%
-      height: 100%
-      
-      margin: auto
-      position: relative
-      background: transparent
-      padding: 0%
-  
-  
-      img
-        min-width: 100%
-        width: auto
-        height: auto
-        z-index: 0
-        position: absolute
-        margin: 0
-        left:  0
-        top: 0
-        @include breakpoint(small)
-          width: auto
-          height: 100%
-          
-       
-
-      .row
-        padding: 0%
-        background-color: transparent
-        .text
-          padding: 0%
-          margin-top: 10%
-          position: relative
-
-          h3
-            background-color: transparent
-            color: black
-            margin: auto
-            position: relative
-            z-index: 2
-            width: 100%
-            text-align: center
-            font-size: 2.2em
-  
-            @include breakpoint(small)
-              margin-top: 12%
-              width: 100%
-
-          p
-            background-color: transparent
-            color: black
-            margin: auto
-            position: relative
-            z-index: 2
-            width: 100%
-            font-size: 1.25em
-            text-align: center
-
-        .text.white
-          h3
-            color: white
-          p
-            color: white
-
-        
-        
-
-      
-  
-// What is Resilience
-// ~~~~~~~~~~~~~~~~~~
-    
-#what-is-resilience
-  background: $light
-  height: 100%
-  overflow: auto
-  position: fixed
-  width: 100%
-
-.wir-menu
-  color: $dark
-  left: 10px
-  position: fixed
-  top: 100px
-
-  li
-    cursor: pointer
-
-    &:hover
-      color: $red
-
-
 // bg-pan
 // ~~~~~~
 
@@ -1294,7 +1074,7 @@ $moneygreen: #91B547
     transform: translate(0,0)
     transition: all 100ms linear
 
-// // video-player
+
 
 // .video-player
 //   video

@@ -1,9 +1,9 @@
 $(function(){
 
-	var margin = {top: 0, right: 0, bottom: 0, left: 200},
+	var margin = {top: 0, right: 0, bottom: 0, left: 100},
 	    width = window.innerWidth,
-	    iconHeight= 60
-	    height = 230;
+	    iconHeight= 40
+	    height = 210;
 	    
 	var i = 0,
 	    duration = 750,
@@ -152,7 +152,7 @@ $(function(){
 	  if(d.page){
 	  	window.parent.location = "/all-our-relations/app/#/en/day/"+d.page
 	  }else{
-	  	alert('disabled for prototype');
+	  	// alert('disabled for prototype');
 	  }
 	  
 	  update(d);

@@ -7,7 +7,7 @@ $red: #ed1b2e
 $dark:  #222222
 $light: #fff
 
-$paragraph-width: 600px
+$paragraph-width: 800px
 
 @mixin breakpoint($point)
   // < 550px or 35em.
@@ -56,8 +56,10 @@ $paragraph-width: 600px
 // Typography
 // ~~~~~~~~~~
 
-$bodyFont:   'Roboto', sans-serif
-$headingFont: 'Roboto Condensed', sans-serif
+// $bodyFont:   'Roboto', serif
+// $headingFont: 'Roboto Condensed', serif
+$bodyFont:   'Domine', serif
+$headingFont: 'Domine', serif
 
 body
   font-family: $bodyFont
@@ -157,6 +159,10 @@ body
 .icon
   display: inline-block
 
+.backgroundBG
+  img
+    width: 100%
+    min-height: 100%
 
 
 
@@ -175,7 +181,7 @@ $navheight: 20px
   text-align: center
   text-transform: uppercase
   color: $light
-  font-family: 'Oswald'
+  font-family: serif
 
   // text styling for calendar box
 
@@ -221,12 +227,16 @@ $navheight: 20px
     .background
       height: 80px
       width: 74px
-    &.tomorrow
-      div
-      line-height: 40px
-      position: absolute
-      width: 100px
-  
+    // &.tomorrow
+    //   background-color: rgba($dark, 0.5)
+    //   div
+    //     line-height: 40px
+    //     position: absolute
+    //     width: 100%
+    //   .background
+    //     height: 80px
+    //     width: auto
+    
   // Prev/Next Day
   // ~~~~~~~~~~~~~
 
@@ -240,6 +250,16 @@ $navheight: 20px
     //background-color: rgba(0,0,0,0.2)
     height: 80px
     width: 74px
+    z-index: 200
+
+    &.tomorrow 
+      border: 2px solid $light
+      background-color: rgba(0,0,0,0.2)
+      text-align: center
+      width: auto
+      padding: 1%
+      padding-top: 1.5%
+
 
     &:hover use
       fill: $red !important
@@ -251,7 +271,7 @@ $navheight: 20px
       // background-color: rgba(255,255,255,0.5)
     
     &.left, &.right
-      bottom: 0px
+      top: 50%
       margin: 0 1em 1em
 
     &.left
@@ -272,20 +292,28 @@ $navheight: 20px
 
   .metadata
     position: fixed
-    top: 0
+    top: -30%
     z-index: 100
     width: 100%
+    height: 30%
+    overflow: hidden
+    background: white
+    transition-delay: 500ms
+    transition: box-shadow 300ms linear
+    transition: top 300ms linear
+    box-shadow: 0px 10px 5px 0px rgba(50,50,50,0.5)
+
+    &.shadowOn
+      // height: 30%
+      box-shadow: 0px 10px 5px 0px rgba(50,50,50,0.5)
+      top: 0
+      transition-delay: 500ms
+      transition: box-shadow 500ms linear
+      transition: top 300ms linear
     // height: 5em
     // pointer-events: none
     
-    .left,.right
-      position: absolute
-      height: 5em
-
-    .left
-      left: 0
-    .right
-      right: 0
+  
     
     .inner
       position: relative
@@ -295,6 +323,7 @@ $navheight: 20px
       padding: 0
       font-size: 1em
       height: 100%
+
       
       &.shouldHide
         display: inline-block
@@ -302,13 +331,18 @@ $navheight: 20px
         &.ng-hide-add, &.ng-hide-remove
           transition: all 300ms linear
           display: inline-block !important
-  
+
+        &.ng-hide-remove
+          transition-delay: 500ms
+
         &.ng-hide-add.ng-hide-add-active, &.ng-hide-remove
           transform: translateY(-100%)
 
         &.ng-hide-add, &.ng-hide-remove.ng-hide-remove-active
           transform: translateY(0%)
     
+  
+        
     .currentDay
       cursor: pointer
 
@@ -319,24 +353,54 @@ $navheight: 20px
           border: 1px solid $light
           border-width: 0 1px 1px 1px
           position: relative
-          
+    
+    .timeline
+      background: transparent
+      color: rgba(255,255,255,1)
+      width: 80%
 
     .branding
-      background: rgb(255,255,255)
-      color: rgba(0,0,0,0.5)
+      background: transparent
+      color: rgba(0,0,0,1)
       cursor: pointer
+      width: 20%
+      float: left
+      padding-left: 1.5em
 
-      .big
-        font-size: 2.8em
-        padding: 0 0.2em
-        line-height: 1.15
+      &.shouldHide
+        display: inline-block
 
-      .small
-        font-size: 1.3em
-        line-height: 1
+        &.ng-hide-add, &.ng-hide-remove
+          transition: all 300ms linear
+          display: inline-block !important
 
-      .red
-        color: $red
+        &.ng-hide-add.ng-hide-add-active, &.ng-hide-remove
+          transform: translateY(-100%)
+
+        &.ng-hide-add, &.ng-hide-remove.ng-hide-remove-active
+          transform: translateY(0%)
+
+      img
+        margin-top: 2em
+        width: 100%
+        height: auto
+        margin-bottom: 0px
+
+      ul.familytree
+        width: 65%
+        margin-top: -45px
+        li
+          width: 14.666666667%
+          img
+            height: auto
+            width: 100%
+            opacity: 1
+          &:hover
+            opacity: .5
+
+          &.active
+            opacity: 1
+
 
     .social
       a
@@ -380,6 +444,24 @@ $navheight: 20px
         
           .no-touch &:hover
             opacity: 1
+  .timeline
+    width: 100%
+    bottom: 0px
+    left: 0px
+    position: fixed
+    z-index: 100
+    height: 17%
+    // background: rgba(255,255,255,0.5)
+    // box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75)
+
+
+    img
+      position: relative
+      margin-top: 2.20em
+      width: 100%
+      height: auto
+
+
 
 // Grid Nav
 // ~~~~~~~~
@@ -473,8 +555,8 @@ ul.innernav
 //   ╚═══╝  ╚═╝╚══════╝ ╚══╝╚══╝ 
 
 .view
-  // overflow-y: scroll
-  // overflow-x: hidden
+  overflow-y: hidden
+  overflow-x: hidden
   position: absolute
   top: 0
   left: 0
@@ -517,6 +599,7 @@ ul.innernav
   .nav
     text-align: center
     text-transform: uppercase
+    // background: rgba(255,255,255,0.5)
 
     .down, .up, .what-is-resilience
       position: fixed
@@ -525,15 +608,16 @@ ul.innernav
       // margin-left: -2.5em
       margin-left: -22.5px
       cursor: pointer
-      // z-index: 100
 
-      background: rgba(0,0,0,0.3)
+      z-index: 200
+
+      background: rgba(255,255,255,0.5)
       fill: rgba(255,255,255,1.0)
 
       transition: background 300ms, fill 300ms
 
       .no-touch &:hover
-        background: rgba(0,0,0,0.6)
+        background: rgba(255,255,255,1)
         fill:   rgba(255,255,255,1.0)
         cursor: pointer
 
@@ -560,6 +644,35 @@ ul.innernav
     //   @extend %nav-elements
 
 
+ul.familytree
+  cursor: pointer
+  padding: 0px
+  list-style: none
+  text-align: center
+  font-style: italic
+  font-weight: bold
+  font-size: 0.8em
+  color: black
+  max-width: $paragraph-width + 50px
+  width: 100%
+  height: 10%
+  margin: 4em auto 0px auto
+  z-index: 101
+  position: relative
+  li
+    float: left
+    margin-right: 1%
+    margin-left: 1%
+    
+    &:hover
+      color: #E68A00
+    img
+      height: auto
+      width: ($paragraph-width/6) - ($paragraph-width*.02)
+    p 
+      margin-top: -10px
+
+
 
 // Block
 // ~~~~~
@@ -569,6 +682,8 @@ ul.innernav
   min-height: 100%
   width: 100%
   display: none
+  overflow-y: hidden
+  padding: 0px
 
   background-repeat: no-repeat
   background-position: 50%
@@ -577,13 +692,7 @@ ul.innernav
   transition-delay: 50ms
   background-color: black
 
-  .what-is-resilience
-    @extend %nav-elements
-    bottom: 0
-    margin-bottom: 1em
-    border-radius: 100%
-    width: 45px
-    height: 45px
+
 
   svg.icon
     width: 45px
@@ -645,6 +754,27 @@ ul.innernav
       fill: rgba(255,255,255,1.0)
 
 
+  .content
+    text-align: left
+    // position: relative
+    // margin: 15% 5% 15%
+    margin: 0% 5% 0%
+    max-width: 90%
+    padding: 0%
+    overflow-y: scroll
+    position: absolute
+    height: 100%
+    bottom: 0%
+    vertical-align: bottom
+    padding-top: 25%
+    transition: margin 500ms linear
+    transition-delay: 500ms
+    &.shadowOn
+      // margin: 0% 5% 0%
+      // transition: margin 500ms linear
+
+
+
   .pos-left
     display: table-cell
     vertical-align: middle
@@ -652,16 +782,142 @@ ul.innernav
     color: white
 
   .pos-left-bottom
-    display: table-cell
-    vertical-align: bottom
     text-align: left
-    color: white
-    padding-bottom: 6.5em
+
+    .leadblock
+      height: 100%
+      width: 100%
+      text-align: center
+      margin-bottom: 10%
+
+      img
+        width: auto
+        height: 70%
+        margin-bottom: 4%
+      h1
+
+    .column
+      // top: 5px
+      // position: relative
+      // float: left
+      display: inline-block
+      width: 50%
+      padding: 0px 1.5em 1em 1.5em
+    
+      .column
+        &.left
+          padding-left: 0px
+        &.right
+          padding-right: 0px
+      img
+        box-shadow: 5px 5px 55px -2px rgba(0,0,0,0.75)
+    
+        &.small
+          width: 49%
+          height: auto
+          // position: relative
+          padding: 1%
+          // float: left
+          display: block
+      h1
+        margin-bottom: 10px
+        margin-left: 0px
+        margin-right: 0px
+      h2
+        font-weight: normal
+        font-size: 1.1em
+        color: #555555
+        margin-bottom: 2em
+        margin-left: 0px
+        margin-right: 0px
+    
+      p 
+        margin-left: 0px
+        margin-right: 0px
+        strong
+          color: #E68A00
+    
+        &.pullquote
+          font-size: 1.5em
+          padding-left: 1em
+          i 
+            font-size: 0.75em
+      p.references
+        font-size: 0.8em
+        ul
+          list-style: none
+          padding: 1em
+    
+          li 
+            margin-bottom: 1em
+            font-size: 0.8em
+
+  .pos-bottom-centre
+    position: relative
+    overflow-y: scroll
+    // background-color: #FFF
+    // margin: 10% auto 0px auto
+    // padding: 0px
+    bottom: 0px
+    width: 100%
+    text-align: center
+
+    p
+      text-align: left
+      max-width: 600px
+
+    .chptDeco
+      width: 35%
+      height: auto
+      margin-bottom: -20px
+
+    .paragraph-width
+      position: relative
+      // border: 1px solid #000
+      // border-width: 1px 0px 1px 0px
+      max-width: 35%
+      // padding: 15px
+      margin: 0px auto 80px auto
+      h1
+        margin: 0px
+        text-transform: uppercase
+        font-weight: normal
+        font-size: 1.8em
+        letter-spacing: 5px
+
+    .title
+      width: auto
+      height: 100%
+
+    .column
+      position: relative
+      float: left
+      width: 50%
+      text-align: left
+      h1
+        margin-bottom: 10px
+      h2
+        font-weight: normal
+        font-size: 1.1em
+        color: #555555
+        margin-bottom: 2em
+      p.references
+        font-size: 0.8em
+        ul
+          list-style: none
+          padding: 1em
+
+          li 
+            margin-bottom: 1em
+            font-size: 0.8em
+
+
 
   .pos-fully-centre
     display: table-cell
     vertical-align: middle
     text-align: center
+
 
   .pos-title
     position: absolute
@@ -682,6 +938,16 @@ ul.innernav
     width: 100%
     height: 100%
     overflow: hidden
+
+  .pos-fill-yt
+    position: absolute
+    width: 90%
+    // min-height: auto
+    // height: 100%
+    // height: 100%/0.51
+    height: 500px
+    overflow: hidden
+
 
   .img-pan-vert
     position: absolute
@@ -739,309 +1005,6 @@ h1, h2, h3, h4, h5 h6, p
   .uppercase
     text-transform: uppercase
 
-
-
-//// INFO GRAPH TEST
-$greenbeige: #DADDD4
-$grey:  #555555
-$moneygreen: #91B547
-
-
-.block
-  .infograph
-    position: absolute
-    z-index: 0
-    height: 100%
-    width: 100%
-  
-  
-    .headerblock
-      color: $grey
-      text-align: center
-      padding-top: 10%
-      padding-bottom: 10%
-      width: 100%
-      height: 100%
-  
-      h1
-        font-size: 4em
-        margin-top: 5%
-
-        @include breakpoint(small)
-          margin-top: 20%
-        @include breakpoint(medium)
-          margin-top: 0%
-  
-      h2
-        font-size: 2.5em
-        border: 2px solid $grey
-        position: relative
-        width: 20%
-        padding-bottom: 5px        
-        margin: auto
-        margin-bottom: 5%
-  
-        // @include breakpoint(full)
-        //   width: 20%
-  
-        @include breakpoint(medium)
-          width: 30%
-  
-        @include breakpoint(small)
-          width: 80%
-       
-        // @include breakpoint(medium)
-        // width: 20%
-      
-        
-      p
-        font-size: 1.25em
-        @include breakpoint(small)
-          font-size: 1em
-          padding: 1em
-        @include breakpoint(medium)
-          font-size: 1.25em
-
-
-  
-    .contentblock
-      text-align: center
-      width: 100%
-      height: 100%
-      
-      margin: auto
-      position: relative
-      background: transparent
-  
-  
-      img
-        width: auto
-        max-height: 80%
-        z-index: 1
-        position: relative
-        @include breakpoint(small)
-          position: relative
-          margin-top: 50%
-          left: 0%
-          height: auto
-          max-width: 100%
-        @include breakpoint(medium)
-          margin-top: 5%
-
-
-      .globe
-        img
-          margin-top: -10%
-          width: auto
-          max-height: 70%
-          @include breakpoint(small)
-            margin-top: 30%
-            height: auto
-            max-width: 100%
-          @include breakpoint(medium)
-            margin-top: 0%
-
-      .row
-        position: absolute
-        width: 100%
-        height: 100%
-        text-align: center
-        padding-top: 5%
-        padding-bottom: 5%
-  
-        .halfcolumn
-          position: relative
-          float: left
-          width: 50%
-          background-color: white
-  
-          img.flag
-            margin-bottom: 5%
-    
-          h4
-            font-size: 1.5em
-    
-          ul
-            list-style: none
-            padding-left: 0%
-    
-            li
-              strong
-                line-height: 2.1em
-  
-        .text
-          position: relative
-          height: auto
-          margin: auto
-  
-          h3
-            background-color: white
-            color: white
-            margin: auto
-            padding: .5%
-            width: 20%
-            position: relative
-            font-size: 2.2em
-    
-            @include breakpoint(medium)
-              margin-top: 0%
-              width: 30%
-    
-    
-            @include breakpoint(small)
-              margin-top: 12%
-              width: 80%
-
-  .infograph.sudan
-    .headerblock
-      background-color: $greenbeige
-    .contentblock
-      .row
-        .text
-          h3
-            background-color: $grey
-            color: white
-            margin: auto
-            padding: .5%
-            width: 20%
-            position: relative
-            font-size: 2.2em
-    
-            @include breakpoint(medium)
-              margin-top: 0%
-              width: 30%
-    
-    
-            @include breakpoint(small)
-              margin-top: 12%
-              width: 80%
-  
-          .linedivide
-            height: 100%
-            width: 50%
-            position: fixed
-            border-right: 2px dashed #777777
-
-  .infograph.budget
-    padding: 0%
-
-    .headerblock
-      background-color: $moneygreen
-      color: white
-      text-align: center
-      padding-top: 20%
-      padding-bottom: 10%
-      width: 100%
-      height: 100%
-  
-      h1
-        max-width: 90%
-        font-size: 4em
-        strong
-          font-size: 2em
-        @include breakpoint(small)
-          margin-top: 20%
-          strong
-            font-size: 1em
-        @include breakpoint(medium)
-          margin-top: 0%
-
-      p
-        font-size: 2.25em
-        font-weight: bold
-
-    .contentblock
-      text-align: center
-      width: 100%
-      height: 100%
-      
-      margin: auto
-      position: relative
-      background: transparent
-      padding: 0%
-  
-  
-      img
-        min-width: 100%
-        width: auto
-        height: auto
-        z-index: 0
-        position: absolute
-        margin: 0
-        left:  0
-        top: 0
-        @include breakpoint(small)
-          width: auto
-          height: 100%
-          
-       
-
-      .row
-        padding: 0%
-        background-color: transparent
-        .text
-          padding: 0%
-          margin-top: 10%
-          position: relative
-
-          h3
-            background-color: transparent
-            color: black
-            margin: auto
-            position: relative
-            z-index: 2
-            width: 100%
-            text-align: center
-            font-size: 2.2em
-  
-            @include breakpoint(small)
-              margin-top: 12%
-              width: 100%
-
-          p
-            background-color: transparent
-            color: black
-            margin: auto
-            position: relative
-            z-index: 2
-            width: 100%
-            font-size: 1.25em
-            text-align: center
-
-        .text.white
-          h3
-            color: white
-          p
-            color: white
-
-        
-        
-
-      
-  
-// What is Resilience
-// ~~~~~~~~~~~~~~~~~~
-    
-#what-is-resilience
-  background: $light
-  height: 100%
-  overflow: auto
-  position: fixed
-  width: 100%
-
-.wir-menu
-  color: $dark
-  left: 10px
-  position: fixed
-  top: 100px
-
-  li
-    cursor: pointer
-
-    &:hover
-      color: $red
-
-
 // bg-pan
 // ~~~~~~
 
@@ -1055,7 +1018,7 @@ $moneygreen: #91B547
     transform: translate(0,0)
     transition: all 100ms linear
 
-// // video-player
+
 
 // .video-player
 //   video
@@ -1073,6 +1036,7 @@ $moneygreen: #91B547
 // ~~~~~~~~
 
 .block
+  background-color: rgba(0,0,0,0)
   .hot-spot
     background-color: rgba(0,0,0,0)
     color: $light

@@ -16,8 +16,8 @@ allOurRelApp.constant('redCrossArticles', [
 	'title',
 	'introduction',
 	// 'familytree',
-	'allanBHarper',
-	'santeeSmith',
+	'elijahHarper',
+	'allanHarper',
 	'taylorThomas',
 	'adamBeach'
 
@@ -235,6 +235,8 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 
 		window.$rootScope = $rootScope;
 		window.$location = $location;
+
+
 	}
 	
 	// Global Variables
@@ -271,7 +273,7 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 	// for loading assets from CDN. include trailing slash!
 
 	// $rootScope.baseURL = './assets/';
-	$rootScope.baseURL = 'http://205.186.156.50/rceu/cdn/';
+	$rootScope.baseURL = 'http://205.186.156.50/all-our-relations/app/';
 
 
 
@@ -289,22 +291,12 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		if ($rootScope.tomorrowCheck) {
 			$rootScope.tomorrowCheck = false;
 		};
-		// console.log('next day');
-
-		// if ( ($rootScope.day+1 )== $rootScope.numDays) {
-
-		// 	console.log('last day!!!!');
-		// 	// console.log('day-'+( $rootScope.day+1) +', totaldays-'+ $rootScope.numDays);
-		// }
-
+		
 		// if($rootScope.day < 3){
-		// 	console.log('less than 3');
 		// 	$rootScope.states.shouldCollapseNav = true;
 		// }else{
-		// 	console.log('more 3');
 		// 	$rootScope.states.shouldCollapseNav = false;
 		// }
-		
 
 	}
 
@@ -321,13 +313,10 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		};
 
 		// if($rootScope.day < 3){
-		// 	console.log('less than 3');
 		// 	$rootScope.states.shouldCollapseNav = true;
 		// }else{
-		// 	console.log('more 3');
 		// 	$rootScope.states.shouldCollapseNav = false;
 		// }
-		
 			
 	}
 
@@ -349,8 +338,9 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 	}
 	// DELETE THIS AFTER PROTOTYPE
 	$rootScope.familytreeTemp = function(){
-		$location.path('/en/day/6');
-		$rootScope.states.shouldCollapseNav = false;
+		alert('this has been disabled for the prototype');
+		// $location.path('/en/day/6');
+		// $rootScope.states.shouldCollapseNav = false;
 
 	}
 	$rootScope.homebtn = function(){
@@ -389,19 +379,33 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		$rootScope.prevDayUrl = '/' + $rootScope.lang + '/day/' + ($rootScope.day - 1);
 		$rootScope.tomorrowCheck =false;
 
-		if($rootScope.day < 3){
-			console.log('less than 3');
-			$rootScope.states.shouldCollapseNav = true;
-		}else{
-			console.log('more 3');
-			$rootScope.states.shouldCollapseNav = false;
-		}
+		// if($rootScope.day < 3){
+		// 	console.log('less than 3');
+		// 	$rootScope.states.shouldCollapseNav = true;
+		// }else{
+		// 	console.log('more 3');
+		// 	$rootScope.states.shouldCollapseNav = false;
+		// }
 
 		if($rootScope.day<=2){
 			$rootScope.states.logoCollapse = true;
 		}else{
 			$rootScope.states.logoCollapse = false;
 		}
+		if($rootScope.day < 3){
+			$rootScope.states.shouldCollapseNav = true;
+		}else{
+			$rootScope.states.shouldCollapseNav = false;
+		}
+		// setTimeout(function() {
+		// 	if($rootScope.day < 3){
+		// 		$rootScope.states.shouldCollapseNav = true;
+		// 	}else{
+		// 		$rootScope.states.shouldCollapseNav = false;
+		// 	}
+		// }, 500);
+
+		
 
 	})
 
@@ -423,7 +427,10 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 					$rootScope.viewAnimationClass = 'slideLeft'	
 					
 				else
-					$rootScope.viewAnimationClass = 'slideRight'	
+					$rootScope.viewAnimationClass = 'slideRight'
+
+
+
 
 			}	
 		} else {
@@ -431,6 +438,7 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		}
 		
 	})
+
 
 }])
 
