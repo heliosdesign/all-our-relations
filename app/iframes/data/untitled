@@ -1,0 +1,19 @@
+<day related-pages="" category="flooding" title="Emily Monias">
+
+    <div class="block" bg-Img="{{baseURL}}assets/img/background2.png">
+        <div class="content" ng-class="{ 'shadowOn': ($root.states.logoCollapse === false) }">
+            <div class="wrapper">
+                <div class="leadblock first">
+                    <div class="firstimage" bg-Img="assets/img/elijahHarper/22_TRAPPERS-OF-THE-NW001.jpg"></div>
+                    <h1>Emily Monias</h1>
+                    <i>1888 - 1975</i>
+                </div>
+                <div class="leadblock second">
+                    <p class="introtext"><i>Born at Garden Hill, Manitoba and married to Thomas Taylor, Emily Monias Taylor was the daughter of Makα tcewininε, Black Man (Peter Monias) and Nähikwαn´ebikwe. Emily Monias came from a significant local family and her marriage to Thomas was most likely arranged. </i></p 
+
+                    <p class="introtext"><i>It's recorded that both Emily and Taylor understood a little English, but did not speak the language. </i></p>
+                </div>
+            </div>    
+        </div>
+    </div>
+</day>

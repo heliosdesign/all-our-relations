@@ -2,14 +2,14 @@
  "name": "Elijah Harper","page":"3","icon":"elijahHarper.png",
  "children": [
   {
-   "name": "Harper, Allan B","icon":"allanBHarper.png",
+   "name": "Harper, Allan B","page":"4","icon":"allanBHarper.png",
    "children": [
     {
-     "name": "Harper, Thomas",
+     "name": "Harper, Thomas","page":"6",
      "children": []
     },
     {
-     "name": "Wood, Juliet",
+     "name": "Wood, Juliet","page":"7",
      "children": [
       {"name": "Sinα wakαábu","children":[{"name": "I found it"},{"name": "Wabα se, White Partridge"}]},
       {"name": "Gīzαgokwe, A Light","children":[{"name": "Mαshīgu"}]}
@@ -18,14 +18,14 @@
    ]
   },
   {
-   "name": "Taylor, Ethel Catherine","page":"4", "icon":"ethelCatherineTaylor.png",
+   "name": "Taylor, Ethel Catherine","page":"5", "icon":"ethelCatherineTaylor.png",
    "children": [
     {
-     "name": "Taylor, Thomas","page":"5",
+     "name": "Taylor, Thomas","page":"8",
      "children": []
     },
     {
-     "name": "Monias, Emily",
+     "name": "Monias, Emily","page":"9",
      "children": [
       {"name": "Monias, Makα tcewininε; Black Man; Peter","children":[{"name": "Wīságabéwininε, Anything Sore","children":[{"name":"Wabα se, White Partridge"}]},{"name": "Pesängī, Hawk (wings)"}]},
       {"name": "Flett, Nähikwαn´ebikwe","children":[{"name": "Flett, Peter, αkamakī win ninε ͑","children":[{"name":"Peemeecheekag, Porcupine Standing Sideways"}]},{"name": "Kα sī´pαgu α nī","children":[{"name":"I found it"},{"name":"Wabα se, White Partridge"}]}]}

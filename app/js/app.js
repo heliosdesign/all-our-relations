@@ -15,30 +15,43 @@ var allOurRelApp = angular.module('allOurRelApp', [
 allOurRelApp.constant('redCrossArticles', [
 	'title',
 	'introduction',
-	// 'familytree',
+	// 'Elijah familytree',
 	'elijahHarper',
 	'allanHarper',
-	'taylorThomas',
-	'adamBeach'
-
+	'ethelCatherineTaylor',
+	'thomasHarper',
+	'julietteWood',
+	'thomasTaylor',
+	'emilyMonias',
+	'sinaWakaabu',
+	'aLight',
+	'blackman',
+	'flett',
+	'innahue',
+	'whitePartridge',
+	'mashigiu',
+	'anythingSore',
+	'wingsHalfWhite',
+	'heCameFromEngland',
+	'KaSiPaguANi',
+	'peemeecheekag',
+	// 'Douglas familytree',
+	'douglasCardinal',
+	'josephJoeCardinal',
+	'francesMarguerite',
+	'hilaireHenryCardinal',
+	'marthaCarolineLee',
+	'alvinJosephRach',
+	'ellenDaleGenevieveMorin'
 ]);
 
-allOurRelApp.constant('redCrossDay', '2');
-
-// app.module( function( $routeProvider, $depency2 ){
-
-// })
-
-// app.module([ '$routeProvider', function( $routeProvider ){
-
-// }])
 
 
-allOurRelApp.config(['$routeProvider', 'redCrossArticles', 'redCrossDay', function( $routeProvider, articles, redCrossDay ){
+allOurRelApp.config(['$routeProvider', 'redCrossArticles', function( $routeProvider, articles){
 
-	// $routeProvider.redCrossDay=redCrossDay;
+	$routeProvider.when( '/:lang/:dayId', {
 
-	$routeProvider.when( '/:lang/day/:dayId', {
+		var prevURL= getthecurrent
 
 		controller: 'day',
 
@@ -74,7 +87,6 @@ allOurRelApp.config(['$routeProvider', 'redCrossArticles', 'redCrossDay', functi
 					dayId = $route.current.params.dayId;
 
 				if( dayId > 0 && dayId <= $rootScope.numDays ){
-					// $rootScope.currentarticle = $rootScope.articles[$rootScope.dayId];
 					deferred.resolve(
 						$rootScope.currentarticle = articles[dayId-1]
 					);
@@ -106,79 +118,79 @@ allOurRelApp.config(['$routeProvider', 'redCrossArticles', 'redCrossDay', functi
 		}
 	});
 	//last day call to action
-	$routeProvider.when( '/:lang/tomorrow/:dayId', {
+	// $routeProvider.when( '/:lang/:dayId', {
 
-		controller: 'day',
+	// 	controller: 'day',
 
-		// templateUrl: function( params ){
-		// 	return 'partials/tomorrow_' + articles[params.dayId-1] + '.html';
-		// },
+	// 	// templateUrl: function( params ){
+	// 	// 	return 'partials/tomorrow_' + articles[params.dayId-1] + '.html';
+	// 	// },
 
-		templateUrl: function( params ){
-			return 'partials/lastPage.html';
-		},
+	// 	templateUrl: function( params ){
+	// 		return 'partials/lastPage.html';
+	// 	},
 
-		//before changes
-		// templateUrl: function( params ){ 
-		// 	return 'partials/day-' + params.dayId + '.html';
-		// },
+	// 	//before changes
+	// 	// templateUrl: function( params ){ 
+	// 	// 	return 'partials/day-' + params.dayId + '.html';
+	// 	// },
 
-		reloadOnSearch: false,
+	// 	reloadOnSearch: false,
 
-		resolve: {
+	// 	resolve: {
 
-			// validate lang param
-			langExists: function( $q, $route, $rootScope ){
-				var deferred = $q.defer(),
-					lang = $route.current.params.lang;
+	// 		// validate lang param
+	// 		langExists: function( $q, $route, $rootScope ){
+	// 			var deferred = $q.defer(),
+	// 				lang = $route.current.params.lang;
 
-				if( $rootScope.languages.indexOf( lang ) != -1 )
-					deferred.resolve();
-				else
-					deferred.reject('invalid route parameter');
+	// 			if( $rootScope.languages.indexOf( lang ) != -1 )
+	// 				deferred.resolve();
+	// 			else
+	// 				deferred.reject('invalid route parameter');
 
-				return deferred.promise;
-			},
+	// 			return deferred.promise;
+	// 		},
 
-			// Validate dayID param
-			dayExists: function( $q, $route, $rootScope ){
-				var deferred = $q.defer(),
-					dayId = $route.current.params.dayId;
+	// 		// Validate dayID param
+	// 		dayExists: function( $q, $route, $rootScope ){
+	// 			var deferred = $q.defer(),
+	// 				dayId = $route.current.params.dayId;
 
-				if( dayId > 0 && dayId <= $rootScope.numDays ){
-					// $rootScope.currentarticle = $rootScope.articles[$rootScope.dayId];
-					deferred.resolve(
-						$rootScope.currentarticle = articles[dayId-1]
-					);
-				}
+	// 			if( dayId > 0 && dayId <= $rootScope.numDays ){
+	// 				// $rootScope.currentarticle = $rootScope.articles[$rootScope.dayId];
+	// 				deferred.resolve(
+	// 					$rootScope.currentarticle = articles[dayId-1]
+	// 				);
+	// 			}
 					
-				else{
-					deferred.reject('invalid route parameter');
-				}
+	// 			else{
+	// 				deferred.reject('invalid route parameter');
+	// 			}
 					
 
-				return deferred.promise;
-			},
+	// 			return deferred.promise;
+	// 		},
 
-			wirExists: function( $q, $route, $rootScope ) {
-				var deferred = $q.defer(),
-					wir = $route.current.params.wir;
+	// 		wirExists: function( $q, $route, $rootScope ) {
+	// 			var deferred = $q.defer(),
+	// 				wir = $route.current.params.wir;
 
-				deferred.resolve( wir || false );
+	// 			deferred.resolve( wir || false );
 
-				return deferred.promise;
-			},
+	// 			return deferred.promise;
+	// 		},
 
-			// Preloader
-			preload: function( $q, $timeout ){
-				var p = $q.defer();
-				p.resolve();
-				return p.promise;
-			}
-		}
-	});
+	// 		// Preloader
+	// 		preload: function( $q, $timeout ){
+	// 			var p = $q.defer();
+	// 			p.resolve();
+	// 			return p.promise;
+	// 		}
+	// 	}
+	// });
 
-	$routeProvider.otherwise({ redirectTo: '/en/day/1' });
+	$routeProvider.otherwise({ redirectTo: '/en/1' });
 	// $rootScope.tomorrowCheck = false;
 }])
 
@@ -219,7 +231,7 @@ allOurRelApp.config(function($sceDelegateProvider, $sceProvider) {
   $sceProvider.enabled(false)
 });
 
-allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCrossArticles', 'redCrossDay',  function($rootScope, $location, $route, $routeParams, articles, redCrossDay){
+allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCrossArticles',  function($rootScope, $location, $route, $routeParams, articles){
 
 	// Debug
 	// ~~~~~
@@ -245,14 +257,13 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 	$rootScope.currentarticle= 1;
 	$rootScope.articles = articles;
 	$rootScope.numDays = articles.length;
-	$rootScope.languages = ['en', 'fr', 'de', 'es'];
+	$rootScope.languages = ['en'];
 	$rootScope.day = 0;
 	$rootScope.baseTitle = ' - All Our Relations';
 	$rootScope.states = {
 		logoCollapse : true
 	};
 	$rootScope.tomorrowCheck = false;
-	$rootScope.redCrossDay = redCrossDay;
 
 
 
@@ -332,14 +343,14 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 	}
 
 	$rootScope.familytree = function(){
-		$location.path('/en/day/3');
+		$location.path('/en/3');
 		$rootScope.states.shouldCollapseNav = false;
 
 	}
 	// DELETE THIS AFTER PROTOTYPE
 	$rootScope.familytreeTemp = function(){
 		alert('this has been disabled for the prototype');
-		// $location.path('/en/day/6');
+		// $location.path('/en/6');
 		// $rootScope.states.shouldCollapseNav = false;
 
 	}
@@ -355,7 +366,7 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 
 	// go to default route on error (invalid route param, ie day that doesn’t exist yet)
 	$rootScope.$on('$routeChangeError', function( event, current, previous, rejection ){
-		$location.path('/en/day/1');
+		$location.path('/en/1');
 		console.log($rootScope.day);
 	})
 
@@ -374,9 +385,9 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		$rootScope.lang = $routeParams.lang;
 		$rootScope.day  = parseInt( $routeParams.dayId );
 
-		$rootScope.currentDayUrl = '/' + $rootScope.lang + '/day/' + $rootScope.day;
-		$rootScope.nextDayUrl = '/' + $rootScope.lang + '/day/' + ($rootScope.day + 1);
-		$rootScope.prevDayUrl = '/' + $rootScope.lang + '/day/' + ($rootScope.day - 1);
+		$rootScope.currentDayUrl = '/' + $rootScope.lang + '/' + $rootScope.day;
+		$rootScope.nextDayUrl = '/' + $rootScope.lang + '/' + ($rootScope.day + 1);
+		$rootScope.prevDayUrl = '/' + $rootScope.lang + '/' + ($rootScope.day - 1);
 		$rootScope.tomorrowCheck =false;
 
 		// if($rootScope.day < 3){

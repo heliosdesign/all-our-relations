@@ -150,7 +150,7 @@ $(function(){
 	  }
 	  //URL//
 	  if(d.page){
-	  	window.parent.location = "/all-our-relations/app/#/en/day/"+d.page
+	  	window.parent.location = "/all-our-relations/app/#/en/"+d.page
 	  }else{
 	  	// alert('disabled for prototype');
 	  }

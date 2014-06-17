@@ -53,6 +53,23 @@ $paragraph-width: 800px
     fill:   rgba(255,255,255,1.0)
     cursor: pointer
 
+.video-wrapper 
+  position: relative
+  padding-bottom: 56.25% /* 16:9 */
+  padding-top: 25px
+  height: 0
+
+
+  object, embed, iframe  
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+audio
+  width: 100%
+
 // Typography
 // ~~~~~~~~~~
 
@@ -279,6 +296,8 @@ $navheight: 20px
 
       div
         right: 0
+   
+      
 
     &.right
       right: 0px
@@ -292,12 +311,13 @@ $navheight: 20px
 
   .metadata
     position: fixed
-    top: -30%
+    top: -35%
     z-index: 100
     width: 100%
-    height: 30%
+    height: 35%
     overflow: hidden
-    background: white
+    // background: white
+    background: url(../assets/img/background.jpg) no-repeat
     transition-delay: 500ms
     transition: box-shadow 300ms linear
     transition: top 300ms linear
@@ -756,62 +776,88 @@ ul.familytree
 
   .content
     text-align: left
-    // position: relative
-    // margin: 15% 5% 15%
-    margin: 0% 5% 0%
-    max-width: 90%
-    padding: 0%
+    width: 100%
     overflow-y: scroll
     position: absolute
     height: 100%
     bottom: 0%
     vertical-align: bottom
-    padding-top: 25%
     transition: margin 500ms linear
     transition-delay: 500ms
+    padding-top: 25%
+
     &.shadowOn
       // margin: 0% 5% 0%
       // transition: margin 500ms linear
 
+    .wrapper
+      margin: 0% 10% 0%
+      width: 80%
 
-
-  .pos-left
-    display: table-cell
-    vertical-align: middle
-    text-align: left
-    color: white
-
-  .pos-left-bottom
-    text-align: left
-
-    .leadblock
-      height: 100%
-      width: 100%
-      text-align: center
-      margin-bottom: 10%
-
-      img
-        width: auto
-        height: 70%
-        margin-bottom: 4%
-      h1
-
-    .column
-      // top: 5px
-      // position: relative
-      // float: left
-      display: inline-block
-      width: 50%
-      padding: 0px 1.5em 1em 1.5em
-    
-      .column
-        &.left
-          padding-left: 0px
-        &.right
-          padding-right: 0px
       img
         box-shadow: 5px 5px 55px -2px rgba(0,0,0,0.75)
     
+      .leadblock
+        position: relative
+        height: 100%
+        width: 100%
+        text-align: center
+        padding: 7% 0%
+  
+        &.first
+          padding-top: 8%
+          padding-bottom: 8%
+          border-bottom: 1px solid #555555
+
+        &.second
+          padding: 3% 0%
+          border-bottom: 1px solid #555555
+          margin-bottom: 0%
+          p.introtext  
+            margin-bottom: 0px
+            font-size: 1.6em
+            line-height: 1.4em
+
+        &.last
+          padding-bottom: 5%
+      
+        img
+          // width: auto
+          height: 70%
+          margin-bottom: 3%
+          &.wide
+            width: 80%
+            height: auto
+            margin-bottom: 4%
+  
+        h1
+          margin-bottom: 0.25em
+  
+        .firstimage
+          height: 200px
+          width: 200px
+          display: block
+          position: relative
+          left: 50%
+          margin-left: -100px
+          // background: url(../assets/img/elijahHarper/03b-Harper-1.jpg) no-repeat
+          background-size: cover
+          margin-bottom: 3%
+          border-radius: 100px
+          overflow: visible
+        
+      
+      .column
+        // top: 5px
+        // position: relative
+        // float: left
+        top: 0px
+        vertical-align: top
+        text-align: left
+        display: inline-block
+        width: 50%
+        padding: 0px 1.5em 1em 1.5em
+  
         &.small
           width: 49%
           height: auto
@@ -819,42 +865,55 @@ ul.familytree
           padding: 1%
           // float: left
           display: block
-      h1
-        margin-bottom: 10px
-        margin-left: 0px
-        margin-right: 0px
-      h2
-        font-weight: normal
-        font-size: 1.1em
-        color: #555555
-        margin-bottom: 2em
-        margin-left: 0px
-        margin-right: 0px
+  
+        &.left
+          padding-left: 0px
+          margin-left: 0px
+        &.right
+          padding-right: 0px
+        &.credit
+          p
+            i
+              font-size: 0.8em
+              margin-left: 0px
+              color: #555555
+              text-align: left
+  
+    img
+      width: 100%
+      height: auto
+      &.tall
+        width: auto
+        height: 30%
+        margin: 0 auto
+        position: relative
     
-      p 
-        margin-left: 0px
-        margin-right: 0px
-        strong
-          color: #E68A00
+    p.mediumtext
+      text-align: left
+      font-size: 1.2em
+      line-height: 1.4em
+      // margin-left: 0px
+      // margin-right: 0px
+      strong
+        color: #E68A00
     
-        &.pullquote
-          font-size: 1.5em
-          padding-left: 1em
-          i 
-            font-size: 0.75em
-      p.references
-        font-size: 0.8em
-        ul
-          list-style: none
-          padding: 1em
-    
-          li 
-            margin-bottom: 1em
-            font-size: 0.8em
+      &.pullquote
+        font-size: 1.5em
+        max-width: 700px
+        font-style: italic
+        padding-left: 1em
+        text-align: left
+        i 
+          line-height: : 2em
+          font-size: 0.7em
+          color: #555555
 
-  .pos-bottom-centre
-    position: relative
+
+  .introduction
+    position: absolute
     overflow-y: scroll
+    height: 77%
+    
     // background-color: #FFF
     // margin: 10% auto 0px auto
     // padding: 0px
@@ -871,13 +930,16 @@ ul.familytree
       height: auto
       margin-bottom: -20px
 
+    video
+      margin-bottom: 5%
+
     .paragraph-width
       position: relative
       // border: 1px solid #000
       // border-width: 1px 0px 1px 0px
       max-width: 35%
       // padding: 15px
-      margin: 0px auto 80px auto
+      margin: 0px auto 2% auto
       h1
         margin: 0px
         text-transform: uppercase
@@ -910,6 +972,9 @@ ul.familytree
           li 
             margin-bottom: 1em
             font-size: 0.8em
+
+
+
 
 
 

@@ -138,10 +138,10 @@ dirs.directive('content', function( $animate ){
 			    };
 			    // console.log('scrolling2');
 
-			    console.log($rootScope.states.logoCollapse);
+			    // console.log($rootScope.states.logoCollapse);
 			    // console.log($rootScope.states.shouldCollapseNav);
 			    
-			    console.log(directionX, scrollX, directionY, scrollY);
+			    // console.log(directionX, scrollX, directionY, scrollY);
 			}
 		}
 	}
@@ -515,10 +515,7 @@ dirs.directive('day',function( $location, $rootScope, $animate, $document, $time
 
 				if( e.keyCode === 37 ) $timeout(function(){ $rootScope.prevDay() } )
 				if( e.keyCode === 39 ) $timeout(function(){ 
-					if ($rootScope.day != $rootScope.redCrossDay) {
-						$rootScope.nextDay()
-					}else{$rootScope.tomorrow()}
-					 
+					$rootScope.nextDay()
 				} )
 			})
 

@@ -228,7 +228,6 @@ table {
 
 audio {
   width: 100%;
-  background-color: white;
 }
 
 body {
@@ -432,7 +431,7 @@ body {
   width: 100%;
   height: 35%;
   overflow: hidden;
-  background: white;
+  background: url(../assets/img/background.jpg) no-repeat;
   -webkit-transition-delay: 500ms;
   transition-delay: 500ms;
   -webkit-transition: -webkit-box-shadow 300ms linear;
@@ -935,41 +934,56 @@ ul.familytree li p {
   -webkit-box-shadow: 5px 5px 55px -2px rgba(0, 0, 0, 0.75);
   box-shadow: 5px 5px 55px -2px rgba(0, 0, 0, 0.75);
 }
-.block .pos-left-bottom {
-  text-align: left;
-}
-.block .pos-left-bottom .leadblock {
+.block .content .wrapper .leadblock {
+  position: relative;
   height: 100%;
   width: 100%;
   text-align: center;
-  padding: 15% 0%;
+  padding: 7% 0%;
 }
-.block .pos-left-bottom .leadblock.first {
-  padding-top: 0%;
+.block .content .wrapper .leadblock.first {
+  padding-top: 8%;
+  padding-bottom: 8%;
 }
-.block .pos-left-bottom .leadblock.first {
-  padding-bottom: 25%;
+.block .content .wrapper .leadblock.second {
+  padding: 3% 0%;
+  border-bottom: 1px solid #555555;
+  border-top: 1px solid #555555;
+  margin-bottom: 0%;
 }
-.block .pos-left-bottom .leadblock img {
+.block .content .wrapper .leadblock.second p.introtext {
+  margin-bottom: 0px;
+  font-size: 1.6em;
+  line-height: 1.4em;
+}
+.block .content .wrapper .leadblock.last {
+  padding-bottom: 5%;
+}
+.block .content .wrapper .leadblock img {
   height: 70%;
   margin-bottom: 3%;
 }
-.block .pos-left-bottom .leadblock h1 {
-  margin-bottom: 0.5em;
+.block .content .wrapper .leadblock img.wide {
+  width: 80%;
+  height: auto;
+  margin-bottom: 4%;
 }
-.block .pos-left-bottom .leadblock .firstimage {
-  height: 400px;
-  width: 400px;
+.block .content .wrapper .leadblock h1 {
+  margin-bottom: 0.25em;
+}
+.block .content .wrapper .leadblock .firstimage {
+  height: 200px;
+  width: 200px;
   display: block;
   position: relative;
   left: 50%;
-  margin-left: -200px;
+  margin-left: -100px;
   background-size: cover;
   margin-bottom: 3%;
-  border-radius: 200px;
+  border-radius: 100px;
   overflow: visible;
 }
-.block .pos-left-bottom .column {
+.block .content .wrapper .column {
   top: 0px;
   vertical-align: top;
   text-align: left;
@@ -977,58 +991,56 @@ ul.familytree li p {
   width: 50%;
   padding: 0px 1.5em 1em 1.5em;
 }
-.block .pos-left-bottom .column .column.left {
-  padding-left: 0px;
-}
-.block .pos-left-bottom .column .column.right {
-  padding-right: 0px;
-}
-.block .pos-left-bottom .column .column.credit p i {
-  font-size: 0.8em;
-  color: #555555;
-}
-.block .pos-left-bottom .column .column.small {
+.block .content .wrapper .column.small {
   width: 49%;
   height: auto;
   padding: 1%;
   display: block;
 }
-.block .pos-left-bottom .column img {
+.block .content .wrapper .column.left {
+  padding-left: 0px;
+  margin-left: 0px;
+}
+.block .content .wrapper .column.right {
+  padding-right: 0px;
+}
+.block .content .credit p i {
+  font-size: 1em;
+  float: left;
+  color: #555555;
+  text-align: left;
+}
+.block .content img {
   width: 100%;
   height: auto;
 }
-.block .pos-left-bottom .column img.tall {
+.block .content img.tall {
   width: auto;
   height: 30%;
   margin: 0 auto;
   position: relative;
 }
-.block .pos-left-bottom .column p {
-  margin-left: 0px;
-  margin-right: 0px;
+.block .content p.mediumtext {
+  text-align: left;
+  font-size: 1.2em;
+  line-height: 1.4em;
 }
-.block .pos-left-bottom .column p strong {
+.block .content p.mediumtext strong {
   color: #e68a00;
 }
-.block .pos-left-bottom .column p.pullquote {
+.block .content p.mediumtext.pullquote {
   font-size: 1.5em;
+  max-width: 700px;
+  font-style: italic;
   padding-left: 1em;
+  text-align: left;
 }
-.block .pos-left-bottom .column p.pullquote i {
-  font-size: 0.75em;
+.block .content p.mediumtext.pullquote i {
+  line-height: 4em;
+  font-size: 0.65em;
+  color: #555555;
 }
-.block .pos-left-bottom .column p.references {
-  font-size: 0.8em;
-}
-.block .pos-left-bottom .column p.references ul {
-  list-style: none;
-  padding: 1em;
-}
-.block .pos-left-bottom .column p.references ul li {
-  margin-bottom: 1em;
-  font-size: 0.8em;
-}
-.block .pos-bottom-centre {
+.block .introduction {
   position: absolute;
   overflow-y: scroll;
   height: 77%;
@@ -1036,57 +1048,57 @@ ul.familytree li p {
   width: 100%;
   text-align: center;
 }
-.block .pos-bottom-centre p {
+.block .introduction p {
   text-align: left;
   max-width: 600px;
 }
-.block .pos-bottom-centre .chptDeco {
+.block .introduction .chptDeco {
   width: 35%;
   height: auto;
   margin-bottom: -20px;
 }
-.block .pos-bottom-centre video {
+.block .introduction video {
   margin-bottom: 5%;
 }
-.block .pos-bottom-centre .paragraph-width {
+.block .introduction .paragraph-width {
   position: relative;
   max-width: 35%;
   margin: 0px auto 2% auto;
 }
-.block .pos-bottom-centre .paragraph-width h1 {
+.block .introduction .paragraph-width h1 {
   margin: 0px;
   text-transform: uppercase;
   font-weight: normal;
   font-size: 1.8em;
   letter-spacing: 5px;
 }
-.block .pos-bottom-centre .title {
+.block .introduction .title {
   width: auto;
   height: 100%;
 }
-.block .pos-bottom-centre .column {
+.block .introduction .column {
   position: relative;
   float: left;
   width: 50%;
   text-align: left;
 }
-.block .pos-bottom-centre .column h1 {
+.block .introduction .column h1 {
   margin-bottom: 10px;
 }
-.block .pos-bottom-centre .column h2 {
+.block .introduction .column h2 {
   font-weight: normal;
   font-size: 1.1em;
   color: #555555;
   margin-bottom: 2em;
 }
-.block .pos-bottom-centre .column p.references {
+.block .introduction .column p.references {
   font-size: 0.8em;
 }
-.block .pos-bottom-centre .column p.references ul {
+.block .introduction .column p.references ul {
   list-style: none;
   padding: 1em;
 }
-.block .pos-bottom-centre .column p.references ul li {
+.block .introduction .column p.references ul li {
   margin-bottom: 1em;
   font-size: 0.8em;
 }
