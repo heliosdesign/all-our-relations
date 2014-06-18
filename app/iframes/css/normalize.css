@@ -68,7 +68,7 @@ audio:not([controls]) {
 html {
     background: rgba(0,0,0,0); /* 1 */
     color: #fff; /* 2 */
-    font-family: sans-serif; /* 3 */
+    font-family: 'Domine', serif; /* 3 */
     -ms-text-size-adjust: 100%; /* 4 */
     -webkit-text-size-adjust: 100%; /* 4 */
 }
@@ -169,7 +169,7 @@ code,
 kbd,
 pre,
 samp {
-    font-family: monospace, serif;
+    font-family: 'Domine', monospace, serif;
     font-size: 1em;
 }
 
@@ -283,7 +283,7 @@ button,
 input,
 select,
 textarea {
-    font-family: inherit; /* 1 */
+    font-family: 'Domine', serif; /* 1 */
     font-size: 100%; /* 2 */
     margin: 0; /* 3 */
 }

@@ -3,7 +3,7 @@ $(function(){
 	var margin = {top: 0, right: 0, bottom: 0, left: 100},
 	    width = window.innerWidth,
 	    iconHeight= 40
-	    height = 210;
+	    height = 250;
 	    
 	var i = 0,
 	    duration = 750,
@@ -38,7 +38,7 @@ $(function(){
 	  update(root);
 	});
 
-	d3.select(self.frameElement).style("height", "200px");
+	d3.select(self.frameElement).style("height", "280px");
 
 	function update(source) {
 
@@ -47,7 +47,7 @@ $(function(){
 	      links = tree.links(nodes);
 
 	  // Normalize for fixed-depth.
-	  nodes.forEach(function(d) { d.y = d.depth * 180; });
+	  nodes.forEach(function(d) { d.y = d.depth * 150; });
 
 	  // Update the nodes…
 	  var node = svg.selectAll("g.node")
@@ -150,7 +150,8 @@ $(function(){
 	  }
 	  //URL//
 	  if(d.page){
-	  	window.parent.location = "/all-our-relations/app/#/en/"+d.page
+	  	window.parent.location = "/all-our-relations/app/#/"+d.page
+	  	console.log(d.page)
 	  }else{
 	  	// alert('disabled for prototype');
 	  }

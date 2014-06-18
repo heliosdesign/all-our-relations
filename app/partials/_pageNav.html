@@ -50,7 +50,7 @@
                     </li>
                 </a>
             </ul>
-        </div><div class="inner timeline shouldHide" ng-hide="$root.states.shouldCollapseNav === true;" >
+        </div><div class="inner timeline shouldHide" ng-show="$root.states.shouldCollapseNav === true;" >
         <img src="assets/img/timeline1.png">
             <iframe src="iframes/nav_tree.html" seamless frameborder="0" scrolling="no" style="position: relative; width: 100%;" ></iframe>
                 
@@ -62,9 +62,9 @@
     </div>
  -->
     
-    
-
-    <a class="dayNavLink left" ng-show="day > 1 " ng-click="prevDay()">  
+<!--     <A HREF="previous.html" onClick="history.back();return false;">Go back</A>
+ -->
+    <a class="dayNavLink left" ng-show="day !=='title'" ng-click="prevDay();">  
         <svg class="icon" width="64" height="64" viewBox="0 0 32 32"><polygon fill="#010101" points="18.432,16.641 10.048,16.641 11.584,15.552 18.432,15.552 "/>
 <path fill="#010101" d="M13.76,12.224l-10.176,3.84l10.176,3.84l-3.008-3.84L13.76,12.224z M5.056,16.064l6.848-2.752L9.28,16.064
     H5.056z"/>
@@ -81,7 +81,7 @@
         </svg>
     </a>
 
-    <a class="dayNavLink right" ng-show="day < 2" ng-click="nextDay()">
+    <a class="dayNavLink right" ng-show="day == 'title' " ng-click="nextDay()">
         <svg class="icon" width="64" height="64" viewBox="0 0 32 32" fill="#010101"><polygon  points="12.928,15.552 21.312,15.552 19.775,16.704 12.928,16.704 "/>
 <path  d="M17.6,19.968l10.176-3.84L17.6,12.288l3.008,3.84L17.6,19.968z M26.305,16.128l-6.849,2.752l2.624-2.752
     H26.305z"/>

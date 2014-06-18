@@ -49,14 +49,12 @@ allOurRelApp.constant('redCrossArticles', [
 
 allOurRelApp.config(['$routeProvider', 'redCrossArticles', function( $routeProvider, articles){
 
-	$routeProvider.when( '/:lang/:dayId', {
-
-		var prevURL= getthecurrent
+	$routeProvider.when( '/:dayId', {
 
 		controller: 'day',
 
 		templateUrl: function( params ){
-			return 'partials/day-' + articles[params.dayId-1] + '.html';
+			return 'partials/day-' + params.dayId + '.html';
 		},
 
 		//before changes
@@ -68,33 +66,24 @@ allOurRelApp.config(['$routeProvider', 'redCrossArticles', function( $routeProvi
 
 		resolve: {
 
-			// validate lang param
-			langExists: function( $q, $route, $rootScope ){
-				var deferred = $q.defer(),
-					lang = $route.current.params.lang;
-
-				if( $rootScope.languages.indexOf( lang ) != -1 )
-					deferred.resolve();
-				else
-					deferred.reject('invalid route parameter');
-
-				return deferred.promise;
-			},
-
+			
 			// Validate dayID param
 			dayExists: function( $q, $route, $rootScope ){
 				var deferred = $q.defer(),
 					dayId = $route.current.params.dayId;
 
-				if( dayId > 0 && dayId <= $rootScope.numDays ){
+				// console.log("this right here-"+ articles[dayId-1] +"")
+
+				// if( dayId > 0 && dayId <= $rootScope.numDays ){
+
 					deferred.resolve(
-						$rootScope.currentarticle = articles[dayId-1]
+						$rootScope.currentarticle = dayId
 					);
-				}
+				// }
 					
-				else{
-					deferred.reject('invalid route parameter');
-				}
+				// else{
+				// 	deferred.reject('invalid route parameter');
+				// }
 					
 
 				return deferred.promise;
@@ -117,119 +106,48 @@ allOurRelApp.config(['$routeProvider', 'redCrossArticles', function( $routeProvi
 			}
 		}
 	});
-	//last day call to action
-	// $routeProvider.when( '/:lang/:dayId', {
+	
 
-	// 	controller: 'day',
-
-	// 	// templateUrl: function( params ){
-	// 	// 	return 'partials/tomorrow_' + articles[params.dayId-1] + '.html';
-	// 	// },
-
-	// 	templateUrl: function( params ){
-	// 		return 'partials/lastPage.html';
-	// 	},
-
-	// 	//before changes
-	// 	// templateUrl: function( params ){ 
-	// 	// 	return 'partials/day-' + params.dayId + '.html';
-	// 	// },
-
-	// 	reloadOnSearch: false,
-
-	// 	resolve: {
-
-	// 		// validate lang param
-	// 		langExists: function( $q, $route, $rootScope ){
-	// 			var deferred = $q.defer(),
-	// 				lang = $route.current.params.lang;
-
-	// 			if( $rootScope.languages.indexOf( lang ) != -1 )
-	// 				deferred.resolve();
-	// 			else
-	// 				deferred.reject('invalid route parameter');
-
-	// 			return deferred.promise;
-	// 		},
-
-	// 		// Validate dayID param
-	// 		dayExists: function( $q, $route, $rootScope ){
-	// 			var deferred = $q.defer(),
-	// 				dayId = $route.current.params.dayId;
-
-	// 			if( dayId > 0 && dayId <= $rootScope.numDays ){
-	// 				// $rootScope.currentarticle = $rootScope.articles[$rootScope.dayId];
-	// 				deferred.resolve(
-	// 					$rootScope.currentarticle = articles[dayId-1]
-	// 				);
-	// 			}
-					
-	// 			else{
-	// 				deferred.reject('invalid route parameter');
-	// 			}
-					
-
-	// 			return deferred.promise;
-	// 		},
-
-	// 		wirExists: function( $q, $route, $rootScope ) {
-	// 			var deferred = $q.defer(),
-	// 				wir = $route.current.params.wir;
-
-	// 			deferred.resolve( wir || false );
-
-	// 			return deferred.promise;
-	// 		},
-
-	// 		// Preloader
-	// 		preload: function( $q, $timeout ){
-	// 			var p = $q.defer();
-	// 			p.resolve();
-	// 			return p.promise;
-	// 		}
-	// 	}
-	// });
-
-	$routeProvider.otherwise({ redirectTo: '/en/1' });
-	// $rootScope.tomorrowCheck = false;
+	$routeProvider.otherwise({ redirectTo: '/introduction' });
 }])
 
 
 
 // Cache Bust
-allOurRelApp.config(['$provide', function($provide) {
-    return $provide.decorator('$http', ['$delegate', function($delegate) {
-        var get = $delegate.get;
-        $delegate.get = function(url, config) {
+// allOurRelApp.config(['$provide', function($provide) {
+//     return $provide.decorator('$http', ['$delegate', function($delegate) {
+//         var get = $delegate.get;
+//         $delegate.get = function(url, config) {
 
-            // Check is to avoid breaking AngularUI ui-bootstrap-tpls.js: "template/accordion/accordion-group.html"
-            // if (url.indexOf('partials/')) {
-                // Append ?v=[cacheBustVersion] to url
-                url += (url.indexOf('?') === -1 ? '?' : '&');
-                url += 'v=' + Math.round( (new Date()).getTime() / 1000 );
-            // }
-            return get(url, config);
-        };
-        return $delegate;
-    }]);
-}])
+//             // Check is to avoid breaking AngularUI ui-bootstrap-tpls.js: "template/accordion/accordion-group.html"
+//             // if (url.indexOf('partials/')) {
+//                 // Append ?v=[cacheBustVersion] to url
+//                 url += (url.indexOf('?') === -1 ? '?' : '&');
+//                 url += 'v=' + Math.round( (new Date()).getTime() / 1000 );
+//             // }
+//             return get(url, config);
+//         };
+//         return $delegate;
+//     }]);
+// }])
 
 // CORS
-allOurRelApp.config(['$httpProvider', function($httpProvider) {
-    $httpProvider.defaults.useXDomain = true;
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
-}]);
+// allOurRelApp.config(['$httpProvider', function($httpProvider) {
+//     $httpProvider.defaults.useXDomain = true;
+//     delete $httpProvider.defaults.headers.common['X-Requested-With'];
+// }]);
 
-allOurRelApp.config(function($sceDelegateProvider, $sceProvider) {
-  $sceDelegateProvider.resourceUrlWhitelist([
-    // Allow same origin resource loads.
-    'self',
-    // Allow loading from outer templates domain.
-    'http://*.205.186.156.50/**'
-  ]); 
+// allOurRelApp.config(function($sceDelegateProvider, $sceProvider) {
+//   $sceDelegateProvider.resourceUrlWhitelist([
+//     // Allow same origin resource loads.
+//     'self',
+//     // Allow loading from outer templates domain.
+//     'http://*.205.186.156.50/**'
+//   ]); 
 
-  $sceProvider.enabled(false)
-});
+//   $sceProvider.enabled(false)
+// });
+
 
 allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCrossArticles',  function($rootScope, $location, $route, $routeParams, articles){
 
@@ -243,7 +161,7 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 
 	if ( $rootScope.debug ){
 
-		console.log('/* DEBUG */')
+		// console.log('/* DEBUG */')
 
 		window.$rootScope = $rootScope;
 		window.$location = $location;
@@ -257,14 +175,11 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 	$rootScope.currentarticle= 1;
 	$rootScope.articles = articles;
 	$rootScope.numDays = articles.length;
-	$rootScope.languages = ['en'];
 	$rootScope.day = 0;
 	$rootScope.baseTitle = ' - All Our Relations';
 	$rootScope.states = {
 		logoCollapse : true
 	};
-	$rootScope.tomorrowCheck = false;
-
 
 
 	// Resize Handler
@@ -292,43 +207,27 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 	// ~~~~~~~~~~~~~
 
 	$rootScope.nextDay = function(){
-		// if( $rootScope.routeChangeInProgress ) return;		
-		if( $rootScope.day >= $rootScope.numDays ) return;
-		$location.search( 'block', 0 );
-		$location.search( 'wir', 0 );
+		// var tempDayIndex= $rootScope.articles.indexOf($rootScope.day);
 
+
+		// if( $rootScope.day >= $rootScope.numDays ) return;
 
 		$location.path( $rootScope.nextDayUrl );
-		if ($rootScope.tomorrowCheck) {
-			$rootScope.tomorrowCheck = false;
-		};
-		
-		// if($rootScope.day < 3){
-		// 	$rootScope.states.shouldCollapseNav = true;
-		// }else{
-		// 	$rootScope.states.shouldCollapseNav = false;
-		// }
 
 	}
 
 	$rootScope.prevDay = function(){
-		// if( $rootScope.routeChangeInProgress ) return;
-		if( $rootScope.day <= 1) return;
-		$location.search( 'block', 0 );
-		$location.search( 'wir', 0 );
+		// var tempDayIndex= $rootScope.articles.indexOf($rootScope.day);
 
-		$location.path( $rootScope.prevDayUrl );
-
-		if ($rootScope.tomorrowCheck) {
-			$rootScope.tomorrowCheck = false;
-		};
-
-		// if($rootScope.day < 3){
-		// 	$rootScope.states.shouldCollapseNav = true;
-		// }else{
-		// 	$rootScope.states.shouldCollapseNav = false;
-		// }
+		// if( $rootScope.day <= 1) return;
+		if( $rootScope.day == 'introduction' || $rootScope.day == 'title' || $rootScope.day == 'elijahHarper' ){
+			$location.path( $rootScope.prevDayUrl );
+		}else{
+			history.back(); 
+			return false;
+		}
 			
+
 	}
 
 	// $rootScope.updateWir = function(loc) {
@@ -336,14 +235,9 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 	// 	$location.search( 'wir', s );
 	// }
 
-	$rootScope.tomorrow = function() {
-		$location.path('/en/tomorrow/'+ ($rootScope.day+1));
-		$rootScope.tomorrowCheck = true;
-	
-	}
 
 	$rootScope.familytree = function(){
-		$location.path('/en/3');
+		$location.path('/elijahHarper');
 		$rootScope.states.shouldCollapseNav = false;
 
 	}
@@ -354,24 +248,24 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		// $rootScope.states.shouldCollapseNav = false;
 
 	}
+
 	$rootScope.homebtn = function(){
-		$location.path('/en/');
+		$location.path('/title');
 		$rootScope.states.shouldCollapseNav = false;
 
 	}
-
 
 	// Route Handling
 	// ~~~~~~~~~~~~~~
 
 	// go to default route on error (invalid route param, ie day that doesn’t exist yet)
 	$rootScope.$on('$routeChangeError', function( event, current, previous, rejection ){
-		$location.path('/en/1');
-		console.log($rootScope.day);
+		$location.path('/introduction');
+		// console.log($rootScope.day);
 	})
 
 	// set global vars on route change
-	$rootScope.$on('$routeChangeSuccess', function( event, current, previous ){
+	$rootScope.$on('$routeChangeSuccess',function( event, current, previous ){
 
 		/**
 		 * Hide the grid menu if it's showing.
@@ -379,44 +273,34 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		 */
 		$rootScope.states.showGrid = false;
 
-		
-		
+		$rootScope.day  =  $routeParams.dayId ;
+		// console.log($rootScope.day);
 
-		$rootScope.lang = $routeParams.lang;
-		$rootScope.day  = parseInt( $routeParams.dayId );
+		var tempDayIndex= $rootScope.articles.indexOf($rootScope.day);
+		console.log("look at this:::",tempDayIndex);
 
-		$rootScope.currentDayUrl = '/' + $rootScope.lang + '/' + $rootScope.day;
-		$rootScope.nextDayUrl = '/' + $rootScope.lang + '/' + ($rootScope.day + 1);
-		$rootScope.prevDayUrl = '/' + $rootScope.lang + '/' + ($rootScope.day - 1);
-		$rootScope.tomorrowCheck =false;
 
-		// if($rootScope.day < 3){
-		// 	console.log('less than 3');
-		// 	$rootScope.states.shouldCollapseNav = true;
-		// }else{
-		// 	console.log('more 3');
-		// 	$rootScope.states.shouldCollapseNav = false;
-		// }
+		$rootScope.currentDayUrl = '/' + $rootScope.day;
+		$rootScope.nextDayUrl = '/' + $rootScope.articles[tempDayIndex+1];
+		$rootScope.prevDayUrl = '/' + $rootScope.articles[tempDayIndex-1];
 
-		if($rootScope.day<=2){
+
+		if($rootScope.day == 'introduction' || $rootScope.day == 'title'){
+			console.log('== introduction or title');
 			$rootScope.states.logoCollapse = true;
 		}else{
 			$rootScope.states.logoCollapse = false;
 		}
-		if($rootScope.day < 3){
+		
+		if($rootScope.day !== 'introduction' || $rootScope.day !== 'title'){
+			console.log('!== introduction or title');
 			$rootScope.states.shouldCollapseNav = true;
 		}else{
 			$rootScope.states.shouldCollapseNav = false;
 		}
-		// setTimeout(function() {
-		// 	if($rootScope.day < 3){
-		// 		$rootScope.states.shouldCollapseNav = true;
-		// 	}else{
-		// 		$rootScope.states.shouldCollapseNav = false;
-		// 	}
-		// }, 500);
 
-		
+
+
 
 	})
 

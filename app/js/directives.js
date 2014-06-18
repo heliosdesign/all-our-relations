@@ -114,7 +114,7 @@ dirs.directive('content', function( $animate ){
 			    if (directionY=="UP" || scrollY == 0) {
 			    	$rootScope.$apply(function() {
 			    		if (timerCheck===true) {
-			    			$rootScope.states.shouldCollapseNav=false;
+			    			$rootScope.states.shouldCollapseNav=true;
 			    			$rootScope.states.logoCollapse=false;
 			    			timerCheck=false
 			    		};
@@ -123,7 +123,7 @@ dirs.directive('content', function( $animate ){
 			    	// angular.element('.metadata').removeClass('shadowOn');
 			    }else{
 			    	$rootScope.$apply(function() {
-			    		$rootScope.states.shouldCollapseNav=true;
+			    		$rootScope.states.shouldCollapseNav=false;
 			    		$rootScope.states.logoCollapse=true;
 
 			    		setTimeout(function() {
@@ -361,12 +361,12 @@ dirs.directive('youtubePlayer',function(){
 			window.onYouTubeIframeAPIReady = function(){
 
 				function onPlayerReady(){	
-					console.log("player ready")		
+					// console.log("player ready")		
 					isReady = true;
 				}
 
 				function onPlayerStateChange(evt){
-					console.log(evt.data)
+					// console.log(evt.data)
 
 				}
 
@@ -392,7 +392,7 @@ dirs.directive('youtubePlayer',function(){
 
 
 			 $scope.$parent.$parent.$watch( 'currentBlock', function(n,o){
-				console.log('BLOCK CHANGE -> ' + n)
+				// console.log('BLOCK CHANGE -> ' + n)
 				
 				if( n == blockIndex ){
 				
@@ -530,7 +530,7 @@ dirs.directive('day',function( $location, $rootScope, $animate, $document, $time
 
 			$scope.$watch( 'currentBlock', function(n,o){
 
-				console.log("block change: " + o + " -> " +n)
+				// console.log("block change: " + o + " -> " +n)
 
 				if( n === o ) return;
 
