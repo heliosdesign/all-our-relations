@@ -42,7 +42,9 @@ allOurRelApp.constant('redCrossArticles', [
 	'hilaireHenryCardinal',
 	'marthaCarolineLee',
 	'alvinJosephRach',
-	'ellenDaleGenevieveMorin'
+	'ellenDaleGenevieveMorin',
+	// 'resources',
+	'resources'
 ]);
 
 
@@ -78,7 +80,10 @@ allOurRelApp.config(['$routeProvider', 'redCrossArticles', function( $routeProvi
 
 					deferred.resolve(
 						$rootScope.currentarticle = dayId
+
 					);
+
+
 				// }
 					
 				// else{
@@ -160,18 +165,16 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		$rootScope.debug = false;
 
 	if ( $rootScope.debug ){
-
 		// console.log('/* DEBUG */')
-
 		window.$rootScope = $rootScope;
 		window.$location = $location;
-
-
 	}
 	
 	// Global Variables
 	// ~~~~~~~~~~~~~~~~
 
+	$rootScope.historyarray = [];
+	$rootScope.lifedates = [0,0];
 	$rootScope.currentarticle= 1;
 	$rootScope.articles = articles;
 	$rootScope.numDays = articles.length;
@@ -201,56 +204,169 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 	// $rootScope.baseURL = './assets/';
 	$rootScope.baseURL = 'http://205.186.156.50/all-our-relations/app/';
 
+	// if ($rootScope.currentDayUrl==) {};
+	// $rootScope.prevDayUrl = ; 
 
 
 	// Next/Prev Day
 	// ~~~~~~~~~~~~~
 
 	$rootScope.nextDay = function(){
-		// var tempDayIndex= $rootScope.articles.indexOf($rootScope.day);
-
-
-		// if( $rootScope.day >= $rootScope.numDays ) return;
+		$rootScope.viewAnimationClass = 'slideLeft'
 
 		$location.path( $rootScope.nextDayUrl );
 
 	}
 
 	$rootScope.prevDay = function(){
-		// var tempDayIndex= $rootScope.articles.indexOf($rootScope.day);
+		$rootScope.viewAnimationClass = 'slideRight'
 
-		// if( $rootScope.day <= 1) return;
-		if( $rootScope.day == 'introduction' || $rootScope.day == 'title' || $rootScope.day == 'elijahHarper' ){
+		if( $rootScope.day == 'introduction' || $rootScope.day == 'title' || $rootScope.day == 'elijahHarper'){
 			$location.path( $rootScope.prevDayUrl );
+			$rootScope.slideup();
+			// $rootScope.peek();
+		}else if($rootScope.day == 'resources'){
+			$location.path('/introduction');
 		}else{
+			$rootScope.slidedown();
 			history.back(); 
+			// console.log(history.back());
 			return false;
 		}
-			
-
 	}
 
-	// $rootScope.updateWir = function(loc) {
-	// 	var s = loc || 0;
-	// 	$location.search( 'wir', s );
-	// }
 
+	$rootScope.slidedown = function(){
+		// console.log('declare');
+		angular.element('.metadata').addClass('unhide');
+		angular.element('.content').addClass('unhide');
+	}
+
+	$rootScope.slideup = function(){
+		// console.log('declare');
+		angular.element('.metadata').removeClass('unhide');
+		angular.element('.content').removeClass('unhide');
+	}
 
 	$rootScope.familytree = function(){
-		$location.path('/elijahHarper');
-		$rootScope.states.shouldCollapseNav = false;
+		console.log(event.srcElement.parentNode.parentNode.parentNode);
 
+		var child_element  = event.srcElement.parentNode.parentNode;
+		var parent_element = event.srcElement.parentNode.parentNode.parentNode;
+		var i = Array.prototype.indexOf.call(parent_element.children, child_element);
+
+		function therest () {
+			$rootScope.states.shouldCollapseNav = false;
+			setTimeout(function() {
+				$rootScope.slidedown();
+				angular.element('.metadata').addClass('unhide');
+			}, 500);
+		};
+		console.log(i);
+
+		switch(i) {
+			    case 0:
+			    	$location.path('/elijahHarper');
+			    	therest();
+			    	// console.log('its working');
+			        break;
+			    case 1:
+			        alert('this has been disabled for the prototype');
+			        break;
+			    case 2:
+			        alert('this has been disabled for the prototype');
+			        break;
+			    case 3:
+			        alert('this has been disabled for the prototype');
+			        break;
+			    case 4:
+			        alert('this has been disabled for the prototype');
+			        break;
+			    case 5:
+			        alert('this has been disabled for the prototype');
+			        break;
+			    default:
+			        $location.path('/resources');
+			        $rootScope.states.shouldCollapseNav = false;
+			        setTimeout(function() {
+			        	$rootScope.slideup();
+			        }, 500);
+
+			}
+
+		
 	}
-	// DELETE THIS AFTER PROTOTYPE
-	$rootScope.familytreeTemp = function(){
-		alert('this has been disabled for the prototype');
-		// $location.path('/en/6');
-		// $rootScope.states.shouldCollapseNav = false;
 
+	// // DELETE THIS AFTER PROTOTYPE
+	// $rootScope.familytreeTemp = function(){
+	// 	alert('this has been disabled for the prototype');
+	// 	// $location.path('/en/6');
+	// 	// $rootScope.states.shouldCollapseNav = false;
+
+	// }
+
+	$rootScope.timeline = function(){
+		// if(angular.element('.dob').text()=="???"){
+		// }else{
+
+		// }
+		
+		$rootScope.lifedates[0]=parseFloat(angular.element('.dob').text());
+
+		$rootScope.lifedates[1]=parseFloat(angular.element('.dod').text());
+
+		setTimeout(function() {
+			var dod = $rootScope.lifedates[1];
+			var dob = $rootScope.lifedates[0];
+			// angular.element('.bargraph').removeClass('missingB')
+			// angular.element('.bargraph').removeClass('missingD')
+
+			if (isNaN(dod)) {
+				dod = 2014;
+				angular.element('.bargraph').removeClass('missingB');
+				angular.element('.bargraph').addClass('missingD');
+			}else if (isNaN(dob)) {
+				dob = 1814;
+				angular.element('.bargraph').removeClass('missingD');
+				angular.element('.bargraph').addClass('missingB');
+
+			}else{ 
+
+				angular.element('.bargraph').removeClass('missingB');
+				angular.element('.bargraph').removeClass('missingD');
+
+			};
+
+			// var width =  ((2014-dod) - (2014-dob))/200 * 100;
+			var width =  ((dod-dob)/200) * 100;
+
+
+			var startDod = ((2014-dod)/200)*100;
+
+			var startDob = ((dob-1814)/200)*100;
+
+			// (((200/dob)*100) + width)
+
+			// console.log(angular.element(element));
+
+			angular.element('.bargraph').css('left',''+startDob+'%');
+			angular.element('.bargraph').css('width',''+width+'%');
+
+			console.log("overhere=",startDob,width);
+		}, 100);
 	}
 
 	$rootScope.homebtn = function(){
-		$location.path('/title');
+		$rootScope.viewAnimationClass = 'slideRight'
+		$location.path('/introduction');
+		$rootScope.slideup();
+		$rootScope.states.shouldCollapseNav = false;
+	}
+
+	$rootScope.resources = function(){
+		$rootScope.viewAnimationClass = 'slideLeft'
+		$location.path('/resources');
+		$rootScope.slideup();
 		$rootScope.states.shouldCollapseNav = false;
 
 	}
@@ -266,18 +382,23 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 
 	// set global vars on route change
 	$rootScope.$on('$routeChangeSuccess',function( event, current, previous ){
+		
+		
+		$rootScope.historyarray.push($location.$$path);
+		$rootScope.timeline();
 
 		/**
 		 * Hide the grid menu if it's showing.
 		 * Unhide the branding if it's collapsed.
 		 */
+
 		$rootScope.states.showGrid = false;
 
-		$rootScope.day  =  $routeParams.dayId ;
+		$rootScope.day = $routeParams.dayId ;
 		// console.log($rootScope.day);
 
-		var tempDayIndex= $rootScope.articles.indexOf($rootScope.day);
-		console.log("look at this:::",tempDayIndex);
+		var tempDayIndex = $rootScope.articles.indexOf($rootScope.day);
+		// console.log("look at this:::",tempDayIndex);
 
 
 		$rootScope.currentDayUrl = '/' + $rootScope.day;
@@ -285,48 +406,80 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		$rootScope.prevDayUrl = '/' + $rootScope.articles[tempDayIndex-1];
 
 
-		if($rootScope.day == 'introduction' || $rootScope.day == 'title'){
-			console.log('== introduction or title');
+		if($rootScope.day == 'introduction' || $rootScope.day == 'title' || $rootScope.day == 'resources' ){
+			// console.log('== introduction or title');
 			$rootScope.states.logoCollapse = true;
+
 		}else{
 			$rootScope.states.logoCollapse = false;
 		}
 		
-		if($rootScope.day !== 'introduction' || $rootScope.day !== 'title'){
-			console.log('!== introduction or title');
+		if($rootScope.day !== 'introduction' || $rootScope.day !== 'title' || $rootScope.day !== 'resources' ){
+			// console.log('!== introduction or title');
 			$rootScope.states.shouldCollapseNav = true;
+			// $rootScope.slidedown();
+
 		}else{
 			$rootScope.states.shouldCollapseNav = false;
+
+
 		}
 
+		// if($rootScope.day !== 'introduction'){
+		// 	$rootScope.unpeek();
+		// }
 
+		// if($rootScope.prevDayUrl == '/introduction'){
+		// 	console.log('== elijah');
+		// 	$rootScope.unpeek();
+		// }
+		// $rootScope.unpeek();
 
+		// }
 
 	})
 
 
 	// Animate views left or right
 
+	
+
 	$rootScope.$on('$routeChangeStart',function( e, newRoute, oldRoute ){
-		
+
+		$rootScope.historyarray.push($location.$$path);
+
+		// $rootScope.viewAnimationClass = 'slideLeft'	
+
+
+		// console.log("this is it::",$rootScope.historyarray);
+
 		if( newRoute && oldRoute ){
 
 			if( newRoute.controller && oldRoute.controller ){
 
-				var currIndex = parseInt( newRoute.params.dayId ),
-					prevIndex = parseInt( oldRoute.params.dayId );
+				var length= $rootScope.historyarray.length;
+						
+				var prevUrl =""+ $rootScope.historyarray[(length - 2)]  +"";
+				var currUrl =""+ $rootScope.historyarray[(length - 1)]  +"";
+
+				prevUrl = prevUrl.replace('/','');
+				currUrl = currUrl.replace('/','');
+
+				// console.log("previous=",prevUrl," current=",currUrl);
+
+
+				var currIndex = $rootScope.articles.indexOf(currUrl),
+					prevIndex = $rootScope.articles.indexOf(prevUrl);
 
 				var forwards = ((currIndex - prevIndex) > 0) ? true : false;
+
+					// console.log(forwards,currIndex,prevIndex);
 
 				if( forwards )
 					$rootScope.viewAnimationClass = 'slideLeft'	
 					
 				else
 					$rootScope.viewAnimationClass = 'slideRight'
-
-
-
-
 			}	
 		} else {
 			$rootScope.viewAnimationClass = '';
