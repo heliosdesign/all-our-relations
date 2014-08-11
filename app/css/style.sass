@@ -53,6 +53,23 @@ $paragraph-width: 800px
     fill:   rgba(255,255,255,1.0)
     cursor: pointer
 
+.video-wrapper 
+  position: relative
+  padding-bottom: 56.25% /* 16:9 */
+  padding-top: 25px
+  height: 0
+
+
+  object, embed, iframe  
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+audio
+  width: 100%
+
 // Typography
 // ~~~~~~~~~~
 
@@ -98,9 +115,6 @@ a
 
   p &
     border-bottom: 1px solid inherit
-
-
-
 
 // Util
 // ~~~~
@@ -183,59 +197,6 @@ $navheight: 20px
   color: $light
   font-family: serif
 
-  // text styling for calendar box
-
-  .calendarBox
-    position: relative
-    text-align: center
-    text-transform: uppercase
-    user-select: none
-    touch-callout: none
-    font-weight: bold
-    height: 100%
-    
-    div
-      line-height: 40px
-      position: absolute
-      width: 56px
-
-      // border-width: 1px
-      // border-top-width: 0px
-      // border-style: solid
-    
-      // &:first-child
-      //   border-top-width: 1px
-
-    .background
-      height: 80px
-      width: 74px
-
-    .name
-      font-size: 1.4em
-      top: 0
-
-    .number
-      //height: 60%
-      bottom: 0
-      font-size: 1.8em
-
-  .calendarBox    
-    div
-      line-height: 40px
-      position: absolute
-      width: 56px
-    .background
-      height: 80px
-      width: 74px
-    // &.tomorrow
-    //   background-color: rgba($dark, 0.5)
-    //   div
-    //     line-height: 40px
-    //     position: absolute
-    //     width: 100%
-    //   .background
-    //     height: 80px
-    //     width: auto
     
   // Prev/Next Day
   // ~~~~~~~~~~~~~
@@ -251,14 +212,6 @@ $navheight: 20px
     height: 80px
     width: 74px
     z-index: 200
-
-    &.tomorrow 
-      border: 2px solid $light
-      background-color: rgba(0,0,0,0.2)
-      text-align: center
-      width: auto
-      padding: 1%
-      padding-top: 1.5%
 
 
     &:hover use
@@ -279,6 +232,8 @@ $navheight: 20px
 
       div
         right: 0
+   
+      
 
     &.right
       right: 0px
@@ -286,20 +241,48 @@ $navheight: 20px
       div
         left: 0
 
-
-  // Metadata
+  // Navbar
   // ~~~~~~~~
 
   .metadata
     position: fixed
-    top: 0
-    z-index: 100
+    top: -50%
+    z-index: 200
     width: 100%
-    // height: 5em
-    // pointer-events: none
-    
-  
-    
+    height: 50%
+    overflow: hidden
+    // background: white
+    background: url(../assets/img/background.jpg) no-repeat
+    transition-delay: 500ms
+    transition: box-shadow 300ms linear
+    transition: top 300ms linear
+    box-shadow: 0px 10px 5px 0px rgba(50,50,50,0.5)
+
+    &.peek
+      top: -45%
+      transition-delay: 500ms
+      transition: top 300ms linear
+
+      .inner.timeline
+        opacity: 0
+        transition-delay: 500ms
+        transition: opacity 300ms linear
+
+      .menubtn
+        opacity: 1
+        transition-delay: 500ms
+        transition: opacity 300ms linear
+
+    &.unhide
+      top: 0
+      transition-delay: 500ms
+      transition: top 300ms linear
+
+      .inner.timeline
+        opacity: 1
+        transition-delay: 500ms
+        transition: opacity 300ms linear
+
     .inner
       position: relative
       display: inline-block
@@ -317,42 +300,55 @@ $navheight: 20px
           transition: all 300ms linear
           display: inline-block !important
 
+        &.ng-hide-remove
+          transition-delay: 500ms
+
         &.ng-hide-add.ng-hide-add-active, &.ng-hide-remove
           transform: translateY(-100%)
 
         &.ng-hide-add, &.ng-hide-remove.ng-hide-remove-active
           transform: translateY(0%)
-    
-  
-        
-    .currentDay
-      cursor: pointer
 
-      .calendarBox
-        box-sizing: border-box
-        div
-          background: rgba(0,0,0,0.4)
-          border: 1px solid $light
-          border-width: 0 1px 1px 1px
-          position: relative
-    
+    .dates
+      top: 0px
+      position: absolute
+      width: 80%
+      left: 20%
+      // z-index: 100
+      ul
+        list-style: none
+        padding: 0px
+        li
+          color: black
+
+
     .timeline
+      // position: absolute
+      // z-index: 0
       background: transparent
       color: rgba(255,255,255,1)
-      width: 80%
-      // width: 100%
-      // img
-      // // margin-top: 0px
-      //   width: 100%
-      //   height: auto
+      width: 100%
+      opacity: 1
+      transition-delay: 500ms
+      transition: opacity 300ms linear
+
+      iframe
+        width: 80%
+        margin-left: 20%
+
+     // logo and face icons
+     // ~~~~~~~~~~~~~~~~~~~~~~~~~
 
     .branding
+      position: absolute
+      z-index: 1
       background: transparent
       color: rgba(0,0,0,1)
       cursor: pointer
+      
       width: 20%
-      float: left
-      padding-left: 1.5em
+      left: 0px
+      padding-left: 2em
 
       &.shouldHide
         display: inline-block
@@ -374,173 +370,81 @@ $navheight: 20px
         margin-bottom: 0px
 
       ul.familytree
+        // position: absolute
+        // top: -78%
         width: 75%
-        margin-top: 0px
+        margin: 0em auto 0em auto
+        // margin-top: -45px
+        @include breakpoint(small)
+          width: 200%
         li
-          width: 14.666666667%
-          img
-            height: auto
-            width: 100%
-            opacity: 1
-          &:hover
-            opacity: .5
+          width: 10%
 
-          &.active
-            opacity: 1
+          .portrait
+            height: 1.5em
+            width: 1.5em
+            // position: relative
+            background-size: cover
+            border-radius: 0.75em
+            margin-top: 0em
 
+            &.off
+              opacity: 0.5
+              cursor: default
 
-    .social
-      a
-        display: block
-        width: 2.5em
-        height: 2.5em
-        border: 1px solid rgba(0,0,0,0)
-        background: rgba(0,0,0,0.3)
-        fill: rgba(255,255,255,0.5)
+            &:hover
+              opacity: 0.5
 
-        .no-touch &:hover
-          fill: $red
+            &.active
+              opacity: 1
 
-      svg.icon
-        display: block
-        width: 60%
-        height: 60%
-        margin: 20%
+  // the dots the bottom of nav
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    .relatedDays
+  .menubtn
+    text-align: center 
+    position: absolute
+    // z-index: 0 
+    bottom: 0%
+    width: 100% 
+    color: #000
+    opacity: 0
+    transition-delay: 500ms
+    transition: opacity 300ms linear
 
-      .relatedDay
-        width: 5em
-        position: relative
-        display: inline-block
-        margin-left: 1em
-
-        .calendarBox
-          position: absolute
-          top: 0
-          right: 0
-          font-size: 0.8em
-          height: 5em
-          pointer-events: none
-
-        img
-          width: 100%
-          opacity: 0.5
-          border: 1px solid white
-          transition: opacity 300ms
+    ul.familytree
+      width: 14%
+      margin-top: 0px
+      margin-bottom: 0px
+      cursor: default
+      @include breakpoint(small)
+        width: 30%
+      li
+        width: 11%
+        cursor: default
+        // @include breakpoint(small)
+        //   // width: 20%
         
-          .no-touch &:hover
+        .portrait
+          cursor: default
+          height: 1em
+          width: 1em
+          // position: relative
+          background-size: cover
+          border-radius: 0.5em
+          border: none
+          // margin-top: 2.25em
+          &:hover
             opacity: 1
-  .timeline
-    width: 100%
-    bottom: 0px
-    left: 0px
-    position: fixed
-    z-index: 100
-    height: 17%
-    &.shouldHide
-      display: inline-block
-  
-      &.ng-hide-add, &.ng-hide-remove
-        transition: all 500ms linear
-        display: inline-block !important
-    
-      &.ng-hide-add.ng-hide-add-active, &.ng-hide-remove
-        transform: translateY(115%)
-  
-      &.ng-hide-add, &.ng-hide-remove.ng-hide-remove-active
-        transform: translateY(85%)
+
+        &:hover
+          opacity: 1
 
     img
-      // margin-top: 0px
+      position: relative
+      margin-top: 2.20em
       width: 100%
       height: auto
-
-
-
-// Grid Nav
-// ~~~~~~~~
-.grid-nav-wrapper
-  background-color: rgba($dark,0.5)
-  height: 100%
-  position: absolute
-  width: 100%
-
-  .grid-nav
-    bottom: 0
-    top: 80px
-    position: absolute
-    width: 100%
-
-  .grid-panel
-    float: left
-    height: 16.6666666667%
-    list-style-type: none
-    width: 14.2857142857% 
-    background: rgba(0,0,0,0.4)
-    border: 1px solid $light
-    border-width: 2px 2px 2px 2px
-    color: $light
-    text-align: center
-    text-transform: uppercase
-    font-family: $headingFont
-    display: table-cell
-    vertical-align: middle
-    margin-top: 0.5%
-
-    a
-      display: block
-      background-position: 50% 50%
-      background-size: cover
-      height: 100%
-      width: 100%
-      font-weight: bold
-
-      // @extend %ir
-
-      .article
-        border: 0px solid $light
-        // padding-top: 7%
-        font-size: 1.75em
-        height: 40%
-        border-width: 0px 0px 1px 0px
-      .day
-        // padding-top: 8%
-        font-size: 2.75em
-        height: 60%
-      & :hover
-        background-color: rgba($light, 0.4)
-        // color: 
-
-// Inner Nav
-// ~~~~~~~~
-
-ul.innernav
-  position: fixed
-  z-index: 100
-  left: 15px
-  top: 15%
-  list-style: none
-  padding: 0px
-
-  li
-    width: 15px
-    height: 15px
-    border-radius: 7.5px
-    background-color: transparent
-    border: 1px solid rgba(255,255,255,0.3)
-    margin-bottom: 20%
-    cursor: pointer
-    transition: background-color 600ms
-    &.active
-      background-color: white
-      opacity: 0.5
-    &:hover
-      background-color: white
-      opacity: 0.5
-
-
-  
 
 // ██╗   ██╗██╗███████╗██╗    ██╗
 // ██║   ██║██║██╔════╝██║    ██║
@@ -550,8 +454,8 @@ ul.innernav
 //   ╚═══╝  ╚═╝╚══════╝ ╚══╝╚══╝ 
 
 .view
-  overflow-y: scroll
-  // overflow-x: hidden
+  overflow-y: hidden
+  overflow-x: hidden
   position: absolute
   top: 0
   left: 0
@@ -594,6 +498,7 @@ ul.innernav
   .nav
     text-align: center
     text-transform: uppercase
+    // background: rgba(255,255,255,0.5)
 
     .down, .up, .what-is-resilience
       position: fixed
@@ -650,21 +555,33 @@ ul.familytree
   max-width: $paragraph-width + 50px
   width: 100%
   height: 10%
-  margin: 4em auto 0px auto
+  margin: 4em auto 8em auto
   z-index: 101
   position: relative
   li
-    float: left
-    margin-right: 1%
-    margin-left: 1%
+    display: inline-block
+    margin-right: 0.75%
+    margin-left: 0.75%
+    // width: 14%
+    color: #000000
     
     &:hover
       color: #E68A00
-    img
-      height: auto
+      .portrait
+        opacity: 0.7
+
+    .portrait
+      height: ($paragraph-width/6) - ($paragraph-width*.02)
       width: ($paragraph-width/6) - ($paragraph-width*.02)
+      position: relative
+      background-size: cover
+      border-radius: ($paragraph-width/3) - ($paragraph-width*.01)
+      margin-bottom: 1.5em
+      border: 1px solid #555555
+      
     p 
       margin-top: -10px
+      text-align: center
 
 
 
@@ -676,6 +593,8 @@ ul.familytree
   min-height: 100%
   width: 100%
   display: none
+  overflow-y: hidden
+  padding: 0px
 
   background-repeat: no-repeat
   background-position: 50%
@@ -684,13 +603,7 @@ ul.familytree
   transition-delay: 50ms
   background-color: black
 
-  .what-is-resilience
-    @extend %nav-elements
-    bottom: 0
-    margin-bottom: 1em
-    border-radius: 100%
-    width: 45px
-    height: 45px
+
 
   svg.icon
     width: 45px
@@ -752,107 +665,196 @@ ul.familytree
       fill: rgba(255,255,255,1.0)
 
 
-  .pos-left
-    display: table-cell
-    vertical-align: middle
+  .content
     text-align: left
-    color: white
+    width: 100%
+    overflow-y: scroll
+    position: absolute
+    height: 100%
+    bottom: 0%
+    vertical-align: bottom
+    transition: padding-top 300ms linear
+    padding-top: 0%
+    @include breakpoint(small)
+      padding-top: 15%
 
-  .pos-left-bottom
-    // display: table-cell
-    // vertical-align: bottom
-    text-align: left
-    margin: 20% auto 0%
-    max-width: 90%
-    // position: absolute
-    // bottom: 0px
-    // &.content
-    //   height: 80%
-    //   overflow: scroll
-    // padding-bottom: 6.5em
+    &.unhide
+      padding-top: 28%
+      transition: padding-top 300ms linear
 
-    .column
-      position: relative
-      float: left
-      width: 50%
-      padding: 0px 1.5em 1em 1.5em
+    .wrapper
+      margin: 0% 10% 0%
+      width: 80%
 
+      img
+        box-shadow: 5px 5px 55px -2px rgba(0,0,0,0.75)
+    
+      .leadblock
+        position: relative
+        height: 100%
+        width: 100%
+        text-align: center
+        padding: 7% 0%
+
+        &.first
+          padding-top: 8%
+          padding-bottom: 8%
+
+        &.second
+          padding: 3% 0%
+          border-bottom: 1px solid #555555
+          border-top: 1px solid #555555
+          margin-bottom: 0%
+          p.introtext  
+            margin-bottom: 0px
+            font-size: 1.6em
+            line-height: 1.4em
+
+        &.last
+          padding-bottom: 5%
+      
+        img
+          // width: auto
+          height: 70%
+          margin-bottom: 3%
+          &.wide
+            width: 80%
+            height: auto
+            margin-bottom: 4%
+  
+        h1
+          margin-bottom: 0.25em
+  
+        .portrait
+          height: 200px
+          width: 200px
+          display: block
+          position: relative
+          left: 50%
+          margin-left: -100px
+          background-size: cover
+          margin-bottom: 3%
+          border-radius: 100px
+          overflow: visible
+        
+      
       .column
-        &.left
-          padding-left: 0px
-        &.right
-          padding-right: 0px
-      img 
+        top: 0px
+        vertical-align: top
+        text-align: left
+        display: inline-block
+        width: 50%
+        padding: 0px 1.5em 1em 1.5em
+  
         &.small
           width: 49%
           height: auto
-          position: relative
           padding: 1%
-          float: left
           display: block
-      h1
-        margin-bottom: 10px
-        margin-left: 0px
-        margin-right: 0px
-      h2
-        font-weight: normal
-        font-size: 1.1em
-        color: #555555
-        margin-bottom: 2em
-        margin-left: 0px
-        margin-right: 0px
+  
+        &.left
+          padding-left: 0px
+          margin-left: 0px
 
-      p 
-        margin-left: 0px
-        margin-right: 0px
-        strong
-          color: #E68A00
+        &.right
+          padding-right: 0px
 
-        &.pullquote
-          font-size: 1.5em
-          padding-left: 1em
-          i 
-            font-size: 0.75em
-      p.references
-        font-size: 0.8em
-        ul
-          list-style: none
-          padding: 1em
-
-          li 
-            margin-bottom: 1em
-            font-size: 0.8em
-
-  // .pos-left-bottom
-  //   display: table-cell
-  //   vertical-align: bottom
-  //   text-align: left
-  //   color: white
-  //   padding-bottom: 6.5em
-
-  .pos-bottom-centre
-    position: relative
-    margin: 10% auto 0px auto
-    bottom: 0px
-    text-align: center
-
-    .chptDeco
-      width: 35%
+    .credit
+      p
+        i
+          font-size: 1em
+          float: left
+          color: #555555
+          text-align: left
+  
+    img
+      width: 100%
       height: auto
 
+      &.tall
+        width: auto
+        height: 30%
+        margin: 0 auto
+        position: relative
+    
+    p.mediumtext
+      text-align: left
+      font-size: 1.2em
+      line-height: 1.4em
+
+      strong
+        color: #E68A00
+    
+      &.pullquote
+        font-size: 1.5em
+        max-width: 700px
+        font-style: italic
+        padding-left: 1em
+        text-align: left
+        i 
+          line-height: 4em
+          font-size: 0.65em
+          color: #555555
+
+
+  .introduction
+    position: absolute
+    overflow-y: scroll
+    height: 100%
+    padding-top: 5%
+    
+    bottom: 0px
+    width: 100%
+    text-align: center
+
+    &#resources
+      p
+        text-align: left
+
+    p
+      text-align: center
+      max-width: 600px
+      padding-left: 1em
+      padding-right: 1em
+
+    
+    a
+      h3
+        color: #E68A00
+        &:hover
+          color: #555555
+
+
+    .chptDeco
+      width: 20%
+      height: auto
+      margin-bottom: 10px
+
+    video
+      margin-bottom: 5%
+
     .paragraph-width
-      position: relative
-      border: 1px solid #000
-      border-width: 1px 0px 1px 0px
-      max-width: 35%
-      padding: 15px
-      margin: 30px auto 40px auto
+      // position: absolute
+      // top: 0px
+      // border: 1px solid #000
+      // border-width: 1px 0px 1px 0px
+      width: 40%
+      // padding: 15px
+      margin: 3% 30% 0em 30%
+      @include breakpoint(small)
+        width: 90%
+        margin: 3% 5% 0em 5%
+
       h1
         margin: 0px
         text-transform: uppercase
         font-weight: normal
-        font-size: 1.8em
+        font-size: 1.6em
+        line-height: 1.8em
+        margin-bottom: 1.8em
         letter-spacing: 5px
+        border: 1px solid #000
+        border-width: 1px 0px 1px 0px
 
     .title
       width: auto
@@ -870,60 +872,6 @@ ul.familytree
         font-size: 1.1em
         color: #555555
         margin-bottom: 2em
-      p.references
-        font-size: 0.8em
-        ul
-          list-style: none
-          padding: 1em
-
-          li 
-            margin-bottom: 1em
-            font-size: 0.8em
-
-
-
-  .pos-fully-centre
-    display: table-cell
-    vertical-align: middle
-    text-align: center
-
-
-  .pos-title
-    position: absolute
-    width: 100%
-    bottom: 10em
-
-  .pos-iframe
-    position: absolute
-    width: 100%
-    height: 100%
-  
-
-  .pos-bg
-    background: rgba(0,0,0,0.2) 
-
-  .pos-fill
-    position: absolute
-    width: 100%
-    height: 100%
-    overflow: hidden
-
-  .pos-fill-yt
-    position: absolute
-    width: 100%
-    // min-height: auto
-    // height: 100%
- height: 600px
-    overflow: hidden
-
-
-  .img-pan-vert
-    position: absolute
-    top: 0px
-    width: 100%
-    height: 100%
-    overflow: hidden
-
 
     img
       position: absolute
@@ -934,10 +882,6 @@ ul.familytree
       
     .pan-down
       transform: translateY(-50%)
-
-
-  // .pos-story
-
 
   img
     width: 100%
@@ -972,405 +916,3 @@ h1, h2, h3, h4, h5 h6, p
 
   .uppercase
     text-transform: uppercase
-
-
-
-//// INFO GRAPH TEST
-$greenbeige: #DADDD4
-$grey:  #555555
-$moneygreen: #91B547
-
-
-.block
-  overflow-y: scroll
-  .infograph
-    position: absolute
-    z-index: 0
-    height: 100%
-    width: 100%
-  
-  
-    .headerblock
-      color: $grey
-      text-align: center
-      padding-top: 10%
-      padding-bottom: 10%
-      width: 100%
-      height: 100%
-  
-      h1
-        font-size: 4em
-        margin-top: 5%
-
-        @include breakpoint(small)
-          margin-top: 20%
-        @include breakpoint(medium)
-          margin-top: 0%
-  
-      h2
-        font-size: 2.5em
-        border: 2px solid $grey
-        position: relative
-        width: 20%
-        padding-bottom: 5px        
-        margin: auto
-        margin-bottom: 5%
-  
-        // @include breakpoint(full)
-        //   width: 20%
-  
-        @include breakpoint(medium)
-          width: 30%
-  
-        @include breakpoint(small)
-          width: 80%
-       
-        // @include breakpoint(medium)
-        // width: 20%
-      
-        
-      p
-        font-size: 1.25em
-        @include breakpoint(small)
-          font-size: 1em
-          padding: 1em
-        @include breakpoint(medium)
-          font-size: 1.25em
-
-
-  
-    .contentblock
-      text-align: center
-      width: 100%
-      height: 100%
-      
-      margin: auto
-      position: relative
-      background: transparent
-  
-  
-      img
-        width: auto
-        max-height: 80%
-        z-index: 1
-        position: relative
-        @include breakpoint(small)
-          position: relative
-          margin-top: 50%
-          left: 0%
-          height: auto
-          max-width: 100%
-        @include breakpoint(medium)
-          margin-top: 5%
-
-
-      .globe
-        img
-          margin-top: -10%
-          width: auto
-          max-height: 70%
-          @include breakpoint(small)
-            margin-top: 30%
-            height: auto
-            max-width: 100%
-          @include breakpoint(medium)
-            margin-top: 0%
-
-      .row
-        position: absolute
-        width: 100%
-        height: 100%
-        text-align: center
-        padding-top: 5%
-        padding-bottom: 5%
-  
-        .halfcolumn
-          position: relative
-          float: left
-          width: 50%
-          background-color: white
-  
-          img.flag
-            margin-bottom: 5%
-    
-          h4
-            font-size: 1.5em
-    
-          ul
-            list-style: none
-            padding-left: 0%
-    
-            li
-              strong
-                line-height: 2.1em
-  
-        .text
-          position: relative
-          height: auto
-          margin: auto
-  
-          h3
-            background-color: white
-            color: white
-            margin: auto
-            padding: .5%
-            width: 20%
-            position: relative
-            font-size: 2.2em
-    
-            @include breakpoint(medium)
-              margin-top: 0%
-              width: 30%
-    
-    
-            @include breakpoint(small)
-              margin-top: 12%
-              width: 80%
-
-  .infograph.sudan
-    .headerblock
-      background-color: $greenbeige
-    .contentblock
-      .row
-        .text
-          h3
-            background-color: $grey
-            color: white
-            margin: auto
-            padding: .5%
-            width: 20%
-            position: relative
-            font-size: 2.2em
-    
-            @include breakpoint(medium)
-              margin-top: 0%
-              width: 30%
-    
-    
-            @include breakpoint(small)
-              margin-top: 12%
-              width: 80%
-  
-          .linedivide
-            height: 100%
-            width: 50%
-            position: fixed
-            border-right: 2px dashed #777777
-
-  .infograph.budget
-    padding: 0%
-
-    .headerblock
-      background-color: $moneygreen
-      color: white
-      text-align: center
-      padding-top: 20%
-      padding-bottom: 10%
-      width: 100%
-      height: 100%
-  
-      h1
-        max-width: 90%
-        font-size: 4em
-        strong
-          font-size: 2em
-        @include breakpoint(small)
-          margin-top: 20%
-          strong
-            font-size: 1em
-        @include breakpoint(medium)
-          margin-top: 0%
-
-      p
-        font-size: 2.25em
-        font-weight: bold
-
-    .contentblock
-      text-align: center
-      width: 100%
-      height: 100%
-      
-      margin: auto
-      position: relative
-      background: transparent
-      padding: 0%
-  
-  
-      img
-        min-width: 100%
-        width: auto
-        height: auto
-        z-index: 0
-        position: absolute
-        margin: 0
-        left:  0
-        top: 0
-        @include breakpoint(small)
-          width: auto
-          height: 100%
-          
-       
-
-      .row
-        padding: 0%
-        background-color: transparent
-        .text
-          padding: 0%
-          margin-top: 10%
-          position: relative
-
-          h3
-            background-color: transparent
-            color: black
-            margin: auto
-            position: relative
-            z-index: 2
-            width: 100%
-            text-align: center
-            font-size: 2.2em
-  
-            @include breakpoint(small)
-              margin-top: 12%
-              width: 100%
-
-          p
-            background-color: transparent
-            color: black
-            margin: auto
-            position: relative
-            z-index: 2
-            width: 100%
-            font-size: 1.25em
-            text-align: center
-
-        .text.white
-          h3
-            color: white
-          p
-            color: white
-
-        
-        
-
-      
-  
-// What is Resilience
-// ~~~~~~~~~~~~~~~~~~
-    
-#what-is-resilience
-  background: $light
-  height: 100%
-  overflow: auto
-  position: fixed
-  width: 100%
-
-.wir-menu
-  color: $dark
-  left: 10px
-  position: fixed
-  top: 100px
-
-  li
-    cursor: pointer
-
-    &:hover
-      color: $red
-
-
-// bg-pan
-// ~~~~~~
-
-.bg-pan
-  img
-    position: absolute
-    top: 0
-    left: 0
-    width: auto
-    height: auto
-    transform: translate(0,0)
-    transition: all 100ms linear
-
-// // video-player
-
-// .video-player
-//   video
-    
-#outputTest
-  color: white
-  position: fixed
-  top: 10px
-  left: 300px
-  z-index: 9999
-
-
-
-// Hot Spot
-// ~~~~~~~~
-
-.block
-  background-color: rgba(0,0,0,0)
-  .hot-spot
-    background-color: rgba(0,0,0,0)
-    color: $light
-    font-size: 1em   
-    height: 30px
-    line-height: 100%
-    position: absolute
-    width: 30px
-
-    p
-      line-height: 1.3em
-
-    &.active
-      background-color: rgba(0,0,0,0.4)
-      padding: 30px 50px 30px 20px
-      height: auto
-      width: auto
-
-      .hot-spot-content
-        display: block
-
-      .hot-spot-toggle
-        .icon-minus
-          display: block
-
-        .icon-plus
-          display: none
-
-  .hot-spot-content
-    display: none
-
-  .hot-spot-toggle
-    cursor: pointer
-    height: 30px
-    position: absolute
-    right: 10px
-    top: 0
-    width: 30px
-    .icon
-      height: 30px
-      width: 30px
-    use
-      fill: $light
-    .icon-minus
-      display: none
-
-
-// Hot Spot
-// ~~~~~~~~
-
-.modal-outer
-  bottom: 0
-  background: $dark
-  color: $light
-  left: 0
-  overflow: auto
-  position: absolute
-  top: 0
-  width: 100%
-
-.modal-close
-  cursor: pointer
-  position: absolute
-  right: 10px
-  top: 0px
