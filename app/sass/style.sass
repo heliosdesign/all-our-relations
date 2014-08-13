@@ -87,6 +87,10 @@ h1, h2, h3, h4, h5, h6
 
 h1
   font-size: 2.5em
+  &.translate
+    font-size: 2em
+    color: #555
+    font-style: italic
 
   &.blk
     color: black
@@ -254,10 +258,11 @@ $navheight: 20px
     overflow: hidden
     // background: white
     background: url(../assets/img/background.jpg) no-repeat
+    box-shadow: 0px 10px 5px 0px rgba(50,50,50,0.5)
     transition-delay: 500ms
     transition: box-shadow 300ms linear
     transition: top 300ms linear
-    box-shadow: 0px 10px 5px 0px rgba(50,50,50,0.5)
+    
 
     &.peek
       top: -45%
@@ -317,19 +322,30 @@ $navheight: 20px
       left: 20%
 
       .dates
-        top: 1em
+        top: -4.5em
         position: relative
+        font-size: 0.7em
         width: 100%
         // z-index: 100
+        &.below
+          top: -8em
         ul
           list-style: none
           padding: 0px
           float: left
+          width: 100%
           li
             color: black
-            display: inline-block
+            float: left
             text-align: left
-            margin-right: 2em
+            width: 0px
+            height: 1em
+            overflow: visible
+            white-space: nowrap
+            cursor: pointer
+            &:hover
+              color: $org
+
             &.last
               margin-right: 0em
   
@@ -371,11 +387,8 @@ $navheight: 20px
           // padding-left: -10px
           margin-left: 10%
           // left: -20px
-          text-align: right
+          text-align: center
           // margin-left: -22px
-
-      
-
 
     .timeline
       // position: absolute
@@ -427,20 +440,23 @@ $navheight: 20px
       ul.familytree
         // position: absolute
         // top: -78%
-        width: 75%
+        width: 100%
         margin: 0em auto 0em auto
+        padding-top: 1em
         // margin-top: -45px
         @include breakpoint(small)
           width: 200%
         li
-          width: 10%
+          // width: 30%
+          display: block
 
           .portrait
-            height: 1.5em
-            width: 1.5em
-            // position: relative
+            height: 2.5em
+            width: 2.5em
+            position: relative
+            margin: 0 auto 1em
             background-size: cover
-            border-radius: 0.75em
+            border-radius: 1.25em
             margin-top: 0em
 
             &.off
@@ -474,6 +490,7 @@ $navheight: 20px
       cursor: default
       @include breakpoint(small)
         width: 30%
+
       li
         width: 11%
         cursor: default
@@ -613,6 +630,14 @@ ul.familytree
   margin: 4em auto 8em auto
   z-index: 101
   position: relative
+  &.introtree
+    li
+      display: inline-block
+      margin-right: 2em
+      margin-left: 2em
+      // width: 14%
+      color: #000000
+
   li
     display: inline-block
     margin-right: 0.75%
@@ -631,12 +656,10 @@ ul.familytree
       position: relative
       background-size: cover
       border-radius: ($paragraph-width/3) - ($paragraph-width*.01)
-      margin-bottom: 1.5em
+      margin: 0 auto 1em
       border: 1px solid #555555
       
-    p 
-      margin-top: -10px
-      text-align: center
+    
 
 
 
@@ -754,6 +777,8 @@ ul.familytree
         &.first
           padding-top: 8%
           padding-bottom: 8%
+          i
+            font-size: 1.25em
 
         &.second
           padding: 3% 0%
@@ -771,11 +796,11 @@ ul.familytree
         img
           // width: auto
           height: 70%
-          margin-bottom: 3%
+          margin-bottom: 1em
           &.wide
             width: 80%
             height: auto
-            margin-bottom: 4%
+            margin-bottom: 1em
   
         h1
           margin-bottom: 0.25em
@@ -791,7 +816,7 @@ ul.familytree
           margin-bottom: 3%
           border-radius: 100px
           overflow: visible
-        
+
       
       .column
         top: 0px
@@ -810,17 +835,33 @@ ul.familytree
         &.left
           padding-left: 0px
           margin-left: 0px
+          // &.credit
+          //   p
+          //     margin-top: -1em
 
         &.right
           padding-right: 0px
 
-    .credit
-      p
-        i
+        &.credit
+          p
+            font-size: 1em
+            // float: left
+            color: black
+            text-align: center
+            i
+              font-size: 0.8em
+              color: #555555
+      .credit
+        p
           font-size: 1em
-          float: left
-          color: #555555
-          text-align: left
+          color: black
+          text-align: center
+          margin-top: 0.5em
+          margin-bottom: 0em
+          i
+            font-size: 0.8em
+            color: #555555
+          
   
     img
       width: 100%
@@ -837,8 +878,13 @@ ul.familytree
       font-size: 1.2em
       line-height: 1.4em
 
-      strong
-        color: $org
+      &.heading
+        position: relative
+        font-weight: bold
+        text-align: center
+        margin: 0 auto 1em
+        // color: $org
+
     
       &.pullquote
         font-size: 1.5em
@@ -846,6 +892,9 @@ ul.familytree
         font-style: italic
         padding-left: 1em
         text-align: left
+        padding: 3% 0%
+        border-bottom: 1px solid #555555
+        border-top: 1px solid #555555
         i 
           line-height: 4em
           font-size: 0.65em
@@ -857,20 +906,156 @@ ul.familytree
     overflow-y: scroll
     height: 100%
     padding-top: 10%
+    font-size: 1.25em
     
     bottom: 0px
     width: 100%
     text-align: center
 
     &#resources
+      .paragraph-width
+        width: 60%
+        margin: 3% 20% 0em 20%
       p
         text-align: left
+        margin-bottom: 10%
+        &.first
+          margin-top: 10%
+          margin-bottom: 10%
+          font-size: 1.25em
 
+
+    .wrapper
+      position: relative
+      width: 100%
+      max-width: 900px
+      margin: 0 auto 4%
+      .videowrapper
+        position: relative
+        padding-bottom: 56.25% /* 16:9 */
+        padding-top: 25px
+        height: 0
+        iframe
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%
+
+    .wrapperstep
+      position: relative
+      width: 80%
+      // max-width: 800px
+      margin: 0 auto 4%
+      .videowrapper
+        position: relative
+        padding-bottom: 56.25% /* 16:9 */
+        padding-top: 25px
+        height: 0
+        iframe
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%
     p
       text-align: center
-      max-width: 600px
+      max-width: 900px
       padding-left: 1em
       padding-right: 1em
+      &.name
+        padding-left: 0em
+        padding-right: 0em
+
+
+
+    // ul.columns
+    //   width: 80%
+    //   position: relative
+    //   margin: 0 auto 10%
+    //   // max-width: 900px
+    //   text-align: left
+    //   padding: 0%
+
+    //   &.lead
+    //     margin: 0 auto 5%
+    //   li
+    //     margin-right: 2%
+    //     display: inline-block
+    //     width: 32%
+    //     vertical-align: top
+    //     font-size: 1em
+    //     @include breakpoint(small)
+    //       width: 100%
+    //       margin-bottom: 5%
+    //     strong
+    //       font-size: 1.25em
+    //     .padded
+    //       margin-left: 2em
+    //       margin-top: -1.15em
+    //       font-size: 0.9em
+
+    //     &.last
+    //       margin-right: 0%
+
+
+    //     ul
+    //       width: 200%
+    //       position: relative
+    //       margin: 2em auto 10%
+    //       max-width: 600px
+    //       text-align: left
+
+    //       li
+    //         width: 100%
+    //         margin-bottom: 5%
+
+    //       a
+    //         color: $org
+    //         &:hover
+    //           color: grey
+        
+
+
+    ol
+      width: 100%
+      position: relative
+      margin: 0 auto 10%
+      max-width: 800px
+      text-align: left
+      // border-bottom: 1px solid #555555
+      // border-top: 1px solid #555555
+      background-color: #FFFFED
+      // background: rgba(153,89,57,0.75)
+      color: black
+      // background: url(../assets/img/background.jpg) no-repeat
+      // box-shadow: 0px 10px 5px 0px rgba(50,50,50,0.5)
+      // background: rgba(230,138,0,0.5)
+      // background: url(../assets/img/background.jpg) no-repeat
+      box-shadow: 0px 10px 5px 0px rgba(50,50,50,0.5)
+      padding: 4% 6%
+      &.lead
+        margin: 0 auto 5%
+      li
+        margin-bottom: 2em
+
+        ol
+          width: 80%
+          position: relative
+          margin: 2em auto 10%
+          max-width: 600px
+          text-align: left
+          background: rgba(230,138,0,0)
+          // background: url(../assets/img/background.jpg) no-repeat
+          box-shadow: 0px 10px 5px 0px rgba(50,50,50,0)
+          border-bottom: 0px solid #555555
+          border-top: 0px solid #555555
+
+          a
+            color: #555555
+            text-decoration: underline 
+            &:hover
+              color: $org
 
     
     a

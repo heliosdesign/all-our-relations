@@ -4,6 +4,8 @@ $(function(){
 	    width = window.innerWidth,
 	    iconHeight= 30
 	    height = 360;
+
+
 	    
 	var i = 0,
 	    duration = 650,
