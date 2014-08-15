@@ -15,6 +15,7 @@ var allOurRelApp = angular.module('allOurRelApp', [
 allOurRelApp.constant('redCrossArticles', [
 	'title',
 	'introduction',
+	'selectpage',
 	// 'Elijah familytree',
 	'elijahHarper',
 	'allanHarper',
@@ -44,7 +45,10 @@ allOurRelApp.constant('redCrossArticles', [
 	'alvinJosephRach',
 	'ellenDaleGenevieveMorin',
 	// 'resources',
-	'resources'
+	'resources',
+	'resources-step1',
+	'resources-step2',
+	'resources-challenges'
 ]);
 
 
@@ -113,7 +117,7 @@ allOurRelApp.config(['$routeProvider', 'redCrossArticles', function( $routeProvi
 	});
 	
 
-	$routeProvider.otherwise({ redirectTo: '/introduction' });
+	$routeProvider.otherwise({ redirectTo: '/title' });
 }])
 
 
@@ -175,7 +179,7 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 
 	$rootScope.historyarray = [];
 	$rootScope.lifedates = [0,0];
-	$rootScope.currentarticle= 1;
+	$rootScope.currentarticle= 0;
 	$rootScope.articles = articles;
 	$rootScope.numDays = articles.length;
 	$rootScope.day = 0;
@@ -221,15 +225,22 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 	$rootScope.prevDay = function(){
 		$rootScope.viewAnimationClass = 'slideRight'
 
-		if( $rootScope.day == 'introduction' || $rootScope.day == 'title' || $rootScope.day == 'elijahHarper'){
+		if( $rootScope.day == 'introduction' || $rootScope.day == 'title' || $rootScope.day == 'selectpage' || $rootScope.day == 'elijahHarper'){
 			$location.path( $rootScope.prevDayUrl );
 			$rootScope.slideup();
 			// $rootScope.peek();
 		}else if($rootScope.day == 'resources'){
 			$location.path('/introduction');
-		}else{
-			$rootScope.slidedown();
+		}else if($rootScope.day == 'resources-step1' || $rootScope.day == 'resources-step2' || $rootScope.day == 'resources-challenges'){
 			history.back(); 
+		}else{
+			
+			history.back(); 
+
+			// if ( ) {
+				$rootScope.slidedown();
+			// };
+			
 			// console.log(history.back());
 			return false;
 		}
@@ -256,6 +267,8 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		var i = Array.prototype.indexOf.call(parent_element.children, child_element);
 
 		function therest () {
+			$rootScope.viewAnimationClass = 'slideLeft'
+
 			$rootScope.states.shouldCollapseNav = false;
 			setTimeout(function() {
 				$rootScope.slidedown();
@@ -321,15 +334,18 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 			// angular.element('.bargraph').removeClass('missingB')
 			// angular.element('.bargraph').removeClass('missingD')
 
-			if (isNaN(dod)) {
+			if (isNaN(dod)===true && isNaN(dob)===false) {
 				dod = 2014;
 				angular.element('.bargraph').removeClass('missingB');
 				angular.element('.bargraph').addClass('missingD');
-			}else if (isNaN(dob)) {
+			}else if (isNaN(dob)===true && isNaN(dod)===false) {
 				dob = 1814;
 				angular.element('.bargraph').removeClass('missingD');
 				angular.element('.bargraph').addClass('missingB');
 
+			}else if(isNaN(dob)===true && isNaN(dod)===true){
+				dob = 1814;
+				dod = 1814;
 			}else{ 
 
 				angular.element('.bargraph').removeClass('missingB');
@@ -364,10 +380,22 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 	}
 
 	$rootScope.resources = function(){
-		$rootScope.viewAnimationClass = 'slideLeft'
-		$location.path('/resources');
-		$rootScope.slideup();
-		$rootScope.states.shouldCollapseNav = false;
+		var child_element  = event.srcElement.parentNode.parentNode;
+		var parent_element = event.srcElement.parentNode.parentNode.parentNode;
+		var i = Array.prototype.indexOf.call(parent_element.children, child_element);
+
+		if (i==0) {
+			$rootScope.viewAnimationClass = 'slideLeft';
+			$location.path('/resources');
+			$rootScope.slideup();
+			$rootScope.states.shouldCollapseNav = false;
+		}else{
+			$rootScope.viewAnimationClass = 'slideLeft';
+			$location.path('/selectpage');
+			$rootScope.slideup();
+			$rootScope.states.shouldCollapseNav = false;
+		};
+		
 
 	}
 
@@ -376,7 +404,7 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 
 	// go to default route on error (invalid route param, ie day that doesn’t exist yet)
 	$rootScope.$on('$routeChangeError', function( event, current, previous, rejection ){
-		$location.path('/introduction');
+		$location.path('/title');
 		// console.log($rootScope.day);
 	})
 
@@ -406,7 +434,7 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 		$rootScope.prevDayUrl = '/' + $rootScope.articles[tempDayIndex-1];
 
 
-		if($rootScope.day == 'introduction' || $rootScope.day == 'title' || $rootScope.day == 'resources' ){
+		if($rootScope.day == 'introduction' || $rootScope.day == 'title' || $rootScope.day == 'resources' || $rootScope.day == 'selectpage'|| $rootScope.day == 'resources-step1' || $rootScope.day == 'resources-step2'|| $rootScope.day == 'resources-challenges' ){
 			// console.log('== introduction or title');
 			$rootScope.states.logoCollapse = true;
 
@@ -414,7 +442,7 @@ allOurRelApp.run(['$rootScope', '$location', '$route', '$routeParams', 'redCross
 			$rootScope.states.logoCollapse = false;
 		}
 		
-		if($rootScope.day !== 'introduction' || $rootScope.day !== 'title' || $rootScope.day !== 'resources' ){
+		if($rootScope.day !== 'introduction' || $rootScope.day !== 'title' || $rootScope.day !== 'resources'|| $rootScope.day !== 'selectpage' || $rootScope.day !== 'resources-step1' || $rootScope.day !== 'resources-step2'|| $rootScope.day !== 'resources-challenges' ){
 			// console.log('!== introduction or title');
 			$rootScope.states.shouldCollapseNav = true;
 			// $rootScope.slidedown();

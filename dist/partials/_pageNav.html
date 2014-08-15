@@ -1,71 +1,81 @@
-<!-- <div class="grid-nav-wrapper" ng-show="$root.states.showGrid">
-    <ul class="grid-nav">
-        <li ng-repeat="article in articles" class="grid-panel" ng-hide="$last">
-            <a href="#/{{lang}}/day/{{$index+1}}">
-                <div class="article">{{article}}</div>
-                <div class="day">DAY {{$index+1}}</div>
-            </a>
-        </li>
-    </ul>
-</div> -->
 
-<!-- <div id="nav" ng-class="{ true: 'collapse', false: 'dontcollapse' }[$root.states.shouldCollapseNav]">
- -->
- <div id="nav">
+<div id="nav">
 
+    <div class="metadata" ng-class="{ 'peek': ($root.states.logoCollapse === false) }" ng-mouseenter="slidedown();"  ng-mouseleave="slideup();">
+            <div class="inner timeline shouldHide" ng-show="$root.states.shouldCollapseNav === true;" >
 
-    <div class="metadata" ng-class="{ 'shadowOn': ($root.states.logoCollapse === false) }">
-        <div class="inner branding shouldHide"  ng-hide="$root.states.logoCollapse === true;">
-            <img src="{{baseURL}}assets/img/Logo1.png" ng-click="$root.states.shouldCollapseNav = !$root.states.shouldCollapseNav; homebtn();">
-            <ul class="familytree">
+                <img src="assets/img/timeline3.png" ng-click="$root.states.shouldCollapseNav = !$root.states.shouldCollapseNav; homebtn();">
+                <iframe src="iframes/nav_tree.html" seamless frameborder="0" scrolling="no" style="position: relative; padding: 1% 0%;" ></iframe>
+            </div><div class="inner branding shouldHide"  ng-hide="$root.states.logoCollapse === true;" >
+                <img src="assets/img/logonoline.png" ng-click="$root.states.shouldCollapseNav = !$root.states.shouldCollapseNav; homebtn();">
+<!--             <img src="{{baseURL}}assets/img/Logo1.png" >
+ -->            <ul class="familytree">
                 <a ng-click="familytree();">
                     <li>
-                        <img src="assets/img/face1.png">
+                        <div class="portrait" bg-Img="{{baseURL}}assets/img/elijahHarper/03b-Harper-1.jpg" ng-class="{ 'off': (day == 'elijahHarper') }"></div>
                     </li>
                 </a>
-                <a ng-click="familytreeTemp();">
+                <a ng-click="familytree();">
                     <li>
-                        <img src="assets/img/face2.png">
+                        <div class="portrait" bg-Img="{{baseURL}}assets/img/face2.jpg"></div>
                     </li>
                 </a>
-                <a ng-click="familytreeTemp();">
+                <a ng-click="familytree();">
                     <li>
-                        <img src="assets/img/face3.png">
+                        <div class="portrait" bg-Img="{{baseURL}}assets/img/face3.jpg"></div>
                     </li>
                 </a>
-<!--                     CHANGE THIS AFTER PROTOTYPE
- -->
-                <a ng-click="familytreeTemp();">
+                <a ng-click="familytree();">
                     <li>
-                        <img src="assets/img/face4.png">
+                        <div class="portrait" bg-Img="{{baseURL}}assets/img/face4.jpg"></div>
                     </li>
                 </a>
-                <a ng-click="familytreeTemp();">
+                <a ng-click="familytree();">
                     <li>
-                        <img src="assets/img/face5.png">
+                        <div class="portrait" bg-Img="{{baseURL}}assets/img/face5.jpg"></div>
                     </li>
                 </a>
-                <a ng-click="familytreeTemp();">
+                <a ng-click="familytree();">
                     <li>
-                        <img src="assets/img/face6.png">
+                        <div class="portrait" bg-Img="{{baseURL}}assets/img/face6.jpg"></div>
+                    </li>
+                </a>
+                <a ng-click="familytree();">
+                    <li>
+                        <div class="portrait" bg-Img="{{baseURL}}assets/img/profile.png"></div>
                     </li>
                 </a>
             </ul>
-        </div><div class="inner timeline shouldHide" ng-hide="$root.states.shouldCollapseNav === true;" >
-        <img src="assets/img/timeline1.png">
-            <iframe src="iframes/nav_tree.html" seamless frameborder="0" scrolling="no" style="position: relative; width: 100%;" ></iframe>
-                
+        </div><div class="menubtn">
+            <ul class="familytree">
+                <li>
+                    <div class="portrait" bg-Col="#999999"></div>
+                </li><li>
+                    <div class="portrait" bg-Col="#999999"></div>
+                </li><li>
+                    <div class="portrait" bg-Col="#999999"></div>
+                </li><li>
+                    <div class="portrait" bg-Col="#999999"></div>
+                </li><li>
+                    <div class="portrait" bg-Col="#999999"></div>
+                </li><li>
+                    <div class="portrait" bg-Col="#999999"></div>
+                </li>
+            </ul>
+        </div><div class="dateline">
+            <div class="bargraph"></div>
+            <div class="point first">1814</div><div class="point">1834</div><div class="point">1854</div><div class="point">1874</div><div class="point">1894</div><div class="point">1914</div><div class="point">1934</div><div class="point">1954</div><div class="point">1974</div><div class="point">1994</div><div class="point last">2014</div>
+            <!-- <div class="dates">
+                <ul>
+                    <li>1814</li><li>1834</li><li>1854</li><li>1874</li><li>1894</li><li>1914</li><li>1934</li><li>1954</li><li>1974</li><li>1994</li><li class="last">2014</li>
+                </ul>
+            </div> -->
         </div>
+        
     </div>
 
-   <!--  <div class="timeline shouldHide" ng-hide="$root.states.shouldCollapseNav" >
-        <img src="assets/img/timeline.png">
-    </div>
- -->
-    
-    
 
-    <a class="dayNavLink left" ng-show="day > 1 " ng-click="prevDay()">  
+    <a class="dayNavLink left" ng-show="day !=='title'" ng-click="prevDay();">  
         <svg class="icon" width="64" height="64" viewBox="0 0 32 32"><polygon fill="#010101" points="18.432,16.641 10.048,16.641 11.584,15.552 18.432,15.552 "/>
 <path fill="#010101" d="M13.76,12.224l-10.176,3.84l10.176,3.84l-3.008-3.84L13.76,12.224z M5.056,16.064l6.848-2.752L9.28,16.064
     H5.056z"/>
@@ -82,7 +92,7 @@
         </svg>
     </a>
 
-    <a class="dayNavLink right" ng-show="day < 2" ng-click="nextDay()">
+    <a class="dayNavLink right" ng-show="day == 'title' " ng-click="nextDay()">
         <svg class="icon" width="64" height="64" viewBox="0 0 32 32" fill="#010101"><polygon  points="12.928,15.552 21.312,15.552 19.775,16.704 12.928,16.704 "/>
 <path  d="M17.6,19.968l10.176-3.84L17.6,12.288l3.008,3.84L17.6,19.968z M26.305,16.128l-6.849,2.752l2.624-2.752
     H26.305z"/>
@@ -98,8 +108,4 @@
         </svg>
     </a>
 
-<!--     <a class="dayNavLink right tomorrow" ng-show="day == redCrossDay && day != 42 && tomorrowCheck === false" ng-click="tomorrow()">
-        last page
-    </a>
- -->
 </div>

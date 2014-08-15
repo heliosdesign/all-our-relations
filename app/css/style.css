@@ -241,6 +241,11 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 2.5em;
 }
+h1.translate {
+  font-size: 2em;
+  color: #555555;
+  font-style: italic;
+}
 h1.blk {
   color: black;
 }
@@ -386,13 +391,13 @@ body {
   height: 50%;
   overflow: hidden;
   background: url(../assets/img/background.jpg) no-repeat;
+  -webkit-box-shadow: 0px 10px 5px 0px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 10px 5px 0px rgba(50, 50, 50, 0.5);
   -webkit-transition-delay: 500ms;
   transition-delay: 500ms;
   -webkit-transition: -webkit-box-shadow 300ms linear;
   transition: box-shadow 300ms linear;
   transition: top 300ms linear;
-  -webkit-box-shadow: 0px 10px 5px 0px rgba(50, 50, 50, 0.5);
-  box-shadow: 0px 10px 5px 0px rgba(50, 50, 50, 0.5);
 }
 #nav .metadata.peek {
   top: -45%;
@@ -467,20 +472,32 @@ body {
   left: 20%;
 }
 #nav .metadata .dateline .dates {
-  top: 1em;
+  top: -4.5em;
   position: relative;
+  font-size: 0.7em;
   width: 100%;
+}
+#nav .metadata .dateline .dates.below {
+  top: -8em;
 }
 #nav .metadata .dateline .dates ul {
   list-style: none;
   padding: 0px;
   float: left;
+  width: 100%;
 }
 #nav .metadata .dateline .dates ul li {
   color: black;
-  display: inline-block;
+  float: left;
   text-align: left;
-  margin-right: 2em;
+  width: 0px;
+  height: 1em;
+  overflow: visible;
+  white-space: nowrap;
+  cursor: pointer;
+}
+#nav .metadata .dateline .dates ul li:hover {
+  color: #e68a00;
 }
 #nav .metadata .dateline .dates ul li.last {
   margin-right: 0em;
@@ -527,7 +544,7 @@ body {
 }
 #nav .metadata .dateline .point.last {
   margin-left: 10%;
-  text-align: right;
+  text-align: center;
 }
 #nav .metadata .timeline {
   background: transparent;
@@ -578,8 +595,9 @@ body {
   margin-bottom: 0px;
 }
 #nav .metadata .branding ul.familytree {
-  width: 75%;
+  width: 100%;
   margin: 0em auto 0em auto;
+  padding-top: 1em;
 }
 @media (max-width: 600px) {
   #nav .metadata .branding ul.familytree {
@@ -587,13 +605,15 @@ body {
   }
 }
 #nav .metadata .branding ul.familytree li {
-  width: 10%;
+  display: block;
 }
 #nav .metadata .branding ul.familytree li .portrait {
-  height: 1.5em;
-  width: 1.5em;
+  height: 2.5em;
+  width: 2.5em;
+  position: relative;
+  margin: 0 auto 1em;
   background-size: cover;
-  border-radius: 0.75em;
+  border-radius: 1.25em;
   margin-top: 0em;
 }
 #nav .metadata .branding ul.familytree li .portrait.off {
@@ -765,6 +785,12 @@ ul.familytree {
   z-index: 101;
   position: relative;
 }
+ul.familytree.introtree li {
+  display: inline-block;
+  margin-right: 2em;
+  margin-left: 2em;
+  color: black;
+}
 ul.familytree li {
   display: inline-block;
   margin-right: 0.75%;
@@ -783,12 +809,8 @@ ul.familytree li .portrait {
   position: relative;
   background-size: cover;
   border-radius: 258.66667px;
-  margin-bottom: 1.5em;
+  margin: 0 auto 1em;
   border: 1px solid #555555;
-}
-ul.familytree li p {
-  margin-top: -10px;
-  text-align: center;
 }
 
 .block {
@@ -933,6 +955,9 @@ ul.familytree li p {
   padding-top: 8%;
   padding-bottom: 8%;
 }
+.block .content .wrapper .leadblock.first i {
+  font-size: 1.25em;
+}
 .block .content .wrapper .leadblock.second {
   padding: 3% 0%;
   border-bottom: 1px solid #555555;
@@ -949,12 +974,12 @@ ul.familytree li p {
 }
 .block .content .wrapper .leadblock img {
   height: 70%;
-  margin-bottom: 3%;
+  margin-bottom: 1em;
 }
 .block .content .wrapper .leadblock img.wide {
   width: 80%;
   height: auto;
-  margin-bottom: 4%;
+  margin-bottom: 1em;
 }
 .block .content .wrapper .leadblock h1 {
   margin-bottom: 0.25em;
@@ -992,11 +1017,25 @@ ul.familytree li p {
 .block .content .wrapper .column.right {
   padding-right: 0px;
 }
-.block .content .credit p i {
+.block .content .wrapper .column.credit p {
   font-size: 1em;
-  float: left;
+  color: black;
+  text-align: center;
+}
+.block .content .wrapper .column.credit p i {
+  font-size: 0.8em;
   color: #555555;
-  text-align: left;
+}
+.block .content .wrapper .credit p {
+  font-size: 1em;
+  color: black;
+  text-align: center;
+  margin-top: 0.5em;
+  margin-bottom: 0em;
+}
+.block .content .wrapper .credit p i {
+  font-size: 0.8em;
+  color: #555555;
 }
 .block .content img {
   width: 100%;
@@ -1013,8 +1052,11 @@ ul.familytree li p {
   font-size: 1.2em;
   line-height: 1.4em;
 }
-.block .content p.mediumtext strong {
-  color: #e68a00;
+.block .content p.mediumtext.heading {
+  position: relative;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto 1em;
 }
 .block .content p.mediumtext.pullquote {
   font-size: 1.5em;
@@ -1022,6 +1064,9 @@ ul.familytree li p {
   font-style: italic;
   padding-left: 1em;
   text-align: left;
+  padding: 3% 0%;
+  border-bottom: 1px solid #555555;
+  border-top: 1px solid #555555;
 }
 .block .content p.mediumtext.pullquote i {
   line-height: 4em;
@@ -1033,18 +1078,107 @@ ul.familytree li p {
   overflow-y: scroll;
   height: 100%;
   padding-top: 10%;
+  font-size: 1.25em;
   bottom: 0px;
   width: 100%;
   text-align: center;
 }
+.block .introduction#resources .paragraph-width {
+  width: 60%;
+  margin: 3% 20% 0em 20%;
+}
 .block .introduction#resources p {
   text-align: left;
+  margin-bottom: 10%;
+}
+.block .introduction#resources p.first {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  font-size: 1.25em;
+}
+.block .introduction .wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 4%;
+}
+.block .introduction .wrapper .videowrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+}
+.block .introduction .wrapper .videowrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.block .introduction .wrapperstep {
+  position: relative;
+  width: 80%;
+  margin: 0 auto 4%;
+}
+.block .introduction .wrapperstep .videowrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+}
+.block .introduction .wrapperstep .videowrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .block .introduction p {
   text-align: center;
-  max-width: 600px;
+  max-width: 900px;
   padding-left: 1em;
   padding-right: 1em;
+}
+.block .introduction p.name {
+  padding-left: 0em;
+  padding-right: 0em;
+}
+.block .introduction ol {
+  width: 100%;
+  position: relative;
+  margin: 0 auto 10%;
+  max-width: 800px;
+  text-align: left;
+  background-color: #ffffed;
+  color: black;
+  -webkit-box-shadow: 0px 10px 5px 0px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 10px 5px 0px rgba(50, 50, 50, 0.5);
+  padding: 4% 6%;
+}
+.block .introduction ol.lead {
+  margin: 0 auto 5%;
+}
+.block .introduction ol li {
+  margin-bottom: 2em;
+}
+.block .introduction ol li ol {
+  width: 80%;
+  position: relative;
+  margin: 2em auto 10%;
+  max-width: 600px;
+  text-align: left;
+  background: rgba(230, 138, 0, 0);
+  -webkit-box-shadow: 0px 10px 5px 0px rgba(50, 50, 50, 0);
+  box-shadow: 0px 10px 5px 0px rgba(50, 50, 50, 0);
+  border-bottom: 0px solid #555555;
+  border-top: 0px solid #555555;
+}
+.block .introduction ol li ol a {
+  color: #555555;
+  text-decoration: underline;
+}
+.block .introduction ol li ol a:hover {
+  color: #e68a00;
 }
 .block .introduction a h3 {
   color: #e68a00;
