@@ -1,30 +1,46 @@
 {
- "name": "Elijah Harper","page":"elijahHarper","icon":"elijahHarper.png",
+ "name": "Elijah Harper","gender":"m","dob":1949, "dod":2013,"page":"elijahHarper","icon":"elijahHarper.png",
  "children": [
   {
-   "name": "Harper, Allan B","page":"allanHarper","icon":"allanBHarper.png",
+   "name": "Harper, Allan B","gender":"m", "dob":1925, "dod":2010, "page":"allanHarper","icon":"allanBHarper.png",
    "children": [
     {
-     "name": "Harper, Thomas","page":"thomasHarper",
-     "children": []
+     "name": "Harper, Thomas","gender":"m","dob":1900, "dod":1930,"page":"thomasHarper"
     },
     {
-     "name": "Wood, Juliet","page":"julietteWood",
+     "name": "Wood, Juliet","gender":"f","dob":1890, "dod":1975,"page":"julietteWood",
      "children": [
-      {"name": "Sinα wakαábu","page":"sinaWakaabu",
+// <<<<<<< HEAD
+//       {"name": "Sinα wakαábu","page":"sinaWakaabu",
+//         "children":[
+//           {
+//           "name": "I found it","page":"innahue"
+//           },{
+//             "name": "Wabα se, White Partridge","page":"whitePartridge"
+// =======
+      {"name": "Sinα wakαábu","gender":"m","page":"sinaWakaabu",
         "children":[
           {
-          "name": "I found it","page":"innahue"
-          },{
-            "name": "Wabα se, White Partridge","page":"whitePartridge"
+          "name": "I found it","gender":"m","page":"innahue"
+          },
+          {
+          "name": "Wabα se, White Partridge","gender":"f","page":"whitePartridge"
+// >>>>>>> d25635b7fc8b36ad680aeba8ca837ddd657881e5
           }
         ]
       },
       {
-        "name": "Gīzαgokwe, A Light","page":"aLight",
+// <<<<<<< HEAD
+//         "name": "Gīzαgokwe, A Light","page":"aLight",
+//         "children":[
+//           {
+//             "name": "Mαshīgu","page":"mashigiu"
+// =======
+        "name": "Gīzαgokwe, A Light","gender":"f","page":"aLight",
         "children":[
           {
-            "name": "Mαshīgu","page":"mashigiu"
+            "name": "Mαshīgu", "gender":"m","page":"mashigiu"
+// >>>>>>> d25635b7fc8b36ad680aeba8ca837ddd657881e5
           }
         ]
       }
@@ -33,47 +49,80 @@
    ]
   },
   {
-   "name": "Taylor, Ethel Catherine","page":"ethelCatherineTaylor", "icon":"ethelCatherineTaylor.png",
+   "name": "Taylor, Ethel Catherine","gender":"f","dob":1930, "dod":1992,"page":"ethelCatherineTaylor", "icon":"ethelCatherineTaylor.png",
    "children": [
     {
-     "name": "Taylor, Thomas","page":"thomasTaylor",
+     "name": "Taylor, Thomas","gender":"m","page":"thomasTaylor",
      "children": []
     },
     {
-     "name": "Monias, Emily","page":"emilyMonias",
+     "name": "Monias, Emily","gender":"f","page":"emilyMonias",
      "children": [
       {
-        "name": "Monias, Makα tcewininε; Black Man; Peter","page":"blackman",
+// <<<<<<< HEAD
+//         "name": "Monias, Makα tcewininε; Black Man; Peter","page":"blackman",
+//         "children":[
+//         {
+//           "name": "Wīságabéwininε, Anything Sore","page":"anythingSore",
+//           "children":[
+//             {
+//               "name":"Wabα se, White Partridge","page":"whitePartridge"
+//             }
+//           ]
+//         },{
+//           "name": "Pesängī, Hawk (wings)","page":"wingsHalfWhite"
+// =======
+        "name": "Monias, Makα tcewininε; Black Man; Peter","gender":"m","page":"blackman",
         "children":[
         {
-          "name": "Wīságabéwininε, Anything Sore","page":"anythingSore",
+          "name": "Wīságabéwininε, Anything Sore","gender":"m","page":"anythingSore",
           "children":[
             {
-              "name":"Wabα se, White Partridge","page":"whitePartridge"
+              "name":"Wabα se, White Partridge","gender":"m","page":"whitePartridge"
             }
           ]
         },{
-          "name": "Pesängī, Hawk (wings)","page":"wingsHalfWhite"
+          "name": "Pesängī, Hawk (wings)","gender":"f","page":"wingsHalfWhite"
+// >>>>>>> d25635b7fc8b36ad680aeba8ca837ddd657881e5
           }
         ]
       },
       {
-        "name": "Flett, Nähikwαn´ebikwe","page":"flett",
+// <<<<<<< HEAD
+//         "name": "Flett, Nähikwαn´ebikwe","page":"flett",
+//         "children":[
+//           {
+//             "name": "Flett, Peter, αkamakī win ninε ͑","page":"heCameFromEngland",
+//             "children":[
+//               {
+//                 "name":"Peemeecheekag, Porcupine Standing Sideways","page":"peemeecheekag"
+//               }
+//             ]
+//           },{
+//             "name": "Kα sī´pαgu α nī","page":"KaSiPaguANi",
+//             "children":[
+//               {
+//                 "name":"I found it","page":"innahue"
+//               },{
+//                 "name":"Wabα se, White Partridge","page":"whitePartridge"
+// =======
+        "name": "Flett, Nähikwαn´ebikwe","gender":"f","page":"flett",
         "children":[
           {
-            "name": "Flett, Peter, αkamakī win ninε ͑","page":"heCameFromEngland",
+            "name": "Flett, Peter, αkamakī win ninε ͑","gender":"m","page":"heCameFromEngland",
             "children":[
               {
-                "name":"Peemeecheekag, Porcupine Standing Sideways","page":"peemeecheekag"
+                "name":"Peemeecheekag, Porcupine Standing Sideways","gender":"m","page":"peemeecheekag"
               }
             ]
           },{
-            "name": "Kα sī´pαgu α nī","page":"KaSiPaguANi",
+            "name": "Kα sī´pαgu α nī","gender":"f","page":"KaSiPaguANi",
             "children":[
               {
-                "name":"I found it","page":"innahue"
+                "name":"I found it","gender":"m","page":"innahue"
               },{
-                "name":"Wabα se, White Partridge","page":"whitePartridge"
+                "name":"Wabα se, White Partridge","gender":"f","page":"whitePartridge"
+// >>>>>>> d25635b7fc8b36ad680aeba8ca837ddd657881e5
               }
             ]
           }
