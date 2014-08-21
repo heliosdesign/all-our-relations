@@ -43,7 +43,6 @@ body{
 canvas {
   position: absolute;
   width:100%;
-  height:100%;
   top:0px;
   left:0px;
 }
@@ -51,7 +50,7 @@ svg{
   position: absolute;
   width:100%;
   height:100%;
-  top:120px;
+  top:60px;
   left:120px;
   /*filter:url(#dropshadow)*/
 }
@@ -65,9 +64,14 @@ svg{
 #portrait-gallery{
   position: absolute;
   width:75px;
-  top:120px;
+  top:90px;
   left:20px;
   display:none;
+}
+
+.background-shifter {
+    -webkit-transition: all 2s; 
+    transition: all 2s;
 }
 
 #milestones{
@@ -90,8 +94,11 @@ svg{
 
 }
 .portrait{
-  width: 75px;
-  height:75px;
+  width: 60px;
+  height:60px;
+  border: solid 4px;
+  border-radius: 35px ;
+  
   background-size: cover;
   filter: sepia(100%);
   -webkit-filter: sepia(60%) url(#drop-shadow);
@@ -146,7 +153,6 @@ svg{
   top:0px;
   height:100px;
   padding: 0px;
-  border-bottom: 1px solid white;
 
 
 }
@@ -161,12 +167,11 @@ svg{
 #header li {
  padding: 0px;
  float: left;
- width:220px;
- border-left: 1px solid white;
- height:100px;
- color:white;
+ width:180px;
+ height:80px;
+ color:black;
  cursor:pointer;
- background: rgba(0,0,0,.1);
+ background: rgba(0,0,0,0);
  -webkit-transition: all .5s; 
     transition: all .5s;
 }
@@ -176,38 +181,50 @@ svg{
 
 
 #header li:hover {
-  background: rgba(255,255,255,.6);
-  color: black;
+  /*background: rgba(255,255,255,.6);*/
+  color: #b07e1b;
  }
 
 #header li p {
  position:absolute;
- bottom:5px;
+ bottom:25px;
  width:220px;
  text-align:center;
 }
 
 #header li.btn-active {
-  background: rgba(255,255,255,.5);
-  color: black; 
+  /*background: rgba(255,255,255,.5);*/
+  color: #b07e1b; 
  }
 #logo-main {
   position:absolute;
   left:95px;
-  top:20px;
-  width:320px;
+  top:10px;
+  width:280px;
 }
 
 .text-bucket {
-  position:absolute;
- width:840px;
- left:480px;
- top:140px;
+ position:absolute;
+ width:60%;
+ left:50%;
+ margin-left:-30%;
+ top:75px;
+ height:100%;
  padding:20px;
- border: 1px solid white;
- background: rgba(255,255,255,.87);
- color: black; 
+ background: rgba(255,255,255,.5);
+ color:black;
+ font-size:1.5em;
+
+ 
 }
+
+.text-bucket div {
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+
 
 
 .node {
@@ -230,5 +247,5 @@ svg{
 
 .link {
   fill:none;
-  stroke-width: 21px;
+  stroke-width: 5px;
 }

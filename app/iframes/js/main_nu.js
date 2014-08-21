@@ -1,6 +1,6 @@
 $(function(){
 
-	var margin = {top: -120, right: 0, bottom: 0, left: 100},
+	var margin = {top: 0, right: 0, bottom: 0, left: 100},
 	    width = window.innerWidth,
 	    iconHeight= 90
 	    height = window.innerHeight;
@@ -9,45 +9,134 @@ $(function(){
 	    var canvas = document.getElementById('background')
 	    var underCanvas = document.getElementById('under-background')
 
-	    canvas.height = window.innerHeight
-	    canvas.width = window.innerWidth
+	    var baseHeight,baseWidth, ratio
 
-	   	underCanvas.height = window.innerHeight
-	    underCanvas.width = window.innerWidth
-		var underCtx=underCanvas.getContext("2d");
-		var ctx=canvas.getContext("2d");
-		ctx.globalCompositeOperation ="darker";
+var resetZoom = function(){
+	$('#background').css('left',0)
+	$('#background').css('top', 0)
+}
 
+		var zoomMap = function(z, loc){
+			if(!$('#background').hasClass('background-shifter')){
+				$('#background').addClass('background-shifter')
+			}
+
+			if (!z) z = 1.2
+
+			console.log(loc)
+			
+			var targetV = baseHeight/2,targetH = baseWidth/2 
+
+			if(loc=="manitoba"){
+			 targetV = baseHeight/2 - 200
+			 targetH = baseWidth/2 - 400
+			}
+
+			if(loc=="manitoba-s"){
+			 targetV = baseHeight/2 - 300
+			 targetH = baseWidth/2 - 400
+			}
+
+			if(loc=="ontario"){
+			 targetV = baseHeight/2 - 200
+			 targetH = baseWidth/2 
+			}
+
+			if(loc=="ontario-s"){
+			 targetV = baseHeight/2 - 100
+			 targetH = baseWidth/2  -100
+			}
+
+			if(loc=="alberta-s"){
+			 targetV = baseHeight/2 - 200
+			 targetH = baseWidth/2  - 600
+			}			
+
+			if(loc=="sask"){
+			 targetV = baseHeight/2 - 180
+			 targetH = baseWidth/2  - 500
+			}	
+
+			$('#background').css('width', baseWidth * z)
+			$('#background').css('height', baseHeight * z * (ratio *2))
+
+			$('#background').css('left', -targetH * z)
+			$('#background').css('top', -targetV * z * (ratio *2))
+
+		}
+	    
+		
+		var drawBG = function(_url){
+
+		var overlayImg = new Image()
 
 		var overlay=document.getElementById("overlay");
+		
 		var parchment=document.getElementById("parchment");
+
+		var underCtx=underCanvas.getContext("2d");
+
+		var ctx=canvas.getContext("2d");
+
+
+
+		$('#background').removeClass('background-shifter')
+		
 
 		var cw = window.innerWidth, multix = parchment.height/parchment.width
 
-		underCtx.drawImage(parchment,0,0,window.innerWidth,window.innerHeight);
-		
-		var drawBG = function(_url){
-		
-		if(_url) document.getElementById("overlay").src = _url
-			var counter = 0
-		function draw(){
+
+		overlayImg.onload = function(){
+
+			var stepDown = window.innerWidth / overlayImg.width
+			console.log(overlayImg.height)
+
+			canvas.height = overlayImg.height
+	    	canvas.width = overlayImg.width
+
+	    	ratio = overlayImg.height / overlayImg.width
+
+	    	baseHeight=window.innerWidth
+	    	baseWidth = overlayImg.height * stepDown
+
+	    	$('#background').css('width',window.innerWidth)
+			$('#background').css('height',overlayImg.height * stepDown)
+		   	
+
+			document.getElementById("overlay").src = _url	
+
+			draw(overlayImg.height * stepDown)
+
+		 }
+
+		overlayImg.src = _url
+
+		var counter = 0
+
+
+		function draw(h){
+
+			console.log(cw)
+
 				var startDraw = window.innerWidth/4 * counter
 
-
-				ctx.clearRect(0,0,window.innerWidth,window.innerHeight)
+				ctx.clearRect(0,0,canvas.width,canvas.height)
+				
 
 				//ctx.drawImage(overlay,0,0,cw,cw * multix, startDraw,window.innerWidth/4,0,window.innerHeight);
-				ctx.drawImage(overlay,0,0,cw,cw * multix);	
+				//ctx.drawImage(overlay,0,0,cw,cw * multix);
 
-				ctx.drawImage(parchment,0,0,window.innerWidth,window.innerHeight);
+				ctx.drawImage(overlay,0,0);	
+				ctx.globalCompositeOperation ="darker";
+				//ctx.drawImage(parchment,0,0,canvas.width,canvas.height);
 
-				$('#all-container').fadeIn()	
+				$('#all-container').fadeIn()
 
 				counter ++
 
-				//if(counter < 5) setTimeout(draw,1000)	
+
 		}
-	setTimeout(draw,200)
+	
 }
 					
 
@@ -55,29 +144,62 @@ $(function(){
 
 
 		var buildTimeline = function() {
-
+			$('.text-bucket').css('display','none')
 			$('.timeline').css('display','block')
-			$('.intro').css('display','none')
+			
 
 			$('.fader').css('display','none')
 
-			drawBG('images/map.gif')
+			drawBG('images/main_map_pan.jpg')
 
 		}
 
 		var buildIntro = function() {
 
+			resetZoom()
+
 			$('.timeline').css('display','none')
+
+			$('.text-bucket').css('display','none')
 			$('.intro').css('display','block')
 
 			$('.fader').css('display','none')
 
-			drawBG('images/title_page.jpg')
+			drawBG('images/intro_bg.jpg')
 
 		}
 
-		buildIntro()
+		var buildResources = function() {
 
+			resetZoom()
+
+			$('.timeline').css('display','none')
+
+			$('.text-bucket').css('display','none')
+
+			$('.resources').css('display','block')
+
+			$('.fader').css('display','none')
+
+			drawBG('images/central_NA.jpg')
+
+		}
+
+		var buildShow = function() {
+
+			resetZoom()
+
+			$('.timeline').css('display','none')
+
+			$('.text-bucket').css('display','none')
+			
+			//$('.intro').css('display','block')
+
+			$('.fader').css('display','none')
+
+			drawBG('images/shows.jpg')
+
+		}
 		var Milestones = {
 			"Nunavut Act":1999, 
 			"Oka Land Dispute":1990,
@@ -136,16 +258,42 @@ $(function(){
 			counter++
 		})
 
-/////////EVENTS
+/////////EVENTS and LOCATION HASHES
+
+		var AORloc = window.location.hash;
+
+		if (AORloc) {
+			switch (AORloc) {
+				case "#timeline":
+				$('.btn-timeline').addClass('btn-active')
+				buildTimeline()
+				break;
+				case "#intro":
+				$('.btn-intro').addClass('btn-active')
+				buildIntro()
+				break;				
+			}	
+
+		} else {
+			$('.btn-intro').addClass('btn-active')
+			buildIntro()
+		}
 
 
 		$('.portrait').on('click',function(){
+
+			
+
+			
 
 			if(!clicked || $(this).css('opacity') < 1){
 
 				clicked = null
 
-				loadTree($(this).data('subject'), this.getBoundingClientRect().top + 50);
+				//$(this).data('homeland')
+
+				zoomMap(1.5,$(this).data('homeland'))
+				loadTree($(this).data('subject'), this.getBoundingClientRect().top);
 
 			}
 			$('.portrait').css('opacity',.5)
@@ -153,6 +301,7 @@ $(function(){
 			$(this).css('opacity',1)
 
 			$('.fader').fadeIn()
+
 			$('.text-bucket').fadeOut()
 
 		})
@@ -168,7 +317,13 @@ $(function(){
 				break;
 				case "intro":
 				buildIntro()
-				break;				
+				break;
+				case "resources":
+				buildResources()
+				break;
+				case "shows":
+				buildShow()
+				break;														
 			}	
 					
 			})
@@ -207,7 +362,7 @@ $(function(){
 	d3.json("data/"+_subject+"_family-tree.json", function(error, flare) {
 	  	root = flare;
 	  	rootCache = flare;
-	  	root.x0 = startX ;
+	  	root.x0 = startX-100 ;
 	  	root.y0 = -180;
 
 
@@ -280,62 +435,99 @@ $(function(){
 	      .on("click", click);
 
 	  	nodeEnter.append("rect")
-	  	      .attr("width", 60)
+	  	      .attr("width", 360)
 	  	      .attr("height", 30)
 	      	  .style("fill", 'none')
 
 
 		nodeEnter.append("text")
 		  	.attr('class','title')
-	      	.attr("x", function(d) { 
+		  	.style('font-size','20px')
+	      	.text(function(d) { return d.name })
+			.style("fill-opacity", function(d){
+				d.computedWidth = this.getComputedTextLength() + 20
+				return 1e-6
+			})	      	
+			.attr("x", function(d) { 
 	      		return 	-30
 	      	})
-	      .attr("dy", function(d) { 
-			if (d.depth%2==0)return -35
-			return 	45	
-	      })
-	      .attr("text-anchor", 'left')
-	      .text(function(d) { return d.name})
-	      .style("fill-opacity", 1e-6)
+			.attr("dy", function(d) { 
+				return 	-5	
+			})
 
-		nodeEnter.append("text")
-		  	.attr('class','plus')
-	      	.attr("x", 130)
-	      	.attr("y", 28)  
-	      	.text("+")
-	      	.style("fill-opacity", 1e-6)
-	      	.style("fill", "af040a")
-		  	.style('font-size','70px')
-		  	.style("filter", "url(#drop-shadow)")
+
+
+
+
+		// nodeEnter.append("text")
+		//   	.attr('class','plus')
+	 //      	.attr("x", 130)
+	 //      	.attr("y", 28)  
+	 //      	.text("+")
+	 //      	.style("fill-opacity", 1e-6)
+	 //      	.style("fill", "af040a")
+		//   	.style('font-size','70px')
+		//   	.style("filter", "url(#drop-shadow)")
 
 		nodeEnter.append("text")
 		  	.attr('class','date')
-	      	.attr("x", 5)
-	      	.attr("dy", 5)	      
+	      	.attr("x", 0)
+	      	.attr("dy", 15)	      
 			.text(function(d) { 
 				if(d.dob && d.dod){return "b: " + d.dob  + ", d: " +  d.dod}
 			      	return "n/a"
 			})
-			.style("fill-opacity", 1e-6)
+	      	.style("fill-opacity", 1e-6)
+
+	  	nodeEnter.append("image")
+	  		.attr('class','img')
+	      	.attr("xlink:href", "images/document.png")
+	      	.attr("y", -45)
+	      	.attr("x", function(d){
+	      		return d.computedWidth
+	      	})
+
+	      	.attr("width", 0)
+      		.attr("height", 0)
+
+
+
 	  	// Transition nodes to their new position.
 	  	var nodeUpdate = node.transition()
 	      .duration(duration)
 	      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
+		nodeUpdate.select("image")
+	      	.attr("width", function(d){ 
+	      		console.log(d.name)
+	      		if (d.name==clicked) {
+	      			return 25; 
+	      		}
+	      			
+	      		//return 0
+	      	})
+      		.attr("height", function(d){ 
+      			if (d.name==clicked) return 25; 
+      			//return 0
+      		})
+      		.style("filter", "url(#drop-shadow)")
+
 		nodeUpdate.select("rect")
-			.attr("width", 120)
-			.attr("height", 30)
-			.attr('y', -15)
-			.attr('x', 0)
-			.style("stroke","#d7d2ce")
+			.attr("width", function(d){
+				return d.computedWidth
+			})
+			.attr("height", 50)
+			.attr('y', -30)
+			.attr('x', -5)
 			.style("fill", function(d) {
-				if(d.name==clicked) return '#af040a'
-			  	return "rgba(255,212,30,.9)"; 
+				//if(d.name==clicked) return '#af040a'
+			  	return "rgba(255,255,255,.9)"; 
 			 })
 			.style("filter", "url(#drop-shadow)")
 
 		nodeUpdate.select(".date")
 		  	.style("fill-opacity", 1)
+		  	.style("fill", "#7a7a7a")
 		  	.style('font-size','12px')
 
 		nodeUpdate.select(".plus")
@@ -346,9 +538,12 @@ $(function(){
 		nodeUpdate.select(".title")
 			.attr('x', 0)	  
 		  	.style("fill-opacity", 1)
-		  	.style("fill", "#ffffff")
-		  	.style('font-size','20px')
-		  	.style("filter", "url(#drop-shadow)")
+		  	.style("fill", function(d) {
+				if (d.name == clicked ) return '#eb8823'
+		  		return "#7a7a7a"
+
+		  	})
+		  	//.style("filter", "url(#drop-shadow)")
 
 	  var nodeExit = node.exit().transition()
 	      	.duration(duration)
@@ -462,7 +657,7 @@ Array.prototype.uniqueObjects = function(){
 		if(clicked == d.name) {
 
 			$('.fader').fadeOut(1000)
-			$('.text-bucket').fadeIn()
+			$('.ancestor').fadeIn()
 			$('.bottom-shelf').css("bottom", -120)
 				
 				console.log(d.page)

@@ -1,0 +1,145 @@
+{
+ "name": "Santee Smith","gender":"f","page":"santeeSmith","icon":"santeeSmith.png",
+ "children": [
+    {
+     "name": "StevenTracey Smith","gender":"m","page":"stevenTracey",
+     "children": [
+        {
+         "name": "Oliver Miller Smith","gender":"m","dob":1911,"dod":1979,"page":"oliverSmith",
+         "children": [
+            {
+             "name": "William Smith","gender":"m","dob":1868,"dod":1952,"page":"williamSmith",
+             "children": [
+                {
+                 "name": "William Smith","gender":"m","dob":1841,"page":"williamSmithII",
+                 "children": [
+                 ]
+                },
+                {
+                 "name": "Charlotte Miller","gender":"f","dob":1847,"page":"charlotteMiller",
+                 "children": [
+                 ]
+                }
+             ]
+            },
+            {
+             "name": "Sarah Cecelia Russell","gender":"f","dob":1870,"dod":1952,"page":"sarahRussell",
+             "children": [
+                {
+                 "name": "John Russell","gender":"m","dob":1836,"dod":1881,"page":"johnRussel",
+                 "children": [
+                 ]
+                },
+                {
+                 "name": "Charlotte","gender":"f","dob":1841,"page":"charlotte",
+                 "children": [
+                 ]
+                }
+             ]
+            }
+         ]
+        },
+        {
+         "name": "Elda Muriel Smith","gender":"f","dob":1915,"dod":1979,"page":"eldaSmith",
+         "children": [
+            {
+             "name": "Alexander George Edwin Smith","gender":"m","dob":1879,"page":"alexanderSmith",
+             "children": [
+                {
+                 "name": "Alexander George Smith","gender":"m","dob":1844,"dod":1933,"page":"alexanderSmithII",
+                 "children": [
+                 ]
+                },
+                {
+                 "name": "Mary Wage","gender":"f","dob":1847,"page":"maryWage",
+                 "children": [
+                 ]
+                }
+             ]
+            },
+            {
+             "name": "Mable Phoebe Doxtator","gender":"f","dob":1888,"page":"marbleDoxtator",
+             "children": [
+                {
+                 "name": "Howard Dockstadder","gender":"m","dob":1855,"page":"howardDockstadder",
+                 "children": [
+                 ]
+                },
+                {
+                 "name": "Lucinda Gordon","gender":"f","dob":1859,"page":"lucindaGordon",
+                 "children": [
+                 ]
+                }
+             ]
+            }
+         ]
+        }
+     ]
+    },
+    {
+     "name": "Leona Vyse","gender":"f","page":"leonaVyse",
+     "children": [
+        {
+         "name": "Edwin Vernon Vyse","gender":"m","dob":1923,"dod":1998,"page":"edwinVernonVyse",
+         "children": [
+            {
+             "name": "Theodore Roosevelt Vyse","gender":"m","dob":1903, "page":"theodoreVyse",
+             "children": [
+                {
+                 "name": "William Vyse","gender":"m","dob":1874,"page":"willamVyse",
+                 "children": [
+                 ]
+                },
+                {
+                 "name": "Phoebe Jane Hill","gender":"f","dob":1876,"page":"phoebeJaneHill",
+                 "children": [
+                 ]
+                }
+             ]
+            },
+            {
+             "name": "Mable Irene Staats","gender":"f","dob":1900,"page":"mableStaats",
+             "children": [
+                {
+                 "name": "Hiram Staatrs","gender":"m","dob":1878,"page":"hiramStaatrs",
+                 "children": [
+                 ]
+                },
+                {
+                 "name": "Lydia Green","gender":"f","dob":1883,"page":"lydiaGreen",
+                 "children": [
+                 ]
+                }
+             ]
+            }
+         ]
+        },
+        {
+         "name": "Rita Skye","gender":"f","dob":1924,"dod":1997,"page":"ritaSkye",
+         "children": [
+            {
+             "name": "Robert Skye","gender":"m","dob":1897, "page":"theodoreVyse",
+             "children": [
+                {
+                 "name": "Joseph Skye","gender":"m","dob":1855,"page":"josephSkye",
+                 "children": [
+                 ]
+                },
+                {
+                 "name": "Charlotte","gender":"f","dob":1861,"page":"charlotte",
+                 "children": [
+                 ]
+                }
+             ]
+            },
+            {
+             "name": "Mary Harris","gender":"f","page":"maryHarris",
+             "children": [
+             ]
+            }
+         ]
+        }
+     ]
+    }
+ ]
+}

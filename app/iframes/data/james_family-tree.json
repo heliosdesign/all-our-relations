@@ -1,0 +1,76 @@
+{
+ "name": "James Bartleman","gender":"m","dob":1936,"page":"jamesBartleman","icon":"jamesBartleman.png",
+ "children": [
+    {
+     "name": "Percy Scott Bartleman","gender":"m","page":"percyScottBartleman",
+     "children": [
+      {
+       "name": "William Bain Bartleman","gender":"m","page":"percyScottBartleman",
+       "children": [
+       ]
+      },
+      {
+       "name": "Margaret Shields","gender":"f","page":"margaretSheilds",
+       "children": [
+       ]
+      }
+
+     ]
+    },
+    {
+     "name": "Maureen Benson Simcoe","gender":"f","dob":1922,"page":"maureenSimcoe",
+     "children": [
+        {
+         "name": "Edward Simcoe","gender":"m","dob":1895,"dod":1945,"page":"edwardSimcoe",
+         "children": [
+         ]
+        },
+        {
+         "name": "Edna Flossie Benson","gender":"f","dob":1900,"dod":1982,"page":"ednaFlossieBenson",
+         "children": [
+            {
+             "name": "Frederick W. Nanigishkung","gender":"m","dob":1873,"dod":1924,"page":"edwardSimcoe",
+             "children": [
+                {
+                 "name": "James Benson Nanigishkung","gender":"m","dob":1845,"dod":1918,"page":"jamesNanigishkung",
+                 "children": [
+                    {
+                     "name": "Sarah Young","gender":"f","dob":1819,"dod":1891,"page":"charlotteCharles",
+                     "children": [
+                     ]
+                    }
+                 ]
+                },
+                {
+                 "name": "Charlotte Charles","gender":"f","dob":1850,"dod":1908,"page":"charlotteCharles",
+                 "children": [
+                 ]
+                }
+             ]
+            },
+            {
+             "name": "Phoebe Ann Snake","gender":"f","dob":1878,"dod":1982,"page":"ednaFlossieBenson",
+             "children": [
+                {
+                 "name": "James Abraham Snake","gender":"m","dob":1850,"dod":1885,"page":"jamesAbrahamSnake",
+                 "children": [
+                    {
+                     "name": "Jane","gender":"f","dob":1850,"page":"Jane",
+                     "children": [
+                     ]
+                    }
+                 ]
+                },
+                {
+                 "name": "Martha Sophia Goose","gender":"f","dob":1850,"page":"marthaSophiaGoose",
+                 "children": [
+                 ]
+                }
+             ]
+            }
+         ]
+        }
+     ]
+    }
+ ]
+}

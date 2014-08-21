@@ -1,0 +1,45 @@
+{
+ "name": "Douglas Cardinal","gender":"m","dob":1934,"page":"douglasCardinal","icon":"douglasCardinal.png",
+ "children": [
+    {
+     "name": "Joseph 'Joe' T.Cardinal","gender":"m","dob":1908,"page":"josephJoe",
+     "children": [
+        {
+         "name": "Hilaire 'Henry' Cardinal","gender":"m","dob":1877,"dod":1968, "page":"hilaireCardinal",
+         "children": [
+            {
+             "name": "Trefflé Cardinal","gender":"m","dob":1849,"dod":1929,"page":"treffleCardinal",
+             "children": [
+             ]
+            },
+            {
+             "name": "Mathilda Provost/Prévost","gender":"f","dob":1859,"page":"mathilda",
+             "children": [
+             ]
+            }
+         ]
+        },
+        {
+         "name": "Martha Caroline Lee","gender":"f","dob":1885,"dod":1974,"page":"marthaLee",
+         "children": [
+         ]
+        }
+     ]
+    },
+    {
+     "name": "Frances Marguerite Rach","gender":"f","dob":1907,"page":"francesRach",
+     "children": [
+        {
+         "name": "Alvin Joseph Rach","gender":"m","dob":1876,"dod":1939,"page":"",
+         "children": [
+         ]
+        },
+        {
+         "name": "Ellen Dale Geneviéve Morin","gender":"f","dob":1882,"dod":1973,"page":"",
+         "children": [
+         ]
+        }
+     ]
+    }
+ ]
+}
