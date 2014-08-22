@@ -164,6 +164,10 @@ var resetZoom = function(){
 			$('.resources').css('display','none')
 
 			$('.text-bucket').css('display','none')
+
+			$('.content-bucket').css('display','none')
+
+
 			$('.intro').css('display','block')
 
 			$('.fader').css('display','none')
@@ -330,6 +334,8 @@ var resetZoom = function(){
 		})
 
 		$('.portrait').on('click',function(){
+
+			$('#fullscreen-background').fadeOut()
 			
 			if(!clicked || $(this).css('opacity') < 1){
 
@@ -349,12 +355,16 @@ var resetZoom = function(){
 
 			$('.text-bucket').fadeOut()
 
+			$('.content-bucket').fadeOut()
+
 		})
 
 		$('#header li').on('click',function(){
 
 			var _this = this
 			clicked = null
+
+			$('.top-nuke').fadeOut()
 
 			$('#all-container').fadeOut(function(){
 			switch ($(_this).data('action')) {
@@ -441,7 +451,6 @@ var resetZoom = function(){
 			      d.children = null;
 			    }
 			  }
-
 
 
 	  root.children.forEach(collapse);
@@ -547,7 +556,7 @@ var resetZoom = function(){
 		nodeUpdate.select("image")
 	      	.attr("width", function(d){ 
 	      		console.log(d.name)
-	      		if (d.name==clicked) {
+	      		if (d.name==clicked && d.page) {
 	      			return 25; 
 	      		}
 	      			
@@ -701,21 +710,45 @@ Array.prototype.uniqueObjects = function(){
 
 	function click(d) {
 
-		if(clicked == d.name) {
+		console.log(d)
+
+
+		if(clicked == d.name && d.page) {
+
+			$( "#contentPanel" ).load( "partials/" + d.page +".html", function( response, status, xhr ) {
+		  		if ( status == "error" ) {
+		    		var msg = "Sorry but there was an error: ";
+		    		console.log( msg + xhr.status + " " + xhr.statusText );
+		  		}
+			});		
 
 			$('.fader').fadeOut(1000)
 			$('.ancestor').fadeIn()
 			$('.bottom-shelf').css("bottom", -120)
-				
-				console.log(d.page)
 
+			if(d.bg) {
+
+				console.log(d.bg)
+				var bgImage = new Image()
+
+				bgImage.onload = function(){
+
+					$('#fullscreen-background').fadeIn()
+
+					$('#fullscreen-background img')[0].src= bgImage.src
+
+				}
+				bgImage.src=d.bg
+
+			} 
+				
 			return
 		}
 
 
 		var storageTrigger = ""
 
-		clicked = d.name
+		
 
 		var left = (thisyear-d.dod)*spanMultix
 		var right = (thisyear-d.dob)*spanMultix
@@ -726,15 +759,16 @@ Array.prototype.uniqueObjects = function(){
 		var temp = d.storage		
 
 		d.storage = temp.uniqueObjects();
-
-
+		
 		recursiveClose(d)
-
+	
 		childToggle(d)
+
+		clicked = d.name
 
 		d.isBranch = true
 			  	
-	  	if(d.parent){
+	  	if(d.parent && d._children){
 			if(d.parent.children){
 
 		  		d.parent.children.forEach(function (_d,i){
@@ -763,7 +797,7 @@ Array.prototype.uniqueObjects = function(){
 
 	  //URL//
 	  if(d.page && !window.parent){
-	  	window.parent.location = "/all-our-relations/app/#/"+d.page
+	  	//window.parent.location = "/all-our-relations/app/#/"+d.page
 	  	// console.log(d.page)
 	  }else{
 	  	// alert('disabled for prototype');
