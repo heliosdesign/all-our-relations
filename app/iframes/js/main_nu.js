@@ -146,6 +146,7 @@ var resetZoom = function(){
 		var buildTimeline = function() {
 			$('.text-bucket').css('display','none')
 			$('.timeline').css('display','block')
+			$('.resources').css('display','none')
 			
 
 			$('.fader').css('display','none')
@@ -160,6 +161,8 @@ var resetZoom = function(){
 
 			$('.timeline').css('display','none')
 
+			$('.resources').css('display','none')
+
 			$('.text-bucket').css('display','none')
 			$('.intro').css('display','block')
 
@@ -173,6 +176,8 @@ var resetZoom = function(){
 
 			resetZoom()
 
+			$('.resources').css('display','none')
+
 			$('.timeline').css('display','none')
 
 			$('.text-bucket').css('display','none')
@@ -181,7 +186,7 @@ var resetZoom = function(){
 
 			$('.fader').css('display','none')
 
-			drawBG('images/central_NA.jpg')
+			drawBG('images/resources_bg.jpg')
 
 		}
 
@@ -197,7 +202,7 @@ var resetZoom = function(){
 
 			$('.fader').css('display','none')
 
-			drawBG('images/shows.jpg')
+			drawBG('images/shows_bg.jpg')
 
 		}
 		var Milestones = {
@@ -271,7 +276,12 @@ var resetZoom = function(){
 				case "#intro":
 				$('.btn-intro').addClass('btn-active')
 				buildIntro()
-				break;				
+				break;	
+
+				case "#resource":
+				$('.btn-resources').addClass('btn-active')
+				buildResources()
+				break;								
 			}	
 
 		} else {
@@ -279,13 +289,40 @@ var resetZoom = function(){
 			buildIntro()
 		}
 
+		$('.resource').on('click',function(){
+
+			var that = this
+			
+			if(!clicked || $(this).css('opacity') < 1){
+
+				$('#all-container').fadeOut(function(){
+
+				clicked = null
+
+				console.log($(that).data('homeland'))
+
+				drawBG('images/' + $(that).data('homeland') + '.jpg')
+
+				loadTree($(that).data('subject'),that.getBoundingClientRect().top+40,1);
+
+				$('#all-container').fadeIn()
+			})
+
+			}
+			$('.resource').css('opacity',.5)
+
+			$(this).css('opacity',1)
+
+
+
+			$('.just-svg').fadeIn()
+
+			$('.text-bucket').fadeOut()
+
+		})
 
 		$('.portrait').on('click',function(){
-
 			
-
-			
-
 			if(!clicked || $(this).css('opacity') < 1){
 
 				clicked = null
@@ -353,13 +390,14 @@ var resetZoom = function(){
 	    .attr("width", width + margin.right + margin.left)
 	    .attr("height", height + margin.top + margin.bottom)
 	    .classed('fader',true)
+	    .classed('just-svg',true)
 	    .classed('timeline',true)
 	  	.append("g")
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
- var loadTree = function(_subject,startX){
-	d3.json("data/"+_subject+"_family-tree.json", function(error, flare) {
+ var loadTree = function(_subject,startX, noTimeline){
+	d3.json("data/"+_subject+".json", function(error, flare) {
 	  	root = flare;
 	  	rootCache = flare;
 	  	root.x0 = startX-100 ;

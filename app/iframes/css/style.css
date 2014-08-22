@@ -61,7 +61,8 @@ svg{
   width:100%;
   height:100%; 
 }
-#portrait-gallery{
+
+.side-menu{
   position: absolute;
   width:75px;
   top:90px;
@@ -93,7 +94,7 @@ svg{
   background:rgba(0,0,0,.7);
 
 }
-.portrait{
+.portrait, .resource{
   width: 60px;
   height:60px;
   border: solid 4px;
@@ -188,8 +189,13 @@ svg{
 #header li p {
  position:absolute;
  bottom:25px;
- width:220px;
+ background: rgba(255,255,255,.9);
+ padding-top:5px;
+ padding-bottom:5px;
+ width:140px;
  text-align:center;
+ box-shadow: 5px 5px 5px #000000;
+ -webkit-filter: sepia(60%);
 }
 
 #header li.btn-active {
