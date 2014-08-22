@@ -220,6 +220,7 @@ svg{
  background: rgba(255,255,255,.5);
  color:black;
  font-size:1.5em;
+ display: none;
 
  
 }
