@@ -1,4 +1,8 @@
 {
- "name": "Eastern North America","gender":"m","dob":1934,"page":"douglasCardinal","icon":"douglasCardinal.png",
- "children": []
+ "name": "Eastern North America",
+ "children": [
+  	{"name": "Video Library","gender":"m","children":[{"name":"Video 1"},{"name":"Video 2"},{"name":"Video 3"}]},
+  	{"name": "People","gender":"m","children":[{"name":"Person 1"},{"name":"Person 2"},{"name":"Person 3"}]},
+	{"name": "Places","gender":"m","children":[{"name":"Places 1"},{"name":"Places 2"},{"name":"Places 3"}]}
+ ]
 }

@@ -269,10 +269,12 @@ var resetZoom = function(){
 
 		if (AORloc) {
 			switch (AORloc) {
+
 				case "#timeline":
 				$('.btn-timeline').addClass('btn-active')
 				buildTimeline()
 				break;
+
 				case "#intro":
 				$('.btn-intro').addClass('btn-active')
 				buildIntro()
@@ -281,7 +283,8 @@ var resetZoom = function(){
 				case "#resource":
 				$('.btn-resources').addClass('btn-active')
 				buildResources()
-				break;								
+				break;	
+
 			}	
 
 		} else {
@@ -289,21 +292,26 @@ var resetZoom = function(){
 			buildIntro()
 		}
 
+		$('.text-bucket').on('click',function(){
+			$('.text-bucket').fadeOut()
+			$('.fader').fadeIn()
+		})
+
 		$('.resource').on('click',function(){
 
 			var that = this
-			
+			var top = (this.getBoundingClientRect().top)
 			if(!clicked || $(this).css('opacity') < 1){
 
 				$('#all-container').fadeOut(function(){
 
 				clicked = null
 
-				console.log($(that).data('homeland'))
+				
 
 				drawBG('images/' + $(that).data('homeland') + '.jpg')
 
-				loadTree($(that).data('subject'),that.getBoundingClientRect().top+40,1);
+				loadTree($(that).data('subject'),top,1);
 
 				$('#all-container').fadeIn()
 			})
@@ -346,6 +354,7 @@ var resetZoom = function(){
 		$('#header li').on('click',function(){
 
 			var _this = this
+			clicked = null
 
 			$('#all-container').fadeOut(function(){
 			switch ($(_this).data('action')) {
@@ -513,7 +522,7 @@ var resetZoom = function(){
 	      	.attr("dy", 15)	      
 			.text(function(d) { 
 				if(d.dob && d.dod){return "b: " + d.dob  + ", d: " +  d.dod}
-			      	return "n/a"
+			      	return ""
 			})
 	      	.style("fill-opacity", 1e-6)
 
