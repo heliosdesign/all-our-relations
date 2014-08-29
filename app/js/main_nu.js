@@ -11,10 +11,10 @@ $(function(){
 
 	    var baseHeight,baseWidth, ratio
 
-var resetZoom = function(){
-	$('#background').css('left',0)
-	$('#background').css('top', 0)
-}
+		var resetZoom = function(){
+			$('#background').css('left',0)
+			$('#background').css('top', 0)
+		}
 
 		var zoomMap = function(z, loc){
 			if(!$('#background').hasClass('background-shifter')){
@@ -96,7 +96,7 @@ var resetZoom = function(){
 
 	    	ratio = overlayImg.height / overlayImg.width
 
-	    	baseHeight=window.innerWidth
+	    	baseHeight= window.innerWidth
 	    	baseWidth = overlayImg.height * stepDown
 
 	    	$('#background').css('width',window.innerWidth)
@@ -118,23 +118,21 @@ var resetZoom = function(){
 
 			console.log(cw)
 
-				var startDraw = window.innerWidth/4 * counter
+			var startDraw = window.innerWidth/4 * counter
 
-				ctx.clearRect(0,0,canvas.width,canvas.height)
-				
+			ctx.clearRect(0,0,canvas.width,canvas.height)
+			
 
-				//ctx.drawImage(overlay,0,0,cw,cw * multix, startDraw,window.innerWidth/4,0,window.innerHeight);
-				//ctx.drawImage(overlay,0,0,cw,cw * multix);
+			//ctx.drawImage(overlay,0,0,cw,cw * multix, startDraw,window.innerWidth/4,0,window.innerHeight);
+			//ctx.drawImage(overlay,0,0,cw,cw * multix);
 
-				ctx.drawImage(overlay,0,0);	
-				ctx.globalCompositeOperation ="darker";
-				//ctx.drawImage(parchment,0,0,canvas.width,canvas.height);
+			ctx.drawImage(overlay,0,0);	
+			ctx.globalCompositeOperation ="darker";
+			//ctx.drawImage(parchment,0,0,canvas.width,canvas.height);
 
-				$('#all-container').fadeIn()
+			$('#all-container').fadeIn()
 
-				counter ++
-
-
+			counter ++
 		}
 	
 }
@@ -145,7 +143,14 @@ var resetZoom = function(){
 
 		var buildTimeline = function() {
 			$('.text-bucket').css('display','none')
-			$('.timeline').css('display','block')
+
+			
+
+			$('.timeline').css('display','table')
+
+			$('.portraitwrapper').css('display','table')
+			$('#portrait-gallery').css('display','table-cell')
+
 			$('.resources').css('display','none')
 			
 
@@ -161,6 +166,9 @@ var resetZoom = function(){
 
 			$('.timeline').css('display','none')
 
+			$('.portraitwrapper').css('display','none')
+			$('.side-menu').css('display','none')
+
 			$('.resources').css('display','none')
 
 			$('.text-bucket').css('display','none')
@@ -168,7 +176,7 @@ var resetZoom = function(){
 			$('.content-bucket').css('display','none')
 
 
-			$('.intro').css('display','block')
+			$('.intro').css('display','table')
 
 			$('.fader').css('display','none')
 
@@ -184,9 +192,14 @@ var resetZoom = function(){
 
 			$('.timeline').css('display','none')
 
+			$('.resources').css('display','table')
+
+			$('.portraitwrapper').css('display','table')
+			$('#resource-menu').css('display','table-cell')
+
 			$('.text-bucket').css('display','none')
 
-			$('.resources').css('display','block')
+			
 
 			$('.fader').css('display','none')
 
@@ -199,6 +212,9 @@ var resetZoom = function(){
 			resetZoom()
 
 			$('.timeline').css('display','none')
+
+			$('.portraitwrapper').css('display','none')
+			$('.side-menu').css('display','none')
 
 			$('.text-bucket').css('display','none')
 			
@@ -244,8 +260,6 @@ var resetZoom = function(){
 			 var yearOffset = 0
 
 			 var ticker =  counter % 3
-
-
 
 			if(ticker === 0){
 				vOffSet = 2
@@ -296,10 +310,14 @@ var resetZoom = function(){
 			buildIntro()
 		}
 
-		$('.text-bucket').on('click',function(){
-			$('.text-bucket').fadeOut()
-			$('.fader').fadeIn()
-		})
+		// $('.text-bucket').on('click',function(){
+		// 	$('.text-bucket').fadeOut()
+		// 	$('.fader').fadeIn()
+		// })
+
+		// console.log('running')
+
+		
 
 		$('.resource').on('click',function(){
 
@@ -310,8 +328,6 @@ var resetZoom = function(){
 				$('#all-container').fadeOut(function(){
 
 				clicked = null
-
-				
 
 				drawBG('images/' + $(that).data('homeland') + '.jpg')
 
@@ -324,8 +340,6 @@ var resetZoom = function(){
 			$('.resource').css('opacity',.5)
 
 			$(this).css('opacity',1)
-
-
 
 			$('.just-svg').fadeIn()
 
@@ -347,9 +361,9 @@ var resetZoom = function(){
 				loadTree($(this).data('subject'), this.getBoundingClientRect().top);
 
 			}
-			$('.portrait').css('opacity',.5)
+			$('.portrait').removeClass('active')
 
-			$(this).css('opacity',1)
+			$(this).addClass('active')
 
 			$('.fader').fadeIn()
 
@@ -383,8 +397,6 @@ var resetZoom = function(){
 			}	
 					
 			})
-
-
 
 			$('#header li').removeClass('btn-active')
 			$(this).addClass('btn-active')
@@ -720,6 +732,14 @@ Array.prototype.uniqueObjects = function(){
 		    		var msg = "Sorry but there was an error: ";
 		    		console.log( msg + xhr.status + " " + xhr.statusText );
 		  		}
+		  		$('#contentPanel').prepend('<div class="exitbtn">X</div>');
+		  		$('.exitbtn').on('click',function(){
+		  			console.log('CLICKED ON EXIT BTN')
+		  			buildTimeline();
+		  			$( this ).remove();
+		  			$( '.portrait' ).removeClass('active');
+		  			resetZoom();
+		  		})
 			});		
 
 			$('.fader').fadeOut(1000)

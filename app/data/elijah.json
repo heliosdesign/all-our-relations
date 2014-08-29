@@ -1,5 +1,5 @@
 {
- "name": "Elijah Harper","gender":"m","dob":1949, "dod":2013,"page":"elijahHarper","bg":"assets/img/elijahHarper/03c_935630.jpg",
+ "name": "Elijah Harper","gender":"m","dob":1949, "dod":2013,"page":"elijahHarper",
  "children": [
   {
    "name": "Harper, Allan B","gender":"m", "dob":1925, "dod":2010, "page":"allanHarper","icon":"allanBHarper.png",
