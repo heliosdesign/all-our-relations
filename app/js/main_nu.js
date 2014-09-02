@@ -186,6 +186,8 @@ $(function(){
 			
 
 			$('.fader').css('display','none')
+			$('.steps').fadeOut();
+			$('.resourcecontainer').fadeOut();
 
 			drawBG('images/main_map_pan.jpg')
 
@@ -210,6 +212,8 @@ $(function(){
 			$('.intro').css('display','table')
 
 			$('.fader').css('display','none')
+			$('.steps').fadeOut();
+			$('.resourcecontainer').fadeOut();
 
 			drawBG('images/intro_bg.jpg')
 
@@ -234,6 +238,9 @@ $(function(){
 
 			$('.fader').css('display','none')
 
+			$('#step1').fadeIn();
+			$('.resourcewrapper').fadeIn();
+
 			drawBG('images/resources_bg.jpg')
 
 		}
@@ -252,6 +259,10 @@ $(function(){
 			//$('.intro').css('display','block')
 
 			$('.fader').css('display','none')
+			$('.steps').fadeOut();
+			$('.resourcecontainer').fadeOut();
+
+
 
 			drawBG('images/shows_bg.jpg')
 
@@ -350,31 +361,84 @@ $(function(){
 
 		
 
-		$('.resource').on('click',function(){
+		// $('.resource').on('click',function(){
 
-			var that = this
-			var top = (this.getBoundingClientRect().top)
-			if(!clicked || $(this).css('opacity') < 1){
+		// 	var that = this
+		// 	var top = (this.getBoundingClientRect().top)
+		// 	if(!clicked || $(this).css('opacity') < 1){
 
-				$('#all-container').fadeOut(function(){
+		// 		$('#all-container').fadeOut(function(){
 
-				clicked = null
+		// 		clicked = null
 
-				drawBG('images/' + $(that).data('homeland') + '.jpg')
+		// 		drawBG('images/' + $(that).data('homeland') + '.jpg')
 
-				loadTree($(that).data('subject'),top,1);
+		// 		loadTree($(that).data('subject'),top,1);
 
-				$('#all-container').fadeIn()
-			})
+		// 		$('#all-container').fadeIn()
+		// 	})
 
-			}
-			$('.resource').css('opacity',.5)
+		// 	}
+		// 	$('.resource').css('opacity',.5)
 
+		// 	$(this).css('opacity',1)
+
+		// 	$('.just-svg').fadeIn()
+
+		// 	$('.text-bucket').fadeOut()
+
+
+
+		// })
+		$('.resource-btn').on('click',function(){
+			
+			$('.resourcecontainer').fadeIn()
+			$('.resource-btn').css('opacity',.5)
 			$(this).css('opacity',1)
 
-			$('.just-svg').fadeIn()
+			console.log($(this).index())
 
-			$('.text-bucket').fadeOut()
+			var startCheck = {
+				0: function() {
+					//step1
+					console.log('step1')
+					$('.steps').fadeOut();
+					$('#step1').fadeIn();
+					
+				},
+				1: function() {
+					//step2
+					console.log('step2')
+					$('.steps').fadeOut();
+					$('#step2').fadeIn();
+					
+				},
+				2: function() {
+					//step3
+					console.log('step3')
+					$('.steps').fadeOut();
+					$('#step3').fadeIn();
+					
+				},
+				3: function() {
+					//step4
+					console.log('step4')
+					$('.steps').fadeOut();
+					$('#step4').fadeIn();
+					
+				},
+				4: function() {
+					//step4
+					console.log('step5')
+					$('.steps').fadeOut();
+					$('#step5').fadeIn();
+					
+				}				
+			}
+
+			startCheck[ $(this).index() ]();
+
+		
 
 		})
 

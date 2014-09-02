@@ -58,18 +58,18 @@ svg {
   top: 0px;
   left: 0px;
 }
-#all-container .portraitwrapper {
+#all-container .portraitwrapper, #all-container .resourcewrapper {
   position: absolute;
   top: 0px;
   left: 20px;
   height: 100%;
   display: table;
 }
-#all-container .side-menu {
+#all-container .portraitwrapper .side-menu, #all-container .resourcewrapper .side-menu {
   vertical-align: middle;
   display: none;
 }
-#all-container .side-menu .portrait, #all-container .side-menu .resource {
+#all-container .portraitwrapper .side-menu .portrait, #all-container .resourcewrapper .side-menu .portrait {
   width: 60px;
   height: 60px;
   border: solid 4px;
@@ -85,14 +85,87 @@ svg {
   -webkit-transition: all 500ms;
   transition: all 500ms;
 }
-#all-container .side-menu .portrait.active, #all-container .side-menu .resource.active {
+#all-container .portraitwrapper .side-menu .portrait.active, #all-container .resourcewrapper .side-menu .portrait.active {
   border-color: #291f00;
   -webkit-filter: sepia(100%);
   filter: sepia(100%);
 }
+#all-container .resourcewrapper .side-menu {
+  padding-top: 8em;
+  vertical-align: top;
+  display: none;
+}
+#all-container .resourcewrapper .side-menu .resource-btn {
+  margin-bottom: 1em;
+  padding: 0.5em;
+  cursor: pointer;
+  width: 180px;
+  text-align: center;
+  color: black;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  text-transform: uppercase;
+}
+#all-container .resourcewrapper .side-menu .resource-btn.btn-active {
+  color: #b07e1b;
+}
 #all-container .background-shifter {
   -webkit-transition: all 2s;
   transition: all 2s;
+}
+
+.resourcecontainer {
+  height: -webkit-calc(100% - 90px);
+  height: calc(100% - 90px);
+  width: 60%;
+  max-width: 650px;
+  position: relative;
+  margin: 0px auto;
+  top: 75px;
+  left: 0px;
+  display: none;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 1em;
+  padding-bottom: 0px;
+  overflow-y: scroll;
+}
+.resourcecontainer #step1, .resourcecontainer #step2, .resourcecontainer #step3, .resourcecontainer #step4, .resourcecontainer .steps {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+.resourcecontainer #step1 a, .resourcecontainer #step2 a, .resourcecontainer #step3 a, .resourcecontainer #step4 a, .resourcecontainer .steps a {
+  text-decoration: none;
+}
+.resourcecontainer #step1 .videoWrapper, .resourcecontainer #step2 .videoWrapper, .resourcecontainer #step3 .videoWrapper, .resourcecontainer #step4 .videoWrapper, .resourcecontainer .steps .videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+}
+.resourcecontainer #step1 .videoWrapper iframe, .resourcecontainer #step2 .videoWrapper iframe, .resourcecontainer #step3 .videoWrapper iframe, .resourcecontainer #step4 .videoWrapper iframe, .resourcecontainer .steps .videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.resourcecontainer #step1 h1, .resourcecontainer #step2 h1, .resourcecontainer #step3 h1, .resourcecontainer #step4 h1, .resourcecontainer .steps h1 {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 2px solid;
+  border-top: 2px solid;
+}
+.resourcecontainer #step1 ol li, .resourcecontainer #step2 ol li, .resourcecontainer #step3 ol li, .resourcecontainer #step4 ol li, .resourcecontainer .steps ol li {
+  margin-bottom: 0.5em;
+}
+.resourcecontainer #step1 ol li ol li, .resourcecontainer #step2 ol li ol li, .resourcecontainer #step3 ol li ol li, .resourcecontainer #step4 ol li ol li, .resourcecontainer .steps ol li ol li {
+  margin-bottom: 0.5em;
+}
+.resourcecontainer #step1 {
+  display: block;
 }
 
 #milestones {
@@ -201,7 +274,6 @@ svg {
   width: 140px;
   text-align: center;
   text-decoration: none;
-  color: black;
 }
 #header li.btn-active {
   color: #b07e1b;
@@ -221,7 +293,8 @@ svg {
   margin: 0px auto;
   top: 75px;
   height: 100%;
-  padding: 0em 1em 0em 1em;
+  padding: 0em;
+  padding-top: 0em;
   background: rgba(255, 255, 255, 0.6);
   color: black;
   font-size: 1.5em;
@@ -238,59 +311,55 @@ svg {
   cursor: pointer;
   position: absolute;
   top: 0px;
-  right: 25px;
-  font-size: 25px;
+  right: 5px;
+  font-size: 1.25em;
   padding: 5px;
+  padding-left: 0px;
   text-align: center;
   height: 25px;
   width: 25px;
   z-index: 100;
-  background-color: white;
+  color: black;
 }
-.text-bucket .leadblock, .content-bucket .leadblock {
-  position: relative;
-  z-index: 0;
-  padding: 20px;
-  margin-bottom: 50px;
-}
-.text-bucket .leadblock .mediumtext, .content-bucket .leadblock .mediumtext {
-  font-size: 0.8em;
-  line-height: 1.25em;
-}
-.text-bucket .leadblock .credit, .content-bucket .leadblock .credit {
+.text-bucket .credit, .content-bucket .credit {
   margin-top: 1em;
   font-size: 0.7em;
 }
-.text-bucket .leadblock .credit i, .content-bucket .leadblock .credit i {
+.text-bucket .credit i, .content-bucket .credit i {
   font-size: 1em;
 }
-.text-bucket .leadblock.first .portrait, .content-bucket .leadblock.first .portrait {
-  display: none;
-  width: 175px;
-  height: 175px;
-  margin: 0px auto;
-  position: relative;
-  border: solid 4px;
-  border-color: black;
-  border-radius: 100%;
-  background-size: cover;
-  -webkit-box-shadow: 3px 4px 3px rgba(0, 0, 0, 0.5);
-  box-shadow: 3px 4px 3px rgba(0, 0, 0, 0.5);
-}
-.text-bucket .leadblock.first h1, .content-bucket .leadblock.first h1 {
+.text-bucket .wrapper .header, .content-bucket .wrapper .header {
+  display: table;
   width: 100%;
+  margin: 0px;
+  height: 500px;
+  background-size: cover;
+  background-position: center center;
 }
-.text-bucket .leadblock.first .datewrapper, .content-bucket .leadblock.first .datewrapper {
+.text-bucket .wrapper .header .titleblock, .content-bucket .wrapper .header .titleblock {
+  background-color: rgba(255, 255, 255, 0.7);
+  top: 0px;
+  position: absolute;
+  text-align: center;
+  padding-bottom: 1em;
+  width: 100%;
+  color: black;
+}
+.text-bucket .wrapper .header .titleblock h1, .content-bucket .wrapper .header .titleblock h1 {
   position: relative;
-  margin: 0px auto;
 }
-.text-bucket .leadblock.second, .content-bucket .leadblock.second {
-  border: 2px solid black;
-  border-left: none;
-  border-right: none;
-  line-height: 1.2em;
+.text-bucket .wrapper .header .titleblock .datewrapper, .content-bucket .wrapper .header .titleblock .datewrapper {
+  font-style: italic;
+  position: relative;
 }
-.text-bucket .leadblock img, .content-bucket .leadblock img {
+.text-bucket .content, .content-bucket .content {
+  padding: 0em 1em 0em 1em;
+}
+.text-bucket .content p, .content-bucket .content p {
+  font-size: 0.7em;
+  line-height: 1.45em;
+}
+.text-bucket img, .content-bucket img {
   margin-top: 1.5em;
   width: 100%;
 }
