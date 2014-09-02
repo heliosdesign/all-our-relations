@@ -1,11 +1,11 @@
 {
- "name": "Douglas Cardinal","gender":"m","dob":1934,"page":"douglasCardinal","icon":"douglasCardinal.png",
+ "name": "Douglas Cardinal","gender":"m","dob":1934,"page":"DOUGLASCARDINAL_DouglasCardinal","icon":"douglasCardinal.png",
  "children": [
     {
-     "name": "Joseph 'Joe' T.Cardinal","gender":"m","dob":1908,"page":"josephJoe",
+     "name": "Joseph 'Joe' T.Cardinal","gender":"m","dob":1908,"page":"DOUGLASCARDINAL_JosephCardinal",
      "children": [
         {
-         "name": "Hilaire 'Henry' Cardinal","gender":"m","dob":1877,"dod":1968, "page":"hilaireCardinal",
+         "name": "Hilaire 'Henry' Cardinal","gender":"m","dob":1877,"dod":1968, "page":"DOUGLASCARDINAL_HilaireCardinal",
          "children": [
             {
              "name": "Trefflé Cardinal","gender":"m","dob":1849,"dod":1929,"page":"treffleCardinal",
@@ -27,15 +27,15 @@
      ]
     },
     {
-     "name": "Frances Marguerite Rach","gender":"f","dob":1907,"page":"francesRach",
+     "name": "Frances Marguerite Rach","gender":"f","dob":1907,"page":"DOUGLASCARDINAL_FrancesMargueriteRach",
      "children": [
         {
-         "name": "Alvin Joseph Rach","gender":"m","dob":1876,"dod":1939,"page":"",
+         "name": "Alvin Joseph Rach","gender":"m","dob":1876,"dod":1939,"page":"DOUGLASCARDINAL_AlvinJosephRach",
          "children": [
          ]
         },
         {
-         "name": "Ellen Dale Geneviéve Morin","gender":"f","dob":1882,"dod":1973,"page":"",
+         "name": "Ellen Dale Geneviéve Morin","gender":"f","dob":1882,"dod":1973,"page":"DOUGLASCARDINAL_EllenDaleMorin",
          "children": [
          ]
         }

@@ -82,6 +82,12 @@ svg
   // /*filter:url(#dropshadow)
 
 // /*D3 Styles
+#svg-container
+  position: absolute
+  width: 100%
+  height: 100%
+  top: 0px
+  left: 0px
 
 #all-container
   position: absolute
@@ -243,7 +249,7 @@ svg
   top: 75px
   height: 100%
   padding: 0em 1em 0em 1em
-  background: rgba(255,255,255,.7)
+  background: rgba(255,255,255,.6)
   color: black
   font-size: 1.5em
   display: none
@@ -254,9 +260,9 @@ svg
 
   .exitbtn
     cursor: pointer
-    position: fixed
-    top: 75px
-    margin-left: 640px
+    position: absolute
+    top: 0px
+    right: 25px
     font-size: 25px
     padding: 5px
     text-align: center
@@ -288,6 +294,7 @@ svg
         font-size: 1em
     &.first
       .portrait
+        display: none
         width: 175px
         height: 175px
         margin: 0px auto
@@ -299,10 +306,8 @@ svg
         box-shadow: 3px 4px 3px rgba(0,0,0,0.5)
       h1
         width: 100%
-        text-align: center
-        margin-bottom: 0px
       .datewrapper
-        text-align: center
+        //text-align: center
         position: relative
         margin: 0px auto
     &.second
@@ -326,6 +331,14 @@ svg
     display: table-cell
     vertical-align: middle
     position: relative
+
+
+.content-bucket
+  top: 40%
+  transition: top 800ms
+  &:hover
+    top: 90px
+    background: rgba(255,255,255,1)
 
 
   

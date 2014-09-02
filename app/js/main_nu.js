@@ -140,6 +140,37 @@ $(function(){
 
 		drawBG('images/title_page.jpg')
 
+		var loadPartial = function(_partial) {
+
+
+			$( "#contentPanel" ).fadeOut(1000,function(){
+
+				$( "#contentPanel" ).html('')
+
+				$( "#contentPanel" ).load( "partials/" + _partial +".html", function( response, status, xhr ) {
+
+			  		if ( status == "error" ) {
+			    		var msg = "Sorry but there was an error: ";
+			    		$('#contentPanel').html( msg + xhr.status + " " + xhr.statusText );
+			  		}
+
+		  			$('#contentPanel').prepend('<div class="exitbtn">X</div>');
+		  		
+			  		$('.exitbtn').on('click',function(){
+
+						$('.fader').fadeIn()
+
+						$('.text-bucket').fadeOut()
+
+						$('.content-bucket').fadeOut()
+
+			  		})
+			  	$( "#contentPanel" ).fadeIn()
+			});			
+			})
+
+			
+		}	
 
 		var buildTimeline = function() {
 			$('.text-bucket').css('display','none')
@@ -350,17 +381,14 @@ $(function(){
 		$('.portrait').on('click',function(){
 
 			$('#fullscreen-background').fadeOut()
-			
-			if(!clicked || $(this).css('opacity') < 1){
+		
+			clicked = null
 
-				clicked = null
+			zoomMap(1.5,$(this).data('homeland'))
 
-				//$(this).data('homeland')
+			loadTree($(this).data('subject'), this.getBoundingClientRect().top-20);
 
-				zoomMap(1.5,$(this).data('homeland'))
-				loadTree($(this).data('subject'), this.getBoundingClientRect().top);
 
-			}
 			$('.portrait').removeClass('active')
 
 			$(this).addClass('active')
@@ -407,7 +435,7 @@ $(function(){
 	    root,rootCache;
 
 	var tree = d3.layout.tree()
-	    .size([height, width])
+	    .size([height/3, width])
 
 
 	var diagonal = d3.svg.diagonal()
@@ -417,7 +445,7 @@ $(function(){
  //        .x(function(d) { return d.y; })
  //    	.y(function(d) { return d.x; });
 
-	var svg = d3.select("#all-container").append("svg")
+	var svg = d3.select("#svg-container").append("svg")
 	    .attr("width", width + margin.right + margin.left)
 	    .attr("height", height + margin.top + margin.bottom)
 	    .classed('fader',true)
@@ -428,11 +456,23 @@ $(function(){
 
 
  var loadTree = function(_subject,startX, noTimeline){
+
 	d3.json("data/"+_subject+".json", function(error, flare) {
 	  	root = flare;
 	  	rootCache = flare;
 	  	root.x0 = startX-100 ;
 	  	root.y0 = -180;
+	  	var treePos = 0
+	  	//collapse
+
+	  	clicked = root.name
+
+	  	
+
+	  	if(root.page) {
+	  		console.log(root.page)
+	  		loadPartial(root.page)
+	  	}
 
 
 		var defs = svg.append("defs");
@@ -455,19 +495,24 @@ $(function(){
 		    .attr("in", "offsetBlur")
 		feMerge.append("feMergeNode")
 		    .attr("in", "SourceGraphic");
-			  function collapse(d) {
-			  	 d.storage=[]; 
-			    if (d.children) {
-			      d._children = d.children;
-			      d._children.forEach(collapse);
-			      d.children = null;
-			    }
-			  }
+	  
+		function collapse(d) {
+			d.storage=[]; 
+			if (d.children) {
+				d._children = d.children;
+				d._children.forEach(collapse);
+				d.children = null;
+			}
+		}
 
 
-	  root.children.forEach(collapse);
-	  collapse(root)
-	  update(root);
+	  	root.children.forEach(collapse);
+
+	  	root.storage = []
+
+	  	//collapse(root)
+
+	  	update(root);
 
 	});
 
@@ -524,19 +569,6 @@ $(function(){
 			})
 
 
-
-
-
-		// nodeEnter.append("text")
-		//   	.attr('class','plus')
-	 //      	.attr("x", 130)
-	 //      	.attr("y", 28)  
-	 //      	.text("+")
-	 //      	.style("fill-opacity", 1e-6)
-	 //      	.style("fill", "af040a")
-		//   	.style('font-size','70px')
-		//   	.style("filter", "url(#drop-shadow)")
-
 		nodeEnter.append("text")
 		  	.attr('class','date')
 	      	.attr("x", 0)
@@ -547,16 +579,6 @@ $(function(){
 			})
 	      	.style("fill-opacity", 1e-6)
 
-	  	nodeEnter.append("image")
-	  		.attr('class','img')
-	      	.attr("xlink:href", "images/document.png")
-	      	.attr("y", -45)
-	      	.attr("x", function(d){
-	      		return d.computedWidth
-	      	})
-
-	      	.attr("width", 0)
-      		.attr("height", 0)
 
 
 
@@ -565,20 +587,6 @@ $(function(){
 	      .duration(duration)
 	      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
-		nodeUpdate.select("image")
-	      	.attr("width", function(d){ 
-	      		console.log(d.name)
-	      		if (d.name==clicked && d.page) {
-	      			return 25; 
-	      		}
-	      			
-	      		//return 0
-	      	})
-      		.attr("height", function(d){ 
-      			if (d.name==clicked) return 25; 
-      			//return 0
-      		})
-      		.style("filter", "url(#drop-shadow)")
 
 		nodeUpdate.select("rect")
 			.attr("width", function(d){
@@ -722,27 +730,11 @@ Array.prototype.uniqueObjects = function(){
 
 	function click(d) {
 
-		console.log(d)
 
+		if(d.page) {
 
-		if(clicked == d.name && d.page) {
-
-			$( "#contentPanel" ).load( "partials/" + d.page +".html", function( response, status, xhr ) {
-		  		if ( status == "error" ) {
-		    		var msg = "Sorry but there was an error: ";
-		    		console.log( msg + xhr.status + " " + xhr.statusText );
-		  		}
-		  		$('#contentPanel').prepend('<div class="exitbtn">X</div>');
-		  		$('.exitbtn').on('click',function(){
-		  			console.log('CLICKED ON EXIT BTN')
-		  			buildTimeline();
-		  			$( this ).remove();
-		  			$( '.portrait' ).removeClass('active');
-		  			resetZoom();
-		  		})
-			});		
-
-			$('.fader').fadeOut(1000)
+			loadPartial(d.page)
+			//$('.fader').fadeOut(1000)
 			$('.ancestor').fadeIn()
 			$('.bottom-shelf').css("bottom", -120)
 
@@ -762,7 +754,7 @@ Array.prototype.uniqueObjects = function(){
 
 			} 
 				
-			return
+			//return
 		}
 
 
@@ -789,11 +781,14 @@ Array.prototype.uniqueObjects = function(){
 		d.isBranch = true
 			  	
 	  	if(d.parent && d._children){
+
 			if(d.parent.children){
 
 		  		d.parent.children.forEach(function (_d,i){
 
-		  			if(storageTrigger.indexOf(_d.name) === -1) {
+		  			console.log(_d)
+
+		  			if(d.parent.storage && storageTrigger.indexOf(_d.name) === -1) {
 		  				d.parent.storage.push(_d)
 		  				
 		  			}

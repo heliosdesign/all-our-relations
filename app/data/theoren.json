@@ -1,14 +1,14 @@
 {
- "name": "Theoren 'Theo' W. Fleury","gender":"m","dob":1968,"page":"theorenFleury","icon":"theorenFleury.png",
+ "name": "Theoren 'Theo' W. Fleury","gender":"m","dob":1968,"page":"THEORENFLEURY_TheorenFleury","icon":"theorenFleury.png",
  "children": [
   {
-   "name": "Wallace 'Wally' Fleury","gender":"m","dob":1940, "page":"wallyFleury",
+   "name": "Wallace 'Wally' Fleury","gender":"m","dob":1940, "page":"THEORENFLEURY_WallaceFleury",
    "children": [
     {
-      "name": "Louis Fleury","gender":"m","dob":1908,"page":"louisFleury",
+      "name": "Louis Fleury","gender":"m","dob":1908,"page":"THEORENFLEURY_LouisFleury",
       "children":[
         {
-          "name": "Edouard Fleury","gender":"m","dob":1882,"dod":1970,"page":"edouardFleury",
+          "name": "Edouard Fleury","gender":"m","dob":1882,"dod":1970,"page":"THEORENFLEURY_EdouardFleury",
           "children":[
             {
               "name": "Edouard Fleury","gender":"m","dob":1846,"dod":1922,"page":"edouardFleuryII",
@@ -26,7 +26,7 @@
           ]
         },
         {
-          "name": "Natalie Rose Boyer","gender":"f","dob":1886,"dod":1918,"page":"natalieBoyer",
+          "name": "Natalie Rose Boyer","gender":"f","dob":1886,"dod":1918,"page":"THEORENFLEURY_NatalieRoseBoyer",
           "children":[
             {
               "name": "Ambroise Boyer","gender":"m","dob":1860,"dod":1942,"page":"ambroiseBoyer",
@@ -70,10 +70,10 @@
       ]
     },
     {
-      "name": "Marie Eleanore Leclerc","gender":"f","dob":1911,"dod":1977,"page":"louisFleury",
+      "name": "Marie Eleanore Leclerc","gender":"f","dob":1911,"dod":1977,"page":"THEORENFLEURY_LouisFleury",
       "children":[
         {
-          "name": "Jean-Baptise Lecrec","gender":"m","dob":1878,"dod":1966,"page":"jean-baptiseLecrec",
+          "name": "Jean-Baptise Lecrec","gender":"m","dob":1878,"dod":1966,"page":"",
           "children":[
             {
               "name": "Joseph Lecrec","gender":"m","dob":1834,"page":"josephLecrec",
@@ -103,10 +103,10 @@
           ]
         },
         {
-          "name": "Flora Lépine","gender":"f","dob":1888,"dod":1972,"page":"floraLepine",
+          "name": "Flora Lépine","gender":"f","dob":1888,"dod":1972,"page":"THEORENFLEURY_FloraLépine",
           "children":[
             {
-              "name": "Jean-Baptiste Lépine","gender":"m","dob":1844,"dod":1920,"page":"jeanBaptisteLepine",
+              "name": "Jean-Baptiste Lépine","gender":"m","dob":1844,"dod":1920,"page":"THEORENFLEURY_LouisFleury",
               "children":[
                 {
                   "name": "Jean-Baptiste Lépine","gender":"m","page":"jeanBaptisteLepineII",
@@ -158,13 +158,13 @@
           "name": "Peter Adelbert Lario","gender":"m","dob":1871,"page":"peterAdelbertLario",
           "children":[
             {
-              "name": "Napoleon Lario","gender":"m","dob":1846,"dod":1912,"page":"napoleonLario",
+              "name": "Napoleon Lario","gender":"m","dob":1846,"dod":1912,"page":"THEORENFLEURY_NapoleonLario",
               "children":[
 
               ]
             },
             {
-              "name": "Margaret Goudy","gender":"f","dob":1847,"dod":1915,"page":"margaretGoudy",
+              "name": "Margaret Goudy","gender":"f","dob":1847,"dod":1915,"page":"THEORENFLEURY_MargaretGoudy",
               "children":[
 
               ]
