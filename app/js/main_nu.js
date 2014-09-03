@@ -241,6 +241,8 @@ $(function(){
 			$('#step1').fadeIn();
 			$('.resourcewrapper').fadeIn();
 
+			$('.resourcecontainer').fadeIn();
+
 			drawBG('images/resources_bg.jpg')
 
 		}
@@ -351,6 +353,21 @@ $(function(){
 			$('.btn-intro').addClass('btn-active')
 			buildIntro()
 		}
+
+
+		$( "#contentPanel" ).hover(
+		  function() {
+		    $('.titleblock').css('opacity',0)
+		  }, function() {
+		    $('.titleblock').css('opacity',1)
+		  }
+		);
+
+				// $('.text-bucket').on('click',function(){
+		// 	$('.text-bucket').fadeOut()
+		// 	$('.fader').fadeIn()
+		// })
+
 
 		// $('.text-bucket').on('click',function(){
 		// 	$('.text-bucket').fadeOut()

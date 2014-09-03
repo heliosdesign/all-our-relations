@@ -347,6 +347,8 @@ svg {
   padding-bottom: 1em;
   width: 100%;
   color: black;
+  -webkit-transition: opacity 800ms;
+  transition: opacity 800ms;
 }
 .text-bucket .wrapper .header .titleblock h1, .content-bucket .wrapper .header .titleblock h1 {
   position: relative;
