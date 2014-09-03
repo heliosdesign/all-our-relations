@@ -101,6 +101,8 @@ $(function(){
 
 	    	$('#background').css('width',window.innerWidth)
 			$('#background').css('height',overlayImg.height * stepDown)
+			// $('#background').css('height',window.innerHeight)
+
 		   	
 
 			document.getElementById("overlay").src = _url	
@@ -168,8 +170,6 @@ $(function(){
 			  	$( "#contentPanel" ).fadeIn()
 			});			
 			})
-
-			
 		}	
 
 		var buildTimeline = function() {
@@ -179,7 +179,10 @@ $(function(){
 
 			$('.timeline').css('display','table')
 
+			$('.showwrapper').css('display','none')
+			$('.resourcewrapper').css('display','none')
 			$('.portraitwrapper').css('display','table')
+
 			$('#portrait-gallery').css('display','table-cell')
 
 			$('.resources').css('display','none')
@@ -187,7 +190,10 @@ $(function(){
 
 			$('.fader').css('display','none')
 			$('.steps').fadeOut();
+
 			$('.resourcecontainer').fadeOut();
+			$('.showscontainer').fadeOut();
+
 
 			drawBG('images/main_map_pan.jpg')
 
@@ -200,6 +206,9 @@ $(function(){
 			$('.timeline').css('display','none')
 
 			$('.portraitwrapper').css('display','none')
+			$('.showwrapper').css('display','none')
+			$('.resourcewrapper').css('display','none')
+
 			$('.side-menu').css('display','none')
 
 			$('.resources').css('display','none')
@@ -213,7 +222,9 @@ $(function(){
 
 			$('.fader').css('display','none')
 			$('.steps').fadeOut();
+
 			$('.resourcecontainer').fadeOut();
+			$('.showscontainer').fadeOut();
 
 			drawBG('images/intro_bg.jpg')
 
@@ -229,19 +240,22 @@ $(function(){
 
 			$('.resources').css('display','table')
 
-			$('.portraitwrapper').css('display','table')
+			$('.resourcewrapper').css('display','table')
+			$('.showwrapper').css('display','none')
+			$('.portraitwrapper').css('display','none')
+
 			$('#resource-menu').css('display','table-cell')
 
 			$('.text-bucket').css('display','none')
 
-			
 
 			$('.fader').css('display','none')
 
-			$('#step1').fadeIn();
-			$('.resourcewrapper').fadeIn();
-
+			
+			$('.showscontainer').fadeOut();
 			$('.resourcecontainer').fadeIn();
+			$('#step1').fadeIn();
+
 
 			drawBG('images/resources_bg.jpg')
 
@@ -254,21 +268,28 @@ $(function(){
 			$('.timeline').css('display','none')
 
 			$('.portraitwrapper').css('display','none')
-			$('.side-menu').css('display','none')
+			$('.resourcewrapper').css('display','none')
+			$('.showwrapper').css('display','table')
+
+			$('#show-menu').css('display','table-cell')
 
 			$('.text-bucket').css('display','none')
 			
-			//$('.intro').css('display','block')
 
 			$('.fader').css('display','none')
-			$('.steps').fadeOut();
+
+			// $('.shows').fadeOut();
+			// $('#shows1').fadeIn();
+
 			$('.resourcecontainer').fadeOut();
-
-
+			$('.showscontainer').fadeIn();
+			$('#show1').fadeIn();
+			// $('.showwrapper').fadeIn();
 
 			drawBG('images/shows_bg.jpg')
 
 		}
+
 		var Milestones = {
 			"Nunavut Act":1999, 
 			"Oka Land Dispute":1990,
@@ -363,101 +384,111 @@ $(function(){
 		  }
 		);
 
-				// $('.text-bucket').on('click',function(){
-		// 	$('.text-bucket').fadeOut()
-		// 	$('.fader').fadeIn()
-		// })
 
-
-		// $('.text-bucket').on('click',function(){
-		// 	$('.text-bucket').fadeOut()
-		// 	$('.fader').fadeIn()
-		// })
-
-		// console.log('running')
-
-		
-
-		// $('.resource').on('click',function(){
-
-		// 	var that = this
-		// 	var top = (this.getBoundingClientRect().top)
-		// 	if(!clicked || $(this).css('opacity') < 1){
-
-		// 		$('#all-container').fadeOut(function(){
-
-		// 		clicked = null
-
-		// 		drawBG('images/' + $(that).data('homeland') + '.jpg')
-
-		// 		loadTree($(that).data('subject'),top,1);
-
-		// 		$('#all-container').fadeIn()
-		// 	})
-
-		// 	}
-		// 	$('.resource').css('opacity',.5)
-
-		// 	$(this).css('opacity',1)
-
-		// 	$('.just-svg').fadeIn()
-
-		// 	$('.text-bucket').fadeOut()
-
-
-
-		// })
 		$('.resource-btn').on('click',function(){
-			
-			$('.resourcecontainer').fadeIn()
-			$('.resource-btn').css('opacity',.5)
-			$(this).css('opacity',1)
 
-			console.log($(this).index())
+			var check= $(this).parent().is("#show-menu");
+			console.log(check)
 
-			var startCheck = {
-				0: function() {
-					//step1
-					console.log('step1')
-					$('.steps').fadeOut();
-					$('#step1').fadeIn();
-					
-				},
-				1: function() {
-					//step2
-					console.log('step2')
-					$('.steps').fadeOut();
-					$('#step2').fadeIn();
-					
-				},
-				2: function() {
-					//step3
-					console.log('step3')
-					$('.steps').fadeOut();
-					$('#step3').fadeIn();
-					
-				},
-				3: function() {
-					//step4
-					console.log('step4')
-					$('.steps').fadeOut();
-					$('#step4').fadeIn();
-					
-				},
-				4: function() {
-					//step4
-					console.log('step5')
-					$('.steps').fadeOut();
-					$('#step5').fadeIn();
-					
-				}				
+			var startCheck = {}
+			$('.resource-btn').removeClass('btn-active')
+			$(this).addClass('btn-active')
+
+			if (!check) {
+				$('.resourcecontainer').fadeIn()
+
+				startCheck = {
+					0: function() {
+						//step1
+						
+						$('.steps').fadeOut();
+						$('#step1').fadeIn();
+						
+					},
+					1: function() {
+						//step2
+						
+						$('.steps').fadeOut();
+						$('#step2').fadeIn();
+						
+					},
+					2: function() {
+						//step3
+						
+						$('.steps').fadeOut();
+						$('#step3').fadeIn();
+						
+					},
+					3: function() {
+						//step4
+						
+						$('.steps').fadeOut();
+						$('#step4').fadeIn();
+						
+					},
+					4: function() {
+						//step4
+						
+						$('.steps').fadeOut();
+						$('#step5').fadeIn();
+						
+					}
+								
+				}
+			}else{
+
+				$('.showcontainer').fadeIn()
+
+				// console.log($(this).index())
+
+				startCheck = {
+					0: function() {
+						
+						$('.shows').fadeOut();
+						$('#show1').fadeIn();
+						
+					},
+					1: function() {
+						
+						$('.shows').fadeOut();
+						$('#show2').fadeIn();
+						
+					},
+					2: function() {
+						
+						$('.shows').fadeOut();
+						$('#show3').fadeIn();
+						
+					},
+					3: function() {
+						
+						$('.shows').fadeOut();
+						$('#show4').fadeIn();
+						
+					},
+					4: function() {
+						
+						$('.shows').fadeOut();
+						$('#show5').fadeIn();
+						
+					},
+					5: function() {
+						
+						$('.shows').fadeOut();
+						$('#show6').fadeIn();
+						
+					}
+				}
+
 			}
+			// console.log(startCheck)
+			
+
 
 			startCheck[ $(this).index() ]();
 
-		
-
 		})
+
 
 		$('.portrait').on('click',function(){
 

@@ -58,18 +58,18 @@ svg {
   top: 0px;
   left: 0px;
 }
-#all-container .portraitwrapper, #all-container .resourcewrapper {
+#all-container .portraitwrapper, #all-container .resourcewrapper, #all-container .showwrapper {
   position: absolute;
   top: 0px;
   left: 20px;
   height: 100%;
   display: table;
 }
-#all-container .portraitwrapper .side-menu, #all-container .resourcewrapper .side-menu {
+#all-container .portraitwrapper .side-menu, #all-container .resourcewrapper .side-menu, #all-container .showwrapper .side-menu {
   vertical-align: middle;
   display: none;
 }
-#all-container .portraitwrapper .side-menu .portrait, #all-container .resourcewrapper .side-menu .portrait {
+#all-container .portraitwrapper .side-menu .portrait, #all-container .resourcewrapper .side-menu .portrait, #all-container .showwrapper .side-menu .portrait {
   width: 60px;
   height: 60px;
   border: solid 4px;
@@ -85,17 +85,17 @@ svg {
   -webkit-transition: all 500ms;
   transition: all 500ms;
 }
-#all-container .portraitwrapper .side-menu .portrait.active, #all-container .resourcewrapper .side-menu .portrait.active {
+#all-container .portraitwrapper .side-menu .portrait.active, #all-container .resourcewrapper .side-menu .portrait.active, #all-container .showwrapper .side-menu .portrait.active {
   border-color: #291f00;
   -webkit-filter: sepia(100%);
   filter: sepia(100%);
 }
-#all-container .resourcewrapper .side-menu {
+#all-container .resourcewrapper .side-menu, #all-container .showwrapper .side-menu {
   padding-top: 8em;
   vertical-align: top;
   display: none;
 }
-#all-container .resourcewrapper .side-menu .resource-btn {
+#all-container .resourcewrapper .side-menu .resource-btn, #all-container .showwrapper .side-menu .resource-btn {
   margin-bottom: 1em;
   padding: 0.5em;
   cursor: pointer;
@@ -106,7 +106,7 @@ svg {
   transition: all 0.5s;
   text-transform: uppercase;
 }
-#all-container .resourcewrapper .side-menu .resource-btn.btn-active {
+#all-container .resourcewrapper .side-menu .resource-btn.btn-active, #all-container .showwrapper .side-menu .resource-btn.btn-active {
   color: #b07e1b;
 }
 #all-container .background-shifter {
@@ -114,7 +114,7 @@ svg {
   transition: all 2s;
 }
 
-.resourcecontainer {
+.resourcecontainer, .showscontainer {
   height: -webkit-calc(100% - 90px);
   height: calc(100% - 90px);
   width: 60%;
@@ -129,46 +129,53 @@ svg {
   padding-bottom: 0px;
   overflow-y: scroll;
 }
-.resourcecontainer #step1, .resourcecontainer #step2, .resourcecontainer #step3, .resourcecontainer #step4, .resourcecontainer .steps {
+.resourcecontainer #step1, .resourcecontainer #step2, .resourcecontainer #step3, .resourcecontainer #step4, .resourcecontainer .steps, .resourcecontainer #show1, .resourcecontainer #show2, .resourcecontainer #show3, .resourcecontainer #show4, .resourcecontainer .shows, .showscontainer #step1, .showscontainer #step2, .showscontainer #step3, .showscontainer #step4, .showscontainer .steps, .showscontainer #show1, .showscontainer #show2, .showscontainer #show3, .showscontainer #show4, .showscontainer .shows {
   position: relative;
   height: 100%;
   width: 100%;
   display: none;
 }
-.resourcecontainer #step1 a, .resourcecontainer #step2 a, .resourcecontainer #step3 a, .resourcecontainer #step4 a, .resourcecontainer .steps a {
+.resourcecontainer #step1 a, .resourcecontainer #step2 a, .resourcecontainer #step3 a, .resourcecontainer #step4 a, .resourcecontainer .steps a, .resourcecontainer #show1 a, .resourcecontainer #show2 a, .resourcecontainer #show3 a, .resourcecontainer #show4 a, .resourcecontainer .shows a, .showscontainer #step1 a, .showscontainer #step2 a, .showscontainer #step3 a, .showscontainer #step4 a, .showscontainer .steps a, .showscontainer #show1 a, .showscontainer #show2 a, .showscontainer #show3 a, .showscontainer #show4 a, .showscontainer .shows a {
   text-decoration: none;
+  color: #b07e1b;
 }
-.resourcecontainer #step1 .videoWrapper, .resourcecontainer #step2 .videoWrapper, .resourcecontainer #step3 .videoWrapper, .resourcecontainer #step4 .videoWrapper, .resourcecontainer .steps .videoWrapper {
+.resourcecontainer #step1 .videoWrapper, .resourcecontainer #step2 .videoWrapper, .resourcecontainer #step3 .videoWrapper, .resourcecontainer #step4 .videoWrapper, .resourcecontainer .steps .videoWrapper, .resourcecontainer #show1 .videoWrapper, .resourcecontainer #show2 .videoWrapper, .resourcecontainer #show3 .videoWrapper, .resourcecontainer #show4 .videoWrapper, .resourcecontainer .shows .videoWrapper, .showscontainer #step1 .videoWrapper, .showscontainer #step2 .videoWrapper, .showscontainer #step3 .videoWrapper, .showscontainer #step4 .videoWrapper, .showscontainer .steps .videoWrapper, .showscontainer #show1 .videoWrapper, .showscontainer #show2 .videoWrapper, .showscontainer #show3 .videoWrapper, .showscontainer #show4 .videoWrapper, .showscontainer .shows .videoWrapper {
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 25px;
   height: 0;
+  margin-bottom: 1em;
+  margin-top: 1em;
 }
-.resourcecontainer #step1 .videoWrapper iframe, .resourcecontainer #step2 .videoWrapper iframe, .resourcecontainer #step3 .videoWrapper iframe, .resourcecontainer #step4 .videoWrapper iframe, .resourcecontainer .steps .videoWrapper iframe {
+.resourcecontainer #step1 .videoWrapper iframe, .resourcecontainer #step2 .videoWrapper iframe, .resourcecontainer #step3 .videoWrapper iframe, .resourcecontainer #step4 .videoWrapper iframe, .resourcecontainer .steps .videoWrapper iframe, .resourcecontainer #show1 .videoWrapper iframe, .resourcecontainer #show2 .videoWrapper iframe, .resourcecontainer #show3 .videoWrapper iframe, .resourcecontainer #show4 .videoWrapper iframe, .resourcecontainer .shows .videoWrapper iframe, .showscontainer #step1 .videoWrapper iframe, .showscontainer #step2 .videoWrapper iframe, .showscontainer #step3 .videoWrapper iframe, .showscontainer #step4 .videoWrapper iframe, .showscontainer .steps .videoWrapper iframe, .showscontainer #show1 .videoWrapper iframe, .showscontainer #show2 .videoWrapper iframe, .showscontainer #show3 .videoWrapper iframe, .showscontainer #show4 .videoWrapper iframe, .showscontainer .shows .videoWrapper iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-.resourcecontainer #step1 h1, .resourcecontainer #step2 h1, .resourcecontainer #step3 h1, .resourcecontainer #step4 h1, .resourcecontainer .steps h1 {
+.resourcecontainer #step1 h1, .resourcecontainer #step2 h1, .resourcecontainer #step3 h1, .resourcecontainer #step4 h1, .resourcecontainer .steps h1, .resourcecontainer #show1 h1, .resourcecontainer #show2 h1, .resourcecontainer #show3 h1, .resourcecontainer #show4 h1, .resourcecontainer .shows h1, .showscontainer #step1 h1, .showscontainer #step2 h1, .showscontainer #step3 h1, .showscontainer #step4 h1, .showscontainer .steps h1, .showscontainer #show1 h1, .showscontainer #show2 h1, .showscontainer #show3 h1, .showscontainer #show4 h1, .showscontainer .shows h1 {
   width: 100%;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  font-weight: normal;
   padding-top: 0.25em;
   padding-bottom: 0.25em;
   margin-bottom: 1em;
   border-bottom: 2px solid;
   border-top: 2px solid;
 }
-.resourcecontainer #step1 ol li, .resourcecontainer #step2 ol li, .resourcecontainer #step3 ol li, .resourcecontainer #step4 ol li, .resourcecontainer .steps ol li {
-  margin-bottom: 0.5em;
+.resourcecontainer #step1 ol, .resourcecontainer #step2 ol, .resourcecontainer #step3 ol, .resourcecontainer #step4 ol, .resourcecontainer .steps ol, .resourcecontainer #show1 ol, .resourcecontainer #show2 ol, .resourcecontainer #show3 ol, .resourcecontainer #show4 ol, .resourcecontainer .shows ol, .showscontainer #step1 ol, .showscontainer #step2 ol, .showscontainer #step3 ol, .showscontainer #step4 ol, .showscontainer .steps ol, .showscontainer #show1 ol, .showscontainer #show2 ol, .showscontainer #show3 ol, .showscontainer #show4 ol, .showscontainer .shows ol {
+  margin-bottom: 6em;
 }
-.resourcecontainer #step1 ol li ol li, .resourcecontainer #step2 ol li ol li, .resourcecontainer #step3 ol li ol li, .resourcecontainer #step4 ol li ol li, .resourcecontainer .steps ol li ol li {
-  margin-bottom: 0.5em;
+.resourcecontainer #step1 ol li, .resourcecontainer #step2 ol li, .resourcecontainer #step3 ol li, .resourcecontainer #step4 ol li, .resourcecontainer .steps ol li, .resourcecontainer #show1 ol li, .resourcecontainer #show2 ol li, .resourcecontainer #show3 ol li, .resourcecontainer #show4 ol li, .resourcecontainer .shows ol li, .showscontainer #step1 ol li, .showscontainer #step2 ol li, .showscontainer #step3 ol li, .showscontainer #step4 ol li, .showscontainer .steps ol li, .showscontainer #show1 ol li, .showscontainer #show2 ol li, .showscontainer #show3 ol li, .showscontainer #show4 ol li, .showscontainer .shows ol li {
+  margin-bottom: 0.75em;
 }
-.resourcecontainer #step1 {
-  display: block;
+.resourcecontainer #step1 ol li ol, .resourcecontainer #step2 ol li ol, .resourcecontainer #step3 ol li ol, .resourcecontainer #step4 ol li ol, .resourcecontainer .steps ol li ol, .resourcecontainer #show1 ol li ol, .resourcecontainer #show2 ol li ol, .resourcecontainer #show3 ol li ol, .resourcecontainer #show4 ol li ol, .resourcecontainer .shows ol li ol, .showscontainer #step1 ol li ol, .showscontainer #step2 ol li ol, .showscontainer #step3 ol li ol, .showscontainer #step4 ol li ol, .showscontainer .steps ol li ol, .showscontainer #show1 ol li ol, .showscontainer #show2 ol li ol, .showscontainer #show3 ol li ol, .showscontainer #show4 ol li ol, .showscontainer .shows ol li ol {
+  padding-top: 1em;
+}
+.resourcecontainer #step1 ol li ol li, .resourcecontainer #step2 ol li ol li, .resourcecontainer #step3 ol li ol li, .resourcecontainer #step4 ol li ol li, .resourcecontainer .steps ol li ol li, .resourcecontainer #show1 ol li ol li, .resourcecontainer #show2 ol li ol li, .resourcecontainer #show3 ol li ol li, .resourcecontainer #show4 ol li ol li, .resourcecontainer .shows ol li ol li, .showscontainer #step1 ol li ol li, .showscontainer #step2 ol li ol li, .showscontainer #step3 ol li ol li, .showscontainer #step4 ol li ol li, .showscontainer .steps ol li ol li, .showscontainer #show1 ol li ol li, .showscontainer #show2 ol li ol li, .showscontainer #show3 ol li ol li, .showscontainer #show4 ol li ol li, .showscontainer .shows ol li ol li {
+  margin-bottom: 0.75em;
 }
 
 #milestones {
@@ -249,13 +256,24 @@ svg {
   height: 100px;
   padding: 0px;
 }
+@media (max-width: 598px), (max-height: 500px) {
+  #header {
+    left: 0px;
+    top: 20px;
+    font-size: 3vw;
+  }
+  #header ul li {
+    width: auto;
+    margin-right: 1em;
+  }
+}
 #header ul {
   list-style: none;
   margin: 0px;
   float: left;
   padding: 0px;
 }
-#header li {
+#header ul li {
   padding: 0px;
   float: left;
   width: 180px;
@@ -266,10 +284,10 @@ svg {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-#header li:hover {
+#header ul li:hover {
   color: #b07e1b;
 }
-#header li p {
+#header ul p {
   text-transform: uppercase;
   font-weight: bold;
   position: absolute;
@@ -278,7 +296,7 @@ svg {
   text-align: center;
   text-decoration: none;
 }
-#header li.btn-active {
+#header ul.btn-active {
   color: #b07e1b;
 }
 
@@ -286,7 +304,23 @@ svg {
   position: absolute;
   left: 95px;
   top: 10px;
-  width: 280px;
+  width: 20%;
+}
+@media (max-width: 598px), (max-height: 500px) {
+  #logo-main {
+    width: 200px;
+  }
+}
+
+.lineimg {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+}
+@media (max-width: 598px), (max-height: 500px) {
+  .lineimg {
+    display: none;
+  }
 }
 
 .text-bucket, .content-bucket {
@@ -358,7 +392,7 @@ svg {
   position: relative;
 }
 .text-bucket .content, .content-bucket .content {
-  padding: 0em 1em 0em 1em;
+  padding: 0em 1em 75px 1em;
 }
 .text-bucket .content p, .content-bucket .content p {
   font-size: 0.7em;
@@ -386,7 +420,7 @@ svg {
   transition: top 800ms;
 }
 .content-bucket:hover {
-  top: 90px;
+  top: 75px;
   background: white;
 }
 

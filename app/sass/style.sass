@@ -96,7 +96,7 @@ svg
   top: 0px
   left: 0px
   
-  .portraitwrapper,.resourcewrapper
+  .portraitwrapper,.resourcewrapper,.showwrapper
     position: absolute
     top: 0px
     left: 20px
@@ -120,7 +120,7 @@ svg
         &.active
           border-color: #291F00
           filter: sepia(100%)
-  .resourcewrapper
+  .resourcewrapper,.showwrapper
     .side-menu
       padding-top: 8em
       vertical-align: top
@@ -140,7 +140,7 @@ svg
   .background-shifter
     transition: all 2s
 
-.resourcecontainer
+.resourcecontainer,.showscontainer
   height: calc(100% - 90px)
   width: 60%
   max-width: 650px
@@ -154,7 +154,7 @@ svg
   padding-bottom: 0px
   overflow-y: scroll
 
-  #step1,#step2,#step3,#step4,.steps
+  #step1,#step2,#step3,#step4,.steps,#show1,#show2,#show3,#show4,.shows
     position: relative
     height: 100%
     width: 100%
@@ -162,6 +162,8 @@ svg
 
     a
       text-decoration: none
+      color: #b07e1b
+
 
 
     .videoWrapper 
@@ -169,6 +171,8 @@ svg
       padding-bottom: 56.25% /* 16:9 */
       padding-top: 25px
       height: 0
+      margin-bottom: 1em
+      margin-top: 1em
 
       iframe 
         position: absolute
@@ -180,7 +184,8 @@ svg
     h1
       width: 100%
       text-align: center
-      text-transform: uppercase
+      text-transform: capitalize
+      font-weight: normal
       padding-top: 0.25em
       padding-bottom: 0.25em
       // margin-top: 1em
@@ -189,15 +194,17 @@ svg
       border-top: 2px solid
 
     ol
+      margin-bottom: 6em
       li
-        margin-bottom: 0.5em
+        margin-bottom: 0.75em
         ol
+          padding-top: 1em
           li
-            margin-bottom: 0.5em
+            margin-bottom: 0.75em
             
 
-  #step1
-    display: block
+  // #step1
+  //   display: block
 
 #milestones
   position: absolute
@@ -272,23 +279,33 @@ svg
   top: 0px
   height: 100px
   padding: 0px
+  @include breakpoint(small)
+    left: 0px
+    top: 20px
+    font-size: 3vw
+    // width: 100%
+    ul
+      // width: 100%
+      li
+        width: auto
+        margin-right: 1em
   ul
     list-style: none
     margin: 0px
     float: left
     padding: 0px
-  li
-    padding: 0px
-    float: left
-    width: 180px
-    height: 80px
-    color: black
-    cursor: pointer
-    background: rgba(0, 0, 0, 0)
-    transition: all .5s
-    &:hover
-      // /*background: rgba(255,255,255,.6);
-      color: #b07e1b
+    li
+      padding: 0px
+      float: left
+      width: 180px
+      height: 80px
+      color: black
+      cursor: pointer
+      background: rgba(0, 0, 0, 0)
+      transition: all .5s
+      &:hover
+        // /*background: rgba(255,255,255,.6);
+        color: #b07e1b
     p
       text-transform: uppercase
       font-weight: bold
@@ -310,7 +327,18 @@ svg
   position: absolute
   left: 95px
   top: 10px
-  width: 280px
+  width: 20%
+  @include breakpoint(small)
+    // left: 10px
+    width: 200px
+  // width: 280px
+
+.lineimg
+  position: absolute
+  width: 100%
+  top: 10px
+  @include breakpoint(small)
+    display: none
 
 
 
@@ -389,7 +417,7 @@ svg
 
 
   .content
-    padding: 0em 1em 0em 1em
+    padding: 0em 1em 75px 1em
     p
       font-size: 0.7em
       line-height: 1.45em
@@ -416,7 +444,7 @@ svg
   top: 40%
   transition: top 800ms
   &:hover
-    top: 90px
+    top: 75px
     background: rgba(255,255,255,1)
 
 
