@@ -20,9 +20,21 @@
     zoom: 1
 
 
-#background
+#background, .parchment
   width: 100%
   height: 100%
+  top: 0
+  left: 0
+  position: absolute
+
+#parchment
+  display: block
+
+#bg-video
+  top: 0
+  left: 0
+  width: 100%
+  position: absolute
 
 // /* IE6
 // /* IE7
@@ -62,7 +74,7 @@
         
 
 body
-  background: #000000
+  background: #ffffff
   overflow: hidden
   font: 'Domine', serif
 
@@ -95,6 +107,7 @@ svg
   height: 100%
   top: 0px
   left: 0px
+  display: none
   
   .portraitwrapper,.resourcewrapper,.showwrapper
     position: absolute
@@ -357,7 +370,8 @@ svg
   max-width: 650px
   margin: 0px auto
   top: 75px
-  height: calc(100% - 75px)
+  height: 100%
+  // height: calc(100% - 75px)
   padding: 0em 
   padding-top: 0em
   background: rgba(255,255,255,.6)
@@ -419,9 +433,6 @@ svg
   .wrapper
     // width: 100%
     .titleblock
-      // background-color: rgba(255,255,255,1)
-      // top: 0px
-      // position: relative
       text-align: center
       padding-bottom: 0.5em
       width: 100%
@@ -431,8 +442,6 @@ svg
       // &.active
       //   opacity: 0
       //   display: none
-
-      
 
       h1
         position: relative
