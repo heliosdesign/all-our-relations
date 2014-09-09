@@ -136,17 +136,17 @@ svg {
   padding-bottom: 0px;
   overflow-y: scroll;
 }
-.resourcecontainer #step1, .resourcecontainer #step2, .resourcecontainer #step3, .resourcecontainer #step4, .resourcecontainer .steps, .resourcecontainer #show1, .resourcecontainer #show2, .resourcecontainer #show3, .resourcecontainer #show4, .resourcecontainer .shows, .showscontainer #step1, .showscontainer #step2, .showscontainer #step3, .showscontainer #step4, .showscontainer .steps, .showscontainer #show1, .showscontainer #show2, .showscontainer #show3, .showscontainer #show4, .showscontainer .shows {
+.resourcecontainer #step1, .resourcecontainer #step2, .resourcecontainer #step3, .resourcecontainer #step4, .resourcecontainer #step5, .resourcecontainer #step6, .resourcecontainer #step7, .resourcecontainer .steps, .resourcecontainer #show1, .resourcecontainer #show2, .resourcecontainer #show3, .resourcecontainer #show4, .resourcecontainer .shows, .showscontainer #step1, .showscontainer #step2, .showscontainer #step3, .showscontainer #step4, .showscontainer #step5, .showscontainer #step6, .showscontainer #step7, .showscontainer .steps, .showscontainer #show1, .showscontainer #show2, .showscontainer #show3, .showscontainer #show4, .showscontainer .shows {
   position: relative;
   height: 100%;
   width: 100%;
   display: none;
 }
-.resourcecontainer #step1 a, .resourcecontainer #step2 a, .resourcecontainer #step3 a, .resourcecontainer #step4 a, .resourcecontainer .steps a, .resourcecontainer #show1 a, .resourcecontainer #show2 a, .resourcecontainer #show3 a, .resourcecontainer #show4 a, .resourcecontainer .shows a, .showscontainer #step1 a, .showscontainer #step2 a, .showscontainer #step3 a, .showscontainer #step4 a, .showscontainer .steps a, .showscontainer #show1 a, .showscontainer #show2 a, .showscontainer #show3 a, .showscontainer #show4 a, .showscontainer .shows a {
+.resourcecontainer #step1 a, .resourcecontainer #step2 a, .resourcecontainer #step3 a, .resourcecontainer #step4 a, .resourcecontainer #step5 a, .resourcecontainer #step6 a, .resourcecontainer #step7 a, .resourcecontainer .steps a, .resourcecontainer #show1 a, .resourcecontainer #show2 a, .resourcecontainer #show3 a, .resourcecontainer #show4 a, .resourcecontainer .shows a, .showscontainer #step1 a, .showscontainer #step2 a, .showscontainer #step3 a, .showscontainer #step4 a, .showscontainer #step5 a, .showscontainer #step6 a, .showscontainer #step7 a, .showscontainer .steps a, .showscontainer #show1 a, .showscontainer #show2 a, .showscontainer #show3 a, .showscontainer #show4 a, .showscontainer .shows a {
   text-decoration: none;
   color: #b07e1b;
 }
-.resourcecontainer #step1 .videoWrapper, .resourcecontainer #step2 .videoWrapper, .resourcecontainer #step3 .videoWrapper, .resourcecontainer #step4 .videoWrapper, .resourcecontainer .steps .videoWrapper, .resourcecontainer #show1 .videoWrapper, .resourcecontainer #show2 .videoWrapper, .resourcecontainer #show3 .videoWrapper, .resourcecontainer #show4 .videoWrapper, .resourcecontainer .shows .videoWrapper, .showscontainer #step1 .videoWrapper, .showscontainer #step2 .videoWrapper, .showscontainer #step3 .videoWrapper, .showscontainer #step4 .videoWrapper, .showscontainer .steps .videoWrapper, .showscontainer #show1 .videoWrapper, .showscontainer #show2 .videoWrapper, .showscontainer #show3 .videoWrapper, .showscontainer #show4 .videoWrapper, .showscontainer .shows .videoWrapper {
+.resourcecontainer #step1 .videoWrapper, .resourcecontainer #step2 .videoWrapper, .resourcecontainer #step3 .videoWrapper, .resourcecontainer #step4 .videoWrapper, .resourcecontainer #step5 .videoWrapper, .resourcecontainer #step6 .videoWrapper, .resourcecontainer #step7 .videoWrapper, .resourcecontainer .steps .videoWrapper, .resourcecontainer #show1 .videoWrapper, .resourcecontainer #show2 .videoWrapper, .resourcecontainer #show3 .videoWrapper, .resourcecontainer #show4 .videoWrapper, .resourcecontainer .shows .videoWrapper, .showscontainer #step1 .videoWrapper, .showscontainer #step2 .videoWrapper, .showscontainer #step3 .videoWrapper, .showscontainer #step4 .videoWrapper, .showscontainer #step5 .videoWrapper, .showscontainer #step6 .videoWrapper, .showscontainer #step7 .videoWrapper, .showscontainer .steps .videoWrapper, .showscontainer #show1 .videoWrapper, .showscontainer #show2 .videoWrapper, .showscontainer #show3 .videoWrapper, .showscontainer #show4 .videoWrapper, .showscontainer .shows .videoWrapper {
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 25px;
@@ -154,14 +154,14 @@ svg {
   margin-bottom: 1em;
   margin-top: 1em;
 }
-.resourcecontainer #step1 .videoWrapper iframe, .resourcecontainer #step2 .videoWrapper iframe, .resourcecontainer #step3 .videoWrapper iframe, .resourcecontainer #step4 .videoWrapper iframe, .resourcecontainer .steps .videoWrapper iframe, .resourcecontainer #show1 .videoWrapper iframe, .resourcecontainer #show2 .videoWrapper iframe, .resourcecontainer #show3 .videoWrapper iframe, .resourcecontainer #show4 .videoWrapper iframe, .resourcecontainer .shows .videoWrapper iframe, .showscontainer #step1 .videoWrapper iframe, .showscontainer #step2 .videoWrapper iframe, .showscontainer #step3 .videoWrapper iframe, .showscontainer #step4 .videoWrapper iframe, .showscontainer .steps .videoWrapper iframe, .showscontainer #show1 .videoWrapper iframe, .showscontainer #show2 .videoWrapper iframe, .showscontainer #show3 .videoWrapper iframe, .showscontainer #show4 .videoWrapper iframe, .showscontainer .shows .videoWrapper iframe {
+.resourcecontainer #step1 .videoWrapper iframe, .resourcecontainer #step2 .videoWrapper iframe, .resourcecontainer #step3 .videoWrapper iframe, .resourcecontainer #step4 .videoWrapper iframe, .resourcecontainer #step5 .videoWrapper iframe, .resourcecontainer #step6 .videoWrapper iframe, .resourcecontainer #step7 .videoWrapper iframe, .resourcecontainer .steps .videoWrapper iframe, .resourcecontainer #show1 .videoWrapper iframe, .resourcecontainer #show2 .videoWrapper iframe, .resourcecontainer #show3 .videoWrapper iframe, .resourcecontainer #show4 .videoWrapper iframe, .resourcecontainer .shows .videoWrapper iframe, .showscontainer #step1 .videoWrapper iframe, .showscontainer #step2 .videoWrapper iframe, .showscontainer #step3 .videoWrapper iframe, .showscontainer #step4 .videoWrapper iframe, .showscontainer #step5 .videoWrapper iframe, .showscontainer #step6 .videoWrapper iframe, .showscontainer #step7 .videoWrapper iframe, .showscontainer .steps .videoWrapper iframe, .showscontainer #show1 .videoWrapper iframe, .showscontainer #show2 .videoWrapper iframe, .showscontainer #show3 .videoWrapper iframe, .showscontainer #show4 .videoWrapper iframe, .showscontainer .shows .videoWrapper iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-.resourcecontainer #step1 h1, .resourcecontainer #step2 h1, .resourcecontainer #step3 h1, .resourcecontainer #step4 h1, .resourcecontainer .steps h1, .resourcecontainer #show1 h1, .resourcecontainer #show2 h1, .resourcecontainer #show3 h1, .resourcecontainer #show4 h1, .resourcecontainer .shows h1, .showscontainer #step1 h1, .showscontainer #step2 h1, .showscontainer #step3 h1, .showscontainer #step4 h1, .showscontainer .steps h1, .showscontainer #show1 h1, .showscontainer #show2 h1, .showscontainer #show3 h1, .showscontainer #show4 h1, .showscontainer .shows h1 {
+.resourcecontainer #step1 h1, .resourcecontainer #step2 h1, .resourcecontainer #step3 h1, .resourcecontainer #step4 h1, .resourcecontainer #step5 h1, .resourcecontainer #step6 h1, .resourcecontainer #step7 h1, .resourcecontainer .steps h1, .resourcecontainer #show1 h1, .resourcecontainer #show2 h1, .resourcecontainer #show3 h1, .resourcecontainer #show4 h1, .resourcecontainer .shows h1, .showscontainer #step1 h1, .showscontainer #step2 h1, .showscontainer #step3 h1, .showscontainer #step4 h1, .showscontainer #step5 h1, .showscontainer #step6 h1, .showscontainer #step7 h1, .showscontainer .steps h1, .showscontainer #show1 h1, .showscontainer #show2 h1, .showscontainer #show3 h1, .showscontainer #show4 h1, .showscontainer .shows h1 {
   width: 100%;
   text-align: center;
   text-transform: capitalize;
@@ -172,16 +172,19 @@ svg {
   border-bottom: 2px solid;
   border-top: 2px solid;
 }
-.resourcecontainer #step1 ol, .resourcecontainer #step2 ol, .resourcecontainer #step3 ol, .resourcecontainer #step4 ol, .resourcecontainer .steps ol, .resourcecontainer #show1 ol, .resourcecontainer #show2 ol, .resourcecontainer #show3 ol, .resourcecontainer #show4 ol, .resourcecontainer .shows ol, .showscontainer #step1 ol, .showscontainer #step2 ol, .showscontainer #step3 ol, .showscontainer #step4 ol, .showscontainer .steps ol, .showscontainer #show1 ol, .showscontainer #show2 ol, .showscontainer #show3 ol, .showscontainer #show4 ol, .showscontainer .shows ol {
+.resourcecontainer #step1 h1 .secondary, .resourcecontainer #step2 h1 .secondary, .resourcecontainer #step3 h1 .secondary, .resourcecontainer #step4 h1 .secondary, .resourcecontainer #step5 h1 .secondary, .resourcecontainer #step6 h1 .secondary, .resourcecontainer #step7 h1 .secondary, .resourcecontainer .steps h1 .secondary, .resourcecontainer #show1 h1 .secondary, .resourcecontainer #show2 h1 .secondary, .resourcecontainer #show3 h1 .secondary, .resourcecontainer #show4 h1 .secondary, .resourcecontainer .shows h1 .secondary, .showscontainer #step1 h1 .secondary, .showscontainer #step2 h1 .secondary, .showscontainer #step3 h1 .secondary, .showscontainer #step4 h1 .secondary, .showscontainer #step5 h1 .secondary, .showscontainer #step6 h1 .secondary, .showscontainer #step7 h1 .secondary, .showscontainer .steps h1 .secondary, .showscontainer #show1 h1 .secondary, .showscontainer #show2 h1 .secondary, .showscontainer #show3 h1 .secondary, .showscontainer #show4 h1 .secondary, .showscontainer .shows h1 .secondary {
+  font-size: 0.75em;
+}
+.resourcecontainer #step1 ol, .resourcecontainer #step2 ol, .resourcecontainer #step3 ol, .resourcecontainer #step4 ol, .resourcecontainer #step5 ol, .resourcecontainer #step6 ol, .resourcecontainer #step7 ol, .resourcecontainer .steps ol, .resourcecontainer #show1 ol, .resourcecontainer #show2 ol, .resourcecontainer #show3 ol, .resourcecontainer #show4 ol, .resourcecontainer .shows ol, .showscontainer #step1 ol, .showscontainer #step2 ol, .showscontainer #step3 ol, .showscontainer #step4 ol, .showscontainer #step5 ol, .showscontainer #step6 ol, .showscontainer #step7 ol, .showscontainer .steps ol, .showscontainer #show1 ol, .showscontainer #show2 ol, .showscontainer #show3 ol, .showscontainer #show4 ol, .showscontainer .shows ol {
   margin-bottom: 6em;
 }
-.resourcecontainer #step1 ol li, .resourcecontainer #step2 ol li, .resourcecontainer #step3 ol li, .resourcecontainer #step4 ol li, .resourcecontainer .steps ol li, .resourcecontainer #show1 ol li, .resourcecontainer #show2 ol li, .resourcecontainer #show3 ol li, .resourcecontainer #show4 ol li, .resourcecontainer .shows ol li, .showscontainer #step1 ol li, .showscontainer #step2 ol li, .showscontainer #step3 ol li, .showscontainer #step4 ol li, .showscontainer .steps ol li, .showscontainer #show1 ol li, .showscontainer #show2 ol li, .showscontainer #show3 ol li, .showscontainer #show4 ol li, .showscontainer .shows ol li {
+.resourcecontainer #step1 ol li, .resourcecontainer #step2 ol li, .resourcecontainer #step3 ol li, .resourcecontainer #step4 ol li, .resourcecontainer #step5 ol li, .resourcecontainer #step6 ol li, .resourcecontainer #step7 ol li, .resourcecontainer .steps ol li, .resourcecontainer #show1 ol li, .resourcecontainer #show2 ol li, .resourcecontainer #show3 ol li, .resourcecontainer #show4 ol li, .resourcecontainer .shows ol li, .showscontainer #step1 ol li, .showscontainer #step2 ol li, .showscontainer #step3 ol li, .showscontainer #step4 ol li, .showscontainer #step5 ol li, .showscontainer #step6 ol li, .showscontainer #step7 ol li, .showscontainer .steps ol li, .showscontainer #show1 ol li, .showscontainer #show2 ol li, .showscontainer #show3 ol li, .showscontainer #show4 ol li, .showscontainer .shows ol li {
   margin-bottom: 0.75em;
 }
-.resourcecontainer #step1 ol li ol, .resourcecontainer #step2 ol li ol, .resourcecontainer #step3 ol li ol, .resourcecontainer #step4 ol li ol, .resourcecontainer .steps ol li ol, .resourcecontainer #show1 ol li ol, .resourcecontainer #show2 ol li ol, .resourcecontainer #show3 ol li ol, .resourcecontainer #show4 ol li ol, .resourcecontainer .shows ol li ol, .showscontainer #step1 ol li ol, .showscontainer #step2 ol li ol, .showscontainer #step3 ol li ol, .showscontainer #step4 ol li ol, .showscontainer .steps ol li ol, .showscontainer #show1 ol li ol, .showscontainer #show2 ol li ol, .showscontainer #show3 ol li ol, .showscontainer #show4 ol li ol, .showscontainer .shows ol li ol {
+.resourcecontainer #step1 ol li ol, .resourcecontainer #step2 ol li ol, .resourcecontainer #step3 ol li ol, .resourcecontainer #step4 ol li ol, .resourcecontainer #step5 ol li ol, .resourcecontainer #step6 ol li ol, .resourcecontainer #step7 ol li ol, .resourcecontainer .steps ol li ol, .resourcecontainer #show1 ol li ol, .resourcecontainer #show2 ol li ol, .resourcecontainer #show3 ol li ol, .resourcecontainer #show4 ol li ol, .resourcecontainer .shows ol li ol, .showscontainer #step1 ol li ol, .showscontainer #step2 ol li ol, .showscontainer #step3 ol li ol, .showscontainer #step4 ol li ol, .showscontainer #step5 ol li ol, .showscontainer #step6 ol li ol, .showscontainer #step7 ol li ol, .showscontainer .steps ol li ol, .showscontainer #show1 ol li ol, .showscontainer #show2 ol li ol, .showscontainer #show3 ol li ol, .showscontainer #show4 ol li ol, .showscontainer .shows ol li ol {
   padding-top: 1em;
 }
-.resourcecontainer #step1 ol li ol li, .resourcecontainer #step2 ol li ol li, .resourcecontainer #step3 ol li ol li, .resourcecontainer #step4 ol li ol li, .resourcecontainer .steps ol li ol li, .resourcecontainer #show1 ol li ol li, .resourcecontainer #show2 ol li ol li, .resourcecontainer #show3 ol li ol li, .resourcecontainer #show4 ol li ol li, .resourcecontainer .shows ol li ol li, .showscontainer #step1 ol li ol li, .showscontainer #step2 ol li ol li, .showscontainer #step3 ol li ol li, .showscontainer #step4 ol li ol li, .showscontainer .steps ol li ol li, .showscontainer #show1 ol li ol li, .showscontainer #show2 ol li ol li, .showscontainer #show3 ol li ol li, .showscontainer #show4 ol li ol li, .showscontainer .shows ol li ol li {
+.resourcecontainer #step1 ol li ol li, .resourcecontainer #step2 ol li ol li, .resourcecontainer #step3 ol li ol li, .resourcecontainer #step4 ol li ol li, .resourcecontainer #step5 ol li ol li, .resourcecontainer #step6 ol li ol li, .resourcecontainer #step7 ol li ol li, .resourcecontainer .steps ol li ol li, .resourcecontainer #show1 ol li ol li, .resourcecontainer #show2 ol li ol li, .resourcecontainer #show3 ol li ol li, .resourcecontainer #show4 ol li ol li, .resourcecontainer .shows ol li ol li, .showscontainer #step1 ol li ol li, .showscontainer #step2 ol li ol li, .showscontainer #step3 ol li ol li, .showscontainer #step4 ol li ol li, .showscontainer #step5 ol li ol li, .showscontainer #step6 ol li ol li, .showscontainer #step7 ol li ol li, .showscontainer .steps ol li ol li, .showscontainer #show1 ol li ol li, .showscontainer #show2 ol li ol li, .showscontainer #show3 ol li ol li, .showscontainer #show4 ol li ol li, .showscontainer .shows ol li ol li {
   margin-bottom: 0.75em;
 }
 
@@ -336,7 +339,8 @@ svg {
   max-width: 650px;
   margin: 0px auto;
   top: 75px;
-  height: 100%;
+  height: -webkit-calc(100% - 75px);
+  height: calc(100% - 75px);
   padding: 0em;
   padding-top: 0em;
   background: rgba(255, 255, 255, 0.6);
@@ -363,6 +367,9 @@ svg {
 .text-bucket.intro .content ul li, .content-bucket.intro .content ul li {
   list-style: none;
 }
+.text-bucket.intro.about, .content-bucket.intro.about {
+  overflow-y: scroll;
+}
 .text-bucket.intro.active, .content-bucket.intro.active {
   opacity: 1;
   -webkit-transition: all 1000ms;
@@ -377,15 +384,15 @@ svg {
   cursor: pointer;
   position: absolute;
   top: 0px;
-  right: 5px;
+  right: 0px;
   font-size: 1.25em;
-  padding: 5px;
   padding-left: 0px;
   text-align: center;
-  height: 25px;
-  width: 25px;
+  height: 35px;
+  width: 32.5px;
   z-index: 100;
   color: black;
+  background-color: white;
 }
 .text-bucket .credit, .content-bucket .credit {
   margin-top: 1em;
@@ -394,17 +401,7 @@ svg {
 .text-bucket .credit i, .content-bucket .credit i {
   font-size: 1em;
 }
-.text-bucket .wrapper .header, .content-bucket .wrapper .header {
-  display: table;
-  width: 100%;
-  margin: 0px;
-  height: 500px;
-  background-size: cover;
-}
-.text-bucket .wrapper .header .titleblock, .content-bucket .wrapper .header .titleblock {
-  background-color: rgba(255, 255, 255, 0.7);
-  top: 0px;
-  position: absolute;
+.text-bucket .wrapper .titleblock, .content-bucket .wrapper .titleblock {
   text-align: center;
   padding-bottom: 0.5em;
   width: 100%;
@@ -412,20 +409,23 @@ svg {
   -webkit-transition: opacity 800ms;
   transition: opacity 800ms;
 }
-.text-bucket .wrapper .header .titleblock.active, .content-bucket .wrapper .header .titleblock.active {
-  opacity: 0;
-}
-.text-bucket .wrapper .header .titleblock h1, .content-bucket .wrapper .header .titleblock h1 {
+.text-bucket .wrapper .titleblock h1, .content-bucket .wrapper .titleblock h1 {
   position: relative;
   font-size: 1.1em;
 }
-.text-bucket .wrapper .header .titleblock h1 span, .content-bucket .wrapper .header .titleblock h1 span {
-  font-size: 0.9em;
-}
-.text-bucket .wrapper .header .titleblock .datewrapper, .content-bucket .wrapper .header .titleblock .datewrapper {
+.text-bucket .wrapper .titleblock .datewrapper, .content-bucket .wrapper .titleblock .datewrapper {
   font-style: italic;
   position: relative;
   font-size: 0.75em;
+}
+.text-bucket .wrapper .header, .content-bucket .wrapper .header {
+  display: table;
+  width: 100%;
+  margin: 0px;
+  height: 500px;
+  background-size: cover;
+  background-position: center -webkit-calc(center - 50px);
+  background-position: center calc(center - 50px);
 }
 .text-bucket .content, .content-bucket .content {
   padding: 0em 1em 75px 1em;
@@ -435,7 +435,6 @@ svg {
   line-height: 1.45em;
 }
 .text-bucket img, .content-bucket img {
-  margin-top: 1.5em;
   width: 100%;
 }
 

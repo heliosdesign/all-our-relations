@@ -234,6 +234,37 @@ $(function(){
 
 		}
 
+		var buildAbout = function() {
+
+			resetZoom()
+
+			$('.timeline').css('display','none')
+
+			$('.portraitwrapper').css('display','none')
+			$('.showwrapper').css('display','none')
+			$('.resourcewrapper').css('display','none')
+
+			$('.side-menu').css('display','none')
+
+			$('.resources').css('display','none')
+
+			$('.text-bucket').css('display','none')
+
+			$('.content-bucket').css('display','none')
+
+
+			$('.about').css('display','table')
+
+			$('.fader').css('display','none')
+			$('.steps').fadeOut();
+
+			$('.resourcecontainer').fadeOut();
+			$('.showscontainer').fadeOut();
+
+			drawBG('images/intro_bg.jpg')
+
+		}
+
 		var buildResources = function() {
 
 			resetZoom()
@@ -382,9 +413,13 @@ $(function(){
 
 		$( "#contentPanel" ).hover(
 		  function() {
-		    $('.titleblock').addClass('active')
+		  	$('.titleblock').slideUp();
+		  	$('.titleblock').fadeOut();
+		    // $('.titleblock').addClass('active')
 		  }, function() {
-		    $('.titleblock').removeClass('active')
+		    // $('.titleblock').removeClass('active')
+		    $('.titleblock').slideDown();
+		    $('.titleblock').fadeIn();
 		  }
 		);
 
@@ -558,7 +593,10 @@ $(function(){
 				break;
 				case "shows":
 				buildShow()
-				break;														
+				break;
+				case "about":
+				buildAbout()
+				break;															
 			}	
 					
 			})
