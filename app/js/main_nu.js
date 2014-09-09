@@ -11,7 +11,7 @@ $(function(){
 	    var canvas = document.getElementById('background')
 	    var underCanvas = document.getElementById('under-background')
 
-	    var baseHeight,baseWidth, ratio
+	    var baseHeight,baseWidth, ratio, hasViewed
 
 		var resetZoom = function(){
 			$('#background').css('left',0)
@@ -134,7 +134,9 @@ $(function(){
 			ctx.globalCompositeOperation ="darker";
 			//ctx.drawImage(parchment,0,0,canvas.width,canvas.height);
 
-			$('#all-container').fadeIn()
+			if(hasViewed){$('#all-container').fadeIn()}
+
+			
 
 			counter ++
 		}
@@ -177,14 +179,16 @@ $(function(){
 		}	
 
 		var buildTimeline = function() {
-			$('.text-bucket').css('display','none')
 
-			
+
+			$('.text-bucket').css('display','none')
 
 			$('.timeline').css('display','table')
 
 			$('.showwrapper').css('display','none')
+
 			$('.resourcewrapper').css('display','none')
+
 			$('.portraitwrapper').css('display','table')
 
 			$('#portrait-gallery').css('display','table-cell')
@@ -196,8 +200,8 @@ $(function(){
 			$('.steps').fadeOut();
 
 			$('.resourcecontainer').fadeOut();
-			$('.showscontainer').fadeOut();
 
+			$('.showscontainer').fadeOut();
 
 			drawBG('images/main_map_pan.jpg')
 
@@ -207,10 +211,21 @@ $(function(){
 
 			resetZoom()
 
+
+			if(!hasViewed){
+				$('#bg-video')[0].src="assets/video/aor4.mp4"
+				$('all-container').css('display','none')
+				hasViewed = true
+			}
+
+			
+
 			$('.timeline').css('display','none')
 
 			$('.portraitwrapper').css('display','none')
+
 			$('.showwrapper').css('display','none')
+
 			$('.resourcewrapper').css('display','none')
 
 			$('.side-menu').css('display','none')
@@ -225,9 +240,11 @@ $(function(){
 			$('.intro').css('display','table')
 
 			$('.fader').css('display','none')
+
 			$('.steps').fadeOut();
 
 			$('.resourcecontainer').fadeOut();
+
 			$('.showscontainer').fadeOut();
 
 			drawBG('images/intro_bg.jpg')
@@ -364,6 +381,7 @@ $(function(){
 
 				case "#intro":
 				$('.btn-intro').addClass('btn-active')
+
 				buildIntro()
 				break;	
 
@@ -388,6 +406,14 @@ $(function(){
 		  }
 		);
 
+		document.getElementById('bg-video').addEventListener('canplay',function(){
+			//$('#bg-video').fadeIn(500)
+		},false);
+
+		document.getElementById('bg-video').addEventListener('ended',function(){
+			$('#parchment-scrim').css('display','none')
+			$('#bg-video').fadeOut(1500).delay(1500)
+		},false);
 
 		$('.resource-btn').on('click',function(){
 

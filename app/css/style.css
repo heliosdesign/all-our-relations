@@ -17,13 +17,27 @@
   zoom: 1;
 }
 
-#background {
+#background, .parchment {
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+#parchment {
+  display: block;
+}
+
+#bg-video {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: absolute;
 }
 
 body {
-  background: black;
+  background: white;
   overflow: hidden;
   font: "Domine", serif;
 }
@@ -57,6 +71,7 @@ svg {
   height: 100%;
   top: 0px;
   left: 0px;
+  display: none;
 }
 #all-container .portraitwrapper, #all-container .resourcewrapper, #all-container .showwrapper {
   position: absolute;
