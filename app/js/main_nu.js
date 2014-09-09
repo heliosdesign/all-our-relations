@@ -1,5 +1,7 @@
 $(function(){
 
+	
+
 	var margin = {top: 0, right: 0, bottom: 0, left: 100},
 	    width = window.innerWidth,
 	    iconHeight= 90
@@ -109,7 +111,7 @@ $(function(){
 
 			draw(overlayImg.height * stepDown)
 
-		 }
+		}
 
 		overlayImg.src = _url
 
@@ -136,6 +138,8 @@ $(function(){
 
 			counter ++
 		}
+
+		
 	
 }
 					
@@ -378,9 +382,9 @@ $(function(){
 
 		$( "#contentPanel" ).hover(
 		  function() {
-		    $('.titleblock').css('opacity',0)
+		    $('.titleblock').addClass('active')
 		  }, function() {
-		    $('.titleblock').css('opacity',1)
+		    $('.titleblock').removeClass('active')
 		  }
 		);
 
@@ -430,7 +434,28 @@ $(function(){
 						//step4
 						
 						$('.steps').fadeOut();
+						$('#step4').fadeIn();
+						
+					},
+					5: function() {
+						//step4
+						
+						$('.steps').fadeOut();
 						$('#step5').fadeIn();
+						
+					},
+					6: function() {
+						//step4
+						
+						$('.steps').fadeOut();
+						$('#step6').fadeIn();
+						
+					},
+					7: function() {
+						//step4
+						
+						$('.steps').fadeOut();
+						$('#step7').fadeIn();
 						
 					}
 								
@@ -920,7 +945,7 @@ Array.prototype.uniqueObjects = function(){
 
 
 
-	childCounter = 0
+		childCounter = 0
 
 	  //URL//
 	  if(d.page && !window.parent){
@@ -936,4 +961,8 @@ Array.prototype.uniqueObjects = function(){
 	}
 
 	}
+
+	setTimeout(function() {
+		$('.intro').addClass('active')
+	},500);
 })

@@ -95,7 +95,7 @@ svg {
   vertical-align: top;
   display: none;
 }
-#all-container .resourcewrapper .side-menu .resource-btn, #all-container .showwrapper .side-menu .resource-btn {
+#all-container .resourcewrapper .side-menu .resource-btn, #all-container .resourcewrapper .side-menu .subsection, #all-container .showwrapper .side-menu .resource-btn, #all-container .showwrapper .side-menu .subsection {
   margin-bottom: 1em;
   padding: 0.5em;
   cursor: pointer;
@@ -106,8 +106,15 @@ svg {
   transition: all 0.5s;
   text-transform: uppercase;
 }
-#all-container .resourcewrapper .side-menu .resource-btn.btn-active, #all-container .showwrapper .side-menu .resource-btn.btn-active {
+#all-container .resourcewrapper .side-menu .resource-btn.btn-active, #all-container .resourcewrapper .side-menu .subsection.btn-active, #all-container .showwrapper .side-menu .resource-btn.btn-active, #all-container .showwrapper .side-menu .subsection.btn-active {
   color: #b07e1b;
+}
+#all-container .resourcewrapper .side-menu .subsection, #all-container .showwrapper .side-menu .subsection {
+  margin-top: 60px;
+  font-weight: bold;
+  font-size: 0.8em;
+  cursor: default;
+  border-bottom: 1px solid;
 }
 #all-container .background-shifter {
   -webkit-transition: all 2s;
@@ -339,6 +346,28 @@ svg {
   overflow-x: hidden;
   overflow-y: auto;
 }
+.text-bucket.intro, .content-bucket.intro {
+  opacity: 0;
+}
+.text-bucket.intro .content, .content-bucket.intro .content {
+  padding: 0em 1em 75px 1em;
+}
+.text-bucket.intro .content p, .content-bucket.intro .content p {
+  font-size: 0.8em;
+  line-height: 1.45em;
+}
+.text-bucket.intro .content ul, .content-bucket.intro .content ul {
+  font-size: 0.8em;
+  padding-left: 0px;
+}
+.text-bucket.intro .content ul li, .content-bucket.intro .content ul li {
+  list-style: none;
+}
+.text-bucket.intro.active, .content-bucket.intro.active {
+  opacity: 1;
+  -webkit-transition: all 1000ms;
+  transition: all 1000ms;
+}
 @media (max-width: 598px), (max-height: 500px) {
   .text-bucket, .content-bucket {
     font-size: 3.5vw;
@@ -371,25 +400,32 @@ svg {
   margin: 0px;
   height: 500px;
   background-size: cover;
-  background-position: center center;
 }
 .text-bucket .wrapper .header .titleblock, .content-bucket .wrapper .header .titleblock {
   background-color: rgba(255, 255, 255, 0.7);
   top: 0px;
   position: absolute;
   text-align: center;
-  padding-bottom: 1em;
+  padding-bottom: 0.5em;
   width: 100%;
   color: black;
   -webkit-transition: opacity 800ms;
   transition: opacity 800ms;
 }
+.text-bucket .wrapper .header .titleblock.active, .content-bucket .wrapper .header .titleblock.active {
+  opacity: 0;
+}
 .text-bucket .wrapper .header .titleblock h1, .content-bucket .wrapper .header .titleblock h1 {
   position: relative;
+  font-size: 1.1em;
+}
+.text-bucket .wrapper .header .titleblock h1 span, .content-bucket .wrapper .header .titleblock h1 span {
+  font-size: 0.9em;
 }
 .text-bucket .wrapper .header .titleblock .datewrapper, .content-bucket .wrapper .header .titleblock .datewrapper {
   font-style: italic;
   position: relative;
+  font-size: 0.75em;
 }
 .text-bucket .content, .content-bucket .content {
   padding: 0em 1em 75px 1em;
