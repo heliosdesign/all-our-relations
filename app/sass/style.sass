@@ -370,8 +370,8 @@ svg
   max-width: 650px
   margin: 0px auto
   top: 75px
-  height: 100%
-  // height: calc(100% - 75px)
+  // height: 100%
+  height: calc(100% - 75px)
   padding: 0em 
   padding-top: 0em
   background: rgba(255,255,255,.6)
@@ -395,13 +395,17 @@ svg
         padding-left: 0px
         li
           list-style: none
-    &.about
+  &.about
+    overflow-y: scroll
+    .content
+      position: absolute
       overflow-y: scroll
-    &.active
-      opacity: 1
-      // transition-delay: 5000ms
-      transition: all 1000ms
-      // transform: translateY(75px)
+      height: calc(100% - 75px)
+  &.active
+    opacity: 1
+    // transition-delay: 5000ms
+    transition: all 1000ms
+    // transform: translateY(75px)
   @include breakpoint(small)
     font-size: 3.5vw
 
