@@ -1,5 +1,20 @@
 $(function(){
 
+	var canPlayVid = false;
+	console.log(canPlayVid)
+	var v = document.createElement('video');
+	if(v.canPlayType && v.canPlayType('video/mp4').replace(/no/, '')) {
+	    canPlayVid = true;
+	}
+	console.log(canPlayVid)
+
+	// if(!canPlayVid){
+	// 	alert('hello')
+	// 	$('#bg-video').attr("src", "assets/video/aor4.webm"​​​​)​
+	// }
+	// $('#bg-video')[0].attr("src", "assets/video/aor4.webm"​​​​)​
+
+	// alert(canPlayVid);
 	
 
 	var margin = {top: 0, right: 0, bottom: 0, left: 100},
@@ -213,7 +228,15 @@ $(function(){
 
 
 			if(!hasViewed){
-				$('#bg-video')[0].src="assets/video/aor4.mp4"
+				if (canPlayVid===false) {
+					console.log('HEYHEY')
+					$('#bg-video')[0].src="assets/video/aor4.webm"
+					$('#bg-video')[0].play();
+				}else{
+					console.log('HEYHEY')
+					$('#bg-video')[0].src="assets/video/aor4.mp4"
+				};
+				
 				$('all-container').css('display','none')
 				hasViewed = true
 			}
