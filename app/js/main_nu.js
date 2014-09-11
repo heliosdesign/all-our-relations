@@ -216,7 +216,7 @@ $(function(){
 			$('.steps').fadeOut();
 
 			$('.resourcecontainer').fadeOut();
-
+			$('.aboutcontainer').fadeOut();
 			$('.showscontainer').fadeOut();
 
 			drawBG('images/main_map_pan.jpg')
