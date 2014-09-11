@@ -405,6 +405,7 @@ $(function(){
 			var index= $(this).index();
 			$('#enlargedtile').addClass('changing')
 			setTimeout(function() {
+				$('#enlargedtile').css('display','block');
 				$('#enlargedtile').attr('src','http://205.186.156.50/all-our-relations/cdn/assets/img/behind/'+index+'.jpg');
 				$('#enlargedtile').removeClass('changing')
 			}, 500);
