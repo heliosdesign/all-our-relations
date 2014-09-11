@@ -275,33 +275,36 @@ $(function(){
 		}
 
 		var buildAbout = function() {
-
+			console.log('ABOUTABOUTABOut222')
 			resetZoom()
-
-			$('.timeline').css('display','none')
-
-			$('.portraitwrapper').css('display','none')
-			$('.showwrapper').css('display','none')
-			$('.resourcewrapper').css('display','none')
-
-			$('.side-menu').css('display','none')
 
 			$('.resources').css('display','none')
 
+			$('.timeline').css('display','none')
+
+			$('.resources').css('display','table')
+
+			$('.resourcewrapper').css('display','none')
+			$('.showwrapper').css('display','none')
+			$('.portraitwrapper').css('display','none')
+			$('.aboutwrapper').css('display','table')
+
+			$('#resource-menu').css('display','none')
+			$('#about-menu').css('display','table-cell')
+
 			$('.text-bucket').css('display','none')
 
-			$('.content-bucket').css('display','none')
-
-
-			$('.about').css('display','table')
 
 			$('.fader').css('display','none')
-			$('.steps').fadeOut();
 
-			$('.resourcecontainer').fadeOut();
+			
 			$('.showscontainer').fadeOut();
+			$('.resourcecontainer').fadeOut();
+			$('.aboutcontainer').fadeIn();
+			$('#about1').fadeIn();
 
-			drawBG('images/intro_bg.jpg')
+
+			drawBG('images/resources_bg.jpg')
 
 		}
 
@@ -318,8 +321,10 @@ $(function(){
 			$('.resourcewrapper').css('display','table')
 			$('.showwrapper').css('display','none')
 			$('.portraitwrapper').css('display','none')
+			$('.aboutwrapper').css('display','none')
 
 			$('#resource-menu').css('display','table-cell')
+			$('#about-menu').css('display','none')
 
 			$('.text-bucket').css('display','none')
 
@@ -328,6 +333,7 @@ $(function(){
 
 			
 			$('.showscontainer').fadeOut();
+			$('.aboutcontainer').fadeOut();
 			$('.resourcecontainer').fadeIn();
 			$('#step1').fadeIn();
 
@@ -344,9 +350,12 @@ $(function(){
 
 			$('.portraitwrapper').css('display','none')
 			$('.resourcewrapper').css('display','none')
+			$('.aboutwrapper').css('display','none')
 			$('.showwrapper').css('display','table')
 
 			$('#show-menu').css('display','table-cell')
+			$('#about-menu').css('display','none')
+			$('#resource-menu').css('display','none')
 
 			$('.text-bucket').css('display','none')
 			
@@ -357,6 +366,7 @@ $(function(){
 			// $('#shows1').fadeIn();
 
 			$('.resourcecontainer').fadeOut();
+			$('.aboutcontainer').fadeOut();
 			$('.showscontainer').fadeIn();
 			$('#show1').fadeIn();
 			// $('.showwrapper').fadeIn();
@@ -391,7 +401,15 @@ $(function(){
 
 		var marker = '<div id="milestone-marker" style="position:absolute;background:#af040a;width:0px;left:0px;height:60px;-webkit-transition: all 2s; transition: all 2s;"></div>'
 
-		
+		$('#mosaic').children().click(function(){
+			var index= $(this).index();
+			$('#enlargedtile').addClass('changing')
+			setTimeout(function() {
+				$('#enlargedtile').attr('src','http://205.186.156.50/all-our-relations/cdn/assets/img/behind/'+index+'.jpg');
+				$('#enlargedtile').removeClass('changing')
+			}, 500);
+			
+		});
 		
 		$('#milestones').append(marker)
 		$.each(Milestones,function(k,v){
@@ -444,6 +462,11 @@ $(function(){
 				buildResources()
 				break;	
 
+				case "#about":
+				$('.btn-about').addClass('btn-active')
+				buildAbout()
+				break;	
+
 			}	
 
 		} else {
@@ -475,14 +498,15 @@ $(function(){
 
 		$('.resource-btn').on('click',function(){
 
-			var check= $(this).parent().is("#show-menu");
-			console.log(check)
+			var showcheck= $(this).parent().is("#show-menu");
+			var aboutcheck= $(this).parent().is("#about-menu");
+			// console.log(check)
 
 			var startCheck = {}
 			$('.resource-btn').removeClass('btn-active')
 			$(this).addClass('btn-active')
 
-			if (!check) {
+			if (!showcheck && !aboutcheck) {
 				$('.resourcecontainer').fadeIn()
 
 				startCheck = {
@@ -543,6 +567,38 @@ $(function(){
 						
 					}
 								
+				}
+			}else if(aboutcheck && !showcheck){
+
+				$('.aboutcontainer').fadeIn()
+
+				console.log('ABOUTBAOUT')
+
+				startCheck = {
+					0: function() {
+						
+						$('.aboutcat').fadeOut();
+						$('#about1').fadeIn();
+						
+					},
+					1: function() {
+						
+						$('.aboutcat').fadeOut();
+						$('#about2').fadeIn();
+						
+					},
+					2: function() {
+						
+						$('.aboutcat').fadeOut();
+						$('#about3').fadeIn();
+						
+					},
+					3: function() {
+						
+						$('.aboutcat').fadeOut();
+						$('#about4').fadeIn();
+						
+					}
 				}
 			}else{
 
@@ -632,19 +688,20 @@ $(function(){
 			$('#all-container').fadeOut(function(){
 			switch ($(_this).data('action')) {
 				case "timeline":
-				buildTimeline()
+					buildTimeline()
 				break;
 				case "intro":
-				buildIntro()
+					buildIntro()
 				break;
 				case "resources":
-				buildResources()
+					buildResources()
 				break;
 				case "shows":
-				buildShow()
+					buildShow()
 				break;
 				case "about":
-				buildAbout()
+					console.log('ABOUTABOUTABOut')
+					buildAbout()
 				break;															
 			}	
 					

@@ -109,7 +109,7 @@ svg
   left: 0px
   display: none
   
-  .portraitwrapper,.resourcewrapper,.showwrapper
+  .portraitwrapper,.resourcewrapper,.showwrapper,.aboutwrapper
     position: absolute
     top: 0px
     left: 20px
@@ -133,7 +133,7 @@ svg
         &.active
           border-color: #291F00
           filter: sepia(100%)
-  .resourcewrapper,.showwrapper
+  .resourcewrapper,.showwrapper,.aboutwrapper
     .side-menu
       padding-top: 8em
       vertical-align: top
@@ -160,7 +160,7 @@ svg
   .background-shifter
     transition: all 2s
 
-.resourcecontainer,.showscontainer
+.resourcecontainer,.showscontainer,.aboutcontainer
   height: calc(100% - 90px)
   width: 60%
   max-width: 650px
@@ -174,17 +174,38 @@ svg
   padding-bottom: 0px
   overflow-y: scroll
 
-  #step1,#step2,#step3,#step4,#step5,#step6,#step7,.steps,#show1,#show2,#show3,#show4,.shows
+  #step1,#step2,#step3,#step4,#step5,#step6,#step7,.steps,#show1,#show2,#show3,#show4,.shows,#about1,#about2,#about3,#about4,.aboutcat
     position: relative
     height: 100%
     width: 100%
     display: none
+    // padding-bottom: 5em
 
     a
       text-decoration: none
       color: #b07e1b
 
+    p
+      width: 100%
+      margin-bottom: 20px
+    
+    .subheading
+      width: 100%
+      text-align: center
+      font-weight: bold
 
+    img
+      width: 60%
+      position: relative
+      margin-left: 20%
+      margin-top: 30px
+      &#enlargedtile
+        width: 100%
+        margin: 0%
+        margin-bottom: 20px
+        transition: all 0.5s
+        &.changing
+          opacity: 0
 
     .videoWrapper 
       position: relative
@@ -223,6 +244,22 @@ svg
           padding-top: 1em
           li
             margin-bottom: 0.75em
+
+    #mosaic
+      width: 100%
+      padding: 0px
+      height: 500px
+      div
+        width: 33.3%
+        float: left
+        height: 33.3%
+        position: relative
+        background-size: cover
+        cursor: pointer
+        transition: all 0.5s
+        &:hover,&:active
+          opacity: 0.5
+        // background-position: center center
             
 
   // #step1
@@ -340,10 +377,11 @@ svg
       text-align: center
       // box-shadow: 3px 4px 3px rgba(0,0,0,0.5)
       text-decoration: none
+      &.btn-active
+        color: #b07e1b 
       // color: #000
     &.btn-active
-      // /*background: rgba(255,255,255,.5);
-      color: #b07e1b 
+      color: #b07e1b !important
 
 #logo-main
   position: absolute
@@ -395,12 +433,12 @@ svg
         padding-left: 0px
         li
           list-style: none
-  &.about
-    overflow-y: scroll
-    .content
-      position: absolute
-      overflow-y: scroll
-      height: calc(100% - 75px)
+  // &.about
+  //   overflow-y: scroll
+  //   .content
+  //     position: absolute
+  //     overflow-y: scroll
+  //     height: calc(100% - 75px)
   &.active
     opacity: 1
     // transition-delay: 5000ms
