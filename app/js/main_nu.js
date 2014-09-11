@@ -449,24 +449,28 @@ $(function(){
 			switch (AORloc) {
 
 				case "#timeline":
-				$('.btn-timeline').addClass('btn-active')
-				buildTimeline()
+					$('.btn-timeline').addClass('btn-active');
+					buildTimeline();
 				break;
 
 				case "#intro":
-				$('.btn-intro').addClass('btn-active')
-
-				buildIntro()
+					$('.btn-intro').addClass('btn-active');
+					buildIntro();
 				break;	
 
 				case "#resource":
-				$('.btn-resources').addClass('btn-active')
-				buildResources()
+					$('.btn-resources').addClass('btn-active');
+					buildResources();
 				break;	
 
 				case "#about":
-				$('.btn-about').addClass('btn-active')
-				buildAbout()
+					$('.btn-about').addClass('btn-active');
+					buildAbout();
+				break;	
+
+				case "#shows":
+					$('.btn-about').addClass('btn-active');
+					buildShow();
 				break;	
 
 			}	

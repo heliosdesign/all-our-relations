@@ -362,16 +362,18 @@ svg {
 #header ul li:hover {
   color: #b07e1b;
 }
-#header ul p {
+#header ul li p, #header ul li a {
   text-transform: uppercase;
   font-weight: bold;
   position: absolute;
-  bottom: 25px;
+  bottom: 35px;
+  text-decoration: none;
+  color: black;
   width: 140px;
   text-align: center;
   text-decoration: none;
 }
-#header ul p.btn-active {
+#header ul li p.btn-active, #header ul li a.btn-active {
   color: #b07e1b;
 }
 #header ul.btn-active {
