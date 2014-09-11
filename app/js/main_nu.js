@@ -84,6 +84,7 @@ $(function(){
 	    
 		
 		var drawBG = function(_url){
+		console.log('heyehyehyhyhyehy')
 
 		var overlayImg = new Image()
 
@@ -526,45 +527,53 @@ $(function(){
 						
 					},
 					2: function() {
-						//step3
+						//chellenges
 						
 						$('.steps').fadeOut();
 						$('#step3').fadeIn();
 						
 					},
 					3: function() {
-						//step4
+						//west
 						
-						$('.steps').fadeOut();
-						$('#step4').fadeIn();
+						// $('.steps').fadeOut();
+						// $('#step4').fadeIn();
 						
 					},
 					4: function() {
-						//step4
+						//west
 						
 						$('.steps').fadeOut();
 						$('#step4').fadeIn();
+						// console.log('heyehyehyhyhyehy')
+
+						drawBG('images/map/west.jpg')
 						
 					},
 					5: function() {
-						//step4
+						//central
 						
 						$('.steps').fadeOut();
 						$('#step5').fadeIn();
+						// console.log('heyehyehyhyhyehy')
+						drawBG('images/map/central.jpg')
 						
 					},
 					6: function() {
-						//step4
-						
+						//east
 						$('.steps').fadeOut();
 						$('#step6').fadeIn();
+						// console.log('heyehyehyhyhyehy')
+						drawBG('images/map/east.jpg')
 						
 					},
 					7: function() {
-						//step4
+						//north
 						
 						$('.steps').fadeOut();
 						$('#step7').fadeIn();
+						// console.log('heyehyehyhyhyehy')
+						drawBG('images/map/north.jpg')
 						
 					}
 								
