@@ -248,14 +248,32 @@ $(function(){
 
 			resetZoom()
 
+			var w = window.innerWidth
+			var h = window.innerHeight
+
+			var ratio = window.innerWidth/window.innerHeight
+
+			var vw, vh
+
+			if (ratio > 1){
+
+				//landscape
+
+				vh = window.innerHeight
+				vw = window.innerWidth * ratio
+
+
+
+			}
+
 
 			if(!hasViewed){
 				if (canPlayVid===false) {
-					console.log('HEYHEY')
+					
 					$('#bg-video')[0].src="assets/video/aor4.webm"
 					$('#bg-video')[0].play();
 				}else{
-					console.log('HEYHEY')
+					
 					$('#bg-video')[0].src="assets/video/aor4.mp4"
 				};
 				
