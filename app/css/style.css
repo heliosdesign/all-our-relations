@@ -433,6 +433,13 @@ svg {
   font-size: 0.8em;
   line-height: 1.45em;
 }
+.text-bucket.intro .content p a, .content-bucket.intro .content p a {
+  color: #b07e1b;
+  text-decoration: none;
+}
+.text-bucket.intro .content p a:hover, .content-bucket.intro .content p a:hover {
+  color: grey;
+}
 .text-bucket.intro .content ul, .content-bucket.intro .content ul {
   font-size: 0.8em;
   padding-left: 0px;
