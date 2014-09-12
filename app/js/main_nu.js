@@ -342,6 +342,8 @@ $(function(){
 
 			resetZoom()
 
+			console.log("build resources")
+
 			$('.resources').css('display','none')
 
 			$('.timeline').css('display','none')
@@ -527,15 +529,14 @@ $(function(){
 
 			if (AORloc) {
 
-				// $('#parchment-scrim').css('display','none')
-				// $('#all-container').css('display','block')
-				// $('#bg-video').css('display','none')
+				$('#parchment-scrim').css('display','none')
+				$('#all-container').css('display','block')
+				$('#bg-video').css('display','none')
+
 				switch (AORloc) {
 
 					case "#timeline":
 						$('.btn-timeline').addClass('btn-active');
-
-						console.log("should build timeline")
 
 						buildTimeline();
 					break;
@@ -545,7 +546,7 @@ $(function(){
 						buildIntro();
 					break;	
 
-					case "#resource":
+					case "#resources":
 						$('.btn-resources').addClass('btn-active');
 						buildResources();
 					break;	
@@ -781,11 +782,17 @@ $(function(){
 		$('#header li').on('click',function(){
 
 			var _this = this
+
 			clicked = null
+
+			hasViewed = true
 
 			$('.top-nuke').fadeOut()
 
 			$('#all-container').fadeOut(function(){
+
+			console.log("fade out")
+
 			switch ($(_this).data('action')) {
 				case "timeline":
 					buildTimeline()
