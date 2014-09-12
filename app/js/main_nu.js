@@ -7,17 +7,8 @@ $(function(){
 	if(v.canPlayType && v.canPlayType('video/mp4').replace(/no/, '')) {
 	    canPlayVid = true;
 	}
-	console.log(canPlayVid)
 
 
-
-	// if(!canPlayVid){
-	// 	alert('hello')
-	// 	$('#bg-video').attr("src", "assets/video/aor4.webm"​​​​)​
-	// }
-	// $('#bg-video')[0].attr("src", "assets/video/aor4.webm"​​​​)​
-
-	// alert(canPlayVid);
 	
 
 	var margin = {top: 0, right: 0, bottom: 0, left: 100},
@@ -139,23 +130,16 @@ $(function(){
 
 		function draw(h){
 
-			console.log(cw)
-
 			var startDraw = window.innerWidth/4 * counter
 
 			ctx.clearRect(0,0,canvas.width,canvas.height)
 			
-
-			//ctx.drawImage(overlay,0,0,cw,cw * multix, startDraw,window.innerWidth/4,0,window.innerHeight);
-			//ctx.drawImage(overlay,0,0,cw,cw * multix);
-
 			ctx.drawImage(overlay,0,0);	
 			ctx.globalCompositeOperation ="darker";
 			//ctx.drawImage(parchment,0,0,canvas.width,canvas.height);
 
 			if(hasViewed){$('#all-container').fadeIn()}
 
-			
 
 			counter ++
 		}
@@ -358,6 +342,8 @@ $(function(){
 
 			resetZoom()
 
+			console.log("build resources")
+
 			$('.resources').css('display','none')
 
 			$('.timeline').css('display','none')
@@ -448,16 +434,16 @@ $(function(){
 
 		// var marker = '<div id="milestone-marker" style="position:absolute;background:#af040a;width:0px;left:0px;height:60px;-webkit-transition: all 2s; transition: all 2s;"></div>'
 
-		// $('#mosaic').children().click(function(){
-		// 	var index= $(this).index();
-		// 	$('#enlargedtile').addClass('changing')
-		// 	setTimeout(function() {
-		// 		$('#enlargedtile').css('display','block');
-		// 		$('#enlargedtile').attr('src','http://205.186.156.50/all-our-relations/cdn/assets/img/behind/'+index+'.jpg');
-		// 		$('#enlargedtile').removeClass('changing')
-		// 	}, 500);
+		$('#mosaic').children().click(function(){
+			var index= $(this).index();
+			$('#enlargedtile').addClass('changing')
+			setTimeout(function() {
+				$('#enlargedtile').css('display','block');
+				$('#enlargedtile').attr('src','http://205.186.156.50/all-our-relations/cdn/assets/img/behind/'+index+'.jpg');
+				$('#enlargedtile').removeClass('changing')
+			}, 500);
 			
-		// });
+		});
 		
 		// $('#milestones').append(marker)
 		// $.each(Milestones,function(k,v){
@@ -493,6 +479,52 @@ $(function(){
 
 		var AORloc = window.location.hash;
 
+		// $(window).on('hashchange', function() {
+		// 	var AORloc = window.location.hash;
+
+		// 	if (AORloc) {
+
+		// 		// $('#parchment-scrim').css('display','none')
+		// 		// $('#all-container').css('display','block')
+		// 		// $('#bg-video').css('display','none')
+		// 		switch (AORloc) {
+
+		// 			case "#timeline":
+		// 				$('.btn-timeline').addClass('btn-active');
+
+		// 				console.log("should build timeline")
+
+		// 				buildTimeline();
+		// 			break;
+
+		// 			case "#intro":
+		// 				$('.btn-intro').addClass('btn-active');
+		// 				buildIntro();
+		// 			break;	
+
+		// 			case "#resource":
+		// 				$('.btn-resources').addClass('btn-active');
+		// 				buildResources();
+		// 			break;	
+
+		// 			case "#about":
+		// 				$('.btn-about').addClass('btn-active');
+		// 				buildAbout();
+		// 			break;	
+
+		// 			case "#shows":
+		// 				$('.btn-about').addClass('btn-active');
+		// 				buildShow();
+		// 			break;	
+
+		// 		}	
+
+		// 	} else {
+		// 		$('.btn-intro').addClass('btn-active')
+		// 		buildIntro()
+		// 	}
+		//   console.log(AORloc)
+		// });
 		console.log(AORloc)
 
 			if (AORloc) {
@@ -500,12 +532,11 @@ $(function(){
 				$('#parchment-scrim').css('display','none')
 				$('#all-container').css('display','block')
 				$('#bg-video').css('display','none')
+
 				switch (AORloc) {
 
 					case "#timeline":
 						$('.btn-timeline').addClass('btn-active');
-
-						console.log("should build timeline")
 
 						buildTimeline();
 					break;
@@ -515,7 +546,7 @@ $(function(){
 						buildIntro();
 					break;	
 
-					case "#resource":
+					case "#resources":
 						$('.btn-resources').addClass('btn-active');
 						buildResources();
 					break;	
@@ -751,11 +782,17 @@ $(function(){
 		$('#header li').on('click',function(){
 
 			var _this = this
+
 			clicked = null
+
+			hasViewed = true
 
 			$('.top-nuke').fadeOut()
 
 			$('#all-container').fadeOut(function(){
+
+			console.log("fade out")
+
 			switch ($(_this).data('action')) {
 				case "timeline":
 					buildTimeline()
@@ -876,9 +913,19 @@ $(function(){
 
 
 			d.y = d.depth * width/8 + spacer *.5; 
+
+			console.log(d.depth%2)
 			if(d.depth == 0) {
-				d.x = startX
-				d.y = -90
+				d.x = startX + 20
+				d.y = -90 
+			}else{
+				if(d.depth%2 == 0){
+					d.x = d.x + 30
+			} else {
+					//d.x = d.x - 10
+			}
+				   
+
 			}
 		});
 
