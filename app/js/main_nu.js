@@ -1078,11 +1078,11 @@ Array.prototype.uniqueObjects = function(){
 
 		
 
-		var left = (thisyear-d.dod)*spanMultix
-		var right = (thisyear-d.dob)*spanMultix
+		// var left = (thisyear-d.dod)*spanMultix
+		// var right = (thisyear-d.dob)*spanMultix
 
-		$('#milestone-marker').css('left',left + 'px')
-		$('#milestone-marker').css('width', right - left + 'px')
+		// $('#milestone-marker').css('left',left + 'px')
+		// $('#milestone-marker').css('width', right - left + 'px')
 
 		var temp = d.storage		
 
