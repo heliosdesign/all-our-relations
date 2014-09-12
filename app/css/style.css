@@ -74,6 +74,16 @@ svg {
   left: 0px;
   display: none;
 }
+#all-container .legalstrip {
+  bottom: 0px;
+  position: absolute;
+  right: 0px;
+  text-align: right;
+  font-size: 0.5em;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding-left: 1em;
+  padding-right: 1em;
+}
 #all-container .portraitwrapper, #all-container .resourcewrapper, #all-container .showwrapper, #all-container .aboutwrapper {
   position: absolute;
   top: 0px;

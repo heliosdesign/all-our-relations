@@ -2,6 +2,7 @@ $(function(){
 
 	var canPlayVid = false;
 	console.log(canPlayVid)
+	$('#bg-video')[0].play();
 	var v = document.createElement('video');
 	if(v.canPlayType && v.canPlayType('video/mp4').replace(/no/, '')) {
 	    canPlayVid = true;
@@ -257,8 +258,9 @@ $(function(){
 				}else{
 					console.log('HEYHEY')
 					$('#bg-video')[0].src="assets/video/aor4.mp4"
+					$('#bg-video')[0].play();
 				};
-				
+				$('#bg-video')[0].play();
 				$('all-container').css('display','none')
 				hasViewed = true
 			}
@@ -471,9 +473,9 @@ $(function(){
 
 		if (AORloc) {
 
-			$('#parchment-scrim').css('display','none')
-			$('#all-container').css('display','block')
-			$('#bg-video').css('display','none')
+			// $('#parchment-scrim').css('display','none')
+			// $('#all-container').css('display','block')
+			// $('#bg-video').css('display','none')
 			switch (AORloc) {
 
 				case "#timeline":
