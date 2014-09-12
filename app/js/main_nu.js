@@ -493,52 +493,6 @@ $(function(){
 
 		var AORloc = window.location.hash;
 
-		$(window).on('hashchange', function() {
-			var AORloc = window.location.hash;
-
-			if (AORloc) {
-
-				// $('#parchment-scrim').css('display','none')
-				// $('#all-container').css('display','block')
-				// $('#bg-video').css('display','none')
-				switch (AORloc) {
-
-					case "#timeline":
-						$('.btn-timeline').addClass('btn-active');
-
-						console.log("should build timeline")
-
-						buildTimeline();
-					break;
-
-					case "#intro":
-						$('.btn-intro').addClass('btn-active');
-						buildIntro();
-					break;	
-
-					case "#resource":
-						$('.btn-resources').addClass('btn-active');
-						buildResources();
-					break;	
-
-					case "#about":
-						$('.btn-about').addClass('btn-active');
-						buildAbout();
-					break;	
-
-					case "#shows":
-						$('.btn-about').addClass('btn-active');
-						buildShow();
-					break;	
-
-				}	
-
-			} else {
-				$('.btn-intro').addClass('btn-active')
-				buildIntro()
-			}
-		  console.log(AORloc)
-		});
 		console.log(AORloc)
 
 			if (AORloc) {
@@ -801,23 +755,23 @@ $(function(){
 
 			$('.top-nuke').fadeOut()
 
-			// $('#all-container').fadeOut(function(){
-			// switch ($(_this).data('action')) {
-			// 	case "timeline":
-			// 		buildTimeline()
-			// 	break;
-			// 	case "resources":
-			// 		buildResources()
-			// 	break;
-			// 	case "shows":
-			// 		buildShow()
-			// 	break;
-			// 	case "about":
-			// 		buildAbout()
-			// 	break;															
-			// }	
+			$('#all-container').fadeOut(function(){
+			switch ($(_this).data('action')) {
+				case "timeline":
+					buildTimeline()
+				break;
+				case "resources":
+					buildResources()
+				break;
+				case "shows":
+					buildShow()
+				break;
+				case "about":
+					buildAbout()
+				break;															
+			}	
 					
-			// })
+			})
 
 			$('#header li').removeClass('btn-active')
 			$(this).addClass('btn-active')
