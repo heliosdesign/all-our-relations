@@ -2,6 +2,7 @@ $(function(){
 
 	var canPlayVid = false;
 	console.log(canPlayVid)
+	$('#bg-video')[0].play();
 	var v = document.createElement('video');
 	if(v.canPlayType && v.canPlayType('video/mp4').replace(/no/, '')) {
 	    canPlayVid = true;
@@ -169,6 +170,10 @@ $(function(){
 				  		status = "404"
 				  		console.log("404")
 						$( "#contentPanel" ).css('display','none')
+			  		}else{
+			  			console.log("show partial " + _partial)
+			  			$('.ancestor').fadeIn()
+			  			$( "#contentPanel" ).fadeIn()
 			  		}
 
 			  		console.log("loaded partial " + _partial)
@@ -189,11 +194,11 @@ $(function(){
 					
 					
 
-			  		if(_status == "200"){
-			  			console.log("show partial " + _partial)
-			  			$('.ancestor').fadeIn()
-			  			$( "#contentPanel" ).fadeIn()
-			  		}
+			  		// if(_status == "200"){
+			  		// 	console.log("show partial " + _partial)
+			  		// 	$('.ancestor').fadeIn()
+			  		// 	$( "#contentPanel" ).fadeIn()
+			  		// }
 			  	
 			});			
 			})
@@ -259,8 +264,9 @@ $(function(){
 				}else{
 					
 					$('#bg-video')[0].src="assets/video/aor4.mp4"
+					$('#bg-video')[0].play();
 				};
-				
+				$('#bg-video')[0].play();
 				$('all-container').css('display','none')
 				hasViewed = true
 			}
@@ -467,51 +473,104 @@ $(function(){
 
 /////////EVENTS and LOCATION HASHES
 
+		
+
 		var AORloc = window.location.hash;
 
-		console.log("hello")
+		// $(window).on('hashchange', function() {
+		// 	var AORloc = window.location.hash;
 
-		if (AORloc) {
+		// 	if (AORloc) {
 
-			$('#parchment-scrim').css('display','none')
-			$('#all-container').css('display','block')
-			$('#bg-video').css('display','none')
-			switch (AORloc) {
+		// 		// $('#parchment-scrim').css('display','none')
+		// 		// $('#all-container').css('display','block')
+		// 		// $('#bg-video').css('display','none')
+		// 		switch (AORloc) {
 
-				case "#timeline":
-					$('.btn-timeline').addClass('btn-active');
+		// 			case "#timeline":
+		// 				$('.btn-timeline').addClass('btn-active');
 
-					console.log("should build timeline")
+		// 				console.log("should build timeline")
 
-					buildTimeline();
-				break;
+		// 				buildTimeline();
+		// 			break;
 
-				case "#intro":
-					$('.btn-intro').addClass('btn-active');
-					buildIntro();
-				break;	
+		// 			case "#intro":
+		// 				$('.btn-intro').addClass('btn-active');
+		// 				buildIntro();
+		// 			break;	
 
-				case "#resource":
-					$('.btn-resources').addClass('btn-active');
-					buildResources();
-				break;	
+		// 			case "#resource":
+		// 				$('.btn-resources').addClass('btn-active');
+		// 				buildResources();
+		// 			break;	
 
-				case "#about":
-					$('.btn-about').addClass('btn-active');
-					buildAbout();
-				break;	
+		// 			case "#about":
+		// 				$('.btn-about').addClass('btn-active');
+		// 				buildAbout();
+		// 			break;	
 
-				case "#shows":
-					$('.btn-about').addClass('btn-active');
-					buildShow();
-				break;	
+		// 			case "#shows":
+		// 				$('.btn-about').addClass('btn-active');
+		// 				buildShow();
+		// 			break;	
 
-			}	
+		// 		}	
 
-		} else {
-			$('.btn-intro').addClass('btn-active')
-			buildIntro()
-		}
+		// 	} else {
+		// 		$('.btn-intro').addClass('btn-active')
+		// 		buildIntro()
+		// 	}
+		//   console.log(AORloc)
+		// });
+		console.log(AORloc)
+
+			if (AORloc) {
+
+				// $('#parchment-scrim').css('display','none')
+				// $('#all-container').css('display','block')
+				// $('#bg-video').css('display','none')
+				switch (AORloc) {
+
+					case "#timeline":
+						$('.btn-timeline').addClass('btn-active');
+
+						console.log("should build timeline")
+
+						buildTimeline();
+					break;
+
+					case "#intro":
+						$('.btn-intro').addClass('btn-active');
+						buildIntro();
+					break;	
+
+					case "#resource":
+						$('.btn-resources').addClass('btn-active');
+						buildResources();
+					break;	
+
+					case "#about":
+						$('.btn-about').addClass('btn-active');
+						buildAbout();
+					break;	
+
+					case "#shows":
+						$('.btn-about').addClass('btn-active');
+						buildShow();
+					break;	
+
+				}	
+				// $('#parchment-scrim').css('display','none')
+				// $('#all-container').css('display','block')
+				// $('#bg-video').css('display','none')
+
+			} else {
+				$('.btn-intro').addClass('btn-active')
+				buildIntro()
+			}
+
+		
 
 
 		$( "#contentPanel" ).hover(
@@ -850,6 +909,7 @@ $(function(){
 
 			console.log(d.depth%2)
 			if(d.depth == 0) {
+
 				d.x = startX + 20
 				d.y = -90 
 			}else{
@@ -859,6 +919,7 @@ $(function(){
 					//d.x = d.x - 10
 				}
 				   
+
 			}
 		});
 

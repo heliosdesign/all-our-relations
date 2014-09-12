@@ -34,7 +34,9 @@
   top: 0
   left: 0
   min-width: 100%
-  height: 100%
+  min-height: 100%
+  width: auto
+  height: auto
   position: absolute
 
 // /* IE6
@@ -109,6 +111,16 @@ svg
   top: 0px
   left: 0px
   display: none
+
+  .legalstrip
+    bottom: 0px
+    position: absolute
+    right: 0px
+    text-align: right
+    font-size: 0.5em
+    background-color: rgba(255,255,255,0.5)
+    padding-left: 1em
+    padding-right: 1em
   
   .portraitwrapper,.resourcewrapper,.showwrapper,.aboutwrapper
     position: absolute
@@ -350,7 +362,7 @@ svg
     margin: 0 auto
     padding: 0px
     width: 100%
-    
+
     li
       padding: 0px
       color: black
@@ -421,6 +433,11 @@ svg
       p
         font-size: 0.8em
         line-height: 1.45em
+        a
+          color: #b07e1b
+          text-decoration: none
+          &:hover
+            color: grey
       ul
         font-size: 0.8em
         padding-left: 0px

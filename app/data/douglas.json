@@ -8,20 +8,50 @@
          "name": "Hilaire 'Henry' Cardinal","gender":"m","dob":1877,"dod":1968, "page":"DOUGLASCARDINAL_HilaireCardinal",
          "children": [
             {
-             "name": "Trefflé Cardinal","gender":"m","dob":1849,"dod":1929,"page":"treffleCardinal",
+             "name": "Trefflé Cardinal","gender":"m","dob":1849,"dod":1929,"page":"DOUGLASCARDINAL_treffleCardinal",
              "children": [
+                {
+                 "name": "Isidore Cardinal","gender":"m","dob":1829,"page":"DOUGLASCARDINAL_IsidoreCardinal",
+                 "children": [
+                 ]
+                },
+                {
+                 "name": "Marguerite Cardinal","gender":"f","page":"DOUGLASCARDINAL_MargueriteCardinal",
+                 "children": [
+                    {
+                     "name": "Félix Prévost","gender":"m","dob":1825,"dod":1895,"page":"DOUGLASCARDINAL_FelixPrevost",
+                     "children": [
+                     ]
+                    },
+                    {
+                     "name": "Delima/Delphin Paquin","gender":"f", "page":"DOUGLASCARDINAL_Delima Paquin",
+                     "children": [
+                     ]
+                    }
+                 ]
+                }
              ]
             },
             {
-             "name": "Mathilda Provost/Prévost","gender":"f","dob":1859,"page":"mathilda",
+             "name": "Mathilda Provost/Prévost","gender":"f","dob":1859,"page":"DOUGLASCARDINAL_mathilda",
              "children": [
              ]
             }
          ]
         },
         {
-         "name": "Martha Caroline Lee","gender":"f","dob":1885,"dod":1974,"page":"marthaLee",
+         "name": "Martha Caroline Lee","gender":"f","dob":1885,"dod":1974,"page":"DOUGLASCARDINAL_marthaLee",
          "children": [
+            {
+             "name": "William Samuel Lee","gender":"m","dob":1830,"dod":1896,"page":"DOUGLASCARDINAL_WilliamSamuelLee",
+             "children": [
+             ]
+            },
+            {
+             "name": "Rosa 'Gutosi Ki' Woman","gender":"f","dob":1859,"dod":1945,"page":"DOUGLASCARDINAL_RosaWoman",
+             "children": [
+             ]
+            }
          ]
         }
      ]
@@ -32,11 +62,41 @@
         {
          "name": "Alvin Joseph Rach","gender":"m","dob":1876,"dod":1939,"page":"DOUGLASCARDINAL_AlvinJosephRach",
          "children": [
+            {
+             "name": "Martin Rach","gender":"m","dob":1847,"dod":1915,"page":"DOUGLASCARDINAL_MartinRach",
+             "children": [
+             ]
+            },
+            {
+             "name": "Elizabeth Reubens","gender":"f","dob":1847,"dod":1927,"page":"DOUGLASCARDINAL_ElizabethReubens",
+             "children": [
+             ]
+            }
          ]
         },
         {
          "name": "Ellen Dale Geneviéve Morin","gender":"f","dob":1882,"dod":1973,"page":"DOUGLASCARDINAL_EllenDaleMorin",
          "children": [
+            {
+             "name": "John Morin","gender":"m","dob":1837,"dod":1924,"page":"DOUGLASCARDINAL_JohnMorin",
+             "children": [
+                {
+                 "name": "John/Gilbert 'Gill' Morin","gender":"m", "page":"DOUGLASCARDINAL_GilbertMorin",
+                 "children": [
+                 ]
+                },
+                {
+                 "name": "Mary Polly Leavitt/Levet","gender":"f","dob":1815,"dod":1842,"page":"DOUGLASCARDINAL_MaryPolly",
+                 "children": [
+                 ]
+                }
+             ]
+            },
+            {
+             "name": "Margaret Gilmour","gender":"f","dob":1855,"page":"DOUGLASCARDINAL_MargaretGilmour",
+             "children": [
+             ]
+            }
          ]
         }
      ]
