@@ -168,17 +168,28 @@ $(function(){
 
 		var loadPartial = function(_partial) {
 
+			
+
 
 			$( "#contentPanel" ).fadeOut(1000,function(){
 
+
+
 				$( "#contentPanel" ).html('')
+
+				var _status = "200"
 
 				$( "#contentPanel" ).load( "partials/" + _partial +".html", function( response, status, xhr ) {
 
 			  		if ( status == "error" ) {
-			    		var msg = "Sorry but there was an error: ";
-			    		$('#contentPanel').html( msg + xhr.status + " " + xhr.statusText );
+				  		status = "404"
+				  		console.log("404")
+						$( "#contentPanel" ).css('display','none')
 			  		}
+
+			  		console.log("loaded partial " + _partial)
+
+			  		console.log(_status)
 
 		  			$('#contentPanel').prepend('<div class="exitbtn">X</div>');
 		  		
@@ -191,7 +202,15 @@ $(function(){
 						$('.content-bucket').fadeOut()
 
 			  		})
-			  	$( "#contentPanel" ).fadeIn()
+					
+					
+
+			  		if(_status == "200"){
+			  			console.log("show partial " + _partial)
+			  			$('.ancestor').fadeIn()
+			  			$( "#contentPanel" ).fadeIn()
+			  		}
+			  	
 			});			
 			})
 		}	
@@ -448,11 +467,20 @@ $(function(){
 
 		var AORloc = window.location.hash;
 
+		console.log("hello")
+
 		if (AORloc) {
+
+			$('#parchment-scrim').css('display','none')
+			$('#all-container').css('display','block')
+			$('#bg-video').css('display','none')
 			switch (AORloc) {
 
 				case "#timeline":
 					$('.btn-timeline').addClass('btn-active');
+
+					console.log("should build timeline")
+
 					buildTimeline();
 				break;
 
