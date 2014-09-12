@@ -6,17 +6,8 @@ $(function(){
 	if(v.canPlayType && v.canPlayType('video/mp4').replace(/no/, '')) {
 	    canPlayVid = true;
 	}
-	console.log(canPlayVid)
 
 
-
-	// if(!canPlayVid){
-	// 	alert('hello')
-	// 	$('#bg-video').attr("src", "assets/video/aor4.webm"​​​​)​
-	// }
-	// $('#bg-video')[0].attr("src", "assets/video/aor4.webm"​​​​)​
-
-	// alert(canPlayVid);
 	
 
 	var margin = {top: 0, right: 0, bottom: 0, left: 100},
@@ -138,23 +129,16 @@ $(function(){
 
 		function draw(h){
 
-			console.log(cw)
-
 			var startDraw = window.innerWidth/4 * counter
 
 			ctx.clearRect(0,0,canvas.width,canvas.height)
 			
-
-			//ctx.drawImage(overlay,0,0,cw,cw * multix, startDraw,window.innerWidth/4,0,window.innerHeight);
-			//ctx.drawImage(overlay,0,0,cw,cw * multix);
-
 			ctx.drawImage(overlay,0,0);	
 			ctx.globalCompositeOperation ="darker";
 			//ctx.drawImage(parchment,0,0,canvas.width,canvas.height);
 
 			if(hasViewed){$('#all-container').fadeIn()}
 
-			
 
 			counter ++
 		}
@@ -863,9 +847,18 @@ $(function(){
 
 
 			d.y = d.depth * width/8 + spacer *.5; 
+
+			console.log(d.depth%2)
 			if(d.depth == 0) {
-				d.x = startX
-				d.y = -90
+				d.x = startX + 20
+				d.y = -90 
+			}else{
+				if(d.depth%2 == 0){
+					d.x = d.x + 30
+				} else {
+					//d.x = d.x - 10
+				}
+				   
 			}
 		});
 
