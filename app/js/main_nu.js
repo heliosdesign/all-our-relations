@@ -924,7 +924,7 @@ $(function(){
 			d.y = d.depth * width/8 + spacer *.5; 
 			if(d.depth == 0) {
 				d.x = startX
-				d.y = -180
+				d.y = -90
 			}
 		});
 
