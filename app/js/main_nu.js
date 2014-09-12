@@ -909,15 +909,14 @@ $(function(){
 
 			console.log(d.depth%2)
 			if(d.depth == 0) {
-
 				d.x = startX + 20
 				d.y = -90 
 			}else{
 				if(d.depth%2 == 0){
 					d.x = d.x + 30
-				} else {
+			} else {
 					//d.x = d.x - 10
-				}
+			}
 				   
 
 			}
