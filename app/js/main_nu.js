@@ -8,6 +8,8 @@ $(function(){
 	}
 	console.log(canPlayVid)
 
+
+
 	// if(!canPlayVid){
 	// 	alert('hello')
 	// 	$('#bg-video').attr("src", "assets/video/aor4.webm"​​​​)​
@@ -376,70 +378,71 @@ $(function(){
 
 		}
 
-		var Milestones = {
-			"Nunavut Act":1999, 
-			"Oka Land Dispute":1990,
-			"Indian Act Revisions (end)":1985,
-			"Meech Lake Accord ":1982,
 
-			"Native Right to Vote ":1960,
-			"Indian Act Revisions (start))":1951,		
-			"Land Numbered Treaty (end)":1921,
-			"Riel Uprising ":1885,
-			"Land Numbered Treaty (start)":1871,
-			"Confederation & British North America Acts":1867
-		}
+		// var Milestones = {
+		// 	"Nunavut Act":1999, 
+		// 	"Oka Land Dispute":1990,
+		// 	"Indian Act Revisions (end)":1985,
+		// 	"Meech Lake Accord ":1982,
 
-		var milestoneWidth = window.innerWidth//$('#milestones')[0].getBoundingClientRect().width
+		// 	"Native Right to Vote ":1960,
+		// 	"Indian Act Revisions (start))":1951,		
+		// 	"Land Numbered Treaty (end)":1921,
+		// 	"Riel Uprising ":1885,
+		// 	"Land Numbered Treaty (start)":1871,
+		// 	"Confederation & British North America Acts":1867
+		// }
 
-		var d = new Date()
+		// var milestoneWidth = window.innerWidth//$('#milestones')[0].getBoundingClientRect().width
 
-		var thisyear = d.getFullYear()
+		// var d = new Date()
 
-		var spanMultix = milestoneWidth / (thisyear - 1815)
+		// var thisyear = d.getFullYear()
 
-		var counter = 0
+		// var spanMultix = milestoneWidth / (thisyear - 1815)
 
-		var marker = '<div id="milestone-marker" style="position:absolute;background:#af040a;width:0px;left:0px;height:60px;-webkit-transition: all 2s; transition: all 2s;"></div>'
+		// var counter = 0
 
-		$('#mosaic').children().click(function(){
-			var index= $(this).index();
-			$('#enlargedtile').addClass('changing')
-			setTimeout(function() {
-				$('#enlargedtile').css('display','block');
-				$('#enlargedtile').attr('src','http://205.186.156.50/all-our-relations/cdn/assets/img/behind/'+index+'.jpg');
-				$('#enlargedtile').removeClass('changing')
-			}, 500);
+		// var marker = '<div id="milestone-marker" style="position:absolute;background:#af040a;width:0px;left:0px;height:60px;-webkit-transition: all 2s; transition: all 2s;"></div>'
+
+		// $('#mosaic').children().click(function(){
+		// 	var index= $(this).index();
+		// 	$('#enlargedtile').addClass('changing')
+		// 	setTimeout(function() {
+		// 		$('#enlargedtile').css('display','block');
+		// 		$('#enlargedtile').attr('src','http://205.186.156.50/all-our-relations/cdn/assets/img/behind/'+index+'.jpg');
+		// 		$('#enlargedtile').removeClass('changing')
+		// 	}, 500);
 			
-		});
+		// });
 		
-		$('#milestones').append(marker)
-		$.each(Milestones,function(k,v){
+		// $('#milestones').append(marker)
+		// $.each(Milestones,function(k,v){
 
-			 var vOffSet = 0
-			 var yearOffset = 0
+		// 	 var vOffSet = 0
+		// 	 var yearOffset = 0
 
-			 var ticker =  counter % 3
+		// 	 var ticker =  counter % 3
 
-			if(ticker === 0){
-				vOffSet = 2
-				yearOffset = 65
-			}
-			if(ticker === 1){
-				vOffSet = 22
-				yearOffset = 80
-			}
-			if(ticker === 2){
-				vOffSet = 42
-				yearOffset = 80
-			}
+		// 	if(ticker === 0){
+		// 		vOffSet = 2
+		// 		yearOffset = 65
+		// 	}
+		// 	if(ticker === 1){
+		// 		vOffSet = 22
+		// 		yearOffset = 80
+		// 	}
+		// 	if(ticker === 2){
+		// 		vOffSet = 42
+		// 		yearOffset = 80
+		// 	}
 	
-			var html = '<div class="milestone-edge" style="bottom:' + vOffSet + 'px;left:' + spanMultix* (thisyear - v) + 'px"></div>'
-			html +='<div class="milestone" style="bottom:' + vOffSet + 'px;left:' + spanMultix* (thisyear - v) + 'px">' + k +'</div>'
-			html += '<div class="milestone-year" style="bottom:' + yearOffset   + 'px;left:' + spanMultix* (thisyear - v) + 'px">' + v +'</div>'
-			$('#milestones').append(html)
-			counter++
-		})
+		// 	var html = '<div class="milestone-edge" style="bottom:' + vOffSet + 'px;left:' + spanMultix* (thisyear - v) + 'px"></div>'
+		// 	html +='<div class="milestone" style="bottom:' + vOffSet + 'px;left:' + spanMultix* (thisyear - v) + 'px">' + k +'</div>'
+		// 	html += '<div class="milestone-year" style="bottom:' + yearOffset   + 'px;left:' + spanMultix* (thisyear - v) + 'px">' + v +'</div>'
+		// 	$('#milestones').append(html)
+		// 	counter++
+		// })
 
 /////////EVENTS and LOCATION HASHES
 
@@ -535,13 +538,6 @@ $(function(){
 						
 						$('.steps').fadeOut();
 						$('#step3').fadeIn();
-						
-					},
-					3: function() {
-						//west
-						
-						// $('.steps').fadeOut();
-						// $('#step4').fadeIn();
 						
 					},
 					4: function() {
@@ -660,9 +656,6 @@ $(function(){
 				}
 
 			}
-			// console.log(startCheck)
-			
-
 
 			startCheck[ $(this).index() ]();
 
@@ -692,6 +685,10 @@ $(function(){
 
 		})
 
+		$('#logo-main').on('click',function(){
+			buildIntro()
+		});
+
 		$('#header li').on('click',function(){
 
 			var _this = this
@@ -704,9 +701,6 @@ $(function(){
 				case "timeline":
 					buildTimeline()
 				break;
-				case "intro":
-					buildIntro()
-				break;
 				case "resources":
 					buildResources()
 				break;
@@ -714,7 +708,6 @@ $(function(){
 					buildShow()
 				break;
 				case "about":
-					console.log('ABOUTABOUTABOut')
 					buildAbout()
 				break;															
 			}	
