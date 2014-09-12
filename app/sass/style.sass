@@ -338,65 +338,39 @@ svg
   position: absolute
   left: 35%
   width: 60%
-  top: 0px
-  height: 100px
   padding: 0px
-  // @include breakpoint(medium)
-  //   font-size: 2vw
-  //   ul
-  //     // width: 100%
-  //     li
-  //       width: 100px !important
-  //       margin-right: 1em
-  //       p,a
-  //         width: 100px !important
-
-  // @include breakpoint(small)
-  //   left: 0px
-  //   top: 20px
-  //   font-size: 3vw
-  //   // width: 100%
-  //   ul
-  //     // width: 100%
-  //     li
-  //       width: auto
-  //       margin-right: 1em
+  margin-top: 2.5%
+  @include breakpoint(small)
+    margin-top: 12.5%
   ul
     list-style: none
     margin: 0px
-    float: left
+    // float: left
+    position: relative
+    margin: 0 auto
     padding: 0px
     width: 100%
+    
     li
       padding: 0px
-      // float: left
-      // margin-right: 20px
-      // width: 20%
-      height: 80px
       color: black
+      float: left
+      position: relative
+      margin-right: 20px
       cursor: pointer
       background: rgba(0, 0, 0, 0)
       transition: all .5s
       &:hover
-        // /*background: rgba(255,255,255,.6);
         color: #b07e1b
       p,a
         text-transform: uppercase
         font-weight: bold
-        position: absolute
-        bottom: 35px
         text-decoration: none
         color: black
-        // background: rgba(255, 255, 255, 0.9)
-        // padding-top: 5px
-        // padding-bottom: 5px
-        width: 140px
         text-align: center
-        // box-shadow: 3px 4px 3px rgba(0,0,0,0.5)
         text-decoration: none
         &.btn-active
           color: #b07e1b 
-        // color: #000
     &.btn-active
       color: #b07e1b !important
 
@@ -415,6 +389,8 @@ svg
   width: 100%
   top: 10px
   @include breakpoint(small)
+    display: none
+  @include breakpoint(medium)
     display: none
 
 
