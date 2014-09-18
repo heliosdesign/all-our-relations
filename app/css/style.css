@@ -22,7 +22,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  position: absolute;
+  position: fixed;
 }
 
 #parchment {
@@ -37,6 +37,14 @@
   width: auto;
   height: auto;
   position: absolute;
+}
+
+.no-scroll {
+  overflow-y: hidden;
+}
+
+.scroll {
+  overflow-y: scroll;
 }
 
 body {
@@ -78,7 +86,7 @@ svg {
 }
 #all-container .legalstrip {
   bottom: 0px;
-  position: absolute;
+  position: fixed;
   right: 0px;
   text-align: right;
   font-size: 0.5em;
@@ -120,30 +128,41 @@ svg {
   filter: sepia(100%);
 }
 #all-container .resourcewrapper .side-menu, #all-container .showwrapper .side-menu, #all-container .aboutwrapper .side-menu {
-  padding-top: 8em;
+  padding-top: 2.8em;
   vertical-align: top;
   display: none;
 }
 #all-container .resourcewrapper .side-menu .resource-btn, #all-container .resourcewrapper .side-menu .subsection, #all-container .showwrapper .side-menu .resource-btn, #all-container .showwrapper .side-menu .subsection, #all-container .aboutwrapper .side-menu .resource-btn, #all-container .aboutwrapper .side-menu .subsection {
-  margin-bottom: 1em;
+  margin-bottom: 0.6em;
   padding: 0.5em;
   cursor: pointer;
   width: 180px;
   text-align: center;
-  color: black;
+  font-size: 0.9em;
+  color: #b07e1b;
+  font-weight: bold;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   text-transform: uppercase;
 }
 #all-container .resourcewrapper .side-menu .resource-btn.btn-active, #all-container .resourcewrapper .side-menu .subsection.btn-active, #all-container .showwrapper .side-menu .resource-btn.btn-active, #all-container .showwrapper .side-menu .subsection.btn-active, #all-container .aboutwrapper .side-menu .resource-btn.btn-active, #all-container .aboutwrapper .side-menu .subsection.btn-active {
-  color: #b07e1b;
+  color: black;
 }
 #all-container .resourcewrapper .side-menu .subsection, #all-container .showwrapper .side-menu .subsection, #all-container .aboutwrapper .side-menu .subsection {
   margin-top: 60px;
   font-weight: bold;
-  font-size: 0.8em;
+  font-size: 0.9em;
   cursor: default;
   border-bottom: 1px solid;
+  border-top: 1px solid;
+  text-transform: uppercase;
+  color: black;
+}
+#all-container .showwrapper .side-menu {
+  padding-top: 5.5em;
+}
+#all-container .aboutwrapper .side-menu {
+  padding-top: 8.9em;
 }
 #all-container .background-shifter {
   -webkit-transition: all 2s;
@@ -151,18 +170,19 @@ svg {
 }
 
 .resourcecontainer, .showscontainer, .aboutcontainer {
-  height: -webkit-calc(100% - 90px);
-  height: calc(100% - 90px);
+  height: -webkit-calc(100% - 150px);
+  height: calc(100% - 150px);
   width: 60%;
   max-width: 650px;
   position: relative;
   margin: 0px auto;
-  top: 75px;
+  top: 150px;
   left: 0px;
   display: none;
   background: rgba(255, 255, 255, 0.5);
   padding: 1em;
   padding-bottom: 0px;
+  padding-top: 50px;
   overflow-y: scroll;
 }
 .resourcecontainer #step1, .resourcecontainer #step2, .resourcecontainer #step3, .resourcecontainer #step4, .resourcecontainer #step5, .resourcecontainer #step6, .resourcecontainer #step7, .resourcecontainer .steps, .resourcecontainer #show1, .resourcecontainer #show2, .resourcecontainer #show3, .resourcecontainer #show4, .resourcecontainer .shows, .resourcecontainer #about1, .resourcecontainer #about2, .resourcecontainer #about3, .resourcecontainer #about4, .resourcecontainer .aboutcat, .showscontainer #step1, .showscontainer #step2, .showscontainer #step3, .showscontainer #step4, .showscontainer #step5, .showscontainer #step6, .showscontainer #step7, .showscontainer .steps, .showscontainer #show1, .showscontainer #show2, .showscontainer #show3, .showscontainer #show4, .showscontainer .shows, .showscontainer #about1, .showscontainer #about2, .showscontainer #about3, .showscontainer #about4, .showscontainer .aboutcat, .aboutcontainer #step1, .aboutcontainer #step2, .aboutcontainer #step3, .aboutcontainer #step4, .aboutcontainer #step5, .aboutcontainer #step6, .aboutcontainer #step7, .aboutcontainer .steps, .aboutcontainer #show1, .aboutcontainer #show2, .aboutcontainer #show3, .aboutcontainer #show4, .aboutcontainer .shows, .aboutcontainer #about1, .aboutcontainer #about2, .aboutcontainer #about3, .aboutcontainer #about4, .aboutcontainer .aboutcat {
@@ -206,8 +226,8 @@ svg {
   padding-bottom: 56.25%;
   padding-top: 25px;
   height: 0;
-  margin-bottom: 1em;
-  margin-top: 1em;
+  margin-bottom: 3em;
+  margin-top: 3em;
 }
 .resourcecontainer #step1 .videoWrapper iframe, .resourcecontainer #step2 .videoWrapper iframe, .resourcecontainer #step3 .videoWrapper iframe, .resourcecontainer #step4 .videoWrapper iframe, .resourcecontainer #step5 .videoWrapper iframe, .resourcecontainer #step6 .videoWrapper iframe, .resourcecontainer #step7 .videoWrapper iframe, .resourcecontainer .steps .videoWrapper iframe, .resourcecontainer #show1 .videoWrapper iframe, .resourcecontainer #show2 .videoWrapper iframe, .resourcecontainer #show3 .videoWrapper iframe, .resourcecontainer #show4 .videoWrapper iframe, .resourcecontainer .shows .videoWrapper iframe, .resourcecontainer #about1 .videoWrapper iframe, .resourcecontainer #about2 .videoWrapper iframe, .resourcecontainer #about3 .videoWrapper iframe, .resourcecontainer #about4 .videoWrapper iframe, .resourcecontainer .aboutcat .videoWrapper iframe, .showscontainer #step1 .videoWrapper iframe, .showscontainer #step2 .videoWrapper iframe, .showscontainer #step3 .videoWrapper iframe, .showscontainer #step4 .videoWrapper iframe, .showscontainer #step5 .videoWrapper iframe, .showscontainer #step6 .videoWrapper iframe, .showscontainer #step7 .videoWrapper iframe, .showscontainer .steps .videoWrapper iframe, .showscontainer #show1 .videoWrapper iframe, .showscontainer #show2 .videoWrapper iframe, .showscontainer #show3 .videoWrapper iframe, .showscontainer #show4 .videoWrapper iframe, .showscontainer .shows .videoWrapper iframe, .showscontainer #about1 .videoWrapper iframe, .showscontainer #about2 .videoWrapper iframe, .showscontainer #about3 .videoWrapper iframe, .showscontainer #about4 .videoWrapper iframe, .showscontainer .aboutcat .videoWrapper iframe, .aboutcontainer #step1 .videoWrapper iframe, .aboutcontainer #step2 .videoWrapper iframe, .aboutcontainer #step3 .videoWrapper iframe, .aboutcontainer #step4 .videoWrapper iframe, .aboutcontainer #step5 .videoWrapper iframe, .aboutcontainer #step6 .videoWrapper iframe, .aboutcontainer #step7 .videoWrapper iframe, .aboutcontainer .steps .videoWrapper iframe, .aboutcontainer #show1 .videoWrapper iframe, .aboutcontainer #show2 .videoWrapper iframe, .aboutcontainer #show3 .videoWrapper iframe, .aboutcontainer #show4 .videoWrapper iframe, .aboutcontainer .shows .videoWrapper iframe, .aboutcontainer #about1 .videoWrapper iframe, .aboutcontainer #about2 .videoWrapper iframe, .aboutcontainer #about3 .videoWrapper iframe, .aboutcontainer #about4 .videoWrapper iframe, .aboutcontainer .aboutcat .videoWrapper iframe {
   position: absolute;
@@ -216,16 +236,25 @@ svg {
   width: 100%;
   height: 100%;
 }
+.resourcecontainer #step1 .topheading, .resourcecontainer #step2 .topheading, .resourcecontainer #step3 .topheading, .resourcecontainer #step4 .topheading, .resourcecontainer #step5 .topheading, .resourcecontainer #step6 .topheading, .resourcecontainer #step7 .topheading, .resourcecontainer .steps .topheading, .resourcecontainer #show1 .topheading, .resourcecontainer #show2 .topheading, .resourcecontainer #show3 .topheading, .resourcecontainer #show4 .topheading, .resourcecontainer .shows .topheading, .resourcecontainer #about1 .topheading, .resourcecontainer #about2 .topheading, .resourcecontainer #about3 .topheading, .resourcecontainer #about4 .topheading, .resourcecontainer .aboutcat .topheading, .showscontainer #step1 .topheading, .showscontainer #step2 .topheading, .showscontainer #step3 .topheading, .showscontainer #step4 .topheading, .showscontainer #step5 .topheading, .showscontainer #step6 .topheading, .showscontainer #step7 .topheading, .showscontainer .steps .topheading, .showscontainer #show1 .topheading, .showscontainer #show2 .topheading, .showscontainer #show3 .topheading, .showscontainer #show4 .topheading, .showscontainer .shows .topheading, .showscontainer #about1 .topheading, .showscontainer #about2 .topheading, .showscontainer #about3 .topheading, .showscontainer #about4 .topheading, .showscontainer .aboutcat .topheading, .aboutcontainer #step1 .topheading, .aboutcontainer #step2 .topheading, .aboutcontainer #step3 .topheading, .aboutcontainer #step4 .topheading, .aboutcontainer #step5 .topheading, .aboutcontainer #step6 .topheading, .aboutcontainer #step7 .topheading, .aboutcontainer .steps .topheading, .aboutcontainer #show1 .topheading, .aboutcontainer #show2 .topheading, .aboutcontainer #show3 .topheading, .aboutcontainer #show4 .topheading, .aboutcontainer .shows .topheading, .aboutcontainer #about1 .topheading, .aboutcontainer #about2 .topheading, .aboutcontainer #about3 .topheading, .aboutcontainer #about4 .topheading, .aboutcontainer .aboutcat .topheading {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-top: 0.5em;
+  font-size: 1em;
+  margin-bottom: 0em;
+}
 .resourcecontainer #step1 h1, .resourcecontainer #step2 h1, .resourcecontainer #step3 h1, .resourcecontainer #step4 h1, .resourcecontainer #step5 h1, .resourcecontainer #step6 h1, .resourcecontainer #step7 h1, .resourcecontainer .steps h1, .resourcecontainer #show1 h1, .resourcecontainer #show2 h1, .resourcecontainer #show3 h1, .resourcecontainer #show4 h1, .resourcecontainer .shows h1, .resourcecontainer #about1 h1, .resourcecontainer #about2 h1, .resourcecontainer #about3 h1, .resourcecontainer #about4 h1, .resourcecontainer .aboutcat h1, .showscontainer #step1 h1, .showscontainer #step2 h1, .showscontainer #step3 h1, .showscontainer #step4 h1, .showscontainer #step5 h1, .showscontainer #step6 h1, .showscontainer #step7 h1, .showscontainer .steps h1, .showscontainer #show1 h1, .showscontainer #show2 h1, .showscontainer #show3 h1, .showscontainer #show4 h1, .showscontainer .shows h1, .showscontainer #about1 h1, .showscontainer #about2 h1, .showscontainer #about3 h1, .showscontainer #about4 h1, .showscontainer .aboutcat h1, .aboutcontainer #step1 h1, .aboutcontainer #step2 h1, .aboutcontainer #step3 h1, .aboutcontainer #step4 h1, .aboutcontainer #step5 h1, .aboutcontainer #step6 h1, .aboutcontainer #step7 h1, .aboutcontainer .steps h1, .aboutcontainer #show1 h1, .aboutcontainer #show2 h1, .aboutcontainer #show3 h1, .aboutcontainer #show4 h1, .aboutcontainer .shows h1, .aboutcontainer #about1 h1, .aboutcontainer #about2 h1, .aboutcontainer #about3 h1, .aboutcontainer #about4 h1, .aboutcontainer .aboutcat h1 {
   width: 100%;
   text-align: center;
-  text-transform: capitalize;
-  font-weight: normal;
-  padding-top: 0.5em;
-  padding-bottom: 0.25em;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-top: 0em;
+  padding-bottom: 0em;
   margin-bottom: 1em;
-  border-bottom: 2px solid;
-  border-top: 2px solid;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
 }
 .resourcecontainer #step1 h1 .secondary, .resourcecontainer #step2 h1 .secondary, .resourcecontainer #step3 h1 .secondary, .resourcecontainer #step4 h1 .secondary, .resourcecontainer #step5 h1 .secondary, .resourcecontainer #step6 h1 .secondary, .resourcecontainer #step7 h1 .secondary, .resourcecontainer .steps h1 .secondary, .resourcecontainer #show1 h1 .secondary, .resourcecontainer #show2 h1 .secondary, .resourcecontainer #show3 h1 .secondary, .resourcecontainer #show4 h1 .secondary, .resourcecontainer .shows h1 .secondary, .resourcecontainer #about1 h1 .secondary, .resourcecontainer #about2 h1 .secondary, .resourcecontainer #about3 h1 .secondary, .resourcecontainer #about4 h1 .secondary, .resourcecontainer .aboutcat h1 .secondary, .showscontainer #step1 h1 .secondary, .showscontainer #step2 h1 .secondary, .showscontainer #step3 h1 .secondary, .showscontainer #step4 h1 .secondary, .showscontainer #step5 h1 .secondary, .showscontainer #step6 h1 .secondary, .showscontainer #step7 h1 .secondary, .showscontainer .steps h1 .secondary, .showscontainer #show1 h1 .secondary, .showscontainer #show2 h1 .secondary, .showscontainer #show3 h1 .secondary, .showscontainer #show4 h1 .secondary, .showscontainer .shows h1 .secondary, .showscontainer #about1 h1 .secondary, .showscontainer #about2 h1 .secondary, .showscontainer #about3 h1 .secondary, .showscontainer #about4 h1 .secondary, .showscontainer .aboutcat h1 .secondary, .aboutcontainer #step1 h1 .secondary, .aboutcontainer #step2 h1 .secondary, .aboutcontainer #step3 h1 .secondary, .aboutcontainer #step4 h1 .secondary, .aboutcontainer #step5 h1 .secondary, .aboutcontainer #step6 h1 .secondary, .aboutcontainer #step7 h1 .secondary, .aboutcontainer .steps h1 .secondary, .aboutcontainer #show1 h1 .secondary, .aboutcontainer #show2 h1 .secondary, .aboutcontainer #show3 h1 .secondary, .aboutcontainer #show4 h1 .secondary, .aboutcontainer .shows h1 .secondary, .aboutcontainer #about1 h1 .secondary, .aboutcontainer #about2 h1 .secondary, .aboutcontainer #about3 h1 .secondary, .aboutcontainer #about4 h1 .secondary, .aboutcontainer .aboutcat h1 .secondary {
   font-size: 0.75em;
@@ -361,7 +390,10 @@ svg {
   transition: all 0.5s;
 }
 #header ul li:hover {
-  color: #b07e1b;
+  color: #b07e1b !important;
+}
+#header ul li .btn-active {
+  color: #b07e1b !important;
 }
 #header ul li p, #header ul li a {
   text-transform: uppercase;
@@ -371,10 +403,10 @@ svg {
   text-align: center;
   text-decoration: none;
 }
-#header ul li p.btn-active, #header ul li a.btn-active {
-  color: #b07e1b;
+#header ul li p:hover, #header ul li a:hover {
+  color: #b07e1b !important;
 }
-#header ul.btn-active {
+#header ul li p.btn-active, #header ul li a.btn-active {
   color: #b07e1b !important;
 }
 
@@ -408,26 +440,25 @@ svg {
 
 .text-bucket, .content-bucket {
   position: relative;
-  width: 60%;
+  width: 50%;
+  top: 150px;
   max-width: 650px;
   margin: 0px auto;
-  top: 75px;
-  height: -webkit-calc(100% - 75px);
-  height: calc(100% - 75px);
-  padding: 0em;
-  padding-top: 0em;
-  background: rgba(255, 255, 255, 0.6);
+  height: -webkit-calc(100% - 150px);
+  height: calc(100% - 150px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0px;
+  padding-bottom: 20px;
   color: black;
   font-size: 1.5em;
   display: none;
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 .text-bucket.intro, .content-bucket.intro {
   opacity: 0;
 }
 .text-bucket.intro .content, .content-bucket.intro .content {
-  padding: 0em 1em 75px 1em;
+  padding: 0em 1em 0px 1em;
 }
 .text-bucket.intro .content p, .content-bucket.intro .content p {
   font-size: 0.8em;
@@ -500,11 +531,21 @@ svg {
   background-position: center calc(center - 50px);
 }
 .text-bucket .content, .content-bucket .content {
-  padding: 0em 1em 75px 1em;
+  padding: 0em 1em 0px 1em;
+  background: rgba(255, 255, 255, 0.6);
 }
 .text-bucket .content p, .content-bucket .content p {
-  font-size: 0.7em;
+  font-size: 0.8em;
   line-height: 1.45em;
+}
+.text-bucket .content p.large, .content-bucket .content p.large {
+  font-size: 1em;
+}
+.text-bucket .content p.firstsentence, .content-bucket .content p.firstsentence {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  padding: 10px 0px;
+  font-size: 0.9em;
 }
 .text-bucket img, .content-bucket img {
   width: 100%;
@@ -512,7 +553,6 @@ svg {
 
 .text-bucket {
   display: table;
-  height: 100%;
   position: relative;
 }
 .text-bucket div {
@@ -522,12 +562,21 @@ svg {
 }
 
 .content-bucket {
-  top: 40%;
+  padding-top: 15px;
+  top: 40% !important;
+  background: rgba(255, 255, 255, 0.6);
   -webkit-transition: top 800ms;
   transition: top 800ms;
 }
-.content-bucket:hover {
-  top: 75px;
+.content-bucket .content {
+  background: rgba(255, 255, 255, 0);
+}
+.content-bucket.tootall {
+  overflow-y: scroll;
+  height: 90%;
+}
+.content-bucket.onhover {
+  top: 10% !important;
   background: white;
 }
 

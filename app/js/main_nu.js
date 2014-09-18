@@ -8,9 +8,6 @@ $(function(){
 	    canPlayVid = true;
 	}
 
-
-	
-
 	var margin = {top: 0, right: 0, bottom: 0, left: 100},
 	    width = window.innerWidth,
 	    iconHeight= 90
@@ -180,9 +177,9 @@ $(function(){
 
 			  		console.log(_status)
 
-		  			$('#contentPanel').prepend('<div class="exitbtn">X</div>');
+		  			// $('#contentPanel').prepend('<div class="exitbtn">X</div>');
 		  		
-			  		$('.exitbtn').on('click',function(){
+			  		$('#contentPanel').on('click',function(){
 
 						$('.fader').fadeIn()
 
@@ -192,8 +189,6 @@ $(function(){
 
 			  		})
 					
-					
-
 			  		// if(_status == "200"){
 			  		// 	console.log("show partial " + _partial)
 			  		// 	$('.ancestor').fadeIn()
@@ -209,7 +204,14 @@ $(function(){
 
 			$('.text-bucket').css('display','none')
 
-			$('.timeline').css('display','table')
+			// $('.timeline').css('display','table-cell')
+
+			$('.timeline').css('display','table-cell')
+			// $('.intro').css('display','table-cell')
+
+			setTimeout(function() {
+				$('#all-container').css('display','table')
+			}, 500);
 
 			$('.showwrapper').css('display','none')
 
@@ -290,7 +292,11 @@ $(function(){
 			$('.content-bucket').css('display','none')
 
 
-			$('.intro').css('display','table')
+			$('.intro').css('display','block')
+
+			setTimeout(function() {
+				$('#all-container').css('display','table')
+			}, 500);
 
 			$('.fader').css('display','none')
 
@@ -536,28 +542,28 @@ $(function(){
 				switch (AORloc) {
 
 					case "#timeline":
-						$('.btn-timeline').addClass('btn-active');
+						$('.btn-timeline a').addClass('btn-active');
 
 						buildTimeline();
 					break;
 
 					case "#intro":
-						$('.btn-intro').addClass('btn-active');
+						$('.btn-intro a').addClass('btn-active');
 						buildIntro();
 					break;	
 
 					case "#resources":
-						$('.btn-resources').addClass('btn-active');
+						$('.btn-resources a').addClass('btn-active');
 						buildResources();
 					break;	
 
 					case "#about":
-						$('.btn-about').addClass('btn-active');
+						$('.btn-about a').addClass('btn-active');
 						buildAbout();
 					break;	
 
 					case "#shows":
-						$('.btn-about').addClass('btn-active');
+						$('.btn-about a').addClass('btn-active');
 						buildShow();
 					break;	
 
@@ -571,20 +577,49 @@ $(function(){
 				buildIntro()
 			}
 
-		
+		// , #contentPanel .content
+		// #contentPanel .header
 
 
-		$( "#contentPanel" ).hover(
+		$( "#contentPanel" ).hover (
 		  function() {
-		  	$('.titleblock').slideUp();
-		  	$('.titleblock').fadeOut();
-		    // $('.titleblock').addClass('active')
+		  	// e.stopPropagation();
+		  	console.log('hoverhover')
+
+		  	if ($('#contentPanel').height() > 600) {
+		  		$('#contentPanel').addClass('tootall')
+		  	}else{
+		  		$('#contentPanel').removeClass('tootall')
+		  	};
+
+		  	$('#contentPanel').addClass('onhover')
+
+		  	console.log($('#contentPanel').height())
+
+		  	if($("#contentPanel:has(img)").length > 0){
+		  	    $('.titleblock').slideUp();
+				$('.titleblock').fadeOut();
+		  	}
+
 		  }, function() {
-		    // $('.titleblock').removeClass('active')
-		    $('.titleblock').slideDown();
-		    $('.titleblock').fadeIn();
+
+
+		  	$('#contentPanel').removeClass('tootall')
+
+		    $('#contentPanel').removeClass('onhover')
+
+		    if($("#contentPanel:has(img)").length > 0){
+		        $('.titleblock').slideDown();
+		    	$('.titleblock').fadeIn();
+		    }
+
 		  }
 		);
+		
+		// $( "#contentPanel" ).hover(function(){
+		// 	var x= $( "#contentPanel" ).has('img');
+		// 	console.log('has an image=',x)
+		// });
 
 		document.getElementById('bg-video').addEventListener('canplay',function(){
 			//$('#bg-video').fadeIn(500)
@@ -707,37 +742,37 @@ $(function(){
 				// console.log($(this).index())
 
 				startCheck = {
-					0: function() {
+					1: function() {
 						
 						$('.shows').fadeOut();
 						$('#show1').fadeIn();
 						
 					},
-					1: function() {
+					2: function() {
 						
 						$('.shows').fadeOut();
 						$('#show2').fadeIn();
 						
 					},
-					2: function() {
+					3: function() {
 						
 						$('.shows').fadeOut();
 						$('#show3').fadeIn();
 						
 					},
-					3: function() {
+					4: function() {
 						
 						$('.shows').fadeOut();
 						$('#show4').fadeIn();
 						
 					},
-					4: function() {
+					5: function() {
 						
 						$('.shows').fadeOut();
 						$('#show5').fadeIn();
 						
 					},
-					5: function() {
+					6: function() {
 						
 						$('.shows').fadeOut();
 						$('#show6').fadeIn();
@@ -753,6 +788,8 @@ $(function(){
 
 
 		$('.portrait').on('click',function(){
+
+
 
 			$('#fullscreen-background').fadeOut()
 		
@@ -771,7 +808,12 @@ $(function(){
 
 			$('.text-bucket').fadeOut()
 
+			
+
 			$('.content-bucket').fadeOut()
+			setTimeout(function() {
+				$('#all-container').css('display','block');
+			}, 500);
 
 		})
 
@@ -810,8 +852,8 @@ $(function(){
 					
 			})
 
-			$('#header li').removeClass('btn-active')
-			$(this).addClass('btn-active')
+			$('#header li a').removeClass('btn-active')
+			$($(this).children()).addClass('btn-active')
 
 		})		
 	var i = 0,

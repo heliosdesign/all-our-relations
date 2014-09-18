@@ -25,7 +25,7 @@
   height: 100%
   top: 0
   left: 0
-  position: absolute
+  position: fixed
 
 #parchment
   display: block
@@ -38,6 +38,12 @@
   width: auto
   height: auto
   position: absolute
+
+.no-scroll
+  overflow-y: hidden
+
+.scroll
+  overflow-y: scroll
 
 // /* IE6
 // /* IE7
@@ -80,6 +86,7 @@ body
   background: #ffffff
   overflow: hidden
   font: 'Domine', serif
+  // overflow-y: scroll
 
 canvas
   position: absolute
@@ -111,10 +118,17 @@ svg
   top: 0px
   left: 0px
   display: none
+  // opacity: 0
+  // transition: all 0.5s
+
+  // &.fadeIn
+  //   display: table
+  //   opacity: 1
+  //   transition: all 0.5s
 
   .legalstrip
     bottom: 0px
-    position: absolute
+    position: fixed
     right: 0px
     text-align: right
     font-size: 0.5em
@@ -150,44 +164,59 @@ svg
           filter: sepia(100%)
   .resourcewrapper,.showwrapper,.aboutwrapper
     .side-menu
-      padding-top: 8em
+      padding-top: 2.8em
       vertical-align: top
       display: none
 
       .resource-btn,.subsection
-        margin-bottom: 1em
+        margin-bottom: 0.6em
         padding: 0.5em
         cursor: pointer
         width: 180px
         text-align: center
-        color: black
+        font-size: 0.9em
+        color: #b07e1b 
+        font-weight: bold
         transition: all .5s
         text-transform: uppercase
         &.btn-active
-          color: #b07e1b 
+          color: black 
 
       .subsection
         margin-top: 60px
         font-weight: bold
-        font-size: 0.8em
+        font-size: 0.9em
         cursor: default
         border-bottom: 1px solid
+        border-top: 1px solid
+        text-transform: uppercase
+        color: black
+
+  .showwrapper
+    .side-menu
+      padding-top: 5.5em
+
+  .aboutwrapper
+    .side-menu
+      padding-top: 8.9em
+
   
   .background-shifter
     transition: all 2s
 
 .resourcecontainer,.showscontainer,.aboutcontainer
-  height: calc(100% - 90px)
+  height: calc(100% - 150px)
   width: 60%
   max-width: 650px
   position: relative
   margin: 0px auto
-  top: 75px
+  top: 150px
   left: 0px
   display: none
   background: rgba(255, 255, 255, 0.5)
   padding: 1em
   padding-bottom: 0px
+  padding-top: 50px
   overflow-y: scroll
 
   #step1,#step2,#step3,#step4,#step5,#step6,#step7,.steps,#show1,#show2,#show3,#show4,.shows,#about1,#about2,#about3,#about4,.aboutcat
@@ -229,8 +258,8 @@ svg
       padding-bottom: 56.25% /* 16:9 */
       padding-top: 25px
       height: 0
-      margin-bottom: 1em
-      margin-top: 1em
+      margin-bottom: 3em
+      margin-top: 3em
 
       iframe 
         position: absolute
@@ -238,18 +267,28 @@ svg
         left: 0
         width: 100%
         height: 100%
-    
+
+    .topheading
+      width: 100%
+      text-align: center
+      text-transform: uppercase
+      font-weight: bold
+      padding-top: 0.5em
+      font-size: 1em
+      // margin-top: 1em
+      margin-bottom: 0em
+
     h1
       width: 100%
       text-align: center
-      text-transform: capitalize
-      font-weight: normal
-      padding-top: 0.5em
-      padding-bottom: 0.25em
+      text-transform: uppercase
+      font-weight: bold
+      padding-top: 0em
+      padding-bottom: 0em
       // margin-top: 1em
       margin-bottom: 1em
-      border-bottom: 2px solid
-      border-top: 2px solid
+      border-bottom: 1px solid
+      border-top: 1px solid
       .secondary
         font-size: 0.75em
         line-height: 2.5em
@@ -378,7 +417,13 @@ svg
       background: rgba(0, 0, 0, 0)
       transition: all .5s
       &:hover
-        color: #b07e1b
+        color: #b07e1b !important
+
+      // &:first-child
+      //   &.btn-active
+      //     color: #b07e1b !important
+      .btn-active
+        color: #b07e1b !important
       p,a
         text-transform: uppercase
         font-weight: bold
@@ -386,10 +431,12 @@ svg
         color: black
         text-align: center
         text-decoration: none
+        &:hover
+          color: #b07e1b !important
         &.btn-active
-          color: #b07e1b 
-    &.btn-active
-      color: #b07e1b !important
+          color: #b07e1b !important
+    // &.btn-active
+    //   color: #b07e1b !important
 
 #logo-main
   position: absolute
@@ -414,27 +461,38 @@ svg
 
 .text-bucket, .content-bucket
   position: relative
-  width: 60%
+  width: 50%
+  top: 150px
   max-width: 650px
   margin: 0px auto
-  top: 75px
-  // height: 100%
-  height: calc(100% - 75px)
-  padding: 0em 
-  padding-top: 0em
-  background: rgba(255,255,255,.6)
-  color: black
-  font-size: 1.5em
-  display: none
-  overflow-x: hidden
+  height: calc(100% - 150px)
   overflow-y: auto
+  overflow-x: hidden
+  // max-height: 20%
+  // vertical-align: middle
+  // top: 75px
+  // height: 100%
+  // height: calc(100% - 75px)
+  padding: 0px
+  padding-bottom: 20px
+  // background: rgba(255,255,255,.6)
+  color: black
+  // font-size: 1.5vw
+  font-size: 1.5em
+  display: none 
+
   &.intro
     opacity: 0
+    // width: 55%
     // top: 0px
-    // transform: translateY(90%)
+    // transform: translateY(90%) 
     // transition: transform 1500ms
     .content
-      padding: 0em 1em 75px 1em
+      padding: 0em 1em 0px 1em
+      // height: 50px
+      // overflow: hidden
+      // overflow-y: scroll
+
       p
         font-size: 0.8em
         line-height: 1.45em
@@ -517,10 +575,24 @@ svg
       background-position: center calc(center - 50px)
 
   .content
-    padding: 0em 1em 75px 1em
+    padding: 0em 1em 0px 1em
+    background: rgba(255,255,255,.6)
+
     p
-      font-size: 0.7em
+      font-size: 0.8em
       line-height: 1.45em
+      // width: 60%
+      &.large
+        font-size: 1em
+      &.firstsentence
+        border-top: 1px solid
+        border-bottom: 1px solid
+        padding: 10px 0px
+        font-size: 0.9em
+        // font-style: italic
+        // color: #b07e1b
+        // width: 100%
+        // text-align: center
     // position: absolute  
 
   img
@@ -531,8 +603,13 @@ svg
 
 .text-bucket 
   display: table 
-  height: 100%  
+  // height: 100%  
   position: relative
+  // opacity: 1
+  // transition: 500ms
+  // &.fadeOut
+  //   // display: none
+  //   opacity: 0
 
   div
     display: table-cell
@@ -541,10 +618,20 @@ svg
 
 
 .content-bucket
-  top: 40%
+  padding-top: 15px
+  top: 40% !important
+  // overflow-y: scroll
+  // height: 90%
+  background: rgba(255,255,255,0.6)
   transition: top 800ms
-  &:hover
-    top: 75px
+  .content
+    background: rgba(255,255,255,0)
+
+  &.tootall
+    overflow-y: scroll
+    height: 90%
+  &.onhover
+    top: 10% !important
     background: rgba(255,255,255,1)
 
 
