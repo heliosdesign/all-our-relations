@@ -92,6 +92,7 @@ svg {
   left: 20px;
   height: 100%;
   display: table;
+  z-index: 2;
 }
 #all-container .portraitwrapper .side-menu, #all-container .resourcewrapper .side-menu, #all-container .showwrapper .side-menu, #all-container .aboutwrapper .side-menu {
   vertical-align: middle;
@@ -220,7 +221,7 @@ svg {
   text-align: center;
   text-transform: capitalize;
   font-weight: normal;
-  padding-top: 0.25em;
+  padding-top: 0.5em;
   padding-bottom: 0.25em;
   margin-bottom: 1em;
   border-bottom: 2px solid;
@@ -228,6 +229,7 @@ svg {
 }
 .resourcecontainer #step1 h1 .secondary, .resourcecontainer #step2 h1 .secondary, .resourcecontainer #step3 h1 .secondary, .resourcecontainer #step4 h1 .secondary, .resourcecontainer #step5 h1 .secondary, .resourcecontainer #step6 h1 .secondary, .resourcecontainer #step7 h1 .secondary, .resourcecontainer .steps h1 .secondary, .resourcecontainer #show1 h1 .secondary, .resourcecontainer #show2 h1 .secondary, .resourcecontainer #show3 h1 .secondary, .resourcecontainer #show4 h1 .secondary, .resourcecontainer .shows h1 .secondary, .resourcecontainer #about1 h1 .secondary, .resourcecontainer #about2 h1 .secondary, .resourcecontainer #about3 h1 .secondary, .resourcecontainer #about4 h1 .secondary, .resourcecontainer .aboutcat h1 .secondary, .showscontainer #step1 h1 .secondary, .showscontainer #step2 h1 .secondary, .showscontainer #step3 h1 .secondary, .showscontainer #step4 h1 .secondary, .showscontainer #step5 h1 .secondary, .showscontainer #step6 h1 .secondary, .showscontainer #step7 h1 .secondary, .showscontainer .steps h1 .secondary, .showscontainer #show1 h1 .secondary, .showscontainer #show2 h1 .secondary, .showscontainer #show3 h1 .secondary, .showscontainer #show4 h1 .secondary, .showscontainer .shows h1 .secondary, .showscontainer #about1 h1 .secondary, .showscontainer #about2 h1 .secondary, .showscontainer #about3 h1 .secondary, .showscontainer #about4 h1 .secondary, .showscontainer .aboutcat h1 .secondary, .aboutcontainer #step1 h1 .secondary, .aboutcontainer #step2 h1 .secondary, .aboutcontainer #step3 h1 .secondary, .aboutcontainer #step4 h1 .secondary, .aboutcontainer #step5 h1 .secondary, .aboutcontainer #step6 h1 .secondary, .aboutcontainer #step7 h1 .secondary, .aboutcontainer .steps h1 .secondary, .aboutcontainer #show1 h1 .secondary, .aboutcontainer #show2 h1 .secondary, .aboutcontainer #show3 h1 .secondary, .aboutcontainer #show4 h1 .secondary, .aboutcontainer .shows h1 .secondary, .aboutcontainer #about1 h1 .secondary, .aboutcontainer #about2 h1 .secondary, .aboutcontainer #about3 h1 .secondary, .aboutcontainer #about4 h1 .secondary, .aboutcontainer .aboutcat h1 .secondary {
   font-size: 0.75em;
+  line-height: 2.5em;
 }
 .resourcecontainer #step1 ol, .resourcecontainer #step2 ol, .resourcecontainer #step3 ol, .resourcecontainer #step4 ol, .resourcecontainer #step5 ol, .resourcecontainer #step6 ol, .resourcecontainer #step7 ol, .resourcecontainer .steps ol, .resourcecontainer #show1 ol, .resourcecontainer #show2 ol, .resourcecontainer #show3 ol, .resourcecontainer #show4 ol, .resourcecontainer .shows ol, .resourcecontainer #about1 ol, .resourcecontainer #about2 ol, .resourcecontainer #about3 ol, .resourcecontainer #about4 ol, .resourcecontainer .aboutcat ol, .showscontainer #step1 ol, .showscontainer #step2 ol, .showscontainer #step3 ol, .showscontainer #step4 ol, .showscontainer #step5 ol, .showscontainer #step6 ol, .showscontainer #step7 ol, .showscontainer .steps ol, .showscontainer #show1 ol, .showscontainer #show2 ol, .showscontainer #show3 ol, .showscontainer #show4 ol, .showscontainer .shows ol, .showscontainer #about1 ol, .showscontainer #about2 ol, .showscontainer #about3 ol, .showscontainer #about4 ol, .showscontainer .aboutcat ol, .aboutcontainer #step1 ol, .aboutcontainer #step2 ol, .aboutcontainer #step3 ol, .aboutcontainer #step4 ol, .aboutcontainer #step5 ol, .aboutcontainer #step6 ol, .aboutcontainer #step7 ol, .aboutcontainer .steps ol, .aboutcontainer #show1 ol, .aboutcontainer #show2 ol, .aboutcontainer #show3 ol, .aboutcontainer #show4 ol, .aboutcontainer .shows ol, .aboutcontainer #about1 ol, .aboutcontainer #about2 ol, .aboutcontainer #about3 ol, .aboutcontainer #about4 ol, .aboutcontainer .aboutcat ol {
   margin-bottom: 6em;
@@ -337,6 +339,7 @@ svg {
   width: 60%;
   padding: 0px;
   margin-top: 2.5%;
+  z-index: 1;
 }
 #header ul {
   list-style: none;

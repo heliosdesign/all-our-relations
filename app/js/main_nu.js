@@ -609,28 +609,28 @@ $(function(){
 				$('.resourcecontainer').fadeIn()
 
 				startCheck = {
-					0: function() {
+					1: function() {
 						//step1
 						
 						$('.steps').fadeOut();
 						$('#step1').fadeIn();
 						
 					},
-					1: function() {
+					2: function() {
 						//step2
 						
 						$('.steps').fadeOut();
 						$('#step2').fadeIn();
 						
 					},
-					2: function() {
+					3: function() {
 						//chellenges
 						
 						$('.steps').fadeOut();
 						$('#step3').fadeIn();
 						
 					},
-					4: function() {
+					5: function() {
 						//west
 						
 						$('.steps').fadeOut();
@@ -640,7 +640,7 @@ $(function(){
 						drawBG('images/map/west.jpg')
 						
 					},
-					5: function() {
+					6: function() {
 						//central
 						
 						$('.steps').fadeOut();
@@ -649,7 +649,7 @@ $(function(){
 						drawBG('images/map/central.jpg')
 						
 					},
-					6: function() {
+					7: function() {
 						//east
 						$('.steps').fadeOut();
 						$('#step6').fadeIn();
@@ -657,7 +657,7 @@ $(function(){
 						drawBG('images/map/east.jpg')
 						
 					},
-					7: function() {
+					8: function() {
 						//north
 						
 						$('.steps').fadeOut();
