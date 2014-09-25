@@ -1,8 +1,8 @@
 {
- "name": "Santee Smith","gender":"f","page":"SANTEESMITH_SanteeSmith","icon":"santeeSmith.png",
+ "name": "Santee Smith","gender":"f","dob":1971,"page":"SANTEESMITH_SanteeSmith","icon":"santeeSmith.png",
  "children": [
     {
-     "name": "StevenTracey Smith","gender":"m","page":"stevenTracey",
+     "name": "Steven Tracey Smith","gender":"m","page":"stevenTracey",
      "children": [
         {
          "name": "Oliver Miller Smith","gender":"m","dob":1911,"dod":1979,"page":"oliverSmith",

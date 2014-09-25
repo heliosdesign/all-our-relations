@@ -2,7 +2,7 @@
  "name": "Douglas Cardinal","gender":"m","dob":1934,"page":"DOUGLASCARDINAL_DouglasCardinal","icon":"douglasCardinal.png",
  "children": [
     {
-     "name": "Joseph 'Joe' T.Cardinal","gender":"m","dob":1908,"page":"DOUGLASCARDINAL_JosephCardinal",
+     "name": "Joseph 'Joe' Trefflé Cardinal","gender":"m","dob":1908,"page":"DOUGLASCARDINAL_JosephCardinal",
      "children": [
         {
          "name": "Hilaire 'Henry' Cardinal","gender":"m","dob":1877,"dod":1968, "page":"DOUGLASCARDINAL_HilaireCardinal",
@@ -24,7 +24,7 @@
                      ]
                     },
                     {
-                     "name": "Delima/Delphin Paquin","gender":"f", "page":"DOUGLASCARDINAL_Delima Paquin",
+                     "name": "Delphin Paquin","gender":"f", "page":"DOUGLASCARDINAL_Delima Paquin",
                      "children": [
                      ]
                     }
@@ -33,7 +33,7 @@
              ]
             },
             {
-             "name": "Mathilda Provost/Prévost","gender":"f","dob":1859,"page":"DOUGLASCARDINAL_mathilda",
+             "name": "Mathilda Prévost","gender":"f","dob":1859,"page":"DOUGLASCARDINAL_mathilda",
              "children": [
              ]
             }
@@ -81,7 +81,7 @@
              "name": "John Morin","gender":"m","dob":1837,"dod":1924,"page":"DOUGLASCARDINAL_JohnMorin",
              "children": [
                 {
-                 "name": "John/Gilbert 'Gill' Morin","gender":"m", "page":"DOUGLASCARDINAL_GilbertMorin",
+                 "name": "John 'Gill' Morin","gender":"m", "page":"DOUGLASCARDINAL_GilbertMorin",
                  "children": [
                  ]
                 },

@@ -8,10 +8,10 @@
       "name": "Louis Fleury","gender":"m","dob":1908,"page":"THEORENFLEURY_LouisFleury",
       "children":[
         {
-          "name": "Edouard Fleury","gender":"m","dob":1882,"dod":1970,"page":"THEORENFLEURY_EdouardFleury",
+          "name": "Edouard Fleury Jr.","gender":"m","dob":1882,"dod":1970,"page":"THEORENFLEURY_EdouardFleury",
           "children":[
             {
-              "name": "Edouard Fleury","gender":"m","dob":1846,"dod":1922,"page":"edouardFleuryII",
+              "name": "Edouard Fleury Sr.","gender":"m","dob":1846,"dod":1922,"page":"edouardFleuryII",
               "children":[
 
               ]
@@ -73,10 +73,10 @@
       "name": "Marie Eleanore Leclerc","gender":"f","dob":1911,"dod":1977,"page":"THEORENFLEURY_LouisFleury",
       "children":[
         {
-          "name": "Jean-Baptise Lecrec","gender":"m","dob":1878,"dod":1966,"page":"",
+          "name": "Jean-Baptise Leclerc","gender":"m","dob":1878,"dod":1966,"page":"jeanBaptiseLeclerc",
           "children":[
             {
-              "name": "Joseph Lecrec","gender":"m","dob":1834,"page":"josephLecrec",
+              "name": "Joseph Leclerc","gender":"m","dob":1834,"page":"josephLeclerc",
               "children":[
                 {
                   "name": "Thérèse Huppé","gender":"f","dob":1815,"page":"thereseHuppe",
@@ -106,14 +106,9 @@
           "name": "Flora Lépine","gender":"f","dob":1888,"dod":1972,"page":"THEORENFLEURY_FloraLépine",
           "children":[
             {
-              "name": "Jean-Baptiste Lépine","gender":"m","dob":1844,"dod":1920,"page":"THEORENFLEURY_LouisFleury",
+              "name": "Jean-Baptiste Lépine","gender":"m","dob":1844,"dod":1920,"page":"THEORENFLEURY_Jean-BaptisteLépine",
               "children":[
-                {
-                  "name": "Jean-Baptiste Lépine","gender":"m","page":"jeanBaptisteLepineII",
-                  "children":[
 
-                  ]
-                },
                 {
                   "name": "Suzanne Gariépy","gender":"f","dob":1821,"page":"suzanneGariepy",
                   "children":[
@@ -124,7 +119,7 @@
               ]
             },
             {
-              "name": "Julie (Julia) Fleury","gender":"f","dob":1845,"dod":1915,"page":"julieFleury",
+              "name": "Julie Fleury","gender":"f","dob":1845,"dod":1915,"page":"julieFleury",
               "children":[
                 {
                   "name": "Louis Fleury","gender":"m","dob":1820,"page":"louisFleuryII",
@@ -152,7 +147,7 @@
    "name": "Donna Lario","gender":"f", "page":"donnaLario",
    "children": [
     {
-      "name": "Wilfred Laurier Lario","gender":"m","dob":1907,"page":"wilfredLaurier",
+      "name": "Wilfred Laurier Lario","gender":"m","dob":1907,"dod":2007,"page":"wilfredLaurier",
       "children":[
         {
           "name": "Peter Adelbert Lario","gender":"m","dob":1871,"page":"peterAdelbertLario",
@@ -182,7 +177,7 @@
               ]
             },
             {
-              "name": "Almina/Almira Wadsworth","gender":"f","dob":1839,"dod":1906,"page":"alminaWadworth",
+              "name": "Almina Wadsworth","gender":"f","dob":1839,"dod":1906,"page":"alminaWadworth",
               "children":[
 
               ]
@@ -194,7 +189,7 @@
       ]
     },
     {
-      "name": "Marie Emma/Irene Rossow","gender":"f","dob":1913,"dod":2008,"page":"marieRossow",
+      "name": "Marie Emma","gender":"f","dob":1913,"dod":2008,"page":"marieRossow",
       "children":[
         {
           "name": "John W Rossow","gender":"m","dob":1880,"dod":1935,"page":"johnRossow",

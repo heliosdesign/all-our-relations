@@ -75,7 +75,7 @@ $(function(){
 	    
 		
 		var drawBG = function(_url){
-		console.log('heyehyehyhyhyehy')
+		// console.log('heyehyehyhyhyehy')
 
 		var overlayImg = new Image()
 
@@ -111,8 +111,6 @@ $(function(){
 	    	$('#background').css('width',window.innerWidth)
 			$('#background').css('height',overlayImg.height * stepDown)
 			// $('#background').css('height',window.innerHeight)
-
-		   	
 
 			document.getElementById("overlay").src = _url	
 
@@ -259,17 +257,23 @@ $(function(){
 
 
 			if(!hasViewed){
+				$('#header').css('display','none');
+
 				if (canPlayVid===false) {
 					
 					$('#bg-video')[0].src="assets/video/aor4.webm"
 					$('#bg-video')[0].play();
+
 				}else{
 					
 					$('#bg-video')[0].src="assets/video/aor4.mp4"
 					$('#bg-video')[0].play();
+
 				};
+
 				$('#bg-video')[0].play();
-				$('all-container').css('display','none')
+				
+				$('all-container').css('display','none');
 				hasViewed = true
 			}
 
@@ -296,6 +300,7 @@ $(function(){
 
 			setTimeout(function() {
 				$('#all-container').css('display','table')
+				// $('#header').fadeIn();
 			}, 500);
 
 			$('.fader').css('display','none')
@@ -628,6 +633,7 @@ $(function(){
 		document.getElementById('bg-video').addEventListener('ended',function(){
 			$('#parchment-scrim').css('display','none')
 			$('#bg-video').fadeOut(1500).delay(1500)
+			$('#header').fadeIn().delay(1500);
 		},false);
 
 		$('.resource-btn').on('click',function(){
@@ -943,6 +949,8 @@ $(function(){
 	});
 
 	d3.select(self.frameElement).style("height", "380px");
+	// d3.select(self.frameElement).style("height", "1000px");
+
 
 	function update(source) {
 
@@ -962,7 +970,7 @@ $(function(){
 				d.y = -90 
 			}else{
 				if(d.depth%2 == 0){
-					d.x = d.x + 30
+					d.x = d.x + 40
 			} else {
 					//d.x = d.x - 10
 			}
@@ -1010,7 +1018,13 @@ $(function(){
 	      	.attr("x", 0)
 	      	.attr("dy", 15)	      
 			.text(function(d) { 
-				if(d.dob && d.dod){return "b: " + d.dob  + ", d: " +  d.dod}
+				if(d.dob && d.dod){
+					return "b: " + d.dob  + ", d: " +  d.dod
+				}else if(d.dob && !d.dod){
+					return "b: " + d.dob 
+				}else if(!d.dob && d.dod){
+					return "d: " + d.dod 
+				}
 			      	return ""
 			})
 	      	.style("fill-opacity", 1e-6)

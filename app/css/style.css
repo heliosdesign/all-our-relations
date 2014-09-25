@@ -448,8 +448,8 @@ svg {
   top: 150px;
   max-width: 650px;
   margin: 0px auto;
-  height: -webkit-calc(100% - 150px);
-  height: calc(100% - 150px);
+  height: -webkit-calc(100% - 250px);
+  height: calc(100% - 250px);
   overflow-y: auto;
   overflow-x: hidden;
   padding: 0px;
@@ -571,6 +571,8 @@ svg {
   background: rgba(255, 255, 255, 0.6);
   -webkit-transition: top 800ms;
   transition: top 800ms;
+  height: -webkit-calc(100% - 150px);
+  height: calc(100% - 150px);
 }
 .content-bucket .content {
   background: rgba(255, 255, 255, 0);

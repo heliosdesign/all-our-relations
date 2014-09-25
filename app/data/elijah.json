@@ -2,26 +2,26 @@
  "name": "Elijah Harper","gender":"m","dob":1949, "dod":2013,"page":"ELIJAHHARPER_ElijahHarper",
  "children": [
   {
-   "name": "Harper, Allan B","gender":"m", "dob":1925, "dod":2010, "page":"ELIJAHHARPER_AllanBHarper,","icon":"allanBHarper.png",
+   "name": "Allan B Harper","gender":"m", "dob":1925, "dod":2010, "page":"ELIJAHHARPER_AllanBHarper,","icon":"allanBHarper.png",
    "children": [
     {
-     "name": "Harper, Thomas","gender":"m","dob":1900, "dod":1930,"page":"ELIJAHHARPER_ThomasHarper"
+     "name": "Thomas Harper","gender":"m","dob":1900, "dod":1930,"page":"ELIJAHHARPER_ThomasHarper"
     },
     {
-     "name": "Wood, Juliet","gender":"f","dob":1890, "dod":1975,"page":"ELIJAHHARPER_JulietteWood",
+     "name": "Juliet Wood","gender":"f","dob":1890, "dod":1975,"page":"ELIJAHHARPER_JulietteWood",
      "children": [
       {"name": "Sinα wakαábu","gender":"m","page":"sinaWakaabu",
         "children":[
           {
-          "name": "I found it","gender":"m","page":"innahue"
+          "name": "Innhaue &quotI found it&quot","gender":"m","page":"innahue"
           },
           {
-          "name": "Wabα se, White Partridge","gender":"f","page":"whitePartridge"
+          "name": "White Partridge","gender":"f","page":"whitePartridge"
           }
         ]
       },
       {
-        "name": "Gīzαgokwe, A Light","gender":"f","page":"aLight",
+        "name": "A Light","gender":"f","page":"aLight",
         "children":[
           {
             "name": "Mαshīgu", "gender":"m"
@@ -33,23 +33,23 @@
    ]
   },
   {
-   "name": "Taylor, Ethel Catherine","gender":"f","dob":1930, "dod":1992,"page":"ELIJAHHARPER_EthelCatherineTaylor", "icon":"ethelCatherineTaylor.png",
+   "name": "Ethel Catherine Taylor","gender":"f","dob":1930, "dod":1992,"page":"ELIJAHHARPER_EthelCatherineTaylor", "icon":"ethelCatherineTaylor.png",
    "children": [
     {
-     "name": "Taylor, Thomas","gender":"m","page":"ELIJAHHARPER_ThomasTaylor",
+     "name": "Thomas Taylor","gender":"m","dob":1881,"dod":1975,"page":"ELIJAHHARPER_ThomasTaylor",
      "children": []
     },
     {
-     "name": "Monias, Emily","gender":"f","page":"ELIJAHHARPER_EmilyMonias",
+     "name": "Emily Monias","gender":"f","dob":1888,"dod":1975,"page":"ELIJAHHARPER_EmilyMonias",
      "children": [
       {
-        "name": "Monias, Makα tcewininε; Black Man; Peter","gender":"m","page":"ELIJAHHARPER_￼PeterMonias",
+        "name": "Peter Monias","gender":"m","dob":1844,"dod":1934,"page":"ELIJAHHARPER_￼PeterMonias",
         "children":[
         {
           "name": "Wīságabéwininε, Anything Sore","gender":"m",
           "children":[
             {
-              "name":"Wabα se, White Partridge","gender":"m"
+              "name":"White Partridge","gender":"m"
             }
           ]
         },{
@@ -58,13 +58,13 @@
         ]
       },
       {
-        "name": "Flett, Nähikwαn´ebikwe","gender":"f",
+        "name": "Flett, Nähikwαn´ebikwe","dob":1863,"dod":1930,"gender":"f",
         "children":[
           {
-            "name": "Flett, Peter, αkamakī win ninε ͑","gender":"m","page":"ELIJAHHARPER_￼PeterFlett",
+            "name": "Peter Flett, αkamakī win ninε ͑","dob":1823,"dod":1891,"gender":"m","page":"ELIJAHHARPER_￼PeterFlett",
             "children":[
               {
-                "name":"Peemeecheekag, Porcupine Standing Sideways","gender":"m","page":"ELIJAHHARPER_Peemeecheekag"
+                "name":"Peemeecheekag, Porcupine Standing Sideways","dob":1800,"dod":1891,"gender":"m","page":"ELIJAHHARPER_Peemeecheekag"
               }
             ]
           },{
