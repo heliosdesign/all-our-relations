@@ -96,7 +96,6 @@ svg {
 }
 #all-container .portraitwrapper, #all-container .resourcewrapper, #all-container .showwrapper, #all-container .aboutwrapper {
   position: absolute;
-  top: 0px;
   left: 20px;
   height: 100%;
   display: table;
@@ -445,7 +444,6 @@ svg {
 .text-bucket, .content-bucket {
   position: relative;
   width: 50%;
-  top: 150px;
   max-width: 650px;
   margin: 0px auto;
   height: -webkit-calc(100% - 250px);
@@ -460,9 +458,11 @@ svg {
 }
 .text-bucket.intro, .content-bucket.intro {
   opacity: 0;
+  top: 150px;
 }
 .text-bucket.intro .content, .content-bucket.intro .content {
   padding: 0em 1em 0px 1em;
+  top: 0px !important;
 }
 .text-bucket.intro .content p, .content-bucket.intro .content p {
   font-size: 0.8em;
@@ -520,6 +520,11 @@ svg {
   position: relative;
   font-size: 1.1em;
 }
+.text-bucket .wrapper .titleblock h1 .subname, .content-bucket .wrapper .titleblock h1 .subname {
+  font-size: 0.75em;
+  font-weight: normal;
+  font-style: italic;
+}
 .text-bucket .wrapper .titleblock .datewrapper, .content-bucket .wrapper .titleblock .datewrapper {
   font-style: italic;
   position: relative;
@@ -535,6 +540,7 @@ svg {
   background-position: center calc(center - 50px);
 }
 .text-bucket .content, .content-bucket .content {
+  top: 150px;
   padding: 0em 1em 0px 1em;
   background: rgba(255, 255, 255, 0.6);
 }

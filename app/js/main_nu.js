@@ -937,7 +937,6 @@ $(function(){
 			}
 		}
 
-
 	  	root.children.forEach(collapse);
 
 	  	root.storage = []
@@ -959,6 +958,26 @@ $(function(){
 	      links = tree.links(nodes);
 	  
 		nodes.forEach(function(d) {
+			// var spacer =   60
+
+
+			// d.y = d.depth * width/6 - spacer *.5; 
+
+			// console.log(d.depth%2)
+			// if(d.depth == 0) {
+			// 	d.x = startX 
+			// 	d.y = -100 
+			// }else{
+			// 	d.y = d.y - 250
+			// 	if(d.depth%2 == 0){
+			// 		d.x += 100
+			// 		d.y -= 100
+
+			// 	} else {
+			// 		d.y -= 100
+			// 		//d.x = d.x - 10
+			// 	}
+			// }
 			var spacer =   6
 
 
@@ -970,7 +989,7 @@ $(function(){
 				d.y = -90 
 			}else{
 				if(d.depth%2 == 0){
-					d.x = d.x + 40
+					d.x = d.x + 30
 			} else {
 					//d.x = d.x - 10
 			}
@@ -999,8 +1018,19 @@ $(function(){
 
 		nodeEnter.append("text")
 		  	.attr('class','title')
-		  	.style('font-size','20px')
-	      	.text(function(d) { return d.name })
+		  	.style('font-size','16px')
+	      	.text(function(d) { 
+	      		// if(d.name.length > 15){
+	      		// 	console.log('longer')
+	      		// 	console.log(d.name.length )
+	      		// }else{
+	      		// 	console.log('shorter')
+	      		// 	console.log(d.name.length )
+	      		// }
+	      		return d.name 
+	      		// console.log(d.name)
+
+	      	})
 			.style("fill-opacity", function(d){
 				d.computedWidth = this.getComputedTextLength() + 20
 				return 1e-6
@@ -1044,7 +1074,7 @@ $(function(){
 			})
 			.attr("height", 50)
 			.attr('y', -30)
-			.attr('x', -5)
+			.attr('x', -10)
 			.style("fill", function(d) {
 				//if(d.name==clicked) return '#af040a'
 			  	return "rgba(255,255,255,.9)"; 
@@ -1153,7 +1183,6 @@ var recursiveClose = function(d){
 	  } 
 
 }
- 
 	// Toggle children on click.
 	var childCounter = 0
 
