@@ -137,7 +137,7 @@ svg
     padding-right: 1em
   
   .portraitwrapper,.resourcewrapper,.showwrapper,.aboutwrapper
-    position: absolute
+    position: fixed
     // top: 0px
     left: 20px
     height: 100%
@@ -180,7 +180,7 @@ svg
         transition: all .5s
         text-transform: uppercase
         &.btn-active
-          color: black 
+          color: black
 
       .subsection
         margin-top: 60px
@@ -222,7 +222,7 @@ svg
 
   #step1,#step2,#step3,#step4,#step5,#step6,#step7,.steps,#show1,#show2,#show3,#show4,.shows,#about1,#about2,#about3,#about4,.aboutcat
     position: relative
-    height: 100%
+    // height: 100%
     width: 100%
     display: none
     // padding-bottom: 5em
@@ -399,6 +399,7 @@ svg
   padding: 0px
   margin-top: 2.5%
   z-index: 1
+  display: none
   // @include breakpoint(small)
   //   margin-top: 12.5%
   ul
@@ -475,6 +476,10 @@ svg
   color: black
   font-size: 1.5em
   display: none 
+
+  &.timeline
+    .content
+      position: absolute
 
   &.intro
     opacity: 0

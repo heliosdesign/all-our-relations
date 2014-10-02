@@ -1,3 +1,5 @@
+if(!console) {console={}; console.log = function(){};}
+
 $(function(){
 
 	var canPlayVid = false;
@@ -425,7 +427,7 @@ $(function(){
 		// 	"Indian Act Revisions (end)":1985,
 		// 	"Meech Lake Accord ":1982,
 
-		// 	"Native Right to Vote ":1960,
+		// 	"Native Right to Vote ":1960, 
 		// 	"Indian Act Revisions (start))":1951,		
 		// 	"Land Numbered Treaty (end)":1921,
 		// 	"Riel Uprising ":1885,
@@ -538,6 +540,8 @@ $(function(){
 		// });
 		console.log(AORloc)
 
+		// $(window).on('hashchange', function() {
+
 			if (AORloc) {
 
 				$('#parchment-scrim').css('display','none')
@@ -548,27 +552,40 @@ $(function(){
 
 					case "#timeline":
 						$('.btn-timeline a').addClass('btn-active');
+						$('#header').fadeIn();
+						console.log(AORloc,'==OFJDHS')
 
 						buildTimeline();
 					break;
 
 					case "#intro":
 						$('.btn-intro a').addClass('btn-active');
+
+						if($('#header').css('display') == 'none'){
+							$('#header').fadeIn();
+						}
+						console.log(AORloc,'==OFJDHS')
 						buildIntro();
 					break;	
 
-					case "#resources":
+					case "#resource":
 						$('.btn-resources a').addClass('btn-active');
+						$('#header').fadeIn();
+						console.log(AORloc,'==OFJDHS')
 						buildResources();
 					break;	
 
 					case "#about":
 						$('.btn-about a').addClass('btn-active');
+						$('#header').fadeIn();
+						console.log(AORloc,'==OFJDHS')
 						buildAbout();
 					break;	
 
 					case "#shows":
 						$('.btn-about a').addClass('btn-active');
+						$('#header').fadeIn();
+						console.log(AORloc,'==OFJDHS')
 						buildShow();
 					break;	
 
@@ -580,7 +597,9 @@ $(function(){
 			} else {
 				$('.btn-intro').addClass('btn-active')
 				buildIntro()
+				// console.log('yipasdho')
 			}
+		// });
 
 		// , #contentPanel .content
 		// #contentPanel .header

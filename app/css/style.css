@@ -95,7 +95,7 @@ svg {
   padding-right: 1em;
 }
 #all-container .portraitwrapper, #all-container .resourcewrapper, #all-container .showwrapper, #all-container .aboutwrapper {
-  position: absolute;
+  position: fixed;
   left: 20px;
   height: 100%;
   display: table;
@@ -185,7 +185,6 @@ svg {
 }
 .resourcecontainer #step1, .resourcecontainer #step2, .resourcecontainer #step3, .resourcecontainer #step4, .resourcecontainer #step5, .resourcecontainer #step6, .resourcecontainer #step7, .resourcecontainer .steps, .resourcecontainer #show1, .resourcecontainer #show2, .resourcecontainer #show3, .resourcecontainer #show4, .resourcecontainer .shows, .resourcecontainer #about1, .resourcecontainer #about2, .resourcecontainer #about3, .resourcecontainer #about4, .resourcecontainer .aboutcat, .showscontainer #step1, .showscontainer #step2, .showscontainer #step3, .showscontainer #step4, .showscontainer #step5, .showscontainer #step6, .showscontainer #step7, .showscontainer .steps, .showscontainer #show1, .showscontainer #show2, .showscontainer #show3, .showscontainer #show4, .showscontainer .shows, .showscontainer #about1, .showscontainer #about2, .showscontainer #about3, .showscontainer #about4, .showscontainer .aboutcat, .aboutcontainer #step1, .aboutcontainer #step2, .aboutcontainer #step3, .aboutcontainer #step4, .aboutcontainer #step5, .aboutcontainer #step6, .aboutcontainer #step7, .aboutcontainer .steps, .aboutcontainer #show1, .aboutcontainer #show2, .aboutcontainer #show3, .aboutcontainer #show4, .aboutcontainer .shows, .aboutcontainer #about1, .aboutcontainer #about2, .aboutcontainer #about3, .aboutcontainer #about4, .aboutcontainer .aboutcat {
   position: relative;
-  height: 100%;
   width: 100%;
   display: none;
 }
@@ -372,6 +371,7 @@ svg {
   padding: 0px;
   margin-top: 2.5%;
   z-index: 1;
+  display: none;
 }
 #header ul {
   list-style: none;
@@ -455,6 +455,9 @@ svg {
   color: black;
   font-size: 1.5em;
   display: none;
+}
+.text-bucket.timeline .content, .content-bucket.timeline .content {
+  position: absolute;
 }
 .text-bucket.intro, .content-bucket.intro {
   opacity: 0;

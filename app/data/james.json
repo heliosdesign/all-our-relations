@@ -2,15 +2,15 @@
  "name": "James Bartleman","gender":"m","dob":1939,"page":"JAMESBARTLEMAN_JamesBartleman","icon":"jamesBartleman.png",
  "children": [
     {
-     "name": "Percy Scott Bartleman","gender":"m","page":"percyScottBartleman",
+     "name": "Percy Scott Bartleman","gender":"m","page":"JAMESBARTLEMAN_PercyScottBartleman",
      "children": [
       {
-       "name": "William Bain Bartleman","gender":"m","page":"percyScottBartleman",
+       "name": "William Bain Bartleman","gender":"m","page":"JAMESBARTLEMAN_WilliamBainBartleman",
        "children": [
        ]
       },
       {
-       "name": "Margaret Shields","gender":"f","page":"margaretSheilds",
+       "name": "Margaret Shields","gender":"f","page":"JAMESBARTLEMAN_MargaretShields",
        "children": [
        ]
       }
@@ -18,51 +18,51 @@
      ]
     },
     {
-     "name": "Maureen Benson Simcoe","gender":"f","dob":1922,"page":"maureenSimcoe",
+     "name": "Maureen Benson Simcoe","gender":"f","dob":1922,"page":"JAMESBARTLEMAN_MaureenBensonSimcoe",
      "children": [
         {
-         "name": "Edward Simcoe","gender":"m","dob":1895,"dod":1945,"page":"edwardSimcoe",
+         "name": "Edward Simcoe","gender":"m","dob":1895,"dod":1945,"page":"JAMESBARTLEMAN_EdwardSimcoe",
          "children": [
          ]
         },
         {
-         "name": "Edna Flossie Benson","gender":"f","dob":1900,"dod":1982,"page":"ednaFlossieBenson",
+         "name": "Edna Flossie Benson","gender":"f","dob":1900,"dod":1982,"page":"JAMESBARTLEMAN_EdnaFlossieBenson",
          "children": [
             {
-             "name": "Frederick W. Nanigishkung","gender":"m","dob":1873,"dod":1924,"page":"edwardSimcoe",
+             "name": "Frederick W. Nanigishkung","gender":"m","dob":1873,"dod":1924,"page":"JAMESBARTLEMAN_FrederickWNanigishkung",
              "children": [
                 {
-                 "name": "James Benson Nanigishkung","gender":"m","dob":1845,"dod":1918,"page":"jamesNanigishkung",
+                 "name": "James Benson Nanigishkung","gender":"m","dob":1845,"dod":1918,"page":"JAMESBARTLEMAN_JamesBensonNanigishkung",
                  "children": [
                     {
-                     "name": "Sarah Young","gender":"f","dob":1819,"dod":1891,"page":"charlotteCharles",
+                     "name": "Sarah Young","gender":"f","dob":1819,"dod":1891,"page":"JAMESBARTLEMAN_SarahYoung",
                      "children": [
                      ]
                     }
                  ]
                 },
                 {
-                 "name": "Charlotte Charles","gender":"f","dob":1850,"dod":1908,"page":"charlotteCharles",
+                 "name": "Charlotte Charles","gender":"f","dob":1850,"dod":1908,"page":"JAMESBARTLEMAN_CharlotteCharles",
                  "children": [
                  ]
                 }
              ]
             },
             {
-             "name": "Phoebe Ann Snake","gender":"f","dob":1878,"dod":1982,"page":"ednaFlossieBenson",
+             "name": "Phoebe Ann Snake","gender":"f","dob":1878,"dod":1982,"page":"JAMESBARTLEMAN_PhoebeAnnSnake",
              "children": [
                 {
-                 "name": "James Abraham Snake","gender":"m","dob":1850,"dod":1885,"page":"jamesAbrahamSnake",
+                 "name": "James Abraham Snake","gender":"m","dob":1850,"dod":1885,"page":"JAMESBARTLEMAN_JamesAbrahamSnake",
                  "children": [
                     {
-                     "name": "Jane","gender":"f","dob":1850,"page":"Jane",
+                     "name": "Jane","gender":"f","dob":1850,"page":"JAMESBARTLEMAN_Jane",
                      "children": [
                      ]
                     }
                  ]
                 },
                 {
-                 "name": "Martha Sophia Goose","gender":"f","dob":1850,"page":"marthaSophiaGoose",
+                 "name": "Martha Sophia Goose","gender":"f","dob":1850,"page":"JAMESBARTLEMAN_MarthaSophiaGoose",
                  "children": [
                  ]
                 }

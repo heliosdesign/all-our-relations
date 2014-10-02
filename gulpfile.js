@@ -117,7 +117,10 @@ var moveFiles = function() {
         src.assets  + '/**/*',
         src.styles  + '/*',
         src.scripts + '/lib/*', // modernizr
-        src.base    + '/partials/**/*'
+        src.base    + '/partials/**/*',
+        './app/images/**/*',
+        './app/data/**/*',
+        '.htacess'
     ], {base: src.base})
         .pipe(gulp.dest(dist.base))
 }

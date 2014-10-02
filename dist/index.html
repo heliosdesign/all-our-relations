@@ -6,62 +6,841 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Disaster Resilience Journal</title>
-
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"> <!-- iOS don’t scale -->
-
-    <!-- http://dev.iainmc.ca/meta-tags/ -->
-
-    <meta name="fragment" content="!">
-
-    <!-- for Google -->
+    <title></title>
     <meta name="description" content="">
-    <meta name="robots" content="noindex, nofollow, nosnippet, noarchive, noimageindex">
-
-    <meta name="author" content=""> <!-- G+ link -->
-    <meta name="copyright" content="">
-    <meta name="application-name" content=""> <!-- title -->
-
-    <!-- for Facebook -->          
-    <meta property="og:title" content="">
-    <meta property="og:type" content="article">
-    <meta property="og:image" content="">
-    <meta property="og:url" content="">
-    <meta property="og:description" content="">
-
-    <!-- for Twitter -->          
-    <meta name="twitter:card" content="summary"> <!-- card type: summary, photo, player -->
-    <meta name="twitter:title" content="">       <!-- 70 chars -->
-    <meta name="twitter:description" content=""> <!-- 200 chars -->
-    <meta name="twitter:image" content="">       <!-- square, 60x60+ -->
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/style.css">
 
     <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet" type="text/css">
 
-    <script src="js/lib/modernizr.js"></script>
-
+    <!--[if lt IE 9]>
+        <script src="js/lib/html5.js"></script>
+    <![endif]-->
 </head>
-<body ng-app="allOurRelApp">
+<body style="font-family: &apos;Domine&apos;, serif;">
 
 
-    <div class="view {{viewAnimationClass}} {{blockAnimDirection}}" ng-view="" ng-swipe-left="nextDay()" ng-swipe-right="prevDay()"></div>
-    <div class="backgroundBG">
-        <img src="assets/img/background.jpg">
+
+<img id="overlay" src="images/title_page.jpg" style="display:none">
+
+<img class="parchment" id="parchment" src="images/Background.jpg" style="display:block">
+
+<canvas id="under-background" style="width:100%; height:100%"></canvas>
+
+<div id="all-container">
+
+    <canvas id="background" style="width:100%; height:100%"></canvas>
+
+<div id="svg-container"></div>
+    <div class="resourcewrapper">
+        <div id="resource-menu" class="resources side-menu">
+            <div class="subsection">researching your family's genealogy</div>
+
+            <div class="resource-btn">step 1</div>
+    
+            <div class="resource-btn">step 2</div>
+    
+            <div class="resource-btn">challenges</div>
+    
+            <div class="subsection">resources by region</div>
+    
+            <div class="resource-btn">west</div>
+    
+            <div class="resource-btn">central</div>
+    
+            <div class="resource-btn">east</div>
+    
+            <div class="resource-btn">north</div>
+        </div>
+    </div>
+    <div class="showwrapper">
+        <div id="show-menu" class="resources side-menu">
+            <div class="subsection">season 1</div>
+            <div class="resource-btn">
+                james bartleman
+            </div>
+            <div class="resource-btn">
+                santee smith
+            </div>
+            <div class="resource-btn">
+                adam beach
+            </div>
+            <div class="resource-btn">
+                theoren Fleury
+            </div>
+            <div class="resource-btn">
+                elijah harper
+            </div>
+            <div class="resource-btn">
+                douglas cardinal
+            </div>
+    
+        </div>
+    </div>
+    <div class="aboutwrapper">
+        <div id="about-menu" class="resources side-menu">
+            <div class="resource-btn">
+                waterfront productions
+            </div>
+            <div class="resource-btn">
+                ralph brown
+            </div>
+            <div class="resource-btn">
+                behind the scenes
+            </div>
+            <div class="resource-btn">
+                legal
+            </div>
+    
+        </div>
+    </div>
+<div class="resourcecontainer">
+
+    <div class="steps" id="step1">
+
+        <div class="topheading">Researching your family's genealogy</div>
+        
+        <h1><span class="secondary">Step 1</span></h1>
+
+        <p>
+            With acclaimed Canadian Genealogist Janice Nickerson at the helm of our research team, All Our Relations was able to capitalize on her years of experience and knowhow in the field of Aboriginal genealogy. By watching the following interviews with Janice, you will receive valuable and practical step-by-step instructions on how to begin your own search into your family’s past.  
+        </p>
+
+        <div class="videoWrapper">
+            <iframe src="//www.youtube.com/embed/9opvXrkTnRI" frameborder="0" allowfullscreen=""></iframe>
+        </div>
+
+        <ol type="1">
+            <li>
+                Start your genealogical search with yourself and work back slowly, one generation at a time.
+            </li>
+            <li>
+                Speak with your family members (as many as possible) and gather as much information as you can, asking them for documents, memorabilia or heirlooms that might have been passed down and stories they might recall.
+            </li>
+            <li>
+                Record these conversations with your family members, either audio or video if possible, to keep for future generations. 
+            </li>
+        </ol>
+    </div>
+    <div class="steps" id="step2">
+
+        <div class="topheading">Researching your family's genealogy</div>
+
+        
+        <h1><span class="secondary">Step 2</span></h1>
+
+        <div class="videoWrapper">
+            <iframe src="//www.youtube.com/embed/Lpr3Hud4L58" frameborder="0" allowfullscreen=""></iframe>
+        </div>
+
+        <ol type="1">
+            <li>
+                Work from the most confidently understood information. 
+            </li>
+            <li>
+                Use online resources: 
+                <ol type="a">
+                    <li>
+                        <a href="http://ancestry.ca/">Ancestry.ca</a>
+                        <br>
+                        Military records, citizenship records, naturalization papers, and Indian Affairs (for which you need to know the agency / department that was responsible for the community at the time).
+                    </li>
+                    <li>
+                        <a href="http://www.archives.gov.on.ca/en/index.aspx">
+                            Archives of Ontario at York University (Province of Ontario Records)
+                        </a>
+                        <br>
+                        Court records, land records, correspondence with government departments, education records and private collections (fur traders, missionaries, church leaders records).
+                    </li>
+                    <li>
+                        When looking for unregistered Aboriginal descendants they were not recorded in typical “white” or “Indian” records: Often found in church records. See next video for more details.
+                    </li>
+                </ol>
+            </li>
+
+        </ol>
+    </div>
+    <div class="steps" id="step3">
+        
+        <div class="topheading">Researching your family's genealogy</div>
+
+        <h1>Challenges in researching
+Aboriginal ancestry</h1>
+
+        <div class="videoWrapper">
+            <iframe src="//www.youtube.com/embed/o0kXmHYmdjc" frameborder="0" allowfullscreen=""></iframe>
+        </div>
+
+        <ol type="1">
+            <li>Being aboriginal</li>
+            <li>
+                Language barriers between people creating records at
+                that time and those they were creating records for
+            </li>
+            <li>
+                The remote locations
+            </li>
+            <li>Government policies at that time</li>
+            <li>
+                Residential School records are being collected and
+                catalogued as part of the Truth and Reconciliation process, but are not yet
+                widely available
+            </li>
+        </ol>
+        <h1>Tips:</h1>
+        <ol type="1">
+            <li>Be persistent</li>
+            <li>
+                Learn contextual information: find out the history of community, research the language of the community, and find out about the policies of that time
+            </li>
+            <li>
+                Come up with plausible theories as to where you might find the information you are seeking
+            </li>
+        </ol>
+    </div>
+    <div class="steps" id="step4">
+        <div class="topheading">resources by region</div>
+        <h1> <span class="secondary">WEST<br>british columbia, alberta</span></h1>
+        <ol type="1">
+            <li>
+                <a href="http://www.bac-lac.gc.ca/eng/Pages/home.aspx">Library and Archives Canada</a>
+                <p>
+                    Library and Archives Canada is responsible for the collection and preservation of the documentary heritage of Canada through texts, pictures and other documents relevant to the culture of Canada.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.collectionscanada.gc.ca/022/">Canadian Genealogy Centre </a>
+                <p>
+                    The Centre includes all physical and online genealogical services of Library and Archives Canada. It offers genealogical content, services, advice, research tools and opportunities to work on joint projects, all in both official languages.
+                </p>
+            </li>
+            <li>
+                <a href="http://heritage.canadiana.ca/?usrlang=en">Heritage Canada</a>
+                <p>
+                    The Héritage project is a 10-year initiative to digitize and make accessible online some of Canada’s most popular archival collections encompassing roughly 60 million pages of primary-source documents. Chronicling the country and its people from the 1600s to the mid-1900s, this collection represents a vast and unique resource for Canadian historians, students, and genealogists.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.collectionscanada.ca/genealogy/022-607.002.01.01.08-e.html">Canadian Genealogy Centre</a>
+                <p>
+                    Researching Your Aboriginal Ancestry at Library and Archives Canada
+                </p>
+            </li>
+            <li>
+                <a href="http://guides.vpl.ca/genealogy/aboriginal">Vancouver Public Library</a>
+                <p>
+                    The Vancouver Public Library holds microfilm resources relating to British Columbia and Ontario records. These include a complete microfilm set of available British Columbia registrations, a set of indexes to the Ontario registrations and the overseas death registrations for Ontario. For the other provinces you must contact the specific provincial Vital Statistics office.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.royalbcmuseum.bc.ca/BC_Research_Guide/BC_First_Nations.aspx">British Columbia Archives</a>
+                <p>First Nations Research Guide.</p>
+            </li>
+            <li>
+                <a href="http://peel.library.ualberta.ca/index.html">Peel’s Prairie Provinces</a>
+                <p>
+                    Peel's Prairie Provinces is a resource dedicated to assisting scholars, students, and researchers of all types in their exploration of western Canadian history and the culture of the Canadian prairies. 
+                </p>
+            </li>
+            <li>
+                <a href="http://www.nativeweb.org/">Native Web</a>
+                <p>
+                    A variety of sites listed by province or territory with information on the Aboriginal Peoples of Canada.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.ourroots.ca/">Our Roots</a>
+                <p>
+                    Our Roots is a library, archive, museum and school all in one. Check the collection to find Canadian local histories in French and English. Check Educational Resources for learning packages for students and teachers. Check back with us often – we’re always adding more.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.nanations.com/canada/index.htm">Canadian Indian tribes</a>
+                <p>Includes links to a variety of non-genealogy sites.</p>
+            </li>
+            <li>
+                <a href="http://eco.canadiana.ca">Early Canada Online</a>
+                <p>
+                    This rare collection of documentary heritage will be of interest to scholars, genealogists, history buffs and anyone who enjoys reading about Canada's early days.
+                </p>
+                <p>
+                    The Early Canadiana Online collection of rare books, magazines and government publications has over 80,000 titles (3,500,000 pages) and is growing. The collection includes material published from the time of the first European settlers to the first four decades of the 20th Century.
+                </p>
+                <p>
+                    You will find books written in 21 languages including French, English, 10 First Nations languages and several European languages, Latin and Greek.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.archivescanada.ca">Archives Canada</a>
+            </li>
+        </ol>
+    </div>
+    <div class="steps" id="step5">
+        <div class="topheading">resources by region</div>
+        <h1><span class="secondary">CENTRAL<br> saskatchewan, Manitoba, Ontario</span></h1>
+        <ol type="1">
+            <li>
+                <a href="http://www.bac-lac.gc.ca/eng/Pages/home.aspx">Library and Archives Canada</a>
+                <p>
+                    Library and Archives Canada is responsible for the collection and preservation of the documentary heritage of Canada through texts, pictures and other documents relevant to the culture of Canada.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.collectionscanada.gc.ca/022/">Canadian Genealogy Centre </a>
+                <p>
+                    The Centre includes all physical and online genealogical services of Library and Archives Canada. It offers genealogical content, services, advice, research tools and opportunities to work on joint projects, all in both official languages.
+                </p>
+            </li>
+            <li>
+                <a href="http://heritage.canadiana.ca/?usrlang=en">Heritage Canada</a>
+                <p>
+                    The Héritage project is a 10-year initiative to digitize and make accessible online some of Canada’s most popular archival collections encompassing roughly 60 million pages of primary-source documents. Chronicling the country and its people from the 1600s to the mid-1900s, this collection represents a vast and unique resource for Canadian historians, students, and genealogists.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.collectionscanada.ca/genealogy/022-607.002.01.01.08-e.html">Canadian Genealogy Centre</a>
+                <p>
+                    Researching Your Aboriginal Ancestry at Library and Archives Canada
+                </p>
+            </li>
+            <li>
+                <a href="http://www.archives.gov.on.ca/en/index.aspx">Archives of Ontario</a>
+                <p>
+                    The Archives of Ontario offers a wealth of information to help you trace your family history. What you need to bring to the process is organization, patience and perseverance.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.familysearch.org/Eng/Library/FHC/frameset_fhc.asp">Family History Centre </a>
+                <p>
+                    The Whitehorse Family History Centre has access to resources of the Main Library in Salt Lake City and can order in for patrons. There is no charge to use the center, but a charge is necessary when ordering microforms.
+                </p>
+            </li>
+            <li>
+                <a href="http://pam.minisisinc.com/pam/search.htm">Archives of Manitoba</a>
+                <p>
+                    The holdings of the Archives of Manitoba are a rich resource for the study of the history of Manitoba and its people, as well as the history of the Hudson's Bay Company (HBC). There are two primary centres of acquisition at the Archives, these being Government and Private Sector Archives (GPSA)and the Hudson's Bay Company Archives (HBCA). The Archives of Manitoba belongs to the people and the province, but serves an ever-expanding national and international clientele. We invite you to take advantage of the resources we offer.
+                </p>
+                <p>
+                    The Archives of Manitoba acquires records of all media, including textual records, still images, sound and moving images, documentary art, cartographic records and architectural records. Search the Keystone Archives Descriptive Database for descriptions of archival records.
+
+                </p>
+            </li>
+            <li>
+                <a href="http://www.glenbow.org/collections/">The Glenbow Museum</a>
+                <p>
+                    The Glenbow Library & Archives has an excellent collection of resources for the study of Métis genealogy. Please note that our sources cover predominantly Manitoba, Saskatchewan, Alberta, and some parts of the Northwest Territories, Ontario, and British Columbia. We are unlikely to be able to help you with research in other geographic areas.
+                </p>
+            </li>
+            <li>
+                <a href="">The United Church Archives of the Conference of Manitoba and Northwestern Ontario</a>
+                <p>
+                    The records of the founding denominations, The Presbyterian Church in Canada, The Congregational Churches of Canada, and the Methodist Church are also kept.
+                </p>
+                <p>
+                    The Archives collects records of ecumenical initiatives and the private papers of those who have played an important role in the life of the Church. 
+                </p>
+                <p>
+                    The Archives also cares for the documents of the All Native Circle Conference administration, the Keewatin Presbytery, and the Dr. Jessie Saulteaux Resource Centre.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.saskarchives.com/using-archives/family-history-research/first-nations-and-metis-records">Saskatchewan Archives</a>
+                <p>
+                    The Saskatchewan Archives has a number of collections that may be of interest to anyone doing family history research about First Nations and/or Métis people.
+
+            </p></li>
+            <li>
+                <a href="http://library.usask.ca/native/index.html">Resources for Aboriginal Studies</a>
+                <p>
+                    Searchable databases, archival material, Native law cases from 1763 to 1978, Northwest Resistance history and photographs.
+                </p>
+            </li>
+            <li>
+                <a href="http://peel.library.ualberta.ca/index.html">Peel’s Prairie Provinces</a>
+                <p>
+                    Peel's Prairie Provinces is a resource dedicated to assisting scholars, students, and researchers of all types in their exploration of western Canadian history and the culture of the Canadian prairies. 
+                </p>
+            </li>
+            <li>
+                <a href="http://www.nativeweb.org/">Native Web</a>
+                <p>
+                    A variety of sites listed by province or territory with information on the Aboriginal Peoples of Canada.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.ourroots.ca/">Our Roots</a>
+                <p>
+                    Our Roots is a library, archive, museum and school all in one. Check the collection to find Canadian local histories in French and English. Check Educational Resources for learning packages for students and teachers. Check back with us often – we’re always adding more.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.nanations.com/canada/index.htm">Canadian Indian tribes</a>
+                <p>Includes links to a variety of non-genealogy sites.</p>
+            </li>
+            <li>
+                <a href="http://eco.canadiana.ca">Early Canada Online</a>
+                <p>
+                    This rare collection of documentary heritage will be of interest to scholars, genealogists, history buffs and anyone who enjoys reading about Canada's early days.
+                </p>
+                <p>
+                    The Early Canadiana Online collection of rare books, magazines and government publications has over 80,000 titles (3,500,000 pages) and is growing. The collection includes material published from the time of the first European settlers to the first four decades of the 20th Century.
+                </p>
+                <p>
+                    You will find books written in 21 languages including French, English, 10 First Nations languages and several European languages, Latin and Greek.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.archivescanada.ca">Archives Canada</a>
+            </li>
+            <li>
+                <a href="http://automatedgenealogy.com/">Automated Genealogy</a>
+                <p></p>
+            </li>
+            <li>
+                <a href="http://umanitoba.ca/libraries/archives/">University of Manitoba Archives</a>
+                <p></p>
+            </li>
+            <li>
+                <a href="http://www.gov.mb.ca/chc/archives/hbca/about/hbca.html">Hudson’s Bay Company Archives</a>
+                <p></p>
+            </li>
+        </ol>
+    </div>
+    <div class="steps" id="step6">
+        <div class="topheading">resources by region</div>
+        <h1><span class="secondary">EAST<br> Quebéc, New Brunswick, Nova Scotia, Prince Edward Island, Newfoundland</span></h1>
+        <ol type="1">
+            <li>
+                <a href="http://www.dickshovel.com/mic.html">Micmac History</a>
+                <p>
+                    Information on the Micmac people who occupied Nova Scotia, the Gaspe Peninsula in Quebéc, Prince Edward Island, and the eastern half of New Brunswick and southwestern Newfoundland.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.nativeweb.org/">Native Web</a>
+                <p>
+                    A variety of sites listed by province or territory with information on the Aboriginal Peoples of Canada.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.collectionscanada.ca/genealogy/022-607.002.01.01.08-e.html">Canadian Genealogy Centre</a>
+                <p>
+                    Researching Your Aboriginal Ancestry at Library and Archives Canada
+                </p>
+            </li>
+            <li>
+                <a href="http://www.ourroots.ca/">Our Roots</a>
+                <p>
+                    Our Roots is a library, archive, museum and school all in one. Check the collection to find Canadian local histories in French and English. Check Educational Resources for learning packages for students and teachers. Check back with us often – we’re always adding more.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.nanations.com/canada/index.htm">Canadian Indian tribes</a>
+                <p>Includes links to a variety of non-genealogy sites.</p>
+            </li>
+            <li>
+                <a href="http://eco.canadiana.ca">Early Canada Online</a>
+                <p>
+                    This rare collection of documentary heritage will be of interest to scholars, genealogists, history buffs and anyone who enjoys reading about Canada's early days.
+                </p>
+                <p>
+                    The Early Canadiana Online collection of rare books, magazines and government publications has over 80,000 titles (3,500,000 pages) and is growing. The collection includes material published from the time of the first European settlers to the first four decades of the 20th Century.
+                </p>
+                <p>
+                    You will find books written in 21 languages including French, English, 10 First Nations languages and several European languages, Latin and Greek.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.bac-lac.gc.ca/eng/Pages/home.aspx">Library and Archives Canada</a>
+                <p>
+                    Library and Archives Canada is responsible for the collection and preservation of the documentary heritage of Canada through texts, pictures and other documents relevant to the culture of Canada.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.archivescanada.ca">Archives Canada</a>
+            </li>
+            <li>
+                <a href="http://automatedgenealogy.com/">Automated Genealogy</a>
+                <p></p>
+            </li>
+        </ol>
+    </div>
+    <div class="steps" id="step7">
+        <div class="topheading">resources by region</div>
+        <h1><span class="secondary">NORTH<br> Northwest Territories, Yukon, Nunavut</span></h1>
+        <ol type="1">
+            <li>
+                <a href="http://www.bac-lac.gc.ca/eng/Pages/home.aspx">Library and Archives Canada</a>
+                <p>
+                    Library and Archives Canada is responsible for the collection and preservation of the documentary heritage of Canada through texts, pictures and other documents relevant to the culture of Canada.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.collectionscanada.gc.ca/022/">Canadian Genealogy Centre </a>
+                <p>
+                    The Centre includes all physical and online genealogical services of Library and Archives Canada. It offers genealogical content, services, advice, research tools and opportunities to work on joint projects, all in both official languages.
+                </p>
+            </li>
+            <li>
+                <a href="http://library2.usask.ca/northwest/contents.html">Northwest Resistance Digitization Project</a>
+                <p>
+                    Allowing access to materials relating to the Northwest Resistance of 1885. It contains a searchable database of bibliographic records. A number of the items have been digitized for online viewing.
+                </p>
+            </li>
+            <li>
+                <a href="http://yk.canadagenweb.org/resources-archives.html">Yukon Archives </a>
+                <p>
+                    The Yukon Archives acquires, preserves, and provides access to the Yukon's documentary heritage. Photocopy, map and photograph reproduction services are available. If you are unable to visit the Archives in person, reference assistance is available through correspondence.
+                </p>
+            </li>
+            <li>
+                <a href="http://library.usask.ca/native/index.html">Resources for Aboriginal Studies</a>
+                <p>
+                    Searchable databases, archival material, Native law cases from 1763 to 1978, Northwest Resistance history and photographs.
+                </p>
+            </li>
+            
+            <li>
+                <a href="http://heritage.canadiana.ca/?usrlang=en">Heritage Canada</a>
+                <p>
+                    The Héritage project is a 10-year initiative to digitize and make accessible online some of Canada’s most popular archival collections encompassing roughly 60 million pages of primary-source documents. Chronicling the country and its people from the 1600s to the mid-1900s, this collection represents a vast and unique resource for Canadian historians, students, and genealogists.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.nativeweb.org/">Native Web</a>
+                <p>
+                    A variety of sites listed by province or territory with information on the Aboriginal Peoples of Canada.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.ourroots.ca/">Our Roots</a>
+                <p>
+                    Our Roots is a library, archive, museum and school all in one. Check the collection to find Canadian local histories in French and English. Check Educational Resources for learning packages for students and teachers. Check back with us often – we’re always adding more.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.collectionscanada.ca/genealogy/022-607.002.01.01.08-e.html">Canadian Genealogy Centre</a>
+                <p>
+                    Researching Your Aboriginal Ancestry at Library and Archives Canada
+                </p>
+            </li>
+            <li>
+                <a href="http://www.nanations.com/canada/index.htm">Canadian Indian tribes</a>
+                <p>Includes links to a variety of non-genealogy sites.</p>
+            </li>
+            <li>
+                <a href="http://eco.canadiana.ca">Early Canada Online</a>
+                <p>
+                    This rare collection of documentary heritage will be of interest to scholars, genealogists, history buffs and anyone who enjoys reading about Canada's early days.
+                </p>
+                <p>
+                    The Early Canadiana Online collection of rare books, magazines and government publications has over 80,000 titles (3,500,000 pages) and is growing. The collection includes material published from the time of the first European settlers to the first four decades of the 20th Century.
+                </p>
+                <p>
+                    You will find books written in 21 languages including French, English, 10 First Nations languages and several European languages, Latin and Greek.
+                </p>
+            </li>
+            <li>
+                <a href="http://www.archivescanada.ca">Archives Canada</a>
+            </li>
+            <li>
+                <a href="http://automatedgenealogy.com/">Automated Genealogy</a>
+                <p></p>
+            </li>      
+        </ol>
     </div>
 
-<!--     <wir ng-show="wir" wir-section="{{wir}}"></wir>
- -->    <grid-nav></grid-nav>
-    <page-nav></page-nav>
-    <day-nav></day-nav>
-
-    <modal></modal>
+</div>
 
 
+<div class="showscontainer">
 
+    <div class="shows" id="show1">
+
+        <div class="topheading">season 1</div>
+        
+        <h1>James bartleman</h1>
+
+        <div class="videoWrapper">
+            <iframe src="//player.vimeo.com/video/106515628?color=ffffff" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe> 
+        </div>
+
+        <p>
+            Episode 01, All Our Relations, Season 1
+        </p>
+    </div>
+    <div class="shows" id="show2">
+
+        <div class="topheading">season 1</div>
+        
+        <h1>santee smith</h1>
+
+        <div class="videoWrapper">
+            <iframe src="//player.vimeo.com/video/106282656?color=ffffff" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe> 
+        </div>
+
+        <p>
+            Episode 02, All Our Relations, Season 1
+        </p>
+    </div>
+    <div class="shows" id="show3">
+
+        <div class="topheading">season 1</div>
+        
+        <h1>adam beach</h1>
+
+        <div class="videoWrapper">
+            <iframe src="//player.vimeo.com/video/106282657?color=ffffff" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe> 
+        </div>
+
+        <p>
+            Episode 03, All Our Relations, Season 1
+        </p>
+    </div>
+    <div class="shows" id="show4">
+
+        <div class="topheading">season 1</div>
+        
+        
+        <h1>theoren Fleury</h1>
+
+       <div class="videoWrapper">
+           <iframe src="//player.vimeo.com/video/106515629?color=ffffff" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe> 
+       </div>
+
+        <p>
+            Episode 04, All Our Relations, Season 1
+        </p>
+
+    </div>
+    <div class="shows" id="show5">
+
+        <div class="topheading">season 1</div>
+        
+        <h1>elijah harper</h1>
+
+        <div class="videoWrapper">
+           <iframe src="//player.vimeo.com/video/106515630?color=ffffff" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe> 
+        </div>
+
+        <p>
+            Episode 05, All Our Relations, Season 1
+        </p>
+    </div>
+    <div class="shows" id="show6">
+
+        <div class="topheading">season 1</div>
+        
+        <h1>douglas cardinal</h1>
+
+        <div class="videoWrapper">
+           <iframe src="//player.vimeo.com/video/106515631?color=ffffff" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe> 
+        </div>
+
+        <p>
+            Episode 06, All Our Relations, Season 1
+        </p>
+    </div>
+</div>
+
+<div class="portraitwrapper">
+<!--     <div style="display: table-cell; vertical-align: middle;">
+ -->        <div id="portrait-gallery" class="timeline side-menu">
+            <div data-homeland="ontario" data-subject="james" class="portrait" style="background-image: url(images/faces/Bartlesman.jpg);"></div>
+
+            <div data-homeland="ontario-s" data-subject="santee" class="portrait" style="background-image: url(images/faces/Smith.jpg);"></div>
+
+            <div data-homeland="manitoba-s" data-subject="adam" class="portrait" style="background-image: url(images/faces/Beach.jpg);"></div>
+
+            <div data-homeland="sask" data-subject="theoren" class="portrait" style="background-image: url(images/faces/Fleury.jpg);"></div>
+
+            <div data-homeland="manitoba" data-subject="elijah" class="portrait" style="background-image: url(images/faces/Harper.jpg);"></div>
+
+            <div data-homeland="alberta-s" data-subject="douglas" class="portrait" style="background-image: url(images/faces/Cardinal.jpg); "></div>
+        </div>
+<!--     </div>
+ -->    
+</div>
+
+
+<img src="images/nav_line.gif" class="lineimg">
+
+<div id="milestone-dates" class="fader"></div>
+<div id="milestones" class="fader"></div>
+
+<div class="text-bucket intro">
+    <div class="content">
+        <p class="firstsentence">
+            <b>All Our Relations</b> is a TV series that celebrates the lives of Aboriginal Canadians who have achieved international success and recognition.
+        </p>
+        <p> Every story documents a different featured guest; tribal Elders, historic experts, relatives and famous First Nation’s people from the fields of sports, politics, architecture, diplomacy, movies and dance. 
+        </p>
+        <p>
+            All Our Relations takes a close look at Aboriginal celebrities’ ancestral history and acknowledges their pride in their traditional culture, providing a unique insight into the personal lives of their public persona.
+        </p>
+        <p>Airing on <a href="http://aptn.ca/allourrelations/">APTN</a> and <a href="http://www.cbc.ca/">CBC</a> fall 2014. </p>
+        <p>Season 1: </p>
+        <ul>
+            <li>Episode 01 - James Bartleman</li>
+            <li>Episode 02 - Santee Smith</li>
+            <li>Episode 03 - Adam Beach</li>
+            <li>Episode 04 - Theoren Fleury</li>
+            <li>Episode 05 - Elijah Harper </li>
+            <li>Episode 06 - Douglas Cardinal</li>
+        </ul>
+        
+    </div>
+</div>
+
+<div class="aboutcontainer">
+
+    <div class="aboutcat" id="about1">
+        
+        <h1>WATERFRONT PRODUCTIONS</h1>
+        <p>
+            With over a decade of experience producing high-quality broadcast, corporate and non-profit entertainment, Waterfront Productions is an award-winning production company based in Toronto, Ontario.  
+        </p>
+        <p>
+            Waterfront is an Aboriginal owned and operated company creating Aboriginal-focused
+            content for television broadcast and the web. We are a content provider for National Broadcasters and Educational outlets. We produce health and educational DVD materials for teaching purposes in Aboriginal communities, as well as Documentary and Variety Entertainment with an Aboriginal Focus.
+        </p>
+
+        <img src="images/waterlogo.png">
+    </div>
+    <div class="aboutcat" id="about2">
+        <h1>ralph brown</h1>
+        
+        <div class="subheading">Producer/Director President, Waterfront Productions Inc.</div>
+
+        <img src="http://205.186.156.50/all-our-relations/cdn/assets/img/ralphportrait.jpg" alt="">
+
+        <p>
+            Ralph built a solid career at the CBC, working for over 24 years as a Senior Special Effects Coordinator. He was Key Coordinator on numerous productions including Sesame Street, The Friendly Giant, For the Record, Street Legal and others, including Specials such as The Valour and the Horror, Toller Cranston and Anne Murray Specials, and The Royal Canadian Air Farce for 7 years. He was also the recipient of the “Anik” award for special effects.
+        </p>
+        <p>
+            In 2007, Ralph produced and was the Cinematographer for Kitohcikew “One Who Makes Music” for APTN. The show won Best music television show for 2008 at the Canadian Aboriginal Music Awards. In addition, the show was an official selection of the Yorkton Film Festival.
+        </p>
+        <p>
+            Ralph directed and was the cinematographer for the 2008/2009 Aboriginal Achievement Foundation Awards, directing 14 short biographies and honouree statements for broadcast. 
+        </p>
+        <p>
+            Through Strong Road productions, Ralph produced a 2-hour, 8-camera Aboriginal music showcase, entitled Larger Than Life, a 5-act concert that was screened across Canada in 40 Cineplex Odeon Theatres. It has also been acquired in 5 x 22 episodes by NITV Aboriginal broadcaster in Australia.
+        </p>
+        <p>
+            Ralph is Métis and a proud member of Métis Nation Ontario, the telling of Métis and First Nation Stories is what drives much of his work.
+        </p>
+
+    </div>
+    <div class="aboutcat" id="about3">
+        <h1>behind the scenes</h1>
+
+        <img src="" id="enlargedtile">
+        
+        <div id="mosaic">
+            <div style="background-image: url(http://205.186.156.50/all-our-relations/cdn/assets/img/behind/0.jpg);"></div>
+            <div style="background-image: url(http://205.186.156.50/all-our-relations/cdn/assets/img/behind/1.jpg);"></div>
+            <div style="background-image: url(http://205.186.156.50/all-our-relations/cdn/assets/img/behind/2.jpg);"></div>
+            <div style="background-image: url(http://205.186.156.50/all-our-relations/cdn/assets/img/behind/3.jpg);"></div>
+            <div style="background-image: url(http://205.186.156.50/all-our-relations/cdn/assets/img/behind/4.jpg);"></div>
+            <div style="background-image: url(http://205.186.156.50/all-our-relations/cdn/assets/img/behind/5.jpg);"></div>
+            <div style="background-image: url(http://205.186.156.50/all-our-relations/cdn/assets/img/behind/6.jpg);"></div>
+            <div style="background-image: url(http://205.186.156.50/all-our-relations/cdn/assets/img/behind/7.jpg);"></div>
+            <div style="background-image: url(http://205.186.156.50/all-our-relations/cdn/assets/img/behind/8.jpg);"></div>
+            
+        </div>
+        
+    </div>
+    <div class="aboutcat" id="about4">
+        
+        <h1>legal</h1>
+        <p>
+            All Our Relations premiered on <a href="http://aptn.ca/allourrelations/">APTN</a> in the fall of 2013, and will be broadcast on <a href="http://www.cbc.ca/">CBC</a>, and re-broadcast on APTN in the fall of 2014.  
+        </p>
+        <p>All rights reserved</p>
+        <p>Waterfront Productions Inc. © 2012</p>
+
+    </div>
     
+</div>
 
-<script src="js/app.full.min.js"></script></body>
+
+    <div class="text-bucket timeline">
+        <div class="content">
+            <p class="large">
+                Journey through the family trees of our six All Our Relations subjects.
+            </p>
+
+            <p>
+                Choose one from the left menu and click on their ancestors names    for more information.
+            </p>
+            
+        </div>
+    </div>
+    
+    <div class="text-bucket resources">
+        <div class="content">
+            With acclaimed Canadian Genealogist Janice Nickerson
+            at the helm of our research team, All Our Relations was able to capitalize on
+            her years of experience and knowhow in the field of Aboriginal genealogy. By
+            watching the following interviews with Janice, you will receive valuable and
+            practical step-by-step instructions on how to begin your own search into your family’s
+            past.  
+        </div>
+    </div>
+    <div id="contentPanel" class="content-bucket ancestor top-nuke">
+        <div>
+            Copy goes here..
+        </div>
+    </div>
+    
+    <div class="legalstrip">
+        <p>
+            All rights reserved. Waterfront Productions Inc. © 2012
+        </p>
+ <!--        <p>All rights reserved</p>
+        <p>Waterfront Productions Inc. © 2012</p> -->
+    </div>
+</div>
+<a href="#intro" data-action="intro" class="btn-intro"><img id="logo-main" src="images/logo_main.png"></a>
+
+<div id="header">
+<!--     bbabdoasb
+ --><!-- <ul>
+    <li data-action="intro" class="btn-intro"><a href="#/intro">Introduction</a></li>
+    <li data-action="timeline" class="btn-timeline" ><a href="#/timeline">Timeline</a></li>
+    <li data-action="resources" class="btn-resources" ><a href="#/resources">Resources</a></li>
+    <li data-action="shows" class="btn-show" ><a href="#/shows">Shows</a></li>
+    </ul>
+</div> -->
+    <ul>    
+        <li data-action="timeline" class="btn-timeline"><a href="#timeline">subjects</a></li>
+        <li data-action="resources" class="btn-resources"><a href="#resource">Start your search</a></li>
+        <li data-action="shows" class="btn-show"><a href="#shows">episodes</a></li>
+        <li data-action="about" class="btn-about"><a href="#about">about</a></li>
+    </ul>
+</div>
+<img class="parchment" id="parchment-scrim" src="images/Background.jpg" style="display:block">
+
+<video autoplay="true" id="bg-video"></video>
+
+
+
+
+
+    <filter id="dropshadow" height="130%">
+      <fegaussianblur in="SourceAlpha" stddeviation="3"> <!-- stdDeviation is how much to blur -->
+      <feoffset dx="2" dy="2" result="offsetblur"> <!-- how much to offset -->
+      <femerge> 
+        <femergenode> <!-- this contains the offset blurred image -->
+        <femergenode in="SourceGraphic"> <!-- this contains the element that the filter is applied to -->
+      </femergenode></femergenode></femerge>
+    </feoffset></fegaussianblur></filter>
+
+
+    <script src="js/lib/d3.min.js"></script>
+    <script src="js/lib/jquery.1.8.2.min.js"></script>
+    <script src="js/main_nu.js"></script>
+
+<script src="js/app.full.min.js"></script></body>    
 </html>

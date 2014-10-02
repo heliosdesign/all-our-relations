@@ -1,3 +1,5 @@
+if(!console) {console={}; console.log = function(){};}
+
 $(function(){
 
 	var margin = {top: 0, right: 0, bottom: 0, left: 100},

@@ -33,7 +33,7 @@
    ]
   },
   {
-   "name": "Ethel Catherine Taylor","gender":"f","dob":1930, "dod":1992,"page":"ELIJAHHARPER_EthelCatherineTaylor", "icon":"ethelCatherineTaylor.png",
+   "name": "Ethel Catherine Taylor","gender":"f","dob":1930, "dod":1992,"page":"ELIJAHHARPER_EthelCatherineTaylor",
    "children": [
     {
      "name": "Thomas Taylor","gender":"m","dob":1881,"dod":1975,"page":"ELIJAHHARPER_ThomasTaylor",
@@ -58,13 +58,13 @@
         ]
       },
       {
-        "name": "Flett, Nähikwαn´ebikwe","dob":1863,"dod":1930,"gender":"f",
+        "name": "Flett, Nähikwαn´ebikwe","dob":1863,"dod":1930,"gender":"f","page":"ELIJAHHARPER_Flett",
         "children":[
           {
-            "name": "Peter Flett, αkamakī win ninε ͑","dob":1823,"dod":1891,"gender":"m","page":"ELIJAHHARPER_￼PeterFlett",
+            "name": "Peter Flett","dob":1823,"dod":1891,"gender":"m","page":"ELIJAHHARPER_￼PeterFlett",
             "children":[
               {
-                "name":"Peemeecheekag, Porcupine Standing Sideways","dob":1800,"dod":1891,"gender":"m","page":"ELIJAHHARPER_Peemeecheekag"
+                "name":"Peemeecheekag","dob":1800,"dod":1891,"gender":"m","page":"ELIJAHHARPER_Peemeecheekag"
               }
             ]
           },{

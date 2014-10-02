@@ -2,36 +2,36 @@
  "name": "Santee Smith","gender":"f","dob":1971,"page":"SANTEESMITH_SanteeSmith","icon":"santeeSmith.png",
  "children": [
     {
-     "name": "Steven Tracey Smith","gender":"m","page":"stevenTracey",
+     "name": "Steven Tracey Smith","gender":"m","page":"SANTEESMITH_StevenTraceySmith",
      "children": [
         {
-         "name": "Oliver Miller Smith","gender":"m","dob":1911,"dod":1979,"page":"oliverSmith",
+         "name": "Oliver Miller Smith","gender":"m","dob":1911,"dod":1979,"page":"SANTEESMITH_OliverMillerSmith",
          "children": [
             {
-             "name": "William Smith","gender":"m","dob":1868,"dod":1952,"page":"williamSmith",
+             "name": "William Smith Jr","gender":"m","dob":1868,"dod":1952,"page":"SANTEESMITH_WilliamSmithJr",
              "children": [
                 {
-                 "name": "William Smith","gender":"m","dob":1841,"page":"williamSmithII",
+                 "name": "William Smith Sr","gender":"m","dob":1841,"page":"SANTEESMITH_WilliamSmithSr",
                  "children": [
                  ]
                 },
                 {
-                 "name": "Charlotte Miller","gender":"f","dob":1847,"page":"charlotteMiller",
+                 "name": "Charlotte Miller","gender":"f","dob":1847,"page":"SANTEESMITH_Charlotte Miller",
                  "children": [
                  ]
                 }
              ]
             },
             {
-             "name": "Sarah Cecelia Russell","gender":"f","dob":1870,"dod":1952,"page":"sarahRussell",
+             "name": "Sarah Cecelia Russell","gender":"f","dob":1870,"dod":1952,"page":"SANTEESMITH_SarahCeceliaRussell",
              "children": [
                 {
-                 "name": "John Russell","gender":"m","dob":1836,"dod":1881,"page":"johnRussel",
+                 "name": "John Russell","gender":"m","dob":1836,"dod":1881,"page":"SANTEESMITH_JohnRussell",
                  "children": [
                  ]
                 },
                 {
-                 "name": "Charlotte","gender":"f","dob":1841,"page":"charlotte",
+                 "name": "Charlotte","gender":"f","dob":1841,"page":"SANTEESMITH_Charlotte",
                  "children": [
                  ]
                 }
@@ -40,33 +40,33 @@
          ]
         },
         {
-         "name": "Elda Muriel Smith","gender":"f","dob":1915,"dod":1979,"page":"eldaSmith",
+         "name": "Elda Muriel Smith","gender":"f","dob":1915,"dod":1979,"page":"SANTEESMITH_EldaMurielSmith",
          "children": [
             {
-             "name": "Alexander George Edwin Smith","gender":"m","dob":1879,"page":"alexanderSmith",
+             "name": "Alexander George Edwin Smith","gender":"m","dob":1879,"page":"SANTEESMITH_AlexanderGeorgeEdwinSmith",
              "children": [
                 {
-                 "name": "Alexander George Smith","gender":"m","dob":1844,"dod":1933,"page":"alexanderSmithII",
+                 "name": "Alexander George Smith","gender":"m","dob":1844,"dod":1933,"page":"SANTEESMITH_AlexanderGeorgeSmith",
                  "children": [
                  ]
                 },
                 {
-                 "name": "Mary Wage","gender":"f","dob":1847,"page":"maryWage",
+                 "name": "Mary Wage","gender":"f","dob":1847,"page":"SANTEESMITH_MaryWage",
                  "children": [
                  ]
                 }
              ]
             },
             {
-             "name": "Mable Phoebe Doxtator","gender":"f","dob":1888,"page":"marbleDoxtator",
+             "name": "Mable Phoebe Doxtator","gender":"f","dob":1888,"page":"SANTEESMITH_MablePhoebeDoxtator",
              "children": [
                 {
-                 "name": "Howard Dockstadder","gender":"m","dob":1855,"page":"howardDockstadder",
+                 "name": "Howard Dockstadder","gender":"m","dob":1855,"page":"SANTEESMITH_HowardDockstadder",
                  "children": [
                  ]
                 },
                 {
-                 "name": "Lucinda Gordon","gender":"f","dob":1859,"page":"lucindaGordon",
+                 "name": "Lucinda Gordon","gender":"f","dob":1859,"page":"SANTEESMITH_LucindaGordon",
                  "children": [
                  ]
                 }
@@ -77,36 +77,36 @@
      ]
     },
     {
-     "name": "Leona Vyse","gender":"f","page":"leonaVyse",
+     "name": "Leona Vyse","gender":"f","page":"SANTEESMITH_LeonaVyse",
      "children": [
         {
-         "name": "Edwin Vernon Vyse","gender":"m","dob":1923,"dod":1998,"page":"edwinVernonVyse",
+         "name": "Edwin Vernon Vyse","gender":"m","dob":1923,"dod":1998,"page":"SANTEESMITH_EdwinVernonVyse",
          "children": [
             {
-             "name": "Theodore Roosevelt Vyse","gender":"m","dob":1903, "page":"theodoreVyse",
+             "name": "Theodore Roosevelt Vyse","gender":"m","dob":1903, "page":"SANTEESMITH_TheodoreVyse",
              "children": [
                 {
-                 "name": "William Vyse","gender":"m","dob":1874,"page":"willamVyse",
+                 "name": "William Vyse","gender":"m","dob":1874,"page":"SANTEESMITH_WillamVyse",
                  "children": [
                  ]
                 },
                 {
-                 "name": "Phoebe Jane Hill","gender":"f","dob":1876,"page":"phoebeJaneHill",
+                 "name": "Phoebe Jane Hill","gender":"f","dob":1876,"page":"SANTEESMITH_PhoebeJaneHill",
                  "children": [
                  ]
                 }
              ]
             },
             {
-             "name": "Mable Irene Staats","gender":"f","dob":1900,"page":"mableStaats",
+             "name": "Mable Irene Staats","gender":"f","dob":1900,"page":"SANTEESMITH_MableIreneStaats",
              "children": [
                 {
-                 "name": "Hiram Staatrs","gender":"m","dob":1878,"page":"hiramStaatrs",
+                 "name": "Hiram Staatrs","gender":"m","dob":1878,"page":"SANTEESMITH_HiramStaatrs",
                  "children": [
                  ]
                 },
                 {
-                 "name": "Lydia Green","gender":"f","dob":1883,"page":"lydiaGreen",
+                 "name": "Lydia Green","gender":"f","dob":1883,"page":"SANTEESMITH_LydiaGreen",
                  "children": [
                  ]
                 }
@@ -115,25 +115,25 @@
          ]
         },
         {
-         "name": "Rita Skye","gender":"f","dob":1924,"dod":1997,"page":"ritaSkye",
+         "name": "Rita Skye","gender":"f","dob":1924,"dod":1997,"page":"SANTEESMITH_RitaSkye",
          "children": [
             {
-             "name": "Robert Skye","gender":"m","dob":1897, "page":"theodoreVyse",
+             "name": "Robert Skye","gender":"m","dob":1897, "page":"SANTEESMITH_TheodoreVyse",
              "children": [
                 {
-                 "name": "Joseph Skye","gender":"m","dob":1855,"page":"josephSkye",
+                 "name": "Joseph Skye","gender":"m","dob":1855,"page":"SANTEESMITH_JosephSkye",
                  "children": [
                  ]
                 },
                 {
-                 "name": "Charlotte","gender":"f","dob":1861,"page":"charlotte",
+                 "name": "Charlotte","gender":"f","dob":1861,"page":"SANTEESMITH_Charlotte",
                  "children": [
                  ]
                 }
              ]
             },
             {
-             "name": "Mary Harris","gender":"f","page":"maryHarris",
+             "name": "Mary Harris","gender":"f","page":"SANTEESMITH_MaryHarris",
              "children": [
              ]
             }
