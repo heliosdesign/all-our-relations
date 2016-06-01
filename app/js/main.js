@@ -1,4 +1,4 @@
-if(!console) {console={}; console.log = function(){};}
+// if(!console) {console={}; console.log = function(){};}
 
 $(function(){
 
@@ -155,7 +155,6 @@ $(function(){
 	  //URL//
 	  if(d.page){
 	  	window.parent.location = "/all-our-relations/app/#/"+d.page
-	  	// console.log(d.page)
 	  }else{
 	  	// alert('disabled for prototype');
 	  }

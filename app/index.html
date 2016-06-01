@@ -2,7 +2,6 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -14,9 +13,28 @@
 
     <link href="//fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet" type="text/css">
 
-    <!--[if lt IE 9]>
-        <script src="js/lib/html5.js"></script>
-    <![endif]-->
+      <link rel="shortcut icon" href="favicon.ico">
+
+
+    <script>
+        if(!console) {console={}; console.log = function(){};}
+        if (console) {
+           console.log('...');
+        }
+    </script>
+
+    <!-- Begin comScore Inline Tag 1.1111.15 -->
+    <script type="text/javascript">
+    // <![CDATA[
+    function udm_(a){var b="comScore=",c=document,d=c.cookie,e="",f="indexOf",g="substring",h="length",i=2048,j,k="&ns_",l="&",m,n,o,p,q=window,r=q.encodeURIComponent||escape;if(d[f](b)+1)for(o=0,n=d.split(";"),p=n[h];o<p;o++)m=n[o][f](b),m+1&&(e=l+unescape(n[o][g](m+b[h])));a+=k+"_t="+ +(new Date)+k+"c="+(c.characterSet||c.defaultCharset||"")+"&c8="+r(c.title)+e+"&c7="+r(c.URL)+"&c9="+r(c.referrer),a[h]>i&&a[f](l)>0&&(j=a[g](0,i-8).lastIndexOf(l),a=(a[g](0,j)+k+"cut="+r(a[g](j+1)))[g](0,i)),c.images?(m=new Image,q.ns_p||(ns_p=m),m.src=a):c.write("<","p","><",'img src="',a,'" height="1" width="1" alt="*"',"><","/p",">")}
+        udm_('http://b.scorecardresearch.com/p?c1=2&c2=14990625&application_id=129059&name=129059.all-our-relations.content&ns_site=cmf-fmc&content1=richinteractivemedia&class1=convergent.documentary.aboriginal.&class2=website');
+// ]]>
+    </script>
+    <noscript><p><img src="http://b.scorecardresearch.com/p?c1=2&c2=14990625" height="1" width="1" alt="*"></p></noscript>
+    <!-- End comScore Inline Tag -->
+    <!-- Begin comScore Inline Tag 1.1111.15 -->
+    <script type="text/javascript" language="JavaScript1.3" src="http://b.scorecardresearch.com/c2/14990625/cs.js"></script>
+    <!-- End comScore Inline Tag -->
 </head>
 <body style="font-family: 'Domine', serif;" >
 
@@ -26,7 +44,7 @@
 
 <img class="parchment" id="parchment" src="images/Background.jpg" style="display:block"></img>
 
-<canvas id="under-background" style="width:100%; height:100%"></canvas>
+<canvas id="under-background" class="dsk" style="width:100%; height:100%"></canvas>
 
 <div id="all-container">
 
@@ -35,7 +53,7 @@
 <div id="svg-container"></div>
     <div class="resourcewrapper">
         <div id="resource-menu" class='resources side-menu'>
-            <div class="subsection" >researching your family's genealogy</div>
+            <div class="subsection dsk" >researching your family's genealogy</div>
 
             <div class="resource-btn" >step 1</div>
     
@@ -43,7 +61,7 @@
     
             <div class="resource-btn" >challenges</div>
     
-            <div class="subsection" >resources by region</div>
+            <div class="subsection dsk" >resources by region</div>
     
             <div class="resource-btn" >west</div>
     
@@ -56,7 +74,7 @@
     </div>
     <div class="showwrapper">
         <div id="show-menu" class='resources side-menu'>
-            <div class="subsection" >season 1</div>
+            <div class="subsection dsk" >season 1</div>
             <div class="resource-btn" >
                 james bartleman
             </div>
@@ -86,7 +104,7 @@
             <div class="resource-btn" >
                 ralph brown
             </div>
-            <div class="resource-btn" >
+            <div class="resource-btn dsk" >
                 behind the scenes
             </div>
             <div class="resource-btn" >
@@ -751,14 +769,15 @@ Aboriginal ancestry</h1>
         </div>
         
     </div>
+    
     <div class="aboutcat" id="about4">
-        
         <h1>legal</h1>
         <p>
             All Our Relations premiered on <a href="http://aptn.ca/allourrelations/">APTN</a> in the fall of 2013, and will be broadcast on <a href="http://www.cbc.ca/">CBC</a>, and re-broadcast on APTN in the fall of 2014.  
         </p>
         <p>All rights reserved</p>
         <p>Waterfront Productions Inc. © 2012</p>
+
 
     </div>
     
@@ -772,7 +791,7 @@ Aboriginal ancestry</h1>
             </p>
 
             <p>
-                Choose one from the left menu and click on their ancestors names    for more information.
+                Choose one from the left menu and click on their ancestors names for more information.
             </p>
             
         </div>
@@ -795,18 +814,17 @@ Aboriginal ancestry</h1>
     </div>
     
     <div class="legalstrip">
+        <a href=" http://www.cmf-fmc.ca/"><img src="images/CMF.png" style="width: 120px; margin-right: 10px;"></a>
+        <a href="http://aptn.ca/"><img src="images/aptn.png" style="width: 60px; margin-right: 40px;"></a>
         <p>
             All rights reserved. Waterfront Productions Inc. © 2012
         </p>
- <!--        <p>All rights reserved</p>
-        <p>Waterfront Productions Inc. © 2012</p> -->
     </div>
 </div>
 <a href="#intro" data-action="intro" class="btn-intro"><img id="logo-main" src="images/logo_main.png"></img></a>
 
 <div id="header">
-<!--     bbabdoasb
- --><!-- <ul>
+<!-- <ul>
     <li data-action="intro" class="btn-intro"><a href="#/intro">Introduction</a></li>
     <li data-action="timeline" class="btn-timeline" ><a href="#/timeline">Timeline</a></li>
     <li data-action="resources" class="btn-resources" ><a href="#/resources">Resources</a></li>
@@ -814,19 +832,19 @@ Aboriginal ancestry</h1>
     </ul>
 </div> -->
     <ul>    
-        <li data-action="timeline" class="btn-timeline" ><a href="#timeline">subjects</a></li>
+        <li data-action="timeline" class="btn-timeline dsk" ><a href="#timeline">subjects</a></li>
         <li data-action="resources" class="btn-resources" ><a href="#resource">Start your search</a></li>
         <li data-action="shows" class="btn-show" ><a href="#shows">episodes</a></li>
         <li data-action="about" class="btn-about" ><a href="#about">about</a></li>
     </ul>
 </div>
 <img class="parchment" id="parchment-scrim" src="images/Background.jpg" style="display:block"></img>
+<div class="unsupported">
+    <img id="logo-main" src="images/logo_main.png"></img>
+    <h2> Sorry, this experience does not have mobile support yet. Please view in a larger browser window</h2>
+</div>
 
 <video autoplay="true" id="bg-video"></video>
-
-
-
-
 
     <filter id="dropshadow" height="130%">
       <feGaussianBlur in="SourceAlpha" stdDeviation="3"/> <!-- stdDeviation is how much to blur -->

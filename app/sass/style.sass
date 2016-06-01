@@ -1,5 +1,85 @@
 // @import "normalize"
 
+@mixin breakpoint($point)
+  // < 550px or 35em.
+
+  @if $point == reallyshort
+    @media (max-height: 400px)
+      @content
+
+  @if $point == small
+    @media (max-width: 598px),(max-height: 500px)
+      @content
+  
+
+  // > 550px or 35em.
+  @if $point == medium
+    @media (min-width: 599px) and (max-width : 899px) and (min-height: 501px) and (max-height: 650px)
+      @content
+
+  // > 550px or 35em.
+  @if $point == medheight
+    @media (min-width: 600px) and (max-height: 650px)
+      @content
+
+  // > 850px or 53.123em.
+  @if $point == large
+    @media (min-width: 900px) and (min-height: 651px)
+      @content
+
+  // > 1000px or 64em.
+  @if $point == full
+    @media (min-width: 1000px) 
+      @content
+.btn-intro
+  @include breakpoint(small)
+    position: relative
+    z-index: 1000
+    margin-left: -20px
+.dsk
+  display: initial
+  @include breakpoint(small)
+    display: none !important
+  
+img 
+  border: none 
+a img 
+  border: 0px 
+body
+  @include breakpoint(small)
+    padding-bottom: 20px
+    position: absolute
+    overflow: auto !important
+  &.lock
+    position: fixed
+    overflow: hidden
+    @include breakpoint(small)
+      position: absolute
+      overflow: auto
+.unsupported
+  z-index: 999999
+  position: fixed
+  top: 0px
+  left: 0px
+  width: 100vw
+  height: 100vh
+  display: none
+  overflow: hidden
+  // justify-content: center
+  // align-items: center
+  text-align: center
+  background-image: url('../images/Background.jpg')
+  background-color: #000
+  background-size: cover
+  &.show
+    display: block
+  h2
+    width: 80%
+    max-width: 700px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
 
 
 .ir
@@ -48,40 +128,6 @@
 // /* IE6
 // /* IE7
 
-@mixin breakpoint($point)
-  // < 550px or 35em.
-
-
-  @if $point == reallyshort
-    @media (max-height: 400px)
-      @content
-
-  @if $point == small
-    @media (max-width: 598px),(max-height: 500px)
-      @content
-  
-
-  // > 550px or 35em.
-  @if $point == medium
-    @media (min-width: 599px) and (max-width : 899px) and (min-height: 501px) and (max-height: 650px)
-      @content
-
-  // > 550px or 35em.
-  @if $point == medheight
-    @media (min-width: 600px) and (max-height: 650px)
-      @content
-
-  // > 850px or 53.123em.
-  @if $point == large
-    @media (min-width: 900px) and (min-height: 651px)
-      @content
-
-  // > 1000px or 64em.
-  @if $point == full
-    @media (min-width: 1000px) 
-      @content
-        
-
 body
   background: #ffffff
   overflow: hidden
@@ -93,6 +139,9 @@ canvas
   width: 100%
   top: 0px
   left: 0px
+  @include breakpoint(small)
+    display: none
+
 
 svg
   position: absolute
@@ -111,6 +160,7 @@ svg
   top: 0px
   left: 0px
 
+
 #all-container
   position: absolute
   width: 100%
@@ -118,6 +168,10 @@ svg
   top: 0px
   left: 0px
   display: none
+  @include breakpoint(small)
+    width: 90vw
+    height: auto
+    left: 5vw
   // opacity: 0
   // transition: all 0.5s
 
@@ -132,9 +186,18 @@ svg
     right: 0px
     text-align: right
     font-size: 0.5em
-    background-color: rgba(255,255,255,0.5)
     padding-left: 1em
     padding-right: 1em
+    @include breakpoint(small)
+      bottom: 0em
+      position: relative
+      display: flex
+      align-items: center
+      display: none
+    p
+      background-color: rgba(255,255,255,0.5)
+      padding: 1em
+
   
   .portraitwrapper,.resourcewrapper,.showwrapper,.aboutwrapper
     position: fixed
@@ -143,10 +206,16 @@ svg
     height: 100%
     display: table
     z-index: 2
+    @include breakpoint(small)
+      height: auto
+      position: absolute
+      .side-menu
+        text-align: left
 
     .side-menu
       vertical-align: middle
       display: none
+
       .portrait
         width: 60px
         height: 60px
@@ -159,6 +228,7 @@ svg
         margin-bottom: 2vh
         box-shadow: 3px 4px 3px rgba(0,0,0,0.5)
         transition: all 500ms
+
         &.active
           border-color: #291F00
           filter: sepia(100%)
@@ -167,7 +237,19 @@ svg
       padding-top: 2.8em
       vertical-align: top
       display: none
-
+      @include breakpoint(small)
+        top: 130px
+        padding: 0px !important
+        width: 80vw
+        position: relative
+        height: 60px
+        // left: -10vw
+        display: flex !important
+        justify-content: space-around
+        // flex-shrink: 2
+        flex-wrap: wrap
+        text-align: left
+        // background: red
       .resource-btn,.subsection
         margin-bottom: 0.6em
         padding: 0.5em
@@ -179,6 +261,15 @@ svg
         font-weight: bold
         transition: all .5s
         text-transform: uppercase
+        @include breakpoint(small)
+          height: auto
+          flex-basis: auto
+          width: auto
+          padding: 0px
+          text-align: left !important
+          position: relative
+          cursor: pointer
+          // background: blue
         &.btn-active
           color: black
 
@@ -218,6 +309,10 @@ svg
   // padding-bottom: 100px
   padding-top: 50px
   overflow-y: scroll
+  @include breakpoint(small)
+    width: 80%
+    height: auto
+    top: 180px
 
 
   #step1,#step2,#step3,#step4,#step5,#step6,#step7,.steps,#show1,#show2,#show3,#show4,.shows,#about1,#about2,#about3,#about4,.aboutcat
@@ -400,7 +495,34 @@ svg
   margin-top: 2.5%
   z-index: 1
   display: none
-  // @include breakpoint(small)
+  // background: white
+  @include breakpoint(small)
+    position: relative
+    margin-top: 0px
+    left: auto
+    display: flex
+    justify-content: space-around
+    // align-items: center
+    // background-color: yellow
+    width: 95vw
+    top: 60px
+    border-bottom: 1px solid black
+    z-index: 100
+
+    ul
+      display: flex
+      height: 10%
+      // background: blue
+      width: 100vw
+      justify-content: center
+      padding: 0px 5px
+      // align-items: center
+      // li
+      //   width: auto
+      //   height: 100%
+
+      // justify-content: space-around
+
   //   margin-top: 12.5%
   ul
     list-style: none
@@ -462,32 +584,45 @@ svg
     display: none
 
 
+// $height: calc(100% - 150px)
 
 .text-bucket, .content-bucket
   position: relative
   width: 50%
   max-width: 650px
   margin: 0px auto
-  height: calc(100% - 250px)
-  overflow-y: auto
+  height: 450px
+  overflow-y: scroll
   overflow-x: hidden
   padding: 0px
   padding-bottom: 20px
   color: black
   font-size: 1.5em
   display: none 
+  @include breakpoint(small)
+
+    width: 100%
+    height: auto
 
   &.timeline
     .content
       position: absolute
+      padding: 0em 1em 2em 1em
 
   &.intro
     opacity: 0
-    top: 150px
+    margin-top: 10%
+    @include breakpoint(small)
+      margin-top: 150px
+    // margin-top: 150px
 
     .content
-      padding: 0em 1em 0px 1em
+      padding: 0em 1em 1em 1em
+      height: 100%
+
       top: 0px !important
+      @include breakpoint(small)
+        height: auto
 
       p
         font-size: 0.8em
@@ -558,7 +693,7 @@ svg
 
   .content
     top: 150px
-    padding: 0em 1em 0px 1em
+    padding: 0em 1em 2em 1em
     background: rgba(255,255,255,.6)
 
     p
