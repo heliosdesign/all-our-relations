@@ -40,9 +40,9 @@
 
 
 
-<img id="overlay" src="images/title_page.jpg" style="display:none"></img>
+<img id="overlay" class="dsk" src="images/title_page.jpg" style="display:none"></img>
 
-<img class="parchment" id="parchment" src="images/Background.jpg" style="display:block"></img>
+<img class="parchment dsk" id="parchment" src="images/Background.jpg" style="display:block"></img>
 
 <canvas id="under-background" class="dsk" style="width:100%; height:100%"></canvas>
 
@@ -50,9 +50,9 @@
 
     <canvas id="background" style="width:100%; height:100%"></canvas>
 
-<div id="svg-container"></div>
+<div id="svg-container" ></div>
     <div class="resourcewrapper">
-        <div id="resource-menu" class='resources side-menu'>
+        <div id="resource-menu" class='resources side-menu ios'>
             <div class="subsection dsk" >researching your family's genealogy</div>
 
             <div class="resource-btn" >step 1</div>
@@ -73,7 +73,7 @@
         </div>
     </div>
     <div class="showwrapper">
-        <div id="show-menu" class='resources side-menu'>
+        <div id="show-menu" class='resources side-menu ios'>
             <div class="subsection dsk" >season 1</div>
             <div class="resource-btn" >
                 james bartleman
@@ -97,7 +97,7 @@
         </div>
     </div>
     <div class="aboutwrapper">
-        <div id="about-menu" class='resources side-menu'>
+        <div id="about-menu" class='resources side-menu ios'>
             <div class="resource-btn" >
                 waterfront productions
             </div>
@@ -687,7 +687,7 @@ Aboriginal ancestry</h1>
 <div id="milestone-dates" class="fader"></div>
 <div id="milestones"  class="fader"></div>
 
-<div class="text-bucket intro">
+<div class="text-bucket intro ">
     <div class="content">
         <p class="firstsentence">
             <b>All Our Relations</b> is a TV series that celebrates the lives of Aboriginal Canadians who have achieved international success and recognition.
@@ -813,7 +813,7 @@ Aboriginal ancestry</h1>
         </div>
     </div>
     
-    <div class="legalstrip">
+    <div class="legalstrip dsk">
         <a href=" http://www.cmf-fmc.ca/"><img src="images/CMF.png" style="width: 120px; margin-right: 10px;"></a>
         <a href="http://aptn.ca/"><img src="images/aptn.png" style="width: 60px; margin-right: 40px;"></a>
         <p>
@@ -832,19 +832,19 @@ Aboriginal ancestry</h1>
     </ul>
 </div> -->
     <ul>    
-        <li data-action="timeline" class="btn-timeline dsk" ><a href="#timeline">subjects</a></li>
+        <li data-action="timeline" class="btn-timeline dsk " ><a href="#timeline">subjects</a></li>
         <li data-action="resources" class="btn-resources" ><a href="#resource">Start your search</a></li>
         <li data-action="shows" class="btn-show" ><a href="#shows">episodes</a></li>
         <li data-action="about" class="btn-about" ><a href="#about">about</a></li>
     </ul>
 </div>
-<img class="parchment" id="parchment-scrim" src="images/Background.jpg" style="display:block"></img>
-<div class="unsupported">
+<img class="parchment dsk" id="parchment-scrim" src="images/Background.jpg" style="display:block"></img>
+<!-- <div class="unsupported">
     <img id="logo-main" src="images/logo_main.png"></img>
     <h2> Sorry, this experience does not have mobile support yet. Please view in a larger browser window</h2>
-</div>
+</div> -->
 
-<video autoplay="true" id="bg-video"></video>
+<video class="dsk" autoplay="true" id="bg-video"></video>
 
     <filter id="dropshadow" height="130%">
       <feGaussianBlur in="SourceAlpha" stdDeviation="3"/> <!-- stdDeviation is how much to blur -->
@@ -855,7 +855,7 @@ Aboriginal ancestry</h1>
       </feMerge>
     </filter>
 
-
+    <script src="js/lib/bowser.js"></script>
     <script src="js/lib/d3.min.js"></script>
     <script src="js/lib/jquery.1.8.2.min.js"></script>
     <script src="js/main_nu.js"></script>

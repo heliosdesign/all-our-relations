@@ -9,6 +9,12 @@
 .dsk {
   display: initial;
 }
+.dsk .ipad {
+  display: none !important;
+}
+.dsk .mobile {
+  display: none !important;
+}
 @media (max-width: 598px), (max-height: 500px) {
   .dsk {
     display: none !important;
@@ -23,16 +29,23 @@ a img {
   border: 0px;
 }
 
+body {
+  position: absolute !important;
+  background: white;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font: "Domine", serif;
+}
 @media (max-width: 598px), (max-height: 500px) {
   body {
     padding-bottom: 20px;
     position: absolute;
-    overflow: auto !important;
+    overflow-y: auto !important;
   }
 }
 body.lock {
   position: fixed;
-  overflow: hidden;
+  overflow: auto;
 }
 @media (max-width: 598px), (max-height: 500px) {
   body.lock {
@@ -90,7 +103,7 @@ body.lock {
 
 #background, .parchment {
   min-width: 100%;
-  height: 100%;
+  height: 100vh;
   top: 0;
   left: 0;
   position: fixed;
@@ -115,13 +128,7 @@ body.lock {
 }
 
 .scroll {
-  overflow-y: scroll;
-}
-
-body {
-  background: white;
-  overflow: hidden;
-  font: "Domine", serif;
+  overflow-y: auto;
 }
 
 canvas {
@@ -155,6 +162,7 @@ svg {
 #all-container {
   position: absolute;
   width: 100%;
+  width: 100vw;
   height: 100%;
   top: 0px;
   left: 0px;
@@ -240,6 +248,8 @@ svg {
   padding-top: 2.8em;
   vertical-align: top;
   display: none;
+  text-align: left;
+  width: 150px;
 }
 @media (max-width: 598px), (max-height: 500px) {
   #all-container .resourcewrapper .side-menu, #all-container .showwrapper .side-menu, #all-container .aboutwrapper .side-menu {
@@ -248,7 +258,10 @@ svg {
     width: 80vw;
     position: relative;
     height: 60px;
-    display: flex !important;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-justify-content: space-around;
     -ms-flex-pack: distribute;
     justify-content: space-around;
@@ -259,11 +272,11 @@ svg {
   }
 }
 #all-container .resourcewrapper .side-menu .resource-btn, #all-container .resourcewrapper .side-menu .subsection, #all-container .showwrapper .side-menu .resource-btn, #all-container .showwrapper .side-menu .subsection, #all-container .aboutwrapper .side-menu .resource-btn, #all-container .aboutwrapper .side-menu .subsection {
+  margin-top: 0.5em;
   margin-bottom: 0.6em;
   padding: 0.5em;
   cursor: pointer;
-  width: 180px;
-  text-align: center;
+  text-align: left;
   font-size: 0.9em;
   color: #b07e1b;
   font-weight: bold;
@@ -292,13 +305,18 @@ svg {
   font-weight: bold;
   font-size: 0.9em;
   cursor: default;
-  border-bottom: 1px solid;
-  border-top: 1px solid;
   text-transform: uppercase;
+  max-width: 100px !important;
   color: black;
+  padding: 0px;
+  height: auto;
+  border-bottom: 1px solid;
+}
+#all-container .resourcewrapper .side-menu {
+  padding-top: 9.8em;
 }
 #all-container .showwrapper .side-menu {
-  padding-top: 5.5em;
+  padding-top: 9.8em;
 }
 #all-container .aboutwrapper .side-menu {
   padding-top: 8.9em;
@@ -311,6 +329,8 @@ svg {
 .resourcecontainer, .showscontainer, .aboutcontainer {
   height: -webkit-calc(100% - 150px);
   height: calc(100% - 150px);
+  height: -webkit-calc(100vh - 150px);
+  height: calc(100vh - 150px);
   width: 60%;
   max-width: 650px;
   position: relative;
@@ -321,7 +341,7 @@ svg {
   background: rgba(255, 255, 255, 0.5);
   padding: 1em;
   padding-top: 50px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 @media (max-width: 598px), (max-height: 500px) {
   .resourcecontainer, .showscontainer, .aboutcontainer {
@@ -433,6 +453,12 @@ svg {
 }
 .resourcecontainer #step1 #mosaic div:hover, .resourcecontainer #step1 #mosaic div:active, .resourcecontainer #step2 #mosaic div:hover, .resourcecontainer #step2 #mosaic div:active, .resourcecontainer #step3 #mosaic div:hover, .resourcecontainer #step3 #mosaic div:active, .resourcecontainer #step4 #mosaic div:hover, .resourcecontainer #step4 #mosaic div:active, .resourcecontainer #step5 #mosaic div:hover, .resourcecontainer #step5 #mosaic div:active, .resourcecontainer #step6 #mosaic div:hover, .resourcecontainer #step6 #mosaic div:active, .resourcecontainer #step7 #mosaic div:hover, .resourcecontainer #step7 #mosaic div:active, .resourcecontainer .steps #mosaic div:hover, .resourcecontainer .steps #mosaic div:active, .resourcecontainer #show1 #mosaic div:hover, .resourcecontainer #show1 #mosaic div:active, .resourcecontainer #show2 #mosaic div:hover, .resourcecontainer #show2 #mosaic div:active, .resourcecontainer #show3 #mosaic div:hover, .resourcecontainer #show3 #mosaic div:active, .resourcecontainer #show4 #mosaic div:hover, .resourcecontainer #show4 #mosaic div:active, .resourcecontainer .shows #mosaic div:hover, .resourcecontainer .shows #mosaic div:active, .resourcecontainer #about1 #mosaic div:hover, .resourcecontainer #about1 #mosaic div:active, .resourcecontainer #about2 #mosaic div:hover, .resourcecontainer #about2 #mosaic div:active, .resourcecontainer #about3 #mosaic div:hover, .resourcecontainer #about3 #mosaic div:active, .resourcecontainer #about4 #mosaic div:hover, .resourcecontainer #about4 #mosaic div:active, .resourcecontainer .aboutcat #mosaic div:hover, .resourcecontainer .aboutcat #mosaic div:active, .showscontainer #step1 #mosaic div:hover, .showscontainer #step1 #mosaic div:active, .showscontainer #step2 #mosaic div:hover, .showscontainer #step2 #mosaic div:active, .showscontainer #step3 #mosaic div:hover, .showscontainer #step3 #mosaic div:active, .showscontainer #step4 #mosaic div:hover, .showscontainer #step4 #mosaic div:active, .showscontainer #step5 #mosaic div:hover, .showscontainer #step5 #mosaic div:active, .showscontainer #step6 #mosaic div:hover, .showscontainer #step6 #mosaic div:active, .showscontainer #step7 #mosaic div:hover, .showscontainer #step7 #mosaic div:active, .showscontainer .steps #mosaic div:hover, .showscontainer .steps #mosaic div:active, .showscontainer #show1 #mosaic div:hover, .showscontainer #show1 #mosaic div:active, .showscontainer #show2 #mosaic div:hover, .showscontainer #show2 #mosaic div:active, .showscontainer #show3 #mosaic div:hover, .showscontainer #show3 #mosaic div:active, .showscontainer #show4 #mosaic div:hover, .showscontainer #show4 #mosaic div:active, .showscontainer .shows #mosaic div:hover, .showscontainer .shows #mosaic div:active, .showscontainer #about1 #mosaic div:hover, .showscontainer #about1 #mosaic div:active, .showscontainer #about2 #mosaic div:hover, .showscontainer #about2 #mosaic div:active, .showscontainer #about3 #mosaic div:hover, .showscontainer #about3 #mosaic div:active, .showscontainer #about4 #mosaic div:hover, .showscontainer #about4 #mosaic div:active, .showscontainer .aboutcat #mosaic div:hover, .showscontainer .aboutcat #mosaic div:active, .aboutcontainer #step1 #mosaic div:hover, .aboutcontainer #step1 #mosaic div:active, .aboutcontainer #step2 #mosaic div:hover, .aboutcontainer #step2 #mosaic div:active, .aboutcontainer #step3 #mosaic div:hover, .aboutcontainer #step3 #mosaic div:active, .aboutcontainer #step4 #mosaic div:hover, .aboutcontainer #step4 #mosaic div:active, .aboutcontainer #step5 #mosaic div:hover, .aboutcontainer #step5 #mosaic div:active, .aboutcontainer #step6 #mosaic div:hover, .aboutcontainer #step6 #mosaic div:active, .aboutcontainer #step7 #mosaic div:hover, .aboutcontainer #step7 #mosaic div:active, .aboutcontainer .steps #mosaic div:hover, .aboutcontainer .steps #mosaic div:active, .aboutcontainer #show1 #mosaic div:hover, .aboutcontainer #show1 #mosaic div:active, .aboutcontainer #show2 #mosaic div:hover, .aboutcontainer #show2 #mosaic div:active, .aboutcontainer #show3 #mosaic div:hover, .aboutcontainer #show3 #mosaic div:active, .aboutcontainer #show4 #mosaic div:hover, .aboutcontainer #show4 #mosaic div:active, .aboutcontainer .shows #mosaic div:hover, .aboutcontainer .shows #mosaic div:active, .aboutcontainer #about1 #mosaic div:hover, .aboutcontainer #about1 #mosaic div:active, .aboutcontainer #about2 #mosaic div:hover, .aboutcontainer #about2 #mosaic div:active, .aboutcontainer #about3 #mosaic div:hover, .aboutcontainer #about3 #mosaic div:active, .aboutcontainer #about4 #mosaic div:hover, .aboutcontainer #about4 #mosaic div:active, .aboutcontainer .aboutcat #mosaic div:hover, .aboutcontainer .aboutcat #mosaic div:active {
   opacity: 0.5;
+}
+
+@media (max-width: 598px), (max-height: 500px) {
+  .showscontainer {
+    top: 200px;
+  }
 }
 
 .aboutcontainer {
@@ -554,10 +580,18 @@ svg {
 #header ul {
   list-style: none;
   margin: 0px;
-  position: relative;
   margin: 0 auto;
   padding: 0px;
-  width: 100%;
+  width: 100vw;
+  margin-top: 65px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 #header ul li {
   padding: 0px;
@@ -593,12 +627,14 @@ svg {
 
 #logo-main {
   position: absolute;
-  left: 95px;
   top: 10px;
   width: 20%;
+  width: 20vw;
+  margin-left: 40vw;
 }
 @media (max-width: 598px), (max-height: 500px) {
   #logo-main {
+    margin-left: auto;
     width: 200px;
   }
 }
@@ -624,8 +660,8 @@ svg {
   width: 50%;
   max-width: 650px;
   margin: 0px auto;
-  height: 450px;
-  overflow-y: scroll;
+  height: auto;
+  overflow-y: auto;
   overflow-x: hidden;
   padding: 0px;
   padding-bottom: 20px;
@@ -646,6 +682,16 @@ svg {
 .text-bucket.intro, .content-bucket.intro {
   opacity: 0;
   margin-top: 10%;
+}
+.text-bucket.intro.iosactive, .content-bucket.intro.iosactive {
+  height: -webkit-calc(100% - 150px);
+  height: calc(100% - 150px);
+  height: -webkit-calc(100vh - 150px);
+  height: calc(100vh - 150px);
+  position: fixed;
+}
+.text-bucket.intro.iosactive .content, .content-bucket.intro.iosactive .content {
+  height: auto;
 }
 @media (max-width: 598px), (max-height: 500px) {
   .text-bucket.intro, .content-bucket.intro {
@@ -777,6 +823,8 @@ svg {
   transition: top 800ms;
   height: -webkit-calc(100% - 150px);
   height: calc(100% - 150px);
+  height: -webkit-calc(100vh - 150px);
+  height: calc(100vh - 150px);
 }
 .content-bucket .content {
   background: rgba(255, 255, 255, 0);

@@ -36,8 +36,19 @@
     position: relative
     z-index: 1000
     margin-left: -20px
+
+    // &.ios
+    //   &.iosactive
+
+// .ipad
+//   .active
+//     display: none !important
 .dsk
   display: initial
+  .ipad
+    display: none !important
+  .mobile
+    display: none !important
   @include breakpoint(small)
     display: none !important
   
@@ -45,14 +56,22 @@ img
   border: none 
 a img 
   border: 0px 
+
+
 body
+  position: absolute !important
+  // overflow: auto
+  background: #ffffff
+  overflow-y: auto
+  overflow-x: hidden
+  font: 'Domine', serif
   @include breakpoint(small)
     padding-bottom: 20px
     position: absolute
-    overflow: auto !important
+    overflow-y: auto !important
   &.lock
     position: fixed
-    overflow: hidden
+    overflow: auto
     @include breakpoint(small)
       position: absolute
       overflow: auto
@@ -102,7 +121,7 @@ body
 
 #background, .parchment
   min-width: 100%
-  height: 100%
+  height: 100vh
   top: 0
   left: 0
   position: fixed
@@ -123,16 +142,12 @@ body
   overflow-y: hidden
 
 .scroll
-  overflow-y: scroll
+  overflow-y: auto
 
 // /* IE6
 // /* IE7
 
-body
-  background: #ffffff
-  overflow: hidden
-  font: 'Domine', serif
-  // overflow-y: scroll
+
 
 canvas
   position: absolute
@@ -149,8 +164,7 @@ svg
   height: 100%
   top: 60px
   left: 120px
-  // display: none
-  // /*filter:url(#dropshadow)
+
 
 // /*D3 Styles
 #svg-container
@@ -164,6 +178,7 @@ svg
 #all-container
   position: absolute
   width: 100%
+  width: 100vw
   height: 100%
   top: 0px
   left: 0px
@@ -172,13 +187,6 @@ svg
     width: 90vw
     height: auto
     left: 5vw
-  // opacity: 0
-  // transition: all 0.5s
-
-  // &.fadeIn
-  //   display: table
-  //   opacity: 1
-  //   transition: all 0.5s
 
   .legalstrip
     bottom: 0px
@@ -206,6 +214,7 @@ svg
     height: 100%
     display: table
     z-index: 2
+
     @include breakpoint(small)
       height: auto
       position: absolute
@@ -228,15 +237,19 @@ svg
         margin-bottom: 2vh
         box-shadow: 3px 4px 3px rgba(0,0,0,0.5)
         transition: all 500ms
-
         &.active
           border-color: #291F00
           filter: sepia(100%)
+
   .resourcewrapper,.showwrapper,.aboutwrapper
     .side-menu
       padding-top: 2.8em
       vertical-align: top
       display: none
+      text-align: left
+      width: 150px
+
+     
       @include breakpoint(small)
         top: 130px
         padding: 0px !important
@@ -244,23 +257,26 @@ svg
         position: relative
         height: 60px
         // left: -10vw
-        display: flex !important
+        display: flex 
         justify-content: space-around
         // flex-shrink: 2
         flex-wrap: wrap
         text-align: left
         // background: red
       .resource-btn,.subsection
+        // margin: 0 auto
+        margin-top: 0.5em
         margin-bottom: 0.6em
         padding: 0.5em
         cursor: pointer
-        width: 180px
-        text-align: center
+        // width: 180px
+        text-align: left
         font-size: 0.9em
         color: #b07e1b 
         font-weight: bold
         transition: all .5s
         text-transform: uppercase
+
         @include breakpoint(small)
           height: auto
           flex-basis: auto
@@ -278,18 +294,45 @@ svg
         font-weight: bold
         font-size: 0.9em
         cursor: default
-        border-bottom: 1px solid
-        border-top: 1px solid
         text-transform: uppercase
+        max-width: 100px !important
         color: black
+        padding: 0px
+        height: auto
+        border-bottom: 1px solid
+        // border-top: 1px solid
+        // &:after
+        //   border-bottom: 1px solid
+        //   height: 1px
+        //   width: 100%
+        //   position: absolute
+      // .resource-btn
+        
+        // &:first
+        //   border-top: 1px solid
+        // &:last
+        //   border-bottom: 1px solid
+
+  .resourcewrapper
+    .side-menu
+      padding-top: 9.8em
+      // &.ios
+      //   &.iosactive
+      //     padding-top: 9.8em !important
 
   .showwrapper
     .side-menu
-      padding-top: 5.5em
+      padding-top: 9.8em
+      // &.ios
+      //   &.iosactive
+      //     padding-top: 9.8em !important
 
   .aboutwrapper
     .side-menu
       padding-top: 8.9em
+      // &.ios
+      //   &.iosactive
+      //     padding-top: 8.9em !important
 
   
   .background-shifter
@@ -297,6 +340,8 @@ svg
 
 .resourcecontainer,.showscontainer,.aboutcontainer
   height: calc(100% - 150px)
+  height: calc(100vh - 150px)
+
   width: 60%
   max-width: 650px
   position: relative
@@ -308,7 +353,7 @@ svg
   padding: 1em
   // padding-bottom: 100px
   padding-top: 50px
-  overflow-y: scroll
+  overflow-y: auto
   @include breakpoint(small)
     width: 80%
     height: auto
@@ -414,6 +459,9 @@ svg
           opacity: 0.5
         // background-position: center center
             
+.showscontainer
+  @include breakpoint(small)
+    top: 200px
 
   // #step1
   //   display: block
@@ -528,10 +576,13 @@ svg
     list-style: none
     margin: 0px
     // float: left
-    position: relative
+    // position: relative
     margin: 0 auto
     padding: 0px
-    width: 100%
+    width: 100vw
+    margin-top: 65px
+    display: flex
+    justify-content: center
 
     li
       padding: 0px
@@ -566,11 +617,14 @@ svg
 
 #logo-main
   position: absolute
-  left: 95px
+  // left: 95px
   top: 10px
   width: 20%
+  width: 20vw
+  margin-left: 40vw
   @include breakpoint(small)
     // left: 10px
+    margin-left: auto
     width: 200px
   // width: 280px
 
@@ -591,8 +645,9 @@ svg
   width: 50%
   max-width: 650px
   margin: 0px auto
-  height: 450px
-  overflow-y: scroll
+  // height: 450px
+  height: auto
+  overflow-y: auto
   overflow-x: hidden
   padding: 0px
   padding-bottom: 20px
@@ -612,6 +667,15 @@ svg
   &.intro
     opacity: 0
     margin-top: 10%
+    &.iosactive
+      // height: auto
+      height: calc(100% - 150px)
+      height: calc(100vh - 150px)
+
+      position: fixed
+      .content
+        height: auto
+
     @include breakpoint(small)
       margin-top: 150px
     // margin-top: 150px
@@ -728,6 +792,8 @@ svg
   background: rgba(255,255,255,0.6)
   transition: top 800ms
   height: calc(100% - 150px)
+  height: calc(100vh - 150px)
+
   .content
     background: rgba(255,255,255,0)
 
